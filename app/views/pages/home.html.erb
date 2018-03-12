@@ -1,1 +1,36 @@
 <div class="btn btn-success"><%=link_to "Explore", products_path, class: "navbar-wagon-item navbar-wagon-link"%></div>
+
+
+
+<div class="homepage-content">
+    <h2>Check out if harvest delivers in your area</h2>
+
+    <form class="homepage-form" action=<%=products_path%>>
+      <input type="text" name="location" value="Australia" class="location-input" id="insert">
+      <input type="submit" value="SEARCH" class="button">
+
+
+
+    </form>
+  </div>
+
+
+
+
+<button onclick="getLocation()" style="display:none">Try It</button>
+
+<script>
+var x = document.getElementById("insert");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+    }
+}
+
+function showPosition(position) {
+   x.value = position.coords.latitude + ", " + position.coords.longitude) %>
+}
+
+</script>
