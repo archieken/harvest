@@ -3,6 +3,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
     create_table :products do |t|
       t.string :name
       t.integer :price_cents
+      t.monetize :price, currency: { present: false }
       t.string :unit_type
       t.integer :stock
       t.references :producer, foreign_key: true
