@@ -16,6 +16,11 @@
       <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "navbar-harvest-link" %>
 
 
+      <% if ((!Order.where(user: current_user.id).nil?) && (!Order.where(user: current_user.id).find_by(status: "new").nil?)) %>
+          <p id="demo"><%= Order.where(user: current_user).find_by(status: "new").order_lines.count %></p>
+      <% end %>
+
+
       <!-- Avatar with dropdown menu -->
       <!-- <div class="navbar-wagon-item">
         <div class="dropdown">
