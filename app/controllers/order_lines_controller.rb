@@ -1,9 +1,14 @@
 class OrderLinesController < ApplicationController
   def create
-
-   # if (current_user.orders.find_by(active: )
-   order = Order.create
-   OrderLine.create(product: Product.find(params[:product_id].to_i), quantity: 1, order: order)
+    if (!current_user.orders.find_by(status:"new").blank?)
+      order = current_user.orders.find_by(status:"new")
+      OrderLine.create!(product: Product.find(params[:product_id].to_i), quantity: 1, order: order)
+      puts "existing"
+    else
+      order = Order.create(user: current_user)
+      OrderLine.create(product: Product.find(params[:product_id].to_i), quantity: 1, order: order)
+      puts "new"
+    end
 
   end
 end
