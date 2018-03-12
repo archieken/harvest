@@ -27,7 +27,7 @@
 
  puts "Creating Products"
     names = ["Carrots", "Wine", "Milk", "Cheese", "Duck"]
-    names.each {|name| Product.create(name: name, price: 10, stock: 10, producer: Producer.find_by(name: "Farmer Frank"), category: Category.first)}
+    names.each {|name| Product.create(name: name, price: 10, stock: 10, unit_type: "kg", producer: Producer.find_by(name: "Farmer Frank"), category: Category.first)}
   puts "Products made"
 
   puts "Creating Orders"
@@ -36,6 +36,7 @@
 
   puts "Creating Order Lines"
     OrderLine.create(quantity: 12, order: Order.last, product: Product.last)
+    OrderLine.create(quantity: 10, order: Order.first, product: Product.first)
   puts "Order Lines made"
 
 
