@@ -14,6 +14,11 @@
       <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Basket", orders_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
+      <% if ((!Order.where(user: current_user.id).nil?) && (!Order.where(user: current_user.id).find_by(status: "new").nil?)) %>
+          <p id="demo"><%= Order.where(user: current_user).find_by(status: "new").order_lines.count %></p>
+      <% end %>
+
+
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
