@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get 'products/index'
 
-  get 'products/show'
+  #get 'products/index'
 
-  get 'order_lines/create'
+  #get 'products/show'
 
-  get 'orders/index'
+  #get 'order_lines/create'
+
+  #get 'orders/index'
 
   devise_for :users
   root to: 'pages#home'

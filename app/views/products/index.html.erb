@@ -1,2 +1,9 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h1>Products</h1>
+
+<h4>Today's fresh products include:</h4>
+<ul>
+<% @products.each do |product| %>
+  <li><%= product.producer.name %>'s <%= product.name %>. <%= link_to "Add to Basket", product_order_lines_path(product.id),:style=> 'color:#FF6B6B', method: :post %></li>
+<% end %>
+</ul>
+

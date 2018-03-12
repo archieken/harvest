@@ -33,7 +33,8 @@ ActiveRecord::Schema.define(version: 20180312145643) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "amount_cents"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "status", default: "new"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,7 +51,7 @@ ActiveRecord::Schema.define(version: 20180312145643) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.integer "price_cents"
+    t.integer "price_cents", default: 0, null: false
     t.string "unit_type"
     t.integer "stock"
     t.bigint "producer_id"

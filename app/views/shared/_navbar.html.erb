@@ -12,8 +12,9 @@
       <!-- Links when logged in -->
       <%= link_to "SEARCH", "#", class: "navbar-harvest-link" %>
       <%= link_to "ACCOUNT", "#", class: "navbar-harvest-link" %>
-      <%= link_to "BASKET", "#", class: "navbar-harvest-link" %>
+      <%= link_to "BASKET", "#", orders_path, class: "navbar-harvest-link" %>
       <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "navbar-harvest-link" %>
+
 
       <!-- Avatar with dropdown menu -->
       <!-- <div class="navbar-wagon-item">
