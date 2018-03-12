@@ -1,7 +1,14 @@
-<h1>Orders</h1>
 
-<ul>
-  <% @orders.each do |order| %>
-    <li><%= order.user.fullname %>| $<%= order.amount %></li>
+<h1>Items</h1>
+<% if !@order_lines.blank? %>
+  <% for item in @order_lines %>
+  <p>Name:<%= item.product.name %></p>
+  <p>Quantity: <%= item.quantity %> <%= item.product.unit_type %></p>
+  <p>Unit Price: <%= humanized_money_with_symbol(item.product.price) %></p>
+  <% total = item.product.price*item.quantity%>
+  <p>Total Price: <%= humanized_money_with_symbol(total) %></p>
+  <hr>
   <% end %>
-</ul>
+<% else %>
+ <h3>You have no orders.</h3>
+<% end %>
