@@ -10,6 +10,7 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def index?
+
     return true
   end
 

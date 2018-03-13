@@ -133,37 +133,4 @@
 
 // ---------   PRODUCER CAROUSELS   ------------
 
-.carousel-title {
-  margin-bottom: -10px;
-  padding-left: 60px;
-}
 
-.producers-carousel {
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
-
-}
-
-.farmer-cards {
-  display: flex;
-  justify-content: flex-start;
-  overflow: scroll;
-  width: 100vw;
-  padding-top: 10px;
-  padding-right: 60px;
-  padding-bottom: 20px;
-  padding-left: 60px;
-}
-
-.farmer-cards:last-child::after {
-  content: "";
-  flex: 0 0 1px;
-}
-
-.carousel-padding-right {
-  display: inline;
-  height: 100%;
-  width: 20px;
-}
