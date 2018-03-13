@@ -10,6 +10,10 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def index?
-    record.user == user
+    return true
+  end
+
+  def create?
+    return true
   end
 end
