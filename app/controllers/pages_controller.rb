@@ -20,7 +20,7 @@ class PagesController < ApplicationController
       @check = pc.distance_from([51.509720, -0.105144])
       #output is given in km
 
-        if @check < 20
+        if @check < 40
           redirect_to products_path
           #redirect to city
         else
