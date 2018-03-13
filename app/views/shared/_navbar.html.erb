@@ -12,19 +12,13 @@
       <!-- Links when logged in -->
       <%= link_to "SEARCH", "#", class: "navbar-harvest-link" %>
       <%= link_to "ACCOUNT", "#", class: "navbar-harvest-link" %>
-
-
       <!-- Checks basket. Adds counter badge if orders exist -->
-       <% if ((!Order.where(user: current_user.id).nil?) && (!Order.where(user: current_user.id).find_by(status: "new").nil?)) %>
-          <%= link_to "BASKET", orders_path, class: "navbar-harvest-link" %>
-          <span class="badge" id="demo"><%= Order.where(user: current_user).find_by(status: "new").order_lines.count %></span>
-      <% else %>
-      <%= link_to "BASKET", orders_path, class: "navbar-harvest-link" %>
-      <% end %>
-
-
-
-
+      <% if ((!Order.where(user: current_user.id).nil?) && (!Order.where(user: current_user.id).find_by(status: "new").nil?)) %>
+         <%= link_to "BASKET", orders_path, class: "navbar-harvest-link" %>
+         <span class="badge" id="demo"><%= Order.where(user: current_user).find_by(status: "new").order_lines.count %></span>
+     <% else %>
+     <%= link_to "BASKET", orders_path, class: "navbar-harvest-link" %>
+     <% end %>
       <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "navbar-harvest-link" %>
 
 
@@ -70,4 +64,7 @@
     </div>
   </div> -->
 </div>
+
+
+
 
