@@ -9,6 +9,10 @@ class OrderLinesController < ApplicationController
       OrderLine.create(product: Product.find(params[:product_id].to_i), quantity: 1, order: order)
       puts "new"
     end
+  end
 
+
+  def destroy
+    OrderLine.destroy(params[:id])
   end
 end
