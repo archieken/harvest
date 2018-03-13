@@ -43,13 +43,14 @@
     <p class="section-para">Let's find your local stall and make sure you're within our delivery area.</p>
 
 
-    <%= form_tag products_path, method: :get do %>
-      <input class="postcode-input-field" name="check postcode" type="number" placeholder="check postcode"/>
-      <input type="submit" value="shop now" class="homepage-button homepage-submit">
+    <%= form_tag root_path, method: :get do %>
+      <input id="insert" class="postcode-input-field" name="address" type="text" placeholder="check postcode"/>
+      <input type="submit" value="check" class="homepage-button homepage-submit">
     <% end %>
 
   </div>
 </div>
+
 
 <div class="section" style="background-color: #fbf8f4">
   <div class="section-content">
@@ -508,3 +509,4 @@
 
   </div>
 </div>
+
