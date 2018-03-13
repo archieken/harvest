@@ -43,17 +43,46 @@
     <p class="section-para">Let's find your local stall and make sure you're within our delivery area.</p>
 
 
-    <%= form_tag products_path, method: :get do %>
-      <input class="postcode-input-field" name="check postcode" type="number" placeholder="check postcode"/>
-      <input type="submit" value="shop now" class="homepage-button homepage-submit">
+    <%= form_tag root_path, method: :get do %>
+      <input id="insert" class="postcode-input-field" name="address" type="text" placeholder="check postcode"/>
+      <input type="submit" value="check" class="homepage-button homepage-submit">
     <% end %>
 
   </div>
 </div>
 
-<button onclick="getLocation()" style="display:none">Try It</button>
+<% if @check %>
+  <p>YAY</p>
+<% else  %>
+  <p>NOOOO</p>
+<% end %>
+
+
+<button onclick="getLocation()" style="display:none"></button>
 
 <script>
+function GetLatlong()
+    {
+        var geocoder = new google.maps.Geocoder();
+        var address = document.getElementById('input').value;
+
+        geocoder.geocode({ 'address': address }, function (results, status) {
+
+            if (status == google.maps.GeocoderStatus.OK) {
+                var latitude = results[0].geometry.location.lat();
+                var longitude = results[0].geometry.location.lng();
+
+            }
+        });
+</script>
+
+
+
+
+
+
+
+<!-- <script>
 var x = document.getElementById("insert");
 
 function getLocation() {
@@ -64,7 +93,8 @@ function getLocation() {
 }
 
 function showPosition(position) {
-   x.value = position.coords.latitude + ", " + position.coords.longitude) %>
+   x.value = position.coords.latitude + ", " + position.coords.longitude %>
 }
 
-</script>
+</script> -->
+
