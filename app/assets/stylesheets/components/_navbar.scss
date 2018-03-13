@@ -1,5 +1,7 @@
 /* Main navbar */
 
+
+// ---------   NAVBAR DIV   ------------
 .navbar-harvest {
   height: 90px;
   width: 100%;
@@ -9,26 +11,30 @@
   align-items: center;
   padding-left: 50px;
   padding-right: 50px;
+  padding-bottom: 5px;
 }
 
 .navbar-harvest-right {
 
 }
 
+// ---------   LOGO   ------------
 .logo-harvest {
   font-family: 'Baskerville';
   font-weight: 700;
   font-size: 25px;
   letter-spacing: 1px;
+  font-weight: 600;
   color: #524F4C;
   text-decoration: none;
 }
-
 .logo-harvest:hover {
   text-decoration: none;
   color: #524F4C;
   opacity: 0.7
 }
+
+// ---------   NAVBAR LINKS   ------------
 
 .navbar-harvest-link {
   font-family: Montserrat;
@@ -39,7 +45,6 @@
   text-decoration: none;
   margin-left: 10px;
 }
-
 .navbar-harvest-link:hover {
   text-decoration: none;
   color: #524F4C;
