@@ -10,7 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "SEARCH", "#", class: "navbar-harvest-link" %>
+      <%= link_to "SEARCH", products_path, class: "navbar-harvest-link" %>
       <%= link_to "ACCOUNT", "#", class: "navbar-harvest-link" %>
       <!-- Checks basket. Adds counter badge if orders exist -->
       <% if ((!Order.where(user: current_user.id).nil?) && (!Order.where(user: current_user.id).find_by(status: "new").nil?)) %>

@@ -5,14 +5,17 @@ class OrderLinesController < ApplicationController
   def create
     if (!current_user.orders.find_by(status:"new").blank?)
       order = current_user.orders.find_by(status:"new")
+
       @orderline = OrderLine.create!(product: Product.find(params[:product_id].to_i), quantity: 1, order: order)
       authorize @orderline
-      puts "existing"
+      order.amount = order.amount + @orderline.product.price
+      order.save
     else
       order = Order.create(user: current_user)
-      OrderLine.create(product: Product.find(params[:product_id].to_i), quantity: 1, order: order)
+      orderline = OrderLine.create(product: Product.find(params[:product_id].to_i), quantity: 1, order: order)
       authorize @orderline
-      puts "new"
+      order.amount = @orderline.product.price
+      order.save
     end
   end
 
