@@ -2,7 +2,7 @@
 
 <h4>Today's fresh products include:</h4>
 <ul>
-<% @products.each do |product| %>
+<% policy_scope(@products).each do |product| %>
   <li><%= product.producer.name %>'s <%= product.name %>. <%= link_to "Add to Basket", product_order_lines_path(product.id),:style=> 'color:#FF6B6B', method: :post, class: "add_to_basket" %></li>
 <% end %>
 </ul>

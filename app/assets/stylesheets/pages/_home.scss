@@ -56,6 +56,8 @@
 
 .section-content {
   margin: 100px 0px 120px 0px;
+  display: flex;
+  flex-direction: column;
 }
 
 .section-para {
@@ -101,32 +103,67 @@
   width: 80%;
 }
 
-input:focus {
-    outline:none;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type=number].postcode-input-field {
-  border: none;
-  border-bottom: 1.5px solid #eaeaea;
-  color: #524F4C;
-  padding-bottom: 2px;
-  margin-bottom: -2px;
-}
-
-input[type=number].postcode-input-field::-webkit-input-placeholder {
-  color: #dedede;
-  font-weight: 500;
-}
-
 .homepage-submit {
   border: none;
   display: inline-block;
   padding: 0px;
 }
 
+.cat-links {
+  width: 70%;
+  align-self: center;
+}
+
+.homepage-cat-link {
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+  color: #524F4C;
+  margin: 0 10px;
+  opacity: 0.2;
+}
+
+.homepage-cat-link:hover {
+  text-decoration: none;
+  color: #FFB96E;
+  opacity: 1;
+}
+
+// ---------   PRODUCER CAROUSELS   ------------
+
+.carousel-title {
+  margin-bottom: -10px;
+  padding-left: 60px;
+}
+
+.producers-carousel {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+
+}
+
+.farmer-cards {
+  display: flex;
+  justify-content: flex-start;
+  overflow: scroll;
+  width: 100vw;
+  padding-top: 10px;
+  padding-right: 60px;
+  padding-bottom: 20px;
+  padding-left: 60px;
+}
+
+.farmer-cards:last-child::after {
+  content: "";
+  flex: 0 0 1px;
+}
+
+.carousel-padding-right {
+  display: inline;
+  height: 100%;
+  width: 20px;
+}
