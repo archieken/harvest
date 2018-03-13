@@ -10,6 +10,11 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def index?
-    true
+
+    return true
+  end
+
+  def create?
+    return true
   end
 end
