@@ -4,7 +4,10 @@ class PagesController < ApplicationController
   def home
     if !params[:address].blank?
       pc = PostCodeChecker.new(address: params[:address])
+
       if pc.save
+
+
         distance_checker(pc)
       end
     end
@@ -14,18 +17,19 @@ class PagesController < ApplicationController
 
   def distance_checker(pc)
     if pc.latitude && pc.longitude
-      @check = pc.distance_from([-28.644033, 153.603776])
-      #output is given in meter
-        if @check < 20000
+      @check = pc.distance_from([51.509720, -0.105144])
+      #output is given in km
+
+        if @check < 20
           redirect_to products_path
           #redirect to city
         else
-          redirect_to root_path
+
         #modal not currently in that city
         end
     else
       #return location not found, popup
-        redirect_to root_path
+
     end
   end
 
