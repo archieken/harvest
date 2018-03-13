@@ -1,1 +1,132 @@
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(95vh - 90px);
+  text-align: center;
+  padding: 0 230px;
+  background-color: white;
+}
+
+.banner-content {
+  margin-bottom: 100px;
+}
+
+.home-title {
+  font-family: 'Baskerville';
+  text-align: center;
+  font-weight: 600;
+  font-size: 30px;
+  color: #524F4C;
+}
+
+.principal-para {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.homepage-button {
+  text-decoration: none;
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+  color: #524F4C;
+  width: 90px;
+  margin: 0 auto;
+}
+
+.homepage-button:hover {
+  text-decoration: none;
+  color: #FFB96E;
+
+}
+
+
+// ---------   WHY SHOP HERE DIV   ------------
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  padding: 0px 230px;
+}
+
+.section-content {
+  margin: 100px 0px 120px 0px;
+}
+
+.section-para {
+  margin: 30px 100px;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.feature {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 200px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.feature-avatar {
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #F2ECE5;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+
+.feature-title {
+  font-family: Baskerville;
+  font-weight: 600;
+  color: #524F4C;
+  font-size: 20px;
+}
+
+.feature-para {
+  font-size: 12px;
+  opacity: 0.5;
+  width: 80%;
+}
+
+input:focus {
+    outline:none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number].postcode-input-field {
+  border: none;
+  border-bottom: 1.5px solid #eaeaea;
+  color: #524F4C;
+  padding-bottom: 2px;
+  margin-bottom: -2px;
+}
+
+input[type=number].postcode-input-field::-webkit-input-placeholder {
+  color: #dedede;
+  font-weight: 500;
+}
+
+.homepage-submit {
+  border: none;
+  display: inline-block;
+  padding: 0px;
+}
 
