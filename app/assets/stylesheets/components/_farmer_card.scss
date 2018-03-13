@@ -1,9 +1,93 @@
 .farmer-card {
+  display: inline;
   height: 200px;
-  width: 400px;
+  width: 450px;
   background-color: white;
   box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
-  border-radius: 2px;
+  border-radius: 4px;
   margin-right: 15px;
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+.farmer-card-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.farmer-photo {
+  background-image: asset-url("farmer-photo.jpg");
+  background-size: cover;
+  width: 33%;
+  height: 100%;
+}
+
+.farmer-info {
+  padding: 20px 30px;
+  height: 100%;
+  width: 67%;
+}
+
+.farmer-name {
+  margin: 0px;
+  font-family: Baskerville;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #524F4C;
+}
+
+.farmer-card-location {
+  margin: 0px;
+  margin-top: 10px;
+  font-family: Baskerville;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 15px;
+  color: #524F4C;
+  letter-spacing: 1px;
+  opacity: 0.3;
+}
+
+.farmer-card-para {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+.carousel-title {
+  margin-bottom: 0px;
+  padding-left: 60px;
+  padding-top: 10px;
+}
+
+.producers-carousel {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+
+}
+
+.farmer-cards {
+  display: flex;
+  justify-content: flex-start;
+  overflow: scroll;
+  width: 100vw;
+  padding-top: 10px;
+  padding-right: 60px;
+  padding-bottom: 20px;
+  padding-left: 60px;
+}
+
+.farmer-cards:last-child::after {
+  content: "";
+  flex: 0 0 1px;
+}
+
+.carousel-padding-right {
+  display: inline;
+  height: 100%;
+  width: 20px;
 }
