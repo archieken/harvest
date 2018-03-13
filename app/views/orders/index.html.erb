@@ -7,6 +7,7 @@
   <p>Unit Price: <%= humanized_money_with_symbol(item.product.price) %></p>
   <% total = item.product.price*item.quantity%>
   <p>Total Price: <%= humanized_money_with_symbol(total) %></p>
+  <%= link_to "Delete", order_line_path(item.id),:style=> 'color:#FF6B6B', method: :destroy%>
   <hr>
   <% end %>
 <% else %>
