@@ -101,29 +101,6 @@
   width: 80%;
 }
 
-input:focus {
-    outline:none;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input[type=number].postcode-input-field {
-  border: none;
-  border-bottom: 1.5px solid #eaeaea;
-  color: #524F4C;
-  padding-bottom: 2px;
-  margin-bottom: -2px;
-}
-
-input[type=number].postcode-input-field::-webkit-input-placeholder {
-  color: #dedede;
-  font-weight: 500;
-}
-
 .homepage-submit {
   border: none;
   display: inline-block;
