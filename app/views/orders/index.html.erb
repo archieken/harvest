@@ -36,8 +36,17 @@
   <% total = item.product.price*item.quantity%>
   <p>Total Price: <%= humanized_money_with_symbol(total) %></p>
   <%= link_to "Delete", order_line_path(item.id),:style=> 'color:#FF6B6B', method: :destroy%>
+  <%= link_to "Remove", order_line_path(item.id),:style=> 'color:#FF6B6B', method: :destroy, class: "remove_"%>
   <hr>
   <% end %>
 <% else %>
  <h3>You have no items in your basket.</h3>
 <% end %>
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+  $('.add_to_basket').click(function (event) {
+    addToBasket();
+  });
+</script>
