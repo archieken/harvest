@@ -1,6 +1,112 @@
-<h1>Products</h1>
 
-<h4>Today's fresh products include:</h4>
+
+
+  <div class="sidenav">
+    <%= link_to "all", products_path, class: "sidenav-link" %>
+    <%= link_to "vegetables", products_path, class: "sidenav-link" %>
+    <%= link_to "fruits", products_path, class: "sidenav-link" %>
+    <%= link_to "meat", products_path, class: "sidenav-link" %>
+    <%= link_to "fish", products_path, class: "sidenav-link" %>
+    <%= link_to "dairy & eggs", products_path, class: "sidenav-link" %>
+    <%= link_to "bakery", products_path, class: "sidenav-link" %>
+    <%= link_to "wine & drinks", products_path, class: "sidenav-link" %>
+    <%= link_to "pantry", products_path, class: "sidenav-link" %>
+    <%= link_to "deli", products_path, class: "sidenav-link" %>
+  </div>
+  <div class="products-section">
+    <div class="products-index">
+      <div class="product-card overlay white">
+        <div class="product-card-content">
+          <h5 class="product-card-title">Shirley's<br>Market Tote</h5>
+          <p class="product-card-price">$27.00ea</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-content">
+          <h5 class="product-card-title">Shirley's<br>Market Tote</h5>
+          <p class="product-card-price">$27.00ea</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-content">
+          <h5 class="product-card-title">Shirley's<br>Market Tote</h5>
+          <p class="product-card-price">$27.00ea</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-content">
+          <h5 class="product-card-title">Shirley's<br>Market Tote</h5>
+          <p class="product-card-price">$27.00ea</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-content">
+          <h5 class="product-card-title">Shirley's<br>Market Tote</h5>
+          <p class="product-card-price">$27.00ea</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-content">
+          <h5 class="product-card-title">Shirley's<br>Market Tote</h5>
+          <p class="product-card-price">$27.00ea</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-content">
+          <h5 class="product-card-title">Shirley's<br>Market Tote</h5>
+          <p class="product-card-price">$27.00ea</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-content">
+          <h5 class="product-card-title">Shirley's<br>Market Tote</h5>
+          <p class="product-card-price">$27.00ea</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-content">
+          <h5 class="product-card-title">Shirley's<br>Market Tote</h5>
+          <p class="product-card-price">$27.00ea</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-content">
+          <h5 class="product-card-title">Shirley's<br>Market Tote</h5>
+          <p class="product-card-price">$27.00ea</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-content">
+          <h5 class="product-card-title">Shirley's<br>Market Tote</h5>
+          <p class="product-card-price">$27.00ea</p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
 <ul>
 <% policy_scope(@products).each do |product| %>
   <li><%= product.producer.name %>'s <%= product.name %>. <%= link_to "Add to Basket", product_order_lines_path(product.id),:style=> 'color:#FF6B6B', method: :post, class: "add_to_basket" %></li>
