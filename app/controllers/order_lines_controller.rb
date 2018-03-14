@@ -3,21 +3,22 @@ skip_after_action :verify_authorized, except: :check_address
 skip_before_action :authenticate_user!
 
 
-  def create
+  def add_to_basket
     if (!current_user.orders.find_by(status:"new").blank?)
       order = current_user.orders.find_by(status:"new")
 
-      @orderline = OrderLine.create!(product: Product.find(params[:product_id].to_i), quantity: 1, order: order)
+      @orderline = OrderLine.create!(product: Product.find(params[:id].to_i), quantity: 1, order: order)
       authorize @orderline
       order.amount = order.amount + @orderline.product.price
       order.save
     else
       order = Order.create(user: current_user)
-      @orderline = OrderLine.create(product: Product.find(params[:product_id].to_i), quantity: 1, order: order)
+      @orderline = OrderLine.create(product: Product.find(params[:id].to_i), quantity: 1, order: order)
       authorize @orderline
       order.amount = @orderline.product.price
       order.save
     end
+    redirect_back(fallback_location: products_path)
   end
 
   def update
@@ -40,11 +41,12 @@ skip_before_action :authenticate_user!
         orderline.quantity = orderline.quantity - 1
         orderline.save
         authorize orderline
+
+      else
+        orderline.destroy
       end
       redirect_back(fallback_location: products_path)
     end
-
-
 
   def destroy
     @orderline = OrderLine.find(params[:id])
