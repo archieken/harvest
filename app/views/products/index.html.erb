@@ -32,7 +32,7 @@
         </div>
         <div class="add-controls">
 
-        <% if (!current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id).nil?) %>
+        <% if ((!current_user.nil?) && (!current_user.orders.find_by(status: "new").nil?) && (!current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id).nil?)) %>
         <% orderline = current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id)%>
         <div class="plus-minus-qty">
           <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(orderline.id), method: :get, class: "add_to_basket"%>
