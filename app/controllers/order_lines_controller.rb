@@ -1,5 +1,6 @@
 class OrderLinesController < ApplicationController
 skip_after_action :verify_authorized, except: :check_address
+skip_before_action :authenticate_user!
 
 
   def create
@@ -49,5 +50,6 @@ skip_after_action :verify_authorized, except: :check_address
     @orderline = OrderLine.find(params[:id])
     authorize @orderline
     @orderline.destroy
+    redirect_back(fallback_location: products_path)
   end
 end
