@@ -24,4 +24,6 @@ Rails.application.routes.draw do
       resources :order_lines, only: [:create, :update]
     end
     resources :order_lines, only: [:destroy]
+
+    get  "/postcodecheckers", to: "postcodecheckers#check_address"
 end
