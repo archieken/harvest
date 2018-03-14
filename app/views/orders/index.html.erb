@@ -25,8 +25,6 @@
 <% end %>
 
 
-
-
 <h1>Basket Items</h1>
 <% if !@order_lines.blank? %>
   <% for item in @order_lines %>
@@ -36,8 +34,23 @@
   <% total = item.product.price*item.quantity%>
   <p>Total Price: <%= humanized_money_with_symbol(total) %></p>
   <%= link_to "Delete", order_line_path(item.id),:style=> 'color:#FF6B6B', method: :destroy%>
+  <%= link_to "+ add", add_order_lines_path(item.id),:style=> 'color:green', method: :get, class: "remove_from_basket"%>
+  <%= link_to "- remove", remove_order_lines_path(item.id),:style=> 'color:purple', method: :get, class: "add_to_basket"%>
   <hr>
   <% end %>
 <% else %>
  <h3>You have no items in your basket.</h3>
 <% end %>
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+  $('.add_to_basket').click(function (event) {
+    addToBasket();
+  });
+
+  $('.remove_from_basket').click(function (event) {
+
+    removeFromBasket();
+  });
+</script>
