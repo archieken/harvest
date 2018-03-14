@@ -3,6 +3,7 @@
 
 <% if ((!@order.id.nil?) && (!@order.order_lines.empty?)) %>
 
+<div style="margin-top: 150px">
 
 <%= form_tag order_payments_path(@order) do %>
   <article>
@@ -14,6 +15,7 @@
 
   <% end %>
 
+</div>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
