@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'pages#home'
-    resources :users, only: [:new, :create, :edit, :update]
+    resources :users, only: [:new, :create, :edit, :update] do
+      resources :contacts, only: [:update]
+    end
     resources :orders, only: [:index] do
       resources :payments, only: [:new, :create]
     end
@@ -26,4 +28,5 @@ Rails.application.routes.draw do
     resources :order_lines, only: [:destroy]
 
     get  "/postcodecheckers", to: "postcodecheckers#check_address"
+    get  "/checkout", to: "payments#checkout"
 end
