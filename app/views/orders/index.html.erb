@@ -1,7 +1,7 @@
 
 <%# link_to "Checkout", new_order_payment_path(@order.id),:style=> 'color:#FF6B6B'%>
 
-<% if !@order.id.nil? %>
+<% if ((!@order.id.nil?) && (!@order.order_lines.empty?)) %>
 
 
 <%= form_tag order_payments_path(@order) do %>
@@ -33,7 +33,7 @@
   <p>Unit Price: <%= humanized_money_with_symbol(item.product.price) %></p>
   <% total = item.product.price*item.quantity%>
   <p>Total Price: <%= humanized_money_with_symbol(total) %></p>
-  <%= link_to "Delete", order_line_path(item.id),:style=> 'color:#FF6B6B', method: :destroy%>
+  <%= link_to "Delete", order_line_path(item.id),:style=> 'color:#FF6B6B', method: :delete%>
   <%= link_to "+ add", add_order_lines_path(item.id),:style=> 'color:green', method: :get, class: "remove_from_basket"%>
   <%= link_to "- remove", remove_order_lines_path(item.id),:style=> 'color:purple', method: :get, class: "add_to_basket"%>
   <hr>
