@@ -12,7 +12,7 @@ class OrderLinesController < ApplicationController
       order.save
     else
       order = Order.create(user: current_user)
-      orderline = OrderLine.create(product: Product.find(params[:product_id].to_i), quantity: 1, order: order)
+      @orderline = OrderLine.create(product: Product.find(params[:product_id].to_i), quantity: 1, order: order)
       authorize @orderline
       order.amount = @orderline.product.price
       order.save
