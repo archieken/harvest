@@ -20,15 +20,13 @@
 <% policy_scope(@products).each do |product| %>
 
 
-
-
   <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
 
 
   <div class="product-card overlay white">
         <div class="product-card-content">
           <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
-          <p class="product-card-price">$27.00ea</p>
+          <p class="product-card-price"> <%=humanized_money_with_symbol(product.price)%></p>
         </div>
         <div class="add-controls">
           <div class="plus-minus-qty">

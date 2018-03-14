@@ -25,8 +25,7 @@
 <% end %>
 
 
-
-
+ <%# humanized_money_with_symbol(item.product.price) %>
  <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
 
 <% if !@order_lines.blank? %>
@@ -39,8 +38,11 @@
           <div class="product-card-content">
 
 
-            <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
-            <p class="product-card-price">$27.00ea</p>
+            <h5 class="product-card-title"><%= link_to image_tag("minus-icon.png", size: "16x2"), order_line_path(item.id), method: :delete, class: "remove_from_basket"%><%= product.producer.name %>'s<br><%= product.name%></h5>
+            <div style="display:none" class="unitprice"><%=product.price%></div>
+
+              <% total = product.price*item.quantity%>
+            <p class="product-card-price"><%=humanized_money_with_symbol(total)%></p>
           </div>
         <div class="add-controls">
           <div class="plus-minus-qty">
