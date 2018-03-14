@@ -1,5 +1,6 @@
 class OrderLinesController < ApplicationController
-
+skip_after_action :verify_authorized, except: :check_address
+skip_before_action :authenticate_user!
 
 
   def create
@@ -24,10 +25,31 @@ class OrderLinesController < ApplicationController
     authorize @orderline
   end
 
+   def add
+    orderline = OrderLine.find(params[:id])
+    orderline.quantity = orderline.quantity + 1
+    orderline.save
+    authorize orderline
+    redirect_back(fallback_location: products_path)
+  end
+
+   def remove
+    orderline = OrderLine.find(params[:id])
+
+      if orderline.quantity > 0
+        orderline.quantity = orderline.quantity - 1
+        orderline.save
+        authorize orderline
+      end
+      redirect_back(fallback_location: products_path)
+    end
+
+
 
   def destroy
     @orderline = OrderLine.find(params[:id])
     authorize @orderline
     @orderline.destroy
+    redirect_back(fallback_location: products_path)
   end
 end

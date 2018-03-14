@@ -20,4 +20,12 @@ class OrderLinePolicy < ApplicationPolicy
   def destroy?
     true
   end
+
+  def add?
+    true
+  end
+
+  def remove?
+    true
+  end
 end

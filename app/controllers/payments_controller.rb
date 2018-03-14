@@ -1,4 +1,5 @@
 class PaymentsController < ApplicationController
+  skip_before_action :authenticate_user!
   before_action :set_order
 
   def new
@@ -18,7 +19,8 @@ class PaymentsController < ApplicationController
     currency:     @order.amount.currency
   )
 
-  @order.update(payment: charge.to_json, status: 'paid')
+  @order.update!(payment: charge.to_json, status: 'paid')
+  authorize @order
   redirect_to products_path
 
 rescue Stripe::CardError => e
@@ -31,5 +33,6 @@ private
 
   def set_order
     @order = Order.where(status: 'new').find(params[:order_id])
+    authorize @order
   end
 end
