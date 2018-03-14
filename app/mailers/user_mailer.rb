@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
   #
   def welcome(user)
     @user = user
-    @greeting = "Hi, you ugly"
+    @greeting = "Hi, thanks for signing up"
 
     mail to: "to@example.org"
   end
@@ -17,8 +17,8 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.order.subject
   #
-  def order
-    @greeting = "Hi"
+  def order(user)
+    @greeting = "Hi, thanks for ordering"
 
     mail to: "to@example.org"
   end

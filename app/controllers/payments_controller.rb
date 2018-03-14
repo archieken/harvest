@@ -29,6 +29,8 @@ class PaymentsController < ApplicationController
   end
 
   def checkout
+    # user = User.first
+    # UserMailer.welcome(user).deliver_now
   end
 
 
