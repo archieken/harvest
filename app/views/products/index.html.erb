@@ -1,11 +1,55 @@
-<h1>Products</h1>
 
-<h4>Today's fresh products include:</h4>
-<ul>
+
+
+  <div class="sidenav">
+    <%= link_to "all", products_path, class: "sidenav-link" %>
+    <%= link_to "vegetables", products_path, class: "sidenav-link" %>
+    <%= link_to "fruits", products_path, class: "sidenav-link" %>
+    <%= link_to "meat", products_path, class: "sidenav-link" %>
+    <%= link_to "fish", products_path, class: "sidenav-link" %>
+    <%= link_to "dairy & eggs", products_path, class: "sidenav-link" %>
+    <%= link_to "bakery", products_path, class: "sidenav-link" %>
+    <%= link_to "wine & drinks", products_path, class: "sidenav-link" %>
+    <%= link_to "pantry", products_path, class: "sidenav-link" %>
+    <%= link_to "deli", products_path, class: "sidenav-link" %>
+  </div>
+  <div class="products-section">
+    <div class="products-index">
+
+
 <% policy_scope(@products).each do |product| %>
-  <li><%= product.producer.name %>'s <%= product.name %>. <%= link_to "Add to Basket", product_order_lines_path(product.id),:style=> 'color:#FF6B6B', method: :post, class: "add_to_basket" %></li>
+
+
+
+
+  <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
+
+
+  <div class="product-card overlay white">
+        <div class="product-card-content">
+          <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
+          <p class="product-card-price">$27.00ea</p>
+        </div>
+        <div class="add-controls">
+          <div class="plus-minus-qty">
+
+        <% if ((!current_user.nil?) && (!current_user.orders.find_by(status: "new").nil?) && (!current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id).nil?)) %>
+        <% orderline = current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id)%>
+          <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(orderline.id), method: :get, class: "add_quant"%>
+            <h3 class="qty"><%= orderline.quantity %></h3>
+            <%= link_to image_tag("plus-icon.png", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
+
+          <% else %>
+          <button class="add-to-cart-btn"><%= link_to "Add", add_to_basket_path(product.id), method: :get, class: "add_to_basket" %></button>
+          <% end %>
+        </div>
+    </div>
+  </div>
+
 <% end %>
-</ul>
+
+    </div>
+  </div>
 
 
 <!-- JS SCRIPTS -->
@@ -15,4 +59,15 @@
   $('.add_to_basket').click(function (event) {
     addToBasket();
   });
-</script>
+
+
+
+  $('.add_quant').click(function (event) {
+    addQuantity();
+  });
+
+  $('.remove_quant').click(function (event) {
+    removeQuantity();
+  });
+
+

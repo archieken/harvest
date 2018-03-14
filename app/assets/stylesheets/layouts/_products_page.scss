@@ -1,1 +1,62 @@
+// ------------------ PAGE ------------------
+
+.product-page {
+  padding: 0px 50px;
+}
+
+// ------------------ SIDE NAV ------------------
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  top: 100px;
+  padding-left: 50px;
+}
+
+.sidenav-link {
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+  color: #524F4C;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 3px;
+  opacity: 0.3;
+  display: block;
+}
+
+.sidenav-link:active {
+  font-weight: 600;
+  opacity: 1;
+}
+
+.sidenav-link:hover {
+  text-decoration: none;
+  color: #524F4C;
+  opacity: 1;
+}
+
+// ------------------ PRODUCT CARD SECTION ------------------
+
+.products-section {
+  margin-left: 210px;
+  margin-right: 40px;
+  margin-top: 100px;
+
+}
+
+.products-index {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+
+
+
+
 

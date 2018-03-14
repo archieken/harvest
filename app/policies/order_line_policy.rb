@@ -20,4 +20,16 @@ class OrderLinePolicy < ApplicationPolicy
   def destroy?
     true
   end
+
+  def add?
+    true
+  end
+
+  def remove?
+    true
+  end
+
+  def add_to_basket?
+    true
+  end
 end
