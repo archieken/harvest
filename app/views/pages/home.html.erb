@@ -47,15 +47,15 @@
     <h2 class="home-title">Local Producers</h2>
     <p class="section-para">Harvest makes it possible to support local and shop with the people you know, trust and love.</p>
     <div class="cat-links">
-      <%= link_to "vegetables", products_path, class: "homepage-cat-link" %>
-      <%= link_to "fruits", products_path, class: "homepage-cat-link" %>
-      <%= link_to "meat", products_path, class: "homepage-cat-link" %>
-      <%= link_to "fish", products_path, class: "homepage-cat-link" %>
-      <%= link_to "dairy & eggs", products_path, class: "homepage-cat-link" %>
-      <%= link_to "bakery", products_path, class: "homepage-cat-link" %>
-      <%= link_to "wine & drinks", products_path, class: "homepage-cat-link" %>
-      <%= link_to "pantry", products_path, class: "homepage-cat-link" %>
-      <%= link_to "deli", products_path, class: "homepage-cat-link" %>
+      <%= link_to "vegetables", products_path(:anchor => "vegetables"), class: "homepage-cat-link" %>
+      <%= link_to "fruits", products_path(:anchor => "fruits"), class: "homepage-cat-link" %>
+      <%= link_to "meat", products_path(:anchor => "meats"), class: "homepage-cat-link" %>
+      <%= link_to "fish", products_path(:anchor => "fish"), class: "homepage-cat-link" %>
+      <%= link_to "dairy & eggs", products_path(:anchor => "dairy"), class: "homepage-cat-link" %>
+      <%= link_to "bakery", products_path(:anchor => "bakery"), class: "homepage-cat-link" %>
+      <%= link_to "wine & drinks", products_path(:anchor => "wine"), class: "homepage-cat-link" %>
+      <%= link_to "pantry", products_path(:anchor => "pantry"), class: "homepage-cat-link" %>
+      <%= link_to "deli", products_path(:anchor => "deli"), class: "homepage-cat-link" %>
     </div>
   </div>
 </div>

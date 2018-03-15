@@ -1,0 +1,29 @@
+.simple_form {
+
+  margin-top: 85px;
+  margin-left: 150px;
+  padding: 20px;
+  background-color: whitesmoke;
+  width: 80%;
+}
+
+
+div.boolean, .simple_form input[type='submit'] {
+  margin-left: 60px;
+}
+
+div.boolean label, label.collection_radio_buttons {
+  float: none;
+  margin: 0;
+}
+
+.field_with_errors {
+  background-color: #ff3333;
+}
+
+.simple_form .error {
+  clear: left;
+  color: black;
+  display: block;
+  margin-left: 120px;
+}
