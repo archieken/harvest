@@ -1,0 +1,192 @@
+// ----------------BASKET MODAL -----------------
+
+#site-menu {
+  padding: 60px;
+  padding-top: 195px;
+  width: 80vw;
+  height: 2000px;
+  position: fixed;
+  top: -150px;
+  right: 0px;
+  -webkit-transform: translateX(80vw);
+  transform: translateX(80vw);
+  transition: .3s ease all;
+  background-color: white;
+  z-index: 98;
+  box-shadow: 2px 0px 10px 0px rgba(0,0,0,0.2);
+}
+
+.show-nav #site-menu {
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+}
+
+.show-nav .navbar-harvest {
+  opacity: 0;
+}
+
+// --------------- BASKET LAYOUT -----------------
+
+.basket-content {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+}
+
+.basket-items {
+  width: 50%;
+  height: 100vh;
+  margin-top: -30px;
+  flex: 1 1 300px;
+  padding-top: 70px;
+  overflow: scroll;
+  margin-left: -5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 55px;
+}
+
+.basket-summary {
+  width: 40%;
+  height: calc(100vh - 60px);
+}
+
+// ---------------- SUMMARY CONTENT ----------------
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.basket-title {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  color: #524F4C;
+  margin: 0px;
+}
+
+.basket-button {
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  color: #524F4C;
+  margin: 0px;
+  text-decoration: none;
+}
+
+.triangle-icon {
+  height: 7px;
+  width: 8px;
+  margin-top: -2px;
+}
+
+.rotate-triangle-icon {
+  transform: rotate(180deg);
+}
+
+.summary-item {
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  color: #C0C0C0;
+  margin: 0px;
+}
+
+.summary-div {
+  margin-bottom: 20px;
+}
+
+// ---------------- ITEMS CARDS ----------------
+
+.basket-card {
+  height: 90px;
+  width: calc(100% - 10px);
+  margin: 0px 5px;
+  margin-bottom: 10px;
+  background-color: white;
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+}
+
+.basket-card-image {
+  background-image: asset-url("strawberry.jpg");
+  background-size: cover;
+  width: 90px;
+  height: 100%;
+  position: relative;
+}
+
+.basket-card-producer-avatar {
+  border: 2px solid white;
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-image: asset-url("farmer-photo.jpg");
+  background-size: cover;
+  position: absolute;
+  right: -15px;
+  top: 10px;
+}
+
+// ---------------- BASKET CARD INFO (WRITING) ----------------
+
+.basket-item-info {
+  flex: 1 1 200px;
+  padding: 10px;
+  padding-left: 25px;
+  padding-top: 15px;
+  padding-right: 15px;
+}
+
+.item-info-spacing {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-price-and-qty {
+  margin-top: -9px;
+}
+
+.basket-item-name {
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  color: #524F4C;
+  margin: 0px;
+  margin-bottom: 5px;
+}
+
+.basket-item-producer-info {
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  color: #C0C0C0;
+  margin: 0px;
+  margin-top: -2px;
+}
+
+.item-qty {
+  display: inline;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  color: #C0C0C0;
+  margin: 0px;
+  margin-top: -2px;
+}
+
+.item-price {
+  display: inline;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  color: #524F4C;
+  margin: 0px;
+  margin-top: -2px;
+}

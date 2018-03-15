@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>Triangle</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Cart" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-Copy-18" transform="translate(-1148.000000, -502.000000)" fill="#524F4C">
+            <g id="GOBACKButton-Copy" transform="translate(1040.000000, 497.000000)">
+                <path d="M108.276503,9.55289593 L116.658469,5.36191293 C116.905458,5.2384183 117.205795,5.33853048 117.329289,5.58551972 C117.364003,5.65494744 117.382076,5.73150398 117.382076,5.80912652 L117.382076,14.1910925 C117.382076,14.4672349 117.158218,14.6910925 116.882076,14.6910925 C116.804453,14.6910925 116.727896,14.67302 116.658469,14.6383061 L108.276503,10.4473231 C108.029513,10.3238285 107.929401,10.023492 108.052896,9.77650273 C108.101278,9.67973903 108.179739,9.60127778 108.276503,9.55289593 Z" id="Triangle" transform="translate(112.691038, 10.000055) rotate(-180.000000) translate(-112.691038, -10.000055) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

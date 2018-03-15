@@ -6,7 +6,9 @@
   height: calc(95vh - 90px);
   text-align: center;
   padding: 0 230px;
-  background-color: white;
+  background-image: asset-url("garlic.png");
+  background-position: center;
+  background-size: cover;
   margin-top: 90px;
 }
 

@@ -14,11 +14,23 @@
   padding-bottom: 5px;
   position: fixed;
   top: 0px;
-  z-index: 100
+  z-index: 1;
+  opacity: 1
 }
 
-.navbar-harvest-right {
+.make-navbar-transparent {
+  background-color: transparent;
+}
 
+.show-page-cover {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  opacity: 0.95;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }
 
 // ---------   LOGO   ------------
