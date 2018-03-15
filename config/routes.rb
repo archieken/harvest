@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get '/order_lines/:id/add', to: 'order_lines#add', as: 'add_order_lines'
 
   get '/order_lines/:id/remove', to: 'order_lines#remove', as: 'remove_order_lines'
+  get  "/postcodecheckers", to: "postcodecheckers#check_address"
+  get  "/confirmation/:order_id", to: "payments#confirmation", as:"confirmation"
+  get  "/about", to: "pages#about", as:"about"
 
 
   devise_for :users
@@ -27,6 +30,5 @@ Rails.application.routes.draw do
     end
     resources :order_lines, only: [:destroy]
 
-    get  "/postcodecheckers", to: "postcodecheckers#check_address"
-    get  "/confirmation/:order_id", to: "payments#confirmation", as:"confirmation"
+
 end
