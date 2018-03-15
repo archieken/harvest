@@ -1,12 +1,17 @@
+<style>
+  .simple_form input[type='submit'] {
+    margin-left: 0px;
+  }
+</style>
+
 <div id="site-wrapper">
   <div id="site-menu">
     <div class="basket-content">
       <div class="basket-items">
-        <h3 style="margin-bottom: 40px; margin-top: 15px; display: inline-block;">items</h3>
-        <p class="item-qty">(9 items)</p>
         <% if !@order_lines.blank? %>
-          <% @order_lines.each do |thing| %>
-            <% for item in @order_lines %>
+          <h3 style="margin-bottom: 40px; margin-top: 15px; display: inline-block;">items</h3>
+          <p class="item-qty">(<%= @order_lines.size %> items)</p>
+          <% @order_lines.each do |item| %>
               <div class="basket-card">
                 <div class="basket-card-image">
                   <div class="basket-card-producer-avatar">
@@ -19,18 +24,18 @@
                       <% total = product.price*item.quantity%>
                       <h3 class="basket-item-name"><%= product.name%></h3>
                       <p class="basket-item-producer-info"><%= product.producer.name %></p>
-                      <p class="basket-item-producer-info">KINGSCLIFF | 10KM</p>
+                      <% producer = product.producer  %>
+                      <p class="basket-item-producer-info"><%= producer.city  %> | 10KM</p>
                     </div>
                     <div class="item-price-and-qty">
                       <p class="item-qty"><%= item.quantity%></p>
-                      <p class="item-price"><%= product.price%>/per unit</p>
+                      <p class="item-price"><%= product.price%> / <%= product.unit_type%></p>
                       <p class="item-price"><%= total%></p>
                     </div>
                   </div>
                 </div>
               </div>
             <% end %>
-          <% end %>
         <% else %>
           <h3>You have no items in your basket.</h3>
         <% end %>
@@ -43,24 +48,85 @@
         <h3 style="margin-bottom: 40px; margin-top: 40px;">summary</h3>
         <div class="flex-space-between summary-div">
           <h3 class="summary-item">grocery items</h3>
-          <h3 class="summary-item">$126.90</h3>
+          <h3 class="summary-item"><%= humanized_money_with_symbol(@order.amount)%> </h3>
         </div>
         <div class="flex-space-between summary-div">
-          <h3 class="summary-item">total savings</h3>
-          <h3 class="summary-item">$14.50</h3>
-        </div>
-        <div class="flex-space-between summary-div">
+          <% delivery_cost = 550  %>
           <h3 class="summary-item">delivery & handling</h3>
           <h3 class="summary-item">$5.50</h3>
         </div>
-
         <div class="flex-space-between" style="margin-bottom: 40px; margin-top: 50px;">
           <h3 class="basket-button">TOTAL</h3>
-          <h3 class="basket-button">$146.90</h3>
+          <% @order.amount_cents = @order.amount_cents + delivery_cost %>
+          <h3 class="basket-button"><%= humanized_money_with_symbol(@order.amount) %></h3>
         </div>
+        <div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; margin-bottom: 40px; margin-top: 50px;">
+            <div>
+              <h3 style="margin-bottom: 20px; margin-top: 30px; width: 100%">My customer details</h3>
+            </div>
+            <div style="width: 100%; text-align: left; color: #C0C0C0">
+              <%= simple_form_for [current_user, @contact], remote: true do |f| %>
+                <%= f.input :phone, label: 'phone', placeholder: @contact.phone %>
+                <%= f.input :address, label: 'address',placeholder: @contact.address, :input_html => { id: "address"} %>
+                <%= f.submit "Confirm", class: "confirm_address"%>
+              <% end %>
+            </div>
 
-        <a href="#" class="toggle-nav basket-button">CHECKOUT <%= image_tag("Triangle.svg", class: "triangle-icon") %></a>
-      </div>
+
+
+
+
+            <div style="width: 100%; padding-top: 20px;">
+              <% if ((!@order.id.nil?) && (!@order.order_lines.empty?)) %>
+
+                <%= form_tag order_payments_path(@order.id) do %>
+                  <article>
+                  </article>
+
+
+                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" style=""
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-name="My Order"
+                    data-email="<%= current_user.email %>"
+                    data-description="<%=current_user.fullname%>'s order."
+                    data-amount="<%= @order.amount_cents %>"
+                    data-currency="<%= @order.amount.currency %>"></script>
+
+                  <% end %>
+
+                </div>
+                <% end %>
+                </div>
+
+                <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+                <script>
+
+                  <% if current_user.contact.nil? %>
+                   document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+                   <% end %>
+
+                  $('.add_to_basket').click(function (event) {
+                    addToBasket();
+                  });
+
+                  $('.remove_from_basket').click(function (event) {
+
+                    removeFromBasket();
+                  });
+
+                  $('.confirm_address').click(function (event) {
+                    document.getElementsByClassName("stripe-button-el")[0].style.display = 'block';
+                  });
+                </script>
+              </div>
+
+
+
+
+
+
+
+        </div>
     </div>
   </div>
 </div>

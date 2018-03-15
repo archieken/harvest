@@ -30,10 +30,10 @@ skip_before_action :authenticate_user!, only: [:check_address]
 
 
     if pc.latitude && pc.longitude
-      @check = pc.distance_from([51.509720, -0.105144])
+      @check = pc.distance_from([-28.64201, 153.61194])
       #output is given in km
 
-        if @check < 40
+        if @check < 500
           redirect_to products_path
           #render json: {success: true}
           #redirect to city
