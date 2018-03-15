@@ -3,12 +3,10 @@
 
   .footer {
 
-    display: none
+    display: none;
   }
+
 </style>
-
-
-
 
 
 
@@ -54,13 +52,16 @@
 <% end %>
 
 
-<h2>My customer details</h2>
-<form action="/"></form>
+   <label class="amount">
+      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+    </label>
+
+<h6>My customer details</h6>
 <div style="margin-bottom:75px;">
-<%= simple_form_for [current_user, @contact] do |f| %>
+<%= simple_form_for [current_user, @contact], remote: true do |f| %>
   <%= f.input :phone, placeholder: @contact.phone %>
     <%= f.input :address, size: "60x12", placeholder: @contact.address %>
-    <%= f.submit "Confirm" %>
+    <%= f.submit "Save", class: "confirm_address"%>
 <% end %>
 
 
@@ -73,9 +74,6 @@
 
 <%= form_tag order_payments_path(@order) do %>
   <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-    </label>
   </article>
 
 
@@ -95,6 +93,11 @@
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
+
+  <% if current_user.contact.nil? %>
+   document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+   <% end %>
+
   $('.add_to_basket').click(function (event) {
     addToBasket();
   });
@@ -102,6 +105,10 @@
   $('.remove_from_basket').click(function (event) {
 
     removeFromBasket();
+  });
+
+  $('.confirm_address').click(function (event) {
+    document.getElementsByClassName("stripe-button-el")[0].style.display = 'block';
   });
 </script>
 
