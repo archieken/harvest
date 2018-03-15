@@ -38,7 +38,7 @@ skip_before_action :authenticate_user!, except: :add_to_basket
    def remove
     orderline = OrderLine.find(params[:id])
 
-      if orderline.quantity > 0
+      if orderline.quantity > 1
         orderline.quantity = orderline.quantity - 1
         orderline.save
         authorize orderline
