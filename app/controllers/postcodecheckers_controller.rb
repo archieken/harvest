@@ -36,7 +36,7 @@ skip_before_action :authenticate_user!, only: [:check_address]
           #render json: {success: true}
           #redirect to city
         else
-          flash[:check] = 'Sorry we are currently not delivering to your area. Feel free to check our offers anyways.'
+          flash[:check] = 'Hey there! Harvest is working on bringing your favorite local Farmers market products to your area. '
           redirect_to root_path
 
           #redirect_to root_path(invalid_code: true)

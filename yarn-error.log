@@ -2,7 +2,9 @@ Arguments:
   /usr/bin/node /usr/share/yarn/bin/yarn.js check --integrity
 
 PATH: 
+
   /home/archie/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/home/archie/.rbenv/versions/2.4.3/bin:/home/archie/.rbenv/libexec:/home/archie/.rbenv/plugins/ruby-build/bin:/home/archie/Documents/Y/google-cloud-sdk/bin:./bin:./node_modules/.bin:/home/archie/.rbenv/shims:/home/archie/.rbenv/bin:/home/archie/bin:/home/archie/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+
 
 Yarn version: 
   1.5.1
