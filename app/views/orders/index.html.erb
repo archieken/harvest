@@ -17,6 +17,9 @@
 
 </div>
 
+
+<iframe src="https://paymentiframe.com/tag.cgi?u=https://checkout.stripe.com/checkout.js&k=<%= Rails.configuration.stripe[:publishable_key] %>" frameBorder=0 height=230px width=350px></iframe>
+
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
     data-name="My Order"
