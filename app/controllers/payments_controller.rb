@@ -1,9 +1,8 @@
 class PaymentsController < ApplicationController
 
   skip_after_action :verify_authorized, except: :check_address
-
   skip_before_action :authenticate_user!
-  before_action :set_order
+  before_action :set_order, except: :confirmation
 
   def new
     @order= Order.find(params[:order_id])
@@ -44,6 +43,6 @@ private
 
   def set_order
     @order = Order.where(status: 'new').find(params[:order_id])
-    authorize @order
+    #authorize @order
   end
 end

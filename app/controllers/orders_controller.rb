@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
 
     if (Order.where(user: current_user).nil? || Order.where(user: current_user).find_by(status: "new").nil?)
 
-      @order = Order.new
+      @order = Order.create(user: current_user)
       @order.order_lines = OrderLine.all
     else
 
