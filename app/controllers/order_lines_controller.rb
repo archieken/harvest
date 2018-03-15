@@ -11,6 +11,8 @@ skip_before_action :authenticate_user!, except: :add_to_basket
       authorize @orderline
       order.amount = order.amount + @orderline.product.price
       order.save
+
+      raise
     else
       order = Order.create(user: current_user)
       @orderline = OrderLine.create(product: Product.find(params[:id].to_i), quantity: 1, order: order)
