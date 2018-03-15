@@ -2,30 +2,29 @@
 
 
   <div class="sidenav">
-    <%= link_to "all", products_path, class: "sidenav-link" %>
+    <%# link_to "all", products_path, class: "sidenav-link" %>
   <!--   <%= link_to "vegetables", products_path(:anchor => '#vegetables'), class: "sidenav-link" %> -->
   <a href="#vegetables" class="sidenav-link anchor">vegetables</a>
-    <%= link_to "fruits", products_path, class: "sidenav-link" %>
-    <%= link_to "meat", products_path, class: "sidenav-link" %>
-    <%= link_to "fish", products_path, class: "sidenav-link" %>
-    <%= link_to "dairy & eggs", products_path, class: "sidenav-link" %>
-    <%= link_to "bakery", products_path, class: "sidenav-link" %>
-    <%= link_to "wine & drinks", products_path, class: "sidenav-link" %>
-    <%= link_to "pantry", products_path, class: "sidenav-link" %>
-    <%= link_to "deli", products_path, class: "sidenav-link" %>
+  <a href="#fruits" class="sidenav-link anchor">fruits</a>
+  <a href="#meats" class="sidenav-link anchor">meat</a>
+  <a href="#fish" class="sidenav-link anchor">fish</a>
+  <a href="#dairy" class="sidenav-link anchor">dairy & eggs</a>
+  <a href="#bakery" class="sidenav-link anchor">bakery</a>
+  <a href="#wine" class="sidenav-link anchor">wine & drinks</a>
+  <a href="#pantry" class="sidenav-link anchor">pantry</a>
+  <a href="#deli" class="sidenav-link anchor">deli</a>
   </div>
   <div class="products-section">
 
 
+    <div class="category-section" id="vegetables">
+      <h3>vegetables</h3>
 
 
-
-    <div class="category-section"  id="all">
-      <h3>all</h3>
                 <div class="products-index">
 
 
-<% policy_scope(@products).each do |product| %>
+<% @vegetables.each do |product| %>
 
 
   <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
@@ -56,15 +55,308 @@
 <% end %>
 
     </div>
-    </div>
-    <div class="category-section" id="vegetables">
-      <h3>vegetables</h3>
+
+      </div>
+
+
+
+         <div class="category-section" id="fruits">
+      <h3>fruits</h3>
 
 
                 <div class="products-index">
 
 
-<% @vegetables.each do |product| %>
+<% @fruits.each do |product| %>
+
+
+  <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
+
+
+  <div class="product-card overlay white">
+        <div class="product-card-content">
+          <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
+          <p class="product-card-price"> <%=humanized_money_with_symbol(product.price)%></p>
+        </div>
+        <div class="add-controls">
+          <div class="plus-minus-qty">
+
+        <% if ((!current_user.nil?) && (!current_user.orders.find_by(status: "new").nil?) && (!current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id).nil?)) %>
+        <% orderline = current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id)%>
+          <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(orderline.id), method: :get, class: "add_quant"%>
+            <h3 class="qty"><%= orderline.quantity %></h3>
+            <%= link_to image_tag("plus-icon.png", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
+
+          <% else %>
+          <button class="add-to-cart-btn"><%= link_to "Add", add_to_basket_path(product.id), method: :get, class: "add_to_basket" %></button>
+          <% end %>
+        </div>
+    </div>
+
+  </div>
+
+<% end %>
+
+    </div>
+
+      </div>
+
+
+         <div class="category-section" id="meats">
+      <h3>meats</h3>
+
+
+                <div class="products-index">
+
+
+<% @meats.each do |product| %>
+
+
+  <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
+
+
+  <div class="product-card overlay white">
+        <div class="product-card-content">
+          <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
+          <p class="product-card-price"> <%=humanized_money_with_symbol(product.price)%></p>
+        </div>
+        <div class="add-controls">
+          <div class="plus-minus-qty">
+
+        <% if ((!current_user.nil?) && (!current_user.orders.find_by(status: "new").nil?) && (!current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id).nil?)) %>
+        <% orderline = current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id)%>
+          <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(orderline.id), method: :get, class: "add_quant"%>
+            <h3 class="qty"><%= orderline.quantity %></h3>
+            <%= link_to image_tag("plus-icon.png", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
+
+          <% else %>
+          <button class="add-to-cart-btn"><%= link_to "Add", add_to_basket_path(product.id), method: :get, class: "add_to_basket" %></button>
+          <% end %>
+        </div>
+    </div>
+
+  </div>
+
+<% end %>
+
+    </div>
+
+      </div>
+
+
+         <div class="category-section" id="fish">
+      <h3>fish</h3>
+
+
+                <div class="products-index">
+
+
+<% @fish.each do |product| %>
+
+
+  <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
+
+
+  <div class="product-card overlay white">
+        <div class="product-card-content">
+          <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
+          <p class="product-card-price"> <%=humanized_money_with_symbol(product.price)%></p>
+        </div>
+        <div class="add-controls">
+          <div class="plus-minus-qty">
+
+        <% if ((!current_user.nil?) && (!current_user.orders.find_by(status: "new").nil?) && (!current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id).nil?)) %>
+        <% orderline = current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id)%>
+          <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(orderline.id), method: :get, class: "add_quant"%>
+            <h3 class="qty"><%= orderline.quantity %></h3>
+            <%= link_to image_tag("plus-icon.png", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
+
+          <% else %>
+          <button class="add-to-cart-btn"><%= link_to "Add", add_to_basket_path(product.id), method: :get, class: "add_to_basket" %></button>
+          <% end %>
+        </div>
+    </div>
+
+  </div>
+
+<% end %>
+
+    </div>
+
+      </div>
+
+         <div class="category-section" id="dairy">
+      <h3>dairy</h3>
+
+
+                <div class="products-index">
+
+
+<% @dairy.each do |product| %>
+
+
+  <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
+
+
+  <div class="product-card overlay white">
+        <div class="product-card-content">
+          <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
+          <p class="product-card-price"> <%=humanized_money_with_symbol(product.price)%></p>
+        </div>
+        <div class="add-controls">
+          <div class="plus-minus-qty">
+
+        <% if ((!current_user.nil?) && (!current_user.orders.find_by(status: "new").nil?) && (!current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id).nil?)) %>
+        <% orderline = current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id)%>
+          <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(orderline.id), method: :get, class: "add_quant"%>
+            <h3 class="qty"><%= orderline.quantity %></h3>
+            <%= link_to image_tag("plus-icon.png", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
+
+          <% else %>
+          <button class="add-to-cart-btn"><%= link_to "Add", add_to_basket_path(product.id), method: :get, class: "add_to_basket" %></button>
+          <% end %>
+        </div>
+    </div>
+
+  </div>
+
+<% end %>
+
+    </div>
+
+      </div>
+
+         <div class="category-section" id="bakery">
+      <h3>bakery</h3>
+
+
+                <div class="products-index">
+
+
+<% @bakery.each do |product| %>
+
+
+  <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
+
+
+  <div class="product-card overlay white">
+        <div class="product-card-content">
+          <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
+          <p class="product-card-price"> <%=humanized_money_with_symbol(product.price)%></p>
+        </div>
+        <div class="add-controls">
+          <div class="plus-minus-qty">
+
+        <% if ((!current_user.nil?) && (!current_user.orders.find_by(status: "new").nil?) && (!current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id).nil?)) %>
+        <% orderline = current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id)%>
+          <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(orderline.id), method: :get, class: "add_quant"%>
+            <h3 class="qty"><%= orderline.quantity %></h3>
+            <%= link_to image_tag("plus-icon.png", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
+
+          <% else %>
+          <button class="add-to-cart-btn"><%= link_to "Add", add_to_basket_path(product.id), method: :get, class: "add_to_basket" %></button>
+          <% end %>
+        </div>
+    </div>
+
+  </div>
+
+<% end %>
+
+    </div>
+
+      </div>
+
+         <div class="category-section" id="wine">
+      <h3>wine</h3>
+
+
+                <div class="products-index">
+
+
+<% @wine.each do |product| %>
+
+
+  <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
+
+
+  <div class="product-card overlay white">
+        <div class="product-card-content">
+          <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
+          <p class="product-card-price"> <%=humanized_money_with_symbol(product.price)%></p>
+        </div>
+        <div class="add-controls">
+          <div class="plus-minus-qty">
+
+        <% if ((!current_user.nil?) && (!current_user.orders.find_by(status: "new").nil?) && (!current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id).nil?)) %>
+        <% orderline = current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id)%>
+          <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(orderline.id), method: :get, class: "add_quant"%>
+            <h3 class="qty"><%= orderline.quantity %></h3>
+            <%= link_to image_tag("plus-icon.png", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
+
+          <% else %>
+          <button class="add-to-cart-btn"><%= link_to "Add", add_to_basket_path(product.id), method: :get, class: "add_to_basket" %></button>
+          <% end %>
+        </div>
+    </div>
+
+  </div>
+
+<% end %>
+
+    </div>
+
+      </div>
+
+         <div class="category-section" id="pantry">
+      <h3>pantry</h3>
+
+
+                <div class="products-index">
+
+
+<% @pantry.each do |product| %>
+
+
+  <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
+
+
+  <div class="product-card overlay white">
+        <div class="product-card-content">
+          <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
+          <p class="product-card-price"> <%=humanized_money_with_symbol(product.price)%></p>
+        </div>
+        <div class="add-controls">
+          <div class="plus-minus-qty">
+
+        <% if ((!current_user.nil?) && (!current_user.orders.find_by(status: "new").nil?) && (!current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id).nil?)) %>
+        <% orderline = current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id)%>
+          <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(orderline.id), method: :get, class: "add_quant"%>
+            <h3 class="qty"><%= orderline.quantity %></h3>
+            <%= link_to image_tag("plus-icon.png", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
+
+          <% else %>
+          <button class="add-to-cart-btn"><%= link_to "Add", add_to_basket_path(product.id), method: :get, class: "add_to_basket" %></button>
+          <% end %>
+        </div>
+    </div>
+
+  </div>
+
+<% end %>
+
+    </div>
+
+      </div>
+
+         <div class="category-section" id="deli">
+      <h3>deli</h3>
+
+
+                <div class="products-index">
+
+
+<% @deli.each do |product| %>
 
 
   <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>

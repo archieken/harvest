@@ -1,30 +1,14 @@
-
-<%# link_to "Checkout", new_order_payment_path(@order.id),:style=> 'color:#FF6B6B'%>
-
-<% if ((!@order.id.nil?) && (!@order.order_lines.empty?)) %>
-
-<div style="margin-top: 150px">
-
-<%= form_tag order_payments_path(@order) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-    </label>
-  </article>
+<style>
 
 
-  <% end %>
+  .footer {
 
-</div>
+    display: none;
+  }
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Order"
-    data-email="<%= current_user.email %>"
-    data-description="Order <%= @order.order_lines.first.quantity %>"
-    data-amount="<%= @order.amount_cents %>"
-    data-currency="<%= @order.amount.currency %>"></script>
-<% end %>
+</style>
+
+
 
 
  <%# humanized_money_with_symbol(item.product.price) %>
@@ -68,19 +52,52 @@
 <% end %>
 
 
-<h2>Contact Info</h2>
-<form action="/"></form>
+   <label class="amount">
+      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+    </label>
 
-<%= simple_form_for [current_user, @contact] do |f| %>
-  <%= f.input :phone %>
-    <%= f.input :address, size: "60x12" %>
-    <%= f.submit "Confirm" %>
+<h6>My customer details</h6>
+<div style="margin-bottom:75px;">
+<%= simple_form_for [current_user, @contact], remote: true do |f| %>
+  <%= f.input :phone, placeholder: @contact.phone %>
+    <%= f.input :address, size: "60x12", placeholder: @contact.address %>
+    <%= f.submit "Save", class: "confirm_address"%>
 <% end %>
 
 
 
+<%# link_to "Checkout", new_order_payment_path(@order.id),:style=> 'color:#FF6B6B'%>
+
+<% if ((!@order.id.nil?) && (!@order.order_lines.empty?)) %>
+
+<div style="margin-bottom: 150px">
+
+<%= form_tag order_payments_path(@order) do %>
+  <article>
+  </article>
+
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="My Order"
+    data-email="<%= current_user.email %>"
+    data-description="Order <%= @order.order_lines.first.quantity %>"
+    data-amount="<%= @order.amount_cents %>"
+    data-currency="<%= @order.amount.currency %>"></script>
+
+  <% end %>
+
+</div>
+<% end %>
+</div>
+
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
+
+  <% if current_user.contact.nil? %>
+   document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+   <% end %>
+
   $('.add_to_basket').click(function (event) {
     addToBasket();
   });
@@ -88,6 +105,10 @@
   $('.remove_from_basket').click(function (event) {
 
     removeFromBasket();
+  });
+
+  $('.confirm_address').click(function (event) {
+    document.getElementsByClassName("stripe-button-el")[0].style.display = 'block';
   });
 </script>
 

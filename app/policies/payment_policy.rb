@@ -1,20 +1,35 @@
 class PaymentPolicy < ApplicationPolicy
-  def new
+
+
+
+class Scope < Scope
+    def resolve
+        scope.all
+    end
+  end
+
+
+  def new?
       true
     end
 
-    def create
+    def create?
       true
     end
 
-    def checkout
+
+    def checkout?
+      true
+    end
+
+    def confirmation?
       true
     end
 
 
   private
 
-    def set_order
+    def set_order?
       true
     end
 end

@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
     authorize @vegetables
 
 
-
     #from orders controller
 
     Contact.find_by(user_id: current_user.id) ? @contact = Contact.find_by(user_id: current_user.id) : @contact = Contact.create(user_id: current_user.id)
@@ -28,6 +27,32 @@ class ProductsController < ApplicationController
       @order_lines = @order.order_lines
 
     end
+
+    
+    @fruits = @products.where(category: Category.find_by(name: "fruits"))
+    authorize @fruits
+
+    @meats = @products.where(category: Category.find_by(name: "meat"))
+    authorize @meats
+
+    @fish = @products.where(category: Category.find_by(name: "fish"))
+    authorize @fish
+
+    @dairy = @products.where(category: Category.find_by(name: "dairy & eggs"))
+    authorize @dairy
+
+    @bakery = @products.where(category: Category.find_by(name: "bakery"))
+    authorize @bakery
+
+    @wine = @products.where(category: Category.find_by(name: "wine & drinks"))
+    authorize @wine
+
+    @pantry = @products.where(category: Category.find_by(name: "pantry"))
+    authorize @pantry
+
+    @deli = @products.where(category: Category.find_by(name: "deli"))
+    authorize @deli
+
   end
 
   def show
