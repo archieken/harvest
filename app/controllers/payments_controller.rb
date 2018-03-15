@@ -44,6 +44,6 @@ private
 
   def set_order
     @order = Order.where(status: 'new').find(params[:order_id])
-    authorize @order
+
   end
 end

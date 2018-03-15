@@ -29,6 +29,8 @@ Rails.application.routes.draw do
       resources :order_lines, only: [:create, :update]
     end
     resources :order_lines, only: [:destroy]
-
+  
+    post  "/postcodecheckers", to: "postcodecheckers#check_address"
+    get  "/checkout", to: "payments#checkout"
 
 end
