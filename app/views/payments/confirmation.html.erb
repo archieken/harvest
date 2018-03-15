@@ -1,9 +1,14 @@
 <!-- #empty page
 #send email
  -->
-<h1>Thanks for shopping</h1>
-<h1>Your total cost was:</h1>
+<div id="confirmation_card">
 
-<span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
+  <h2>Thanks <%= User.name %> for shopping with harvest.</h2>
+    <p>Your order of Amount: <%= humanized_money_with_symbol(@order.amount) %> will be delivered to you soon. Check your emails to stay updated.</p>
+
+  <%= link_to "shop more", products_path, class:"homepage-button homepage-submit" %>
+</div>
+
+
 
 <!-- button to continue shopping -->
