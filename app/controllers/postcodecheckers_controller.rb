@@ -8,11 +8,17 @@ skip_before_action :authenticate_user!, only: [:check_address]
 
     if !params[:address].blank?
       pc = PostCodeChecker.new(address: params[:address])
+
       if pc.save
 
 
         distance_checker(pc)
       end
+
+    else
+
+      flash[:check] = 'Please insert an address.'
+      redirect_to root_path
     end
   end
 

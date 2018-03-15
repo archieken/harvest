@@ -1,0 +1,21 @@
+<!-- #empty page
+#send email
+ -->
+<div id="confirmation_card">
+  <div id="confirmation_headline">
+    <h2>Thanks for shopping with harvest.</h2>
+  </div>
+  <div id="confirmation_text">
+    <p>Your order of Amount: <%= humanized_money_with_symbol(@order.amount) %> will be delivered to you soon. Check your emails to stay updated.</p>
+  </div>
+  <div id="confirmation_quote">
+    <p>To keep the body in good health is a duty, otherwise we shall not be able to keep our mind strong and clear. - Gautama Buddha</p>
+  </div>
+  <div id="confirmation_button">
+    <%= link_to "shop more", products_path, class:"homepage-button homepage-submit" %>
+  </div>
+</div>
+
+
+
+<!-- button to continue shopping -->

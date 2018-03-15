@@ -22,6 +22,7 @@
     farmers.each {|farmer| Producer.create!(name: farmer)}
   puts "Producers made"
 
+
 puts "Creating Categories"
     categories = ["vegetables", "fruits", "meat", "fish", "dairy & eggs", "bakery", "wine & drinks", "pantry", "deli"]
     categories.each { |category| Category.create!(name: category, subcategory: category)}

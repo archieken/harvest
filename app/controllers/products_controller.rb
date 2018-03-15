@@ -1,8 +1,36 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
+
     @products = policy_scope(Product)
     authorize @products
+
+    @vegetables = @products.where(category: Category.find_by(name: "vegetables"))
+    authorize @vegetables
+
+    @fruits = @products.where(category: Category.find_by(name: "fruits"))
+    authorize @fruits
+
+    @meats = @products.where(category: Category.find_by(name: "meat"))
+    authorize @meats
+
+    @fish = @products.where(category: Category.find_by(name: "fish"))
+    authorize @fish
+
+    @dairy = @products.where(category: Category.find_by(name: "dairy"))
+    authorize @dairy
+
+    @bakery = @products.where(category: Category.find_by(name: "bakery"))
+    authorize @bakery
+
+    @wine = @products.where(category: Category.find_by(name: "wine"))
+    authorize @wine
+
+    @pantry = @products.where(category: Category.find_by(name: "pantry"))
+    authorize @pantry
+
+    @deli = @products.where(category: Category.find_by(name: "deli"))
+    authorize @deli
   end
 
   def show
