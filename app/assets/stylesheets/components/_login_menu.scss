@@ -1,0 +1,44 @@
+#login-modal {
+  padding: 60px;
+  padding-top: 140px;
+  width: 40vw;
+  height: calc(100vh + 200px);
+  position: fixed;
+  top: -100px;
+  right: 0px;
+  -webkit-transform: translateX(40vw);
+  transform: translateX(40vw);
+  transition: .3s ease all;
+  background-color: white;
+  z-index: 120;
+  box-shadow: 2px 0px 10px 0px rgba(0,0,0,0.2);
+}
+
+.show-login #login-modal {
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+}
+
+.show-login .navbar-harvest {
+  opacity: 0;
+}
+
+// LOGIN FORM FIELDS
+
+.form-control {
+  box-shadow: none;
+  border: none;
+}
+
+.login-title {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.simple_form.new_user {
+  padding: 0px;
+}
+
+div.boolean {
+  margin-left: 0px
+}

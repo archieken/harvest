@@ -19,7 +19,7 @@ input {
 
 
 
-input[type=number], input[type=text], input[type=email] {
+input[type=number], input[type=text], input[type=email], input[type=password]{
   border: none;
   border-bottom: 1.5px solid #eaeaea;
   color: black;
@@ -27,7 +27,7 @@ input[type=number], input[type=text], input[type=email] {
   margin-bottom: -2px;
 }
 
-input[type=number]::-webkit-input-placeholder, input[type=text]::-webkit-input-placeholder, input[type=email]::-webkit-input-placeholder {
+input[type=number]::-webkit-input-placeholder, input[type=text]::-webkit-input-placeholder, input[type=email]::-webkit-input-placeholder, input[type=password]::-webkit-input-placeholder {
   color: black;
   font-weight: 500;
 }
