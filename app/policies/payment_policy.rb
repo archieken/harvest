@@ -1,13 +1,13 @@
 class PaymentPolicy < ApplicationPolicy
-  def new
+    def new?
       true
     end
 
-    def create
+    def create?
       true
     end
 
-    def checkout
+    def confirmation?
       true
     end
 
