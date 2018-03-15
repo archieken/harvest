@@ -17,13 +17,13 @@ class ProductsController < ApplicationController
     @fish = @products.where(category: Category.find_by(name: "fish"))
     authorize @fish
 
-    @dairy = @products.where(category: Category.find_by(name: "dairy"))
+    @dairy = @products.where(category: Category.find_by(name: "dairy & eggs"))
     authorize @dairy
 
     @bakery = @products.where(category: Category.find_by(name: "bakery"))
     authorize @bakery
 
-    @wine = @products.where(category: Category.find_by(name: "wine"))
+    @wine = @products.where(category: Category.find_by(name: "wine & drinks"))
     authorize @wine
 
     @pantry = @products.where(category: Category.find_by(name: "pantry"))

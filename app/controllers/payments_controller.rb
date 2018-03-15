@@ -25,7 +25,7 @@ class PaymentsController < ApplicationController
 
   @order.update!(payment: charge.to_json, status: 'paid')
   authorize @order
-  redirect_to confirmation_path(:order_id)
+  redirect_to confirmation_path(@order)
 
   rescue Stripe::CardError => e
     flash[:alert] = e.message
@@ -44,5 +44,6 @@ private
 
   def set_order
     @order = Order.where(status: 'new').find(params[:order_id])
+    authorize @order
   end
 end
