@@ -1,6 +1,7 @@
 class PaymentPolicy < ApplicationPolicy
 
 
+
 class Scope < Scope
     def resolve
         scope.all
@@ -16,7 +17,12 @@ class Scope < Scope
       true
     end
 
+
     def checkout?
+      true
+    end
+
+    def confirmation?
       true
     end
 
