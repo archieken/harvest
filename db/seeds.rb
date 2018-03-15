@@ -6,6 +6,7 @@
   User.destroy_all
 
   farmers = ["Farmer Jill", "Farmer Bill", "Farmer Jack", "Farmer Giles", "Farmer Frank"]
+  cities = ["Talofa", "Ewingsdale", "Tyagarah", "Broken Head", "Coopers Shoot", "Byron Bay"]
 
   puts "Creating Users"
      emails = ["john@yadoo.com", "ringo@geemail.net", "george@zoohoo.org", "paul@yadoo.com", "bill@gmail.com", "george@yadoo.com"]
@@ -16,7 +17,7 @@
 
 
   puts "Creating Producer"
-    farmers.each {|farmer| Producer.create!(name: farmer)}
+    farmers.each {|farmer| Producer.create!(name: farmer, city: cities.sample)}
   puts "Producers made"
 
 
