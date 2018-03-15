@@ -1,4 +1,6 @@
 class PaymentsController < ApplicationController
+
+  skip_after_action :verify_authorized
   skip_before_action :authenticate_user!
   before_action :set_order
 
@@ -7,7 +9,8 @@ class PaymentsController < ApplicationController
   end
 
   def create
-  customer = Stripe::Customer.create(
+
+    customer = Stripe::Customer.create(
     source: params[:stripeToken],
     email:  params[:stripeEmail]
   )
@@ -38,6 +41,5 @@ private
 
   def set_order
     @order = Order.where(status: 'new').find(params[:order_id])
-    authorize @order
   end
 end
