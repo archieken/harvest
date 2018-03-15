@@ -22,7 +22,7 @@
   puts "Producers made"
 
   puts "Creating Category"
-    Category.create!(name: "dairy & eggs", subcategory: "dairy & eggs")
+    Category.create!(name: "vegetables", subcategory: "dairy & eggs")
   puts "Category made"
 
  puts "Creating Products"
