@@ -1,4 +1,5 @@
 class PaymentsController < ApplicationController
+  skip_before_action :authenticate_user!
   before_action :set_order
 
   def new
@@ -22,10 +23,15 @@ class PaymentsController < ApplicationController
   authorize @order
   redirect_to products_path
 
-rescue Stripe::CardError => e
-  flash[:alert] = e.message
-  redirect_to orders_path
-end
+  rescue Stripe::CardError => e
+    flash[:alert] = e.message
+    redirect_to orders_path
+  end
+
+  def checkout
+    # user = User.first
+    # UserMailer.welcome(user).deliver_now
+  end
 
 
 private

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   #get 'order_lines/create'
 
   #get 'orders/index'
-
+  get '/products/:id/add', to: 'order_lines#add_to_basket', as: 'add_to_basket'
 
   get '/order_lines/:id/add', to: 'order_lines#add', as: 'add_order_lines'
 
@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'pages#home'
-    resources :users, only: [:new, :create, :edit, :update]
+    resources :users, only: [:new, :create, :edit, :update] do
+      resources :contacts, only: [:update]
+    end
     resources :orders, only: [:index] do
       resources :payments, only: [:new, :create]
     end
@@ -24,4 +26,7 @@ Rails.application.routes.draw do
       resources :order_lines, only: [:create, :update]
     end
     resources :order_lines, only: [:destroy]
+
+    get  "/postcodecheckers", to: "postcodecheckers#check_address"
+    get  "/checkout", to: "payments#checkout"
 end

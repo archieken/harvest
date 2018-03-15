@@ -10,3 +10,15 @@
     <%= alert %>
   </div>
 <% end %>
+<% if check %>
+
+    <div id="check_card" class="alert" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+      <%= check %>
+      <div id="flash_button">
+        <%= link_to "shop now", products_path, class: "homepage-button" %>
+      </div>
+    </div>
+
+<% end %>
