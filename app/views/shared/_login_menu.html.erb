@@ -1,0 +1,28 @@
+
+<div id="site-wrapper">
+  <div id="login-modal">
+
+    <div class="flex-space-between">
+      <a href="#" class="toggle-login basket-button"><%= image_tag("Triangle.svg", class: "triangle-icon rotate-triangle-icon") %> GO BACK</a>
+      <h3 class="basket-title">LOGIN</h3>
+    </div>
+
+    <h3 class="login-title">Log in</h3>
+
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-signup">
+        <%= f.input :email, required: false, placeholder: "Email", autofocus: true, label: false%>
+        <%= f.input :password, required: false, placeholder: "Password", label: false %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+
+      <div class="form-actions-login">
+        <%= f.button :submit, "Log in" %>
+      </div>
+      <div class="form-actions-signup">
+        <%= render "devise/shared/links" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
