@@ -1,14 +1,37 @@
 #confirmation_card{
   background: #fff;
   border-radius: 2px;
-  display: inline-block;
-  margin: 1rem;
-  position: fixed;
-  bottom: 50px;
+
+  position: relative;
   width: 400px;
   color: #524F4C;
+
+  left: 33%;
+  margin-top: 130px;
+  margin-bottom: 30px;
 
 
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)!important;
   background-color: #white!important;
+}
+
+#confirmation_headline {
+  padding: 20px;
+  text-align: center;
+
+}
+
+#confirmation_text {
+  padding: 20px;
+}
+
+#confirmation_button {
+  padding: 20px;
+  text-align: center;
+}
+
+#confirmation_quote {
+  padding: 20px;
+  text-align: center;
+  font-style: italic;
 }
