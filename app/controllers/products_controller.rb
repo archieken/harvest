@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
     @bakery = @products.where(category: Category.find_by(name: "bakery"))
     authorize @bakery
 
-    @wine = @products.where(category: Category.find_by(name: "wine"))
+    @wine = @products.where(category: Category.find_by(name: "wine "))
     authorize @wine
 
     @pantry = @products.where(category: Category.find_by(name: "pantry"))
