@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
 
-  add_flash_types :check
+  add_flash_types :check, :basket_flash
 
   protect_from_forgery with: :exception
   before_action :authenticate_user!

@@ -18,6 +18,7 @@ skip_before_action :authenticate_user!, except: :add_to_basket
       order.amount = @orderline.product.price
       order.save
     end
+   # flash[:basket_flash]
     redirect_back(fallback_location: products_path)
   end
 
