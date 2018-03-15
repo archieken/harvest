@@ -1,5 +1,3 @@
-
-
   OrderLine.destroy_all
   Order.destroy_all
   Product.destroy_all
