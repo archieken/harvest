@@ -5,7 +5,8 @@
     <p class="principal-para">Let's find your local stall and make sure you're within our delivery area.</p>
 
     <%= form_tag postcodecheckers_path, method: :post do %>
-      <input id="insert" class="postcode-input-field" name="address" type="text" placeholder="check address"/>
+      <input id="address" class="postcode-input-field" name="address" type="text" placeholder="check address"/>
+
       <input type="submit" value="shop now" class="homepage-button homepage-submit" data-modal="#modal">
     <% end %>
   </div>
@@ -14,27 +15,27 @@
 <div class="section" style="background-color: #fbf8f4;">
   <div class="section-content">
     <h2 class="home-title">Why Shop Here?</h2>
-    <p class="section-para">Harvest helps your family free up time, shop wisely, and eat healthfully while supporting small businesses and local food banks.</p>
+    <p class="section-para">Harvest helps you cut out the middleman by letting you order directly from the producter.</p>
     <div class="features">
       <div class="feature">
-        <div class="feature-avatar"></div>
-        <h4 class="feature-title">Convenient Home Delivery</h4>
+        <div class="feature-avatar"><%= image_tag("https://image.freepik.com/free-vector/100-fresh-green-stamp_1017-7157.jpg") %></div>
+        <h4 class="feature-title">Easy</h4>
         <p class="feature-para">We take the work out of getting great food in your kitchen and on the table.</p>
       </div>
       <div class="feature">
-        <div class="feature-avatar"></div>
-        <h4 class="feature-title">Clean Store Promise</h4>
-        <p class="feature-para">Shop confidently - All our food meets high standards. Satisfaction guaranteed!</p>
+        <div class="feature-avatar"><%= image_tag("https://image.freepik.com/free-vector/100-fresh-green-stamp_1017-7157.jpg") %></div>
+        <h4 class="feature-title">Fresh</h4>
+        <p class="feature-para">Order from the field. Get fresh food that has been picked from the field for you.</p>
       </div>
       <div class="feature">
-        <div class="feature-avatar"></div>
-        <h4 class="feature-title">Support Small Local Businesses</h4>
+        <div class="feature-avatar"><%= image_tag("https://image.freepik.com/free-vector/100-fresh-green-stamp_1017-7157.jpg") %></div>
+        <h4 class="feature-title">Support Local Producers</h4>
         <p class="feature-para">By shopping here, you support the livelihood of all our local vendors.</p>
       </div>
       <div class="feature">
-        <div class="feature-avatar"></div>
-        <h4 class="feature-title">Eco-Delivery</h4>
-        <p class="feature-para">An eco-friendly, reusable bag is left at your address each week on your delivery day.</p>
+        <div class="feature-avatar"><%= image_tag("https://image.freepik.com/free-vector/100-fresh-green-stamp_1017-7157.jpg") %></div>
+        <h4 class="feature-title">Eco-friendly</h4>
+        <p class="feature-para">Pick local food to reduce CO2 emissions.</p>
       </div>
     </div>
   </div>
@@ -47,15 +48,15 @@
     <h2 class="home-title">Local Producers</h2>
     <p class="section-para">Harvest makes it possible to support local and shop with the people you know, trust and love.</p>
     <div class="cat-links">
-      <%= link_to "vegetables", products_path, class: "homepage-cat-link" %>
-      <%= link_to "fruits", products_path, class: "homepage-cat-link" %>
-      <%= link_to "meat", products_path, class: "homepage-cat-link" %>
-      <%= link_to "fish", products_path, class: "homepage-cat-link" %>
-      <%= link_to "dairy & eggs", products_path, class: "homepage-cat-link" %>
-      <%= link_to "bakery", products_path, class: "homepage-cat-link" %>
-      <%= link_to "wine & drinks", products_path, class: "homepage-cat-link" %>
-      <%= link_to "pantry", products_path, class: "homepage-cat-link" %>
-      <%= link_to "deli", products_path, class: "homepage-cat-link" %>
+      <%= link_to "vegetables", products_path(:anchor => "vegetables"), class: "homepage-cat-link" %>
+      <%= link_to "fruits", products_path(:anchor => "fruits"), class: "homepage-cat-link" %>
+      <%= link_to "meat", products_path(:anchor => "meats"), class: "homepage-cat-link" %>
+      <%= link_to "fish", products_path(:anchor => "fish"), class: "homepage-cat-link" %>
+      <%= link_to "dairy & eggs", products_path(:anchor => "dairy"), class: "homepage-cat-link" %>
+      <%= link_to "bakery", products_path(:anchor => "bakery"), class: "homepage-cat-link" %>
+      <%= link_to "wine & drinks", products_path(:anchor => "wine"), class: "homepage-cat-link" %>
+      <%= link_to "pantry", products_path(:anchor => "pantry"), class: "homepage-cat-link" %>
+      <%= link_to "deli", products_path(:anchor => "deli"), class: "homepage-cat-link" %>
     </div>
   </div>
 </div>
@@ -63,7 +64,7 @@
 <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">farmers</h3>
-    <%= link_to "shop vegetables & fruits", products_path, class: "homepage-cat-link" %>
+    <%= link_to "shop vegetables & fruits", products_path(:anchor => "vegetables"), class: "homepage-cat-link" %>
   </div>
 
   <div class="farmer-cards">
@@ -118,7 +119,7 @@
 <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">butchers</h3>
-    <%= link_to "shop meats", products_path, class: "homepage-cat-link" %>
+    <%= link_to "shop meats", products_path(:anchor => "meats"), class: "homepage-cat-link" %>
   </div>
 
   <div class="farmer-cards">
@@ -173,7 +174,7 @@
 <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">fishermen</h3>
-    <%= link_to "shop local fish", products_path, class: "homepage-cat-link" %>
+    <%= link_to "shop local fish", products_path(:anchor => "fish"), class: "homepage-cat-link" %>
   </div>
 
   <div class="farmer-cards">
@@ -228,7 +229,7 @@
 <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">dairy & egg farmers</h3>
-    <%= link_to "shop dairy & egg products", products_path, class: "homepage-cat-link" %>
+    <%= link_to "shop dairy & egg products", products_path(:anchor => "dairy"), class: "homepage-cat-link" %>
   </div>
 
   <div class="farmer-cards">
@@ -283,7 +284,7 @@
 <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">bakers</h3>
-    <%= link_to "shop baked goods", products_path, class: "homepage-cat-link" %>
+    <%= link_to "shop baked goods", products_path(:anchor => "bakery"), class: "homepage-cat-link" %>
   </div>
 
   <div class="farmer-cards">
@@ -338,7 +339,7 @@
 <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">winemakers</h3>
-    <%= link_to "shop wine & drinks", products_path, class: "homepage-cat-link" %>
+    <%= link_to "shop wine & drinks", products_path(:anchor => "wine"), class: "homepage-cat-link" %>
   </div>
 
   <div class="farmer-cards">
@@ -393,7 +394,7 @@
 <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">cooks</h3>
-    <%= link_to "shop pantry items", products_path, class: "homepage-cat-link" %>
+    <%= link_to "shop pantry items", products_path(:anchor => "pantry"), class: "homepage-cat-link" %>
   </div>
 
   <div class="farmer-cards">
@@ -448,7 +449,7 @@
 <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">deli creatives</h3>
-    <%= link_to "shop deli items", products_path, class: "homepage-cat-link" %>
+    <%= link_to "shop deli items", products_path(:anchor => "deli"), class: "homepage-cat-link" %>
   </div>
 
   <div class="farmer-cards">
@@ -500,14 +501,4 @@
   </div>
 </div>
 
-<div class="demo-btns">
-   <div class="info">
-      <div class="buttons">
-        <p>
-          <a href="" data-modal="#modal" class="modal__trigger">Modal 1</a>
-        </p>
-      </div>
-    </div>
-  </div>
 
-<%= javascript_pack_tag 'modal' %>

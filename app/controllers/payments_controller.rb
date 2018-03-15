@@ -1,4 +1,7 @@
 class PaymentsController < ApplicationController
+
+  skip_after_action :verify_authorized, except: :check_address
+
   skip_before_action :authenticate_user!
   before_action :set_order
 
@@ -7,7 +10,8 @@ class PaymentsController < ApplicationController
   end
 
   def create
-  customer = Stripe::Customer.create(
+
+    customer = Stripe::Customer.create(
     source: params[:stripeToken],
     email:  params[:stripeEmail]
   )
@@ -21,16 +25,18 @@ class PaymentsController < ApplicationController
 
   @order.update!(payment: charge.to_json, status: 'paid')
   authorize @order
-  redirect_to products_path
+  redirect_to confirmation_path(@order)
 
   rescue Stripe::CardError => e
     flash[:alert] = e.message
     redirect_to orders_path
   end
 
-  def checkout
+  def confirmation
+    @order = Order.find(params[:order_id])
     # user = User.first
     # UserMailer.welcome(user).deliver_now
+
   end
 
 
@@ -38,6 +44,6 @@ private
 
   def set_order
     @order = Order.where(status: 'new').find(params[:order_id])
-    authorize @order
+
   end
 end
