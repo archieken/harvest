@@ -1,10 +1,11 @@
-.simple_form {
-
-  margin-top: 85px;
-  margin-left: 150px;
+.simple_form.new_user{
   padding: 20px;
-  background-color: whitesmoke;
-  width: 80%;
+  background-color: transparent;
+
+}
+
+.form_control.string.email.optional {
+  border-bottom: solid black;
 }
 
 
@@ -26,4 +27,25 @@ div.boolean label, label.collection_radio_buttons {
   color: black;
   display: block;
   margin-left: 120px;
+}
+
+.signup-form {
+  margin-top: 150px;
+  margin-bottom: 80px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)!important;
+}
+
+.signup-headline {
+  font-family: Montserrat;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.form-actions-login {
+  width: 100%;
+}
+
+.btn {
+  width: 60%;
+  border: none;
 }
