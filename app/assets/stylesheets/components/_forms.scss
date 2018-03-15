@@ -14,17 +14,20 @@ input {
   color: #524F4C;
   padding-bottom: 2px;
   margin-bottom: -2px;
+  background-color: transparent;
 }
+
+
 
 input[type=number], input[type=text], input[type=email] {
   border: none;
   border-bottom: 1.5px solid #eaeaea;
-  color: #524F4C;
+  color: black;
   padding-bottom: 2px;
   margin-bottom: -2px;
 }
 
 input[type=number]::-webkit-input-placeholder, input[type=text]::-webkit-input-placeholder, input[type=email]::-webkit-input-placeholder {
-  color: #dedede;
+  color: black;
   font-weight: 500;
 }

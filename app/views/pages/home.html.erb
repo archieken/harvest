@@ -2,9 +2,12 @@
 <div class="banner">
   <div class="banner-content">
     <h2 class="home-title">The Farmer's Market.<br>Delivered to your door.</h2>
-    <p class="principal-para">Clean, honest food. Made by locals you love and brands you believe in. Home delivered by a family-owned company that’s dedicated to improving your home and community.</p>
+    <p class="principal-para">Let's find your local stall and make sure you're within our delivery area.</p>
 
-    <%= link_to "shop now", products_path, class: "homepage-button" %>
+    <%= form_tag postcodecheckers_path, method: :get do %>
+      <input id="insert" class="postcode-input-field" name="address" type="text" placeholder="check address"/>
+      <input type="submit" value="shop now" class="homepage-button homepage-submit" data-modal="#modal">
+    <% end %>
   </div>
 </div>
 
@@ -37,22 +40,9 @@
   </div>
 </div>
 
+
+
 <div class="section" style="background-color: white">
-  <div class="section-content">
-    <h2 class="home-title">Get Started</h2>
-    <p class="section-para">Let's find your local stall and make sure you're within our delivery area.</p>
-
-
-    <%= form_tag postcodecheckers_path, method: :get do %>
-      <input id="insert" class="postcode-input-field" name="address" type="text" placeholder="check postcode"/>
-      <input type="submit" value="check" class="homepage-button homepage-submit" data-modal="#modal">
-    <% end %>
-
-  </div>
-</div>
-
-
-<div class="section" style="background-color: #fbf8f4">
   <div class="section-content">
     <h2 class="home-title">Local Producers</h2>
     <p class="section-para">Harvest makes it possible to support local and shop with the people you know, trust and love.</p>
@@ -516,23 +506,6 @@
         <p>
           <a href="" data-modal="#modal" class="modal__trigger">Modal 1</a>
         </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal -->
-  <div id="modal" class="modal modal__bg" role="dialog" aria-hidden="true">
-    <div class="modal__dialog">
-      <div class="modal__content">
-        <h1>Modal</h1>
-        <p>Sorry, we are currently not delivering to your area. Feel free to sign up to our mailing list.</p>
-        <%= link_to "shop now", products_path, class: "homepage-button" %>
-
-        <!-- modal close button -->
-        <a href="" class="modal__close demo-close">
-          <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/><path d="M0 0h24v24h-24z" fill="none"/></svg>
-        </a>
-
       </div>
     </div>
   </div>
