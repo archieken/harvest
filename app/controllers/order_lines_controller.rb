@@ -1,10 +1,10 @@
 class OrderLinesController < ApplicationController
 skip_after_action :verify_authorized, except: :check_address
-skip_before_action :authenticate_user!
+skip_before_action :authenticate_user!, except: :add_to_basket
 
 
   def add_to_basket
-    if (!current_user.orders.find_by(status:"new").blank?)
+    if ((!current_user.orders.nil?) && (!current_user.orders.find_by(status:"new").blank?))
       order = current_user.orders.find_by(status:"new")
 
       @orderline = OrderLine.create!(product: Product.find(params[:id].to_i), quantity: 1, order: order)
