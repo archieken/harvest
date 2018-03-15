@@ -1,9 +1,24 @@
 class PaymentPolicy < ApplicationPolicy
-    def new?
+
+
+
+class Scope < Scope
+    def resolve
+        scope.all
+    end
+  end
+
+
+  def new?
       true
     end
 
     def create?
+      true
+    end
+
+
+    def checkout?
       true
     end
 
@@ -14,7 +29,7 @@ class PaymentPolicy < ApplicationPolicy
 
   private
 
-    def set_order
+    def set_order?
       true
     end
 end
