@@ -7,7 +7,9 @@ skip_before_action :authenticate_user!, only: [:check_address]
   def check_address
 
     if !params[:address].blank?
+
       pc = PostCodeChecker.new(address: params[:address])
+
 
       if pc.save
 
@@ -36,7 +38,7 @@ skip_before_action :authenticate_user!, only: [:check_address]
           #render json: {success: true}
           #redirect to city
         else
-          flash[:check] = 'Hey there! Harvest is not yet available here. Learn how communities benefit through Harvest. '
+          flash[:check] = "Hey there! Harvest is working on bringing your favorite local products to your home in #{pc.address} soon. "
           redirect_to root_path
 
           #redirect_to root_path(invalid_code: true)
