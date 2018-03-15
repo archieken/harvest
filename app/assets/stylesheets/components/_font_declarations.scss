@@ -7,6 +7,18 @@ a, h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
 }
 
+a:hover {
+    text-decoration: none;
+    opacity: 0.75;
+    color: #524F4C;
+}
+
+a:active {
+    text-decoration: none;
+    opacity: 0.75;
+    color: #524F4C;
+}
+
 h3 {
   font-weight: 800;
   font-size: 20px;
