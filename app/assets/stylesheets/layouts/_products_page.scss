@@ -32,6 +32,11 @@
   opacity: 1;
 }
 
+.sidenav-link.active {
+  font-weight: 600;
+  opacity: 1;
+}
+
 .sidenav-link:hover {
   text-decoration: none;
   color: #524F4C;
