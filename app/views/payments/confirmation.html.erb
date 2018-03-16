@@ -2,16 +2,22 @@
 #send email
  -->
 <div id="confirmation_card">
+
   <div id="confirmation_headline">
     <h2>Thanks for shopping with harvest.</h2>
   </div>
+
+  <div id="confirmation-image-center">
+    <div id="confirmation-image" style="background-image: url('https://instagram.fmad3-1.fna.fbcdn.net/vp/313e7eb53c0c2aeefdb6226de1bc3cdb/5B37408C/t51.2885-15/e35/26186842_389010881539000_2585585744009494528_n.jpg')";>
+    </div>
+  </div>
+
+
   <div id="confirmation_text">
     <p>Your order of Amount: <%= humanized_money_with_symbol(@order.amount) %> will be delivered to you soon. Check your emails to stay updated.</p>
   </div>
 
-  <div id="confirmation-image">
-    <img src="https://i.guim.co.uk/img/media/ec11912e9a113e3f959c01c058bd83fca6ab91e5/0_0_1200_720/master/1200.jpg?w=300&q=55&auto=format&usm=12&fit=max&s=b009beb46629731948302c5e1d38718c" alt="pig">
-  </div>
+
 
   <!-- <div id="confirmation_quote">
     <p>To keep the body in good health is a duty, otherwise we shall not be able to keep our mind strong and clear. - Gautama Buddha</p>

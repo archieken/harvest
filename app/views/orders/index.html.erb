@@ -82,6 +82,18 @@
     data-description="<%=current_user.fullname%>'s order."
     data-amount="<%= @order.amount_cents %>"
     data-currency="<%= @order.amount.currency %>"></script>
+<script type="text/javascript">
+     $(document).ready(function(){
+        $(".stripe-button-el span").remove();
+            $("button.stripe-button-el").removeAttr('style').css({
+                "display":"inline-block",
+                "width":"100%",
+                "padding":"15px",
+                "background":"#3fb0ac",
+                "color":"white",
+                "font-size":"1.3em" }).html("Sign Me Up!");
+        });
+     </script>
 
   <% end %>
 
@@ -106,7 +118,17 @@
   });
 
   $('.confirm_address').click(function (event) {
-    document.getElementsByClassName("stripe-button-el")[0].style.display = 'block';
+    document.getElementsByClassName("stripe-button-el")[0].css({
+                "display":"inline-block",
+                "width":"100%",
+                "padding":"15px",
+                "background":"#3fb0ac",
+                "color":"white",
+                "font-size":"1.3em" }).html("Sign Me Up!");
+        });
+
+
+
   });
 </script>
 

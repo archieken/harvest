@@ -1,9 +1,3 @@
-<style>
-  .simple_form input[type='submit'] {
-    margin-left: 0px;
-  }
-</style>
-
 <div id="site-wrapper">
   <div id="site-menu">
     <div class="basket-content">
@@ -17,23 +11,33 @@
                   <div class="basket-card-producer-avatar">
                   </div>
                 </div>
-                <div class="basket-item-info">
-                  <div class="item-info-spacing">
-                    <div class="item-name-and-producer">
-                      <% product = item.product  %>
-                      <% total = product.price*item.quantity%>
-                      <h3 class="basket-item-name"><%= product.name%></h3>
-                      <p class="basket-item-producer-info"><%= product.producer.name %></p>
-                      <% producer = product.producer  %>
-                      <p class="basket-item-producer-info"><%= producer.city  %> | 10KM</p>
-                    </div>
-                    <div class="item-price-and-qty">
-                      <p class="item-qty"><%= item.quantity%></p>
-                      <p class="item-price"><%= product.price%> / <%= product.unit_type%></p>
-                      <p class="item-price"><%= total%></p>
+
+                  <div class="basket-item-info">
+                    <div class="item-info-spacing">
+                      <div class="item-name-and-producer">
+                        <% product = item.product  %>
+                        <% total = product.price*item.quantity%>
+                        <h3 class="basket-item-name"><%= product.name%></h3>
+                        <p class="basket-item-producer-info"><%= product.producer.name %></p>
+                        <% producer = product.producer  %>
+                        <p class="basket-item-producer-info"><%= producer.city  %> | 10KM</p>
+                      </div>
+                      <div class="item-price-and-qty">
+                        <p class="item-qty qty" ><%= item.quantity%></p>
+                        <p class="item-price"><%= product.price%> / <%= product.unit_type%></p>
+                        <p class="item-price"><%= total%></p>
+
+                        <div class="add-controls-basket">
+                          <div class="plus-minus-qty">
+                              <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(item.id), method: :get, class: "add_quant", remote: true, onclick: "console.log('dfsdgsrg')"%>
+                              <h3 class="qty"><%= item.quantity %></h3>
+                              <%= link_to image_tag("plus-icon.png", size: "16x16"), add_order_lines_path(item.id), method: :get, class: "remove_quant", remote: true%>
+                          </div>
+                        </div>
+
+                      </div>
                     </div>
                   </div>
-                </div>
               </div>
             <% end %>
         <% else %>
@@ -58,76 +62,85 @@
         <div class="flex-space-between" style="margin-bottom: 40px; margin-top: 50px;">
           <h3 class="basket-button">TOTAL</h3>
           <% @order.amount_cents = @order.amount_cents + delivery_cost %>
-          <h3 class="basket-button"><%= humanized_money_with_symbol(@order.amount) %></h3>
+          <h3 class="basket-button">AUS <%= humanized_money_with_symbol(@order.amount) %></h3>
         </div>
         <div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; margin-bottom: 40px; margin-top: 50px;">
             <div>
-              <h3 style="margin-bottom: 20px; margin-top: 30px; width: 100%">My customer details</h3>
+              <h3 style="margin-bottom: 20px; margin-top: 30px; width: 100%">My info</h3>
             </div>
             <div style="width: 100%; text-align: left; color: #C0C0C0">
               <%= simple_form_for [current_user, @contact], remote: true do |f| %>
-                <%= f.input :phone, label: 'phone', placeholder: @contact.phone %>
-                <%= f.input :address, label: 'address',placeholder: @contact.address, :input_html => { id: "address"} %>
+                <%= f.input :phone, label: false, placeholder: "my phone number"  %>
+                <%= f.input :address, label: false, placeholder: "my delivery address", :input_html => { id: "address"} %>
                 <%= f.submit "Confirm", class: "confirm_address"%>
               <% end %>
             </div>
-
-
-
-
-
             <div style="width: 100%; padding-top: 20px;">
               <% if ((!@order.id.nil?) && (!@order.order_lines.empty?)) %>
-
                 <%= form_tag order_payments_path(@order.id) do %>
                   <article>
                   </article>
 
 
-                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" style=""
+
+                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+
                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                     data-name="My Order"
                     data-email="<%= current_user.email %>"
                     data-description="<%=current_user.fullname%>'s order."
                     data-amount="<%= @order.amount_cents %>"
                     data-currency="<%= @order.amount.currency %>"></script>
-
                   <% end %>
+
+
+                  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+                  <script type="text/javascript">
+                        $(document).ready(function(){
+                            $(".stripe-button-el span").remove();
+                                $("button.stripe-button-el").removeAttr('style').css({
+                                    "display":"inline-block",
+                                    "width":"100%",
+                                    "padding":"15px",
+                                    "background":"#3fb0ac",
+                                    "color":"white",
+                                    "font-size":"1.3em" }).html("Sign Me Up!");
+                            });
+                    </script>
 
                 </div>
                 <% end %>
                 </div>
-
-                <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-                <script>
-
-                  <% if current_user.contact.nil? %>
-                   document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
-                   <% end %>
-
-                  $('.add_to_basket').click(function (event) {
-                    addToBasket();
-                  });
-
-                  $('.remove_from_basket').click(function (event) {
-
-                    removeFromBasket();
-                  });
-
-                  $('.confirm_address').click(function (event) {
-                    document.getElementsByClassName("stripe-button-el")[0].style.display = 'block';
-                  });
-                </script>
               </div>
-
-
-
-
-
-
-
         </div>
     </div>
   </div>
-</div>
+
+
+
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+                <script>
+
+                  <% if current_user.contact.nil? || current_user.contact.address.blank? %>
+
+                </div>
+                <% end %>
+                </div>
+                <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+                <script>
+                  <% if current_user.contact.nil? || current_user.contact.nil? %>
+
+                   document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+                   <% end %>
+                  $('.add_to_basket').click(function (event) {
+                    addToBasket();
+                  });
+                  $('.remove_from_basket').click(function (event) {
+                    removeFromBasket();
+                  });
+                  $('.confirm_address').click(function (event) {
+                    document.getElementsByClassName("stripe-button-el")[0].style.display = 'inline-block';
+                  });
+                </script>
 

@@ -11,7 +11,10 @@ class ProductsController < ApplicationController
 
     #from orders controller
 
-    Contact.find_by(user_id: current_user.id) ? @contact = Contact.find_by(user_id: current_user.id) : @contact = Contact.create(user_id: current_user.id)
+
+     if !current_user.nil?
+      Contact.find_by(user_id: current_user.id) ? @contact = Contact.find_by(user_id: current_user.id) : @contact = Contact.create(user_id: current_user.id)
+    end
 
     @orders = policy_scope(Order)
     authorize @orders
