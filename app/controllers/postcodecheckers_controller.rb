@@ -6,13 +6,13 @@ class PostcodecheckersController < ApplicationController
 
   def check_address
 
+
     if !params[:address].blank?
 
       pc = PostCodeChecker.new(address: params[:address])
 
 
       if pc.save
-
 
         distance_checker(pc)
       end
