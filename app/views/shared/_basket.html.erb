@@ -23,10 +23,11 @@
                         <% producer = product.producer  %>
                         <p class="basket-item-producer-info"><%= producer.city  %> | 10KM</p>
                       </div>
+
                       <div class="add-controls-basket">
                         <div class="plus-minus-qty">
                           <div>
-                            <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(item.id), method: :get, class: "add_quant_basket", remote: true, onclick: "console.log('dfsdgsrg')"%>
+                            <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(item.id), method: :get, class: "add_quant_basket", remote: true%>
                           </div>
 
                           <div>
@@ -81,10 +82,12 @@
               <h3 style="margin-bottom: 20px; margin-top: 30px; width: 100%">delivery details</h3>
             </div>
             <div style="width: 100%; text-align: left; color: #C0C0C0">
+
               <%= simple_form_for [current_user, @contact], remote: true do |f| %>
                 <%= f.input :phone, label: false, placeholder: "Phone Number"  %>
                 <%= f.input :address, label: false, placeholder: "Delivery Address", :input_html => { id: "address"} %>
-                <%= f.submit "SAVE", class: "confirm_address basket-button"%>
+                <div style="display:none;"><%= f.submit "SAVE", class: "confirm_address basket-button"%></div>
+
               <% end %>
             </div>
             <div style="width: 100%; padding-top: 20px;">
@@ -112,11 +115,12 @@
                             $(".stripe-button-el span").remove();
                                 $("button.stripe-button-el").removeAttr('style').css({
                                     "display":"inline-block",
-                                    "width":"100%",
-                                    "padding":"15px",
-                                    "background":"#3fb0ac",
+                                    "width":"30%",
+                                    "padding":"4px",
+                                    "background":"#ffb96e",
                                     "color":"white",
-                                    "font-size":"1.3em" }).html("checkout");
+                                    "font-size":"16px" }).html("checkout");
+
                             });
                     </script>
 
@@ -130,29 +134,19 @@
 
 
 
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
                 <script>
 
                   <% if current_user.contact.nil? || current_user.contact.address.blank? %>
+                    document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+                 <% end %>
 
-                </div>
-                <% end %>
-                </div>
-                <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-                <script>
-                  <% if current_user.contact.nil? || current_user.contact.nil? %>
-
-                   document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
-                   <% end %>
-                  $('.add_to_basket').click(function (event) {
-                    addToBasket();
-                  });
-                  $('.remove_from_basket').click(function (event) {
-                    removeFromBasket();
-                  });
-                  $('.confirm_address').click(function (event) {
+                  $('#address').blur(function (event) {
+                    console.log("blurrr");
+                    document.getElementById("edit_contact_2").submit();
                     document.getElementsByClassName("stripe-button-el")[0].style.display = 'inline-block';
                   });
+
                 </script>
 

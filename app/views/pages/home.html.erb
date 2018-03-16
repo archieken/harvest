@@ -2,8 +2,7 @@
 <div class="banner">
   <div class="banner-content">
     <h2 class="home-title">The Farmer's Market.<br>Delivered to your door.</h2>
-    <p class="principal-para">Let's find your local stall and make sure you're within our delivery area.</p>
-
+    <p class="principal-para">See the grocery products that local farmers are providing in your delivery area.</p>
     <%= form_tag postcodecheckers_path, method: :post do %>
       <input id="address" class="postcode-input-field" name="address" type="text" placeholder="check address"/>
 
@@ -25,12 +24,12 @@
       <div class="feature">
         <div class="feature-avatar"><i class="fa fa-leaf fa-4x"></i></div>
         <h4 class="feature-title">Fresh</h4>
-        <p class="feature-para">Order from the field. Get fresh food that has been picked from the field for you.</p>
+        <p class="feature-para">Get fresh food that is picked and prepared when you order.</p>
       </div>
       <div class="feature">
         <div class="feature-avatar"><i class="fa fa-map-marker fa-4x"></i></div>
         <h4 class="feature-title">Support Local Producers</h4>
-        <p class="feature-para">By shopping here, you support the livelihood of all our local vendors.</p>
+        <p class="feature-para">Engage with your community and support the livelihood of all our local vendors.</p>
       </div>
       <div class="feature">
         <div class="feature-avatar"><i class="fa fa-recycle fa-4x"></i></div>
@@ -46,7 +45,7 @@
 <div class="section" style="background-color: white">
   <div class="section-content">
     <h2 class="home-title">Local Producers</h2>
-    <p class="section-para">Harvest makes it possible to support local and shop with the people you know, trust and love.</p>
+    <p class="section-para">Harvest lets you support your community and shop through people you know, trust and love.</p>
     <div class="cat-links">
       <%= link_to "vegetables", products_path(:anchor => "vegetables"), class: "homepage-cat-link" %>
       <%= link_to "fruits", products_path(:anchor => "fruits"), class: "homepage-cat-link" %>
