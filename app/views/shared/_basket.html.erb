@@ -1,6 +1,7 @@
 <div id="site-wrapper">
   <div id="site-menu">
     <div class="basket-content">
+
       <div class="basket-items">
         <% if !@order_lines.blank? %>
           <h3 style="margin-bottom: 40px; margin-top: 15px; display: inline-block;">items</h3>
@@ -50,9 +51,12 @@
               </div>
             <% end %>
         <% else %>
-          <h3>You have no items in your basket.</h3>
+          <h3 style="margin-bottom: 40px; margin-top: 15px; display: inline-block;">items</h3>
+          <p class="item-qty">(<%= @order_lines.size %> items)</p>
+          <p class="summary-item" style="color: #FFB96E">Currently there are no items in your basket</p>
         <% end %>
       </div>
+
       <div class="basket-summary">
         <div class="flex-space-between">
           <a href="#" class="toggle-nav basket-button"><%= image_tag("Triangle.svg", class: "triangle-icon rotate-triangle-icon") %> GO BACK</a>
@@ -75,15 +79,15 @@
         </div>
         <div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; margin-bottom: 40px; margin-top: 50px;">
             <div>
-              <h3 style="margin-bottom: 20px; margin-top: 30px; width: 100%">My info</h3>
+              <h3 style="margin-bottom: 20px; margin-top: 30px; width: 100%">delivery details</h3>
             </div>
             <div style="width: 100%; text-align: left; color: #C0C0C0">
 
+              <%= simple_form_for [current_user, @contact], remote: true do |f| %>
+                <%= f.input :phone, label: false, placeholder: "Phone Number"  %>
+                <%= f.input :address, label: false, placeholder: "Delivery Address", :input_html => { id: "address"} %>
+                <div style="display:none;"><%= f.submit "SAVE", class: "confirm_address basket-button"%></div>
 
-              <%= simple_form_for [current_user, @contact], remote: true, input_html: { id: "address_form" } do |f| %>
-                <%= f.input :phone, label: false, placeholder: "my phone number"  %>
-                <%= f.input :address, label: false, placeholder: "my delivery address", :input_html => { id: "address"}%>
-               <div style="display:none;"> <%= f.submit "Confirm"%></div>
               <% end %>
             </div>
             <div style="width: 100%; padding-top: 20px;">

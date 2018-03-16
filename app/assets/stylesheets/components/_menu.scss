@@ -76,6 +76,8 @@
   color: #524F4C;
   margin: 0px;
   text-decoration: none;
+  border-bottom: none;
+  padding: 0px;
 }
 
 .triangle-icon {
@@ -199,9 +201,9 @@
 // ---------------- BASKET CONTACT INFO FORM ----------------
 
 .simple_form input[type='submit'] {
-  margin-left: 0px!important;
-  margin-top: 0px!important;
-  margin-bottom: 30px!important;
+  margin-left: 0px;
+  margin-top: 20px;
+  margin-bottom: 30px;
   color: #524F4C;
 }
 
