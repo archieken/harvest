@@ -19,7 +19,6 @@
 
     <div class="category-section" id="vegetables">
       <h3>vegetables</h3>
-
       <div class="products-index">
           <% @vegetables.each do |product| %>
             <% @product = product %>
@@ -136,6 +135,21 @@
     document.querySelector(".hidebasket").style.display = "inline";
   });
 
-</script>
 
+  $(window).scroll(function() {
+    var position = $(this).scrollTop();
+    position = position + 72;
+
+    $('.category-section').each(function() {
+        var target = $(this).offset().top;
+        var id = $(this).attr('id');
+
+        if (position >= target) {
+            $('.anchor').removeClass('active');
+            $('.anchor[href=#' + id + ']').addClass('active');
+        }
+    });
+});
+
+</script>
 
