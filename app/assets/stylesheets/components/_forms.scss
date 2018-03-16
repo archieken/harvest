@@ -22,13 +22,116 @@ input {
 input[type=number], input[type=text], input[type=email], input[type=password]{
   border: none;
   border-bottom: 1.5px solid #eaeaea;
-  color: black;
+  color: #524F4C;
   padding-bottom: 2px;
   margin-bottom: -2px;
 }
 
 input[type=number]::-webkit-input-placeholder, input[type=text]::-webkit-input-placeholder, input[type=email]::-webkit-input-placeholder, input[type=password]::-webkit-input-placeholder {
-  color: black;
+  color: #C0C0C0;
   font-weight: 500;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background-color: transparent;
+    background-image: none;
+    color: #524F4C;
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: transparent;
+    background-image: none;
+    color: #524F4C;
+}
+
+
+div.boolean.simple_form input[type='submit'] {
+  margin: 0px;
+}
+
+.btn {
+  padding: 0px;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  color: #524F4C;
+  margin: 0px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: left;
+  cursor: pointer;
+  background-image: none;
+  white-space: nowrap;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  opacity: 0.75;
+  background-color: transparent;
+  padding: 0px
+}
+
+.btn:active {
+  opacity: 1;
+  background-color: transparent;
+  padding: 0px;
+  box-shadow: none;
+}
+
+.form-control:focus {
+    border-color: transparent;
+    outline: 0;
+    box-shadow: none;
+    border-bottom: 2px solid gray;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  border: none;
+  background-color: red;
+  margin: 7px 0 0;
+  margin-top: 18px;
+}
+
+.checkbox input[type="checkbox"] {
+  position: relative
+}
+
+div.boolean .optional {
+
+  border: none;
+}
+
+.form-control {
+  padding: 0px;
+}
+
+.checkbox label {
+    min-height: 25px;
+    padding-left: 0px;
+    font-weight: normal;
+    cursor: pointer;
+    margin-top: 18px;
+}
+
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, .has-error.radio-inline label, .has-error.checkbox-inline label {
+  color: #FC6565
+}
+
+.help-block {
+  font-size: 10px;
+}
+
+.has-error .form-control {
+    border-color: #FC6565;
+    box-shadow: none;
+}
