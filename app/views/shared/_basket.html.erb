@@ -74,8 +74,6 @@
 
 
 
-
-
             <div style="width: 100%; padding-top: 20px;">
               <% if ((!@order.id.nil?) && (!@order.order_lines.empty?)) %>
 
@@ -101,7 +99,7 @@
                 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
                 <script>
 
-                  <% if current_user.contact.nil? %>
+                  <% if current_user.contact.nil? || current_user.contact.nil? %>
                    document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
                    <% end %>
 
@@ -129,5 +127,4 @@
         </div>
     </div>
   </div>
-</div>
 
