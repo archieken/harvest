@@ -80,7 +80,11 @@
                 <%= form_tag order_payments_path(@order.id) do %>
                   <article>
                   </article>
-                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" style=""
+
+
+
+                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+
                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                     data-name="My Order"
                     data-email="<%= current_user.email %>"
@@ -88,12 +92,45 @@
                     data-amount="<%= @order.amount_cents %>"
                     data-currency="<%= @order.amount.currency %>"></script>
                   <% end %>
+
+
+                  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+                  <script type="text/javascript">
+                        $(document).ready(function(){
+                            $(".stripe-button-el span").remove();
+                                $("button.stripe-button-el").removeAttr('style').css({
+                                    "display":"inline-block",
+                                    "width":"100%",
+                                    "padding":"15px",
+                                    "background":"#3fb0ac",
+                                    "color":"white",
+                                    "font-size":"1.3em" }).html("Sign Me Up!");
+                            });
+                    </script>
+
+                </div>
+                <% end %>
+                </div>
+              </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+                <script>
+
+                  <% if current_user.contact.nil? || current_user.contact.address.blank? %>
+
                 </div>
                 <% end %>
                 </div>
                 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
                 <script>
                   <% if current_user.contact.nil? || current_user.contact.nil? %>
+
                    document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
                    <% end %>
                   $('.add_to_basket').click(function (event) {
@@ -103,11 +140,7 @@
                     removeFromBasket();
                   });
                   $('.confirm_address').click(function (event) {
-                    document.getElementsByClassName("stripe-button-el")[0].style.display = 'block';
+                    document.getElementsByClassName("stripe-button-el")[0].style.display = 'inline-block';
                   });
                 </script>
-              </div>
-        </div>
-    </div>
-  </div>
 

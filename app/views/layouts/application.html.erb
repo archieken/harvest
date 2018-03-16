@@ -28,7 +28,12 @@
     <!-- End Google Tag Manager (noscript) -->
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%# render 'shared/login_menu' %>
+
+
+    <% if current_user.nil? %>
+    <%= render 'shared/login_menu' %>
+    <% end %>
+
     <%# render 'shared/basket' %>
 
       <%= yield %>
