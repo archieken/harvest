@@ -29,9 +29,11 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
+
     <% if current_user.nil? %>
     <%= render 'shared/login_menu' %>
     <% end %>
+
     <%# render 'shared/basket' %>
 
       <%= yield %>

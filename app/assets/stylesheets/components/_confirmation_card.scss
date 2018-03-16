@@ -37,5 +37,13 @@
 }
 
 #confirmation-image{
-  text-align: center;
+  height: 150px;
+  border-radius: 50%;
+  width: 150px;
+  background-size: cover;
+  background-position: center center;
+}
+
+#confirmation-image-center{
+  margin-left: 125px;
 }

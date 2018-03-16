@@ -2,7 +2,7 @@ class PostcodecheckersController < ApplicationController
   skip_after_action :verify_authorized
 
 
-skip_before_action :authenticate_user!, only: [:check_address]
+  skip_before_action :authenticate_user!, only: [:check_address]
 
   def check_address
 
@@ -19,8 +19,9 @@ skip_before_action :authenticate_user!, only: [:check_address]
 
     else
 
-      flash[:check] = 'Please insert an address.'
+      # flash[:check] = 'Please insert an address.'
       redirect_to root_path
+
     end
   end
 
