@@ -12,21 +12,14 @@ else { alert("cannot have a quantity of 0")}
 }
 
 
+function addQuantity(quant) {
+quant.parentNode.value = parseInt(quant.name) + 1;
 
-
-function addQuantity() {
-var quant = document.getElementsByClass("qty");
-quant.innerHTML = parseInt(quant.innerHTML) + 1;
-var total = document.getElementsByClass("product-card-price");
-total.innerHTML =  parseInt(document.getElementsByClass("unitprice")) * parseInt(document.getElementByClass("qty"));
 }
 
-function removeQuantity() {
-var quant = document.getElementsByClass("qty");
-if (parseInt(quant.innerHTML) > 0) {
-quant.innerHTML = parseInt(quant.innerHTML) - 1;
-var total = document.getElementsByClass("product-card-price");
-total.innerHTML =  parseInt(document.getElementsByClass("unitprice")) * parseInt(document.getElementByClass("qty"));
+function removeQuantity(quant) {
+if (parseInt(quant.parentNode.value) > 1) {
+quant.parentNode.value = parseInt(quant.parentNode.value) - 1;
 
 }
 else { alert("cannot have a quantity of 0")}
