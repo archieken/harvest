@@ -2,7 +2,9 @@ class OrdersController < ApplicationController
   skip_before_action :authenticate_user!
   def index
 
+    if !current_user.nil?
     Contact.find_by(user_id: current_user.id) ? @contact = Contact.find_by(user_id: current_user.id) : @contact = Contact.create(user_id: current_user.id)
+    end
 
     @orders = policy_scope(Order)
     authorize @orders
