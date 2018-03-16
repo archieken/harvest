@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
+
   #get 'products/index'
 
   #get 'products/show'
@@ -17,7 +21,7 @@ Rails.application.routes.draw do
   get  "/about", to: "pages#about", as:"about"
 
 
-  devise_for :users
+
   root to: 'pages#home'
     resources :users, only: [:new, :create, :edit, :update] do
       resources :contacts, only: [:update]
@@ -29,7 +33,7 @@ Rails.application.routes.draw do
       resources :order_lines, only: [:create, :update]
     end
     resources :order_lines, only: [:destroy]
-  
+
     post  "/postcodecheckers", to: "postcodecheckers#check_address"
     get  "/checkout", to: "payments#checkout"
 

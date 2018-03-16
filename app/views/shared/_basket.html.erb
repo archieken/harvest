@@ -22,19 +22,28 @@
                         <% producer = product.producer  %>
                         <p class="basket-item-producer-info"><%= producer.city  %> | 10KM</p>
                       </div>
-                      <div class="item-price-and-qty">
-                        <p class="item-qty qty" ><%= item.quantity%></p>
-                        <p class="item-price"><%= product.price%> / <%= product.unit_type%></p>
-                        <p class="item-price"><%= total%></p>
 
-                        <div class="add-controls-basket">
-                          <div class="plus-minus-qty">
-                              <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(item.id), name: "1", method: :get, class: "add_quant", remote: true, onclick: "removeQuantity(this)"%>
-                              <h3 class="qty"><%= item.quantity %></h3>
-                              <%= link_to image_tag("plus-icon.png", size: "16x16"), add_order_lines_path(item.id), name: "1", method: :get, class: "remove_quant", remote: true, onclick: "addQuantity(this)"%>
+                      <div class="add-controls-basket">
+                        <div class="plus-minus-qty">
+                          <div>
+                            <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(item.id), method: :get, class: "add_quant_basket", remote: true%>
+                          </div>
+
+                          <div>
+                            <%= link_to image_tag("plus-icon.png", size: "16x16"), add_order_lines_path(item.id), method: :get, class: "remove_quant_basket", remote: true%>
                           </div>
                         </div>
-
+                      </div>
+                      <div class="item-price-and-qty" style="display: flex; flex-direction: column;">
+                        <div>
+                          <p class="item-qty qty" >amount: <%= item.quantity%></p>
+                        </div>
+                        <div>
+                          <p class="item-price">price: <%= product.price%> / <%= product.unit_type%></p>
+                        </div>
+                        <div>
+                          <p class="item-price">total price: <%= total%></p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -107,6 +116,7 @@
                                     "background":"#ffb96e",
                                     "color":"white",
                                     "font-size":"16px" }).html("checkout");
+
                             });
                     </script>
 
