@@ -1,9 +1,3 @@
-<style>
-  .simple_form input[type='submit'] {
-    margin-left: 0px;
-  }
-</style>
-
 <div id="site-wrapper">
   <div id="site-menu">
     <div class="basket-content">
@@ -27,10 +21,16 @@
                       <% producer = product.producer  %>
                       <p class="basket-item-producer-info"><%= producer.city  %> | 10KM</p>
                     </div>
-                    <div class="item-price-and-qty">
-                      <p class="item-qty"><%= item.quantity%></p>
-                      <p class="item-price"><%= product.price%> / <%= product.unit_type%></p>
-                      <p class="item-price"><%= total%></p>
+                    <div class="item-price-and-qty" style="display: flex; flex-direction: column">
+                      <div>
+                        <p class="item-qty">amount: <%= item.quantity%></p>
+                      </div>
+                      <div>
+                        <p class="item-price">price: <%= product.price%> / <%= product.unit_type%></p>
+                      </div>
+                      <div>
+                        <p class="item-price">total: <%= total%></p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -58,32 +58,24 @@
         <div class="flex-space-between" style="margin-bottom: 40px; margin-top: 50px;">
           <h3 class="basket-button">TOTAL</h3>
           <% @order.amount_cents = @order.amount_cents + delivery_cost %>
-          <h3 class="basket-button"><%= humanized_money_with_symbol(@order.amount) %></h3>
+          <h3 class="basket-button">AUS <%= humanized_money_with_symbol(@order.amount) %></h3>
         </div>
         <div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; margin-bottom: 40px; margin-top: 50px;">
             <div>
-              <h3 style="margin-bottom: 20px; margin-top: 30px; width: 100%">My customer details</h3>
+              <h3 style="margin-bottom: 20px; margin-top: 30px; width: 100%">My info</h3>
             </div>
             <div style="width: 100%; text-align: left; color: #C0C0C0">
               <%= simple_form_for [current_user, @contact], remote: true do |f| %>
-                <%= f.input :phone, label: 'phone', placeholder: @contact.phone %>
-                <%= f.input :address, label: 'address',placeholder: @contact.address, :input_html => { id: "address"} %>
+                <%= f.input :phone, label: false, placeholder: "my phone number"  %>
+                <%= f.input :address, label: false, placeholder: "my delivery address", :input_html => { id: "address"} %>
                 <%= f.submit "Confirm", class: "confirm_address"%>
               <% end %>
             </div>
-
-
-
-
-
             <div style="width: 100%; padding-top: 20px;">
               <% if ((!@order.id.nil?) && (!@order.order_lines.empty?)) %>
-
                 <%= form_tag order_payments_path(@order.id) do %>
                   <article>
                   </article>
-
-
                   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" style=""
                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                     data-name="My Order"
@@ -91,41 +83,26 @@
                     data-description="<%=current_user.fullname%>'s order."
                     data-amount="<%= @order.amount_cents %>"
                     data-currency="<%= @order.amount.currency %>"></script>
-
                   <% end %>
-
                 </div>
                 <% end %>
                 </div>
-
                 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
                 <script>
-
                   <% if current_user.contact.nil? %>
                    document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
                    <% end %>
-
                   $('.add_to_basket').click(function (event) {
                     addToBasket();
                   });
-
                   $('.remove_from_basket').click(function (event) {
-
                     removeFromBasket();
                   });
-
                   $('.confirm_address').click(function (event) {
                     document.getElementsByClassName("stripe-button-el")[0].style.display = 'block';
                   });
                 </script>
               </div>
-
-
-
-
-
-
-
         </div>
     </div>
   </div>
