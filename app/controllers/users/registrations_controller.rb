@@ -9,10 +9,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # POST /resource
-  # def create
-  #   super
-  # end
+  POST /resource
+  def create
+    super
+    redirect_to products_path
+  end
 
   # GET /resource/edit
   # def edit
