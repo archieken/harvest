@@ -80,7 +80,7 @@
             <div style="width: 100%; text-align: left; color: #C0C0C0">
 
 
-              <%= simple_form_for [current_user, @contact], remote: true, input_html: { id: "address_form" } do |f| %>
+              <%= simple_form_for [current_user, @contact], remote: true do |f| %>
                 <%= f.input :phone, label: false, placeholder: "my phone number"  %>
                 <%= f.input :address, label: false, placeholder: "my delivery address", :input_html => { id: "address"}%>
                <div style="display:none;"> <%= f.submit "Confirm"%></div>
