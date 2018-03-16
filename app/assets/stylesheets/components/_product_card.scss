@@ -1,4 +1,4 @@
-.product-card {
+.product-card-old {
   background-image: asset-url("product-image.jpg");
   border-radius: 4px;
   height: 250px;
@@ -11,6 +11,16 @@
   max-width: 180px;
   opacity: 1;
 }
+
+.product-card {
+    background-image: asset-url("product-image.jpg");
+    border-radius: 4px;
+    height: 250px;
+    background-size: cover;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    flex: 0 0 180px;
+  }
 
 .overlay {
   position: relative;
