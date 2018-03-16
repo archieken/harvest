@@ -32,7 +32,7 @@
 
 .login-title {
   margin-top: 60px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .simple_form.new_user {
@@ -40,5 +40,25 @@
 }
 
 div.boolean {
-  margin-left: 0px
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  color: #524F4C;
+  margin: 0px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.remember-me-check {
+  height: 20px;
+  width: 20px;
+}
+
+.collection_check_boxes {
+  border: none;
+  background-color: red;
+}
+
+.simple_form input[type='submit'] {
+  margin-top: 30px;
 }
