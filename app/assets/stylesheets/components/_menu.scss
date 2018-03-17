@@ -45,7 +45,7 @@
   margin-left: -5px;
   padding-left: 5px;
   padding-right: 5px;
-  margin-right: 55px;
+  margin-right: 65px;
 }
 
 .basket-summary {
@@ -98,7 +98,7 @@
 }
 
 .summary-item {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.5px;
   font-weight: 500;
   color: #C0C0C0;
@@ -112,7 +112,7 @@
 // ---------------- ITEMS CARDS ----------------
 
 .basket-card {
-  height: 90px;
+  height: 110px;
   width: calc(100% - 10px);
   margin: 0px 5px;
   margin-bottom: 10px;
@@ -169,7 +169,7 @@
   font-weight: 500;
   color: #524F4C;
   margin: 0px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .basket-item-producer-info {
@@ -178,7 +178,8 @@
   font-weight: 500;
   color: #C0C0C0;
   margin: 0px;
-  margin-top: -2px;
+  margin-top: 0px;
+  text-transform: uppercase;
 }
 
 .item-qty {
@@ -203,6 +204,11 @@
 
 .add_quant_basket {
   padding-right: 20px;
+}
+
+.basket-items-spacer {
+  width: 100%;
+  height: 30px;
 }
 
 // ---------------- BASKET CONTACT INFO FORM ----------------
