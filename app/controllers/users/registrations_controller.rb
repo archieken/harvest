@@ -9,7 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  POST /resource
+
   def create
     super
     redirect_to products_path
