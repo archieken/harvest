@@ -21,7 +21,7 @@ input {
 
 input[type=number], input[type=text], input[type=email], input[type=password], input[type=tel] {
   border: none;
-  border-bottom: 1.5px solid #eaeaea;
+  border-bottom: 1.5px solid #524F4C;
   color: #524F4C;
   padding-bottom: 2px;
   margin-bottom: -2px;
@@ -132,4 +132,8 @@ div.boolean .optional {
 .has-error .form-control {
     border-color: #FC6565;
     box-shadow: none;
+}
+
+.postcode-input-field {
+  background-color: rgba(225, 225, 225, 0.8);
 }
