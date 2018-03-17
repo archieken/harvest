@@ -8,7 +8,7 @@
           <p class="item-qty">(<%= @order_lines.size %> items)</p>
           <% @order_lines.each do |item| %>
             <div class="basket-card">
-              <div class="basket-card-image">
+              <div class="basket-card-image" style="background-image: url(<%= item.product.photo %>)">
                 <div class="basket-card-producer-avatar">
                 </div>
               </div>
