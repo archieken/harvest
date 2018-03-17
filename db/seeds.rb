@@ -46,7 +46,7 @@ puts "Creating Categories"
   puts "Meats made"
 
  puts "Creating Fish"
-    fishes = ["Salmon", "Tuna", "Cod", "Catfish", "Octopus", "Bass", "Crab Legs", "Swordfish"]
+    fishes = ["Salmon", "Swordfish", "Crab Legs", "Octopus", "Tuna", "Cod"]
     photos = ["https://i.pinimg.com/564x/f1/2b/aa/f12baa0384ca80d373bc35b5f50858bf.jpg", "https://i.pinimg.com/564x/3e/55/b5/3e55b565c620570d635b5dd10984994d.jpg", "https://i.pinimg.com/564x/45/ed/92/45ed92888c3e9ddc65128429e19eb6f6.jpg", "https://i.pinimg.com/564x/2d/0a/c8/2d0ac89383ce946f2a0c4dadb72efa2a.jpg", "https://i.pinimg.com/564x/fb/96/24/fb9624a0654c74d9e7d90a7699b658c8.jpg", "https://i.pinimg.com/564x/62/c7/f9/62c7f93f1e5133b0191693bd8ce26bd8.jpg"]
     fishes.each_with_index {|fish, index| Product.create!(name: fish, price: (10..25).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.find_by(name: farmers.sample), category: Category.find_by(name: "fish"), photo: photos[index])}
   puts "Fish made"
