@@ -2,7 +2,7 @@
             <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
 
                 <% product = @product %>
-                <div class="product-card overlay white">
+                <div class="product-card overlay white" style="background-image: url(<%=product.photo%>);">
                   <div class="product-card-content">
                     <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
                     <p class="product-card-price"> <%=humanized_money_with_symbol(product.price)%></p>
