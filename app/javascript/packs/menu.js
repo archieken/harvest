@@ -18,6 +18,7 @@ function toggleCheckout() {
   document.querySelector('#checkout').classList.toggle('checkout-switch');
   document.querySelector('#hide-button').classList.toggle('hide-button');
   document.querySelector('#hide-back').classList.toggle('hide-button');
+  document.querySelector('#hide-spacer').classList.toggle('hide-button');
 }
 
 var toggleCheckoutLinks = document.querySelectorAll('.toggle-checkout');
