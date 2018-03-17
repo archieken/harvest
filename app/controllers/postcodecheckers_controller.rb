@@ -8,20 +8,14 @@ class PostcodecheckersController < ApplicationController
 
 
     if !params[:address].blank?
-
       pc = PostCodeChecker.new(address: params[:address])
-
-
       if pc.save
 
         distance_checker(pc)
       end
-
     else
-
-      # flash[:check] = 'Please insert an address.'
+      flash[:check] = 'Please insert an address.'
       redirect_to root_path
-
     end
   end
 
@@ -32,18 +26,15 @@ class PostcodecheckersController < ApplicationController
 
     if pc.latitude && pc.longitude
       @check = pc.distance_from([-28.64201, 153.61194])
+
       #output is given in km
 
         if @check < 500
           redirect_to products_path
-          #render json: {success: true}
-          #redirect to city
+
         else
           flash[:check] = "Hey there! Harvest is working on bringing your favorite local products to your home in #{pc.address} soon. "
           redirect_to root_path
-
-          #redirect_to root_path(invalid_code: true)
-        #modal not currently in that city
         end
     else
       #return location not found, popup

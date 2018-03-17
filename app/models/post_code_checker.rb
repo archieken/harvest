@@ -4,14 +4,6 @@ class PostCodeChecker < ApplicationRecord
 
  #validates :address, presence: true
 
-  #  def self.return_address(lat, long)
-  #   latitude = lat
-  #   longitude = long
-  #   geo_localization = "#{latitude},#{longitude}"
-  #   query = Geocoder.search(geo_localization).first
-  #   return query.address
-  # end
-
 end
 
 
