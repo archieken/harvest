@@ -19,7 +19,7 @@
      emails = ["john@yadoo.com", "ringo@geemail.net", "george@zoohoo.org", "paul@yadoo.com", "bill@gmail.com", "george@yadoo.com"]
      names = ["Martha Stewart", "Elvis Presley", "Carles Puigdemont", "Barack Obama", "Angela Merkel", "John Lennon", "Paul McCartney","Ringo Star","George W. Bush", "George Harrison"]
      avatars = ["http://rogovoyreport.com/wp-content/uploads/George-Harrison.jpg", "https://gwbcenter.imgix.net/legacy/-%20USE%20THIS%20ONE.jpg?w=200&h=200&fit=facearea&faceindex=1&facepad=3&mask=ellipse&fm=png", "https://www.whitehouse.gov/wp-content/uploads/2017/12/44_barack_obama1.jpg", "https://www.biography.com/.image/t_share/MTQ4Nzc2NzI2NTM1NjExNDQ3/biography-angela-merkel.jpg", "https://i.ytimg.com/vi/YkgkThdzX-8/maxresdefault.jpg", "https://cdn.tn.com.ar/sites/default/files/styles/1366x765/public/2017/12/14/paul-mccartney.jpg", "https://i0.wp.com/www.culturesonar.com/wp-content/uploads/2018/01/Ringo-Starr-Getty.jpg?resize=940%2C529"]
-     emails.each {|email| User.create!(email: email, password: "1234567", fullname: names.sample)}
+     users = emails.map {|email| User.create!(email: email, password: "1234567", fullname: names.sample)}
   puts "Users made"
 
 
@@ -168,52 +168,52 @@ puts "Creating Bakery"
 
 
   puts "Creating Orders"
-    Order.create!(amount: 40, user: User.last)
+    users.each {|user| Order.create!(amount: 10, user: user)}
   puts "Orders made"
 
   puts "Creating Order Lines"
-    OrderLine.create!(quantity: 12, order: Order.last, product: Product.last)
-    OrderLine.create!(quantity: 10, order: Order.first, product: Product.first)
+    users.each do |user|
+      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
+      OrderLine.create!(quantity: 2 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
+      OrderLine.create!(quantity: 3 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
+      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
+    end
   puts "Order Lines made"
 
+puts "Create Recipes"
 
-    puts "Create Recipes"
+  #cheese baguette
+  recipe =Recipe.new(title: "Cheese Baguette", description: "An easy meal to prepare.", instructions: "Step 1: slice some cheese, Step 2: add it to the baguette", difficulty: 2, photo: "http://assets.kraftfoods.com/recipe_images/Turkey-Havarti-Cheese-Baguette-54771KC.jpg", producer: Producer.last)
+  recipe.products << Product.find_by(name: "Baguettes")
+  recipe.products << Product.find_by(name: "Cheese")
+  recipe.save!
 
-    #cheese baguette
-    recipe =Recipe.new(title: "Cheese Baguette", description: "An easy meal to prepare.", instructions: "Step 1: slice some cheese, Step 2: add it to the baguette", difficulty: 2, photo: "http://assets.kraftfoods.com/recipe_images/Turkey-Havarti-Cheese-Baguette-54771KC.jpg", producer: Producer.last)
-    recipe.products << Product.find_by(name: "Baguettes")
-    recipe.products << Product.find_by(name: "Cheese")
-    recipe.save!
+  #Ratatouille
+  recipe =Recipe.new(title: "Ratatouille", description: "Enjoy this superhealthy classic French vegetarian dish - counts as 4 of 5-a-day", instructions: "Step 1: Cut the aubergines in half lengthways. Place them on the board, cut side down, slice in half lengthways again and then across into 1.5cm chunks. Cut off the courgettes ends, then across into 1.5cm slices. Step 2: Peel the peppers from stalk to bottom. Hold upright, cut around the stalk, then cut into 3 pieces. Cut away any membrane, then chop into bite-size chunks.", difficulty: 4, photo: "https://media1.s-nbcnews.com/j/newscms/2017_33/1275547/ratatouille-today-tease-170815_5107597557ae61b6e0e16e85dc993576.today-inline-large.jpg", producer: Producer.last)
+  recipe.products << Product.find_by(name: "Eggplant")
+  recipe.products << Product.find_by(name: "Cheese")
+  recipe.products << Product.find_by(name: "Onions")
+  recipe.products << Product.find_by(name: "Garlic")
+  recipe.products << Product.find_by(name: "Carrots")
+  recipe.save!
 
-    #Ratatouille
-    recipe =Recipe.new(title: "Ratatouille", description: "Enjoy this superhealthy classic French vegetarian dish - counts as 4 of 5-a-day", instructions: "Step 1: Cut the aubergines in half lengthways. Place them on the board, cut side down, slice in half lengthways again and then across into 1.5cm chunks. Cut off the courgettes ends, then across into 1.5cm slices. Step 2: Peel the peppers from stalk to bottom. Hold upright, cut around the stalk, then cut into 3 pieces. Cut away any membrane, then chop into bite-size chunks.", difficulty: 4, photo: "https://media1.s-nbcnews.com/j/newscms/2017_33/1275547/ratatouille-today-tease-170815_5107597557ae61b6e0e16e85dc993576.today-inline-large.jpg", producer: Producer.last)
-    recipe.products << Product.find_by(name: "Eggplant")
-    recipe.products << Product.find_by(name: "Cheese")
-    recipe.products << Product.find_by(name: "Onions")
-    recipe.products << Product.find_by(name: "Garlic")
-    recipe.products << Product.find_by(name: "Carrots")
-    recipe.save!
+   #pancakes
+  recipe =Recipe.new(title: "Pancakes", description: "Learn a skill for life with our foolproof crêpe recipe that ensures perfect pancakes every time - elaborate flip optional", instructions: "Step 1: Put the flour, eggs, milk, 1 tbsp oil and a pinch of salt into a bowl or large jug, then whisk to a smooth batter. Set aside for 30 mins to rest if you have time, or start cooking straight away.", difficulty: 1, photo: "https://static01.nyt.com/images/2017/03/24/dining/24COOKING-CLASSICPANCAKES/24COOKING-CLASSICPANCAKES-videoSixteenByNineJumbo1600.jpg", producer: Producer.last)
+  recipe.products << Product.find_by(name: "Eggs")
+  recipe.products << Product.find_by(name: "Flour")
+  recipe.products << Product.find_by(name: "Milk")
+  recipe.save!
 
-     #pancakes
-    recipe =Recipe.new(title: "Pancakes", description: "Learn a skill for life with our foolproof crêpe recipe that ensures perfect pancakes every time - elaborate flip optional", instructions: "Step 1: Put the flour, eggs, milk, 1 tbsp oil and a pinch of salt into a bowl or large jug, then whisk to a smooth batter. Set aside for 30 mins to rest if you have time, or start cooking straight away.", difficulty: 1, photo: "https://static01.nyt.com/images/2017/03/24/dining/24COOKING-CLASSICPANCAKES/24COOKING-CLASSICPANCAKES-videoSixteenByNineJumbo1600.jpg", producer: Producer.last)
-    recipe.products << Product.find_by(name: "Eggs")
-    recipe.products << Product.find_by(name: "Flour")
-    recipe.products << Product.find_by(name: "Milk")
-    recipe.save!
+  #fruit salad
+  recipe =Recipe.new(title: "Fruit Salad", description: "A classic dessert. Can be eaten all year round", instructions: "Step 1: Cut the fruit up. Step 2: Mix the fruits together.", difficulty: 2, photo: "http://imgs.peasandfigs.co.uk/2014-7-6/16732_15233_fruitsalad.jpg", producer: Producer.last)
+  ["Strawberries", "Oranges", "Apples", "Grapes", "Bananas", "Pineapple", "Melon"].each {|fruit| recipe.products << Product.find_by(name: fruit)}
+  recipe.save!
 
-    #fruit salad
-    recipe =Recipe.new(title: "Fruit Salad", description: "A classic dessert. Can be eaten all year round", instructions: "Step 1: Cut the fruit up. Step 2: Mix the fruits together.", difficulty: 2, photo: "http://imgs.peasandfigs.co.uk/2014-7-6/16732_15233_fruitsalad.jpg", producer: Producer.last)
-    ["Strawberries", "Oranges", "Apples", "Grapes", "Bananas", "Pineapple", "Melon"].each {|fruit| recipe.products << Product.find_by(name: fruit)}
-    recipe.save!
-
-    #avacado and toast
-    recipe =Recipe.new(title: "Smashed avocado on toast", description: "So simple and delicious, this is perfect when you need a quick and nutritious breakfast or snack.", instructions: "", difficulty: 2, photo: "https://ichef.bbci.co.uk/food/ic/food_16x9_832/recipes/smashed_avocado_on_toast_89082_16x9.jpg", producer: Producer.last)
-    recipe.products << Product.find_by(name: "Baguettes")
-    recipe.save!
-
-
-    puts "Recipes made"
+  #avacado and toast
+  recipe =Recipe.new(title: "Smashed avocado on toast", description: "So simple and delicious, this is perfect when you need a quick and nutritious breakfast or snack.", instructions: "", difficulty: 2, photo: "https://ichef.bbci.co.uk/food/ic/food_16x9_832/recipes/smashed_avocado_on_toast_89082_16x9.jpg", producer: Producer.last)
+  recipe.products << Product.find_by(name: "Baguettes")
+  recipe.save!
 
 
-
+puts "Recipes made"
 
