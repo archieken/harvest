@@ -1,0 +1,31 @@
+
+<% if !@recipes.blank? %>
+
+  <div class="farmer-cards">
+    <% for recipe in @recipes %>
+      <div class="farmer-card">
+        <div class="farmer-card-content">
+          <div class="farmer-photo" style="background-image: url(<%=recipe.photo%>);display: inline">
+          </div>
+          <div class="farmer-info" style="display:inline">
+            <h5 class="farmer-name"><%= recipe.title %></h5>
+            <h6 class="farmer-card-location"><%= recipe.difficulty %></h6>
+            <p class="farmer-card-para"><%=recipe.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% else %>
+
+<% end %>
+
+
+<!--     t.bigint "producer_id"
+    t.string "title"
+    t.text "description"
+    t.text "instructions"
+    t.string "photo"
+    t.integer "difficulty" -->
