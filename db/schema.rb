@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 20180318155111) do
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
+  create_table "ingredients", force: :cascade do |t|
+    t.bigint "recipe_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_ingredients_on_product_id"
+    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
+  end
+
   create_table "order_lines", force: :cascade do |t|
     t.integer "quantity"
     t.bigint "order_id"
@@ -85,6 +94,18 @@ ActiveRecord::Schema.define(version: 20180318155111) do
     t.index ["producer_id"], name: "index_products_on_producer_id"
   end
 
+  create_table "recipes", force: :cascade do |t|
+    t.bigint "producer_id"
+    t.string "title"
+    t.text "description"
+    t.text "instructions"
+    t.string "photo"
+    t.integer "difficulty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["producer_id"], name: "index_recipes_on_producer_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -105,9 +126,12 @@ ActiveRecord::Schema.define(version: 20180318155111) do
   end
 
   add_foreign_key "contacts", "users"
+  add_foreign_key "ingredients", "products"
+  add_foreign_key "ingredients", "recipes"
   add_foreign_key "order_lines", "orders"
   add_foreign_key "order_lines", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "producers"
+  add_foreign_key "recipes", "producers"
 end
