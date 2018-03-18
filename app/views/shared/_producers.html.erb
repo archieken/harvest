@@ -1,0 +1,32 @@
+
+<% if !@producers.blank? %>
+
+  <div class="farmer-cards">
+    <% for producer in @producers %>
+      <div class="farmer-card">
+        <div class="farmer-card-content">
+          <div class="farmer-photo" style="background-image: url(<%=producer.photo%>);display: inline">
+          </div>
+          <div class="farmer-info" style="display:inline">
+            <h5 class="farmer-name"><%= producer.name %></h5>
+            <h6 class="farmer-card-location"><%= producer.city %></h6>
+            <p class="farmer-card-para"><%=producer.description %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% else %>
+
+<% end %>
+
+
+<!-- t.string "name"
+    t.float "longitude"
+    t.float "latitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "city", default: "Byron Bay"
+    t.string "photo" -->
