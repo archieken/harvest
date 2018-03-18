@@ -1,3 +1,99 @@
+<!-- STRIPE STYLES -->
+<style>
+  /**
+   * The CSS shown here will not be introduced in the Quickstart guide, but shows
+   * how you can use CSS to style your Element's container.
+   */
+  .StripeElement {
+    background-color: transparent;
+    height: 40px;
+    padding: 10px 12px;
+
+    border-radius: 2px;
+    color: #524F4C;
+
+    border: none;
+    box-shadow: none;
+    border-bottom: 1.5px solid #eaeaea;
+  }
+
+  .StripeElement--focus {
+    box-shadow: none;
+    border-bottom: 1.5px solid #524F4C;
+    color: #524F4C;
+  }
+
+  .StripeElement--invalid {
+    border-color: #fa755a;
+  }
+
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+
+  .ElementsApp, .ElementsApp .InputElement {
+    border: none;
+    border-bottom: 1.5px solid #eaeaea;
+    color: #524F4C;
+    padding-bottom: 2px;
+    margin-bottom: -2px;
+    background-color: transparent;
+  }
+
+.ElementsApp input {
+  font-family: 'Montserrat', Helvetica, sans-serif!important;
+
+}
+
+.ElementsApp, .ElementsApp .InputElement {
+  color: #524F4C!important;
+  line-height: 18px;
+  font-family: "Montserrat", 'Helvetica'!important,
+  sans-serif;
+  font-size: 12px!important;
+  height: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.ElementsApp:not(.is-autofilled) .InputElement:-webkit-autofill {
+  color: #32325d;
+  -webkit-text-fill-color: #32325d;
+}
+.ElementsApp .InputElement + .Input-placeholder--ie {
+  opacity: 1;color: #aab7c4;
+}
+.ElementsApp .InputElement::-webkit-input-placeholder {
+  opacity: 1;color: #aab7c4;
+}
+.ElementsApp .InputElement::-moz-placeholder {
+  opacity: 1;color: #aab7c4;
+}
+.ElementsApp .InputElement:-ms-input-placeholder {
+  opacity: 1;color: #aab7c4;
+}
+.ElementsApp .InputElement::placeholder {
+  opacity: 1;color: #aab7c4;
+}
+.ElementsApp .InputElement.is-invalid {
+  color: #fa755a;
+}
+.ElementsApp:not(.is-autofilled) .InputElement.is-invalid:-webkit-autofill {
+  color: #fa755a;
+  -webkit-text-fill-color: #fa755a;
+}
+.ElementsApp.is-invalid .Icon-fill {
+  fill: #fa755a;
+}
+
+#card-errors {
+  font-size: 10px;
+  color: #FC6565;
+  margin: 10px 0px;
+}
+</style>
+
+
+
 <div id="site-wrapper">
   <div id="site-menu">
     <div class="basket-content">
@@ -95,9 +191,27 @@
         </div>
         <div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; margin-bottom: 40px; margin-top: 15px">
           <div>
-            <h3 style="margin-bottom: 20px; width: 100%">payments</h3>
+            <h3 style="margin-bottom: 20px; width: 100%">payment</h3>
           </div>
-          <div style="width: 100%; text-align: left; color: #C0C0C0">
+
+          <script src="https://js.stripe.com/v3/"></script>
+
+          <form action="/charge" method="post" id="payment-form">
+            <div class="form-row">
+              <div id="card-element">
+                <!-- A Stripe Element will be inserted here. -->
+              </div>
+
+              <!-- Used to display Element errors. -->
+              <div id="card-errors" role="alert"></div>
+            </div>
+
+            <button>Submit Payment</button>
+          </form>
+
+
+
+<!--           <div style="width: 100%; text-align: left; color: #C0C0C0">
 
             <%= simple_form_for [current_user, @contact], remote: true do |f| %>
               <%= f.input :phone, label: false, placeholder: "Card Number"  %>
@@ -106,8 +220,8 @@
               <div style="display:none;"><%= f.submit "SAVE", class: "confirm_address basket-button"%></div>
 
             <% end %>
-          </div>
-          <div style="width: 100%; padding-top: 20px;">
+          </div> -->
+          <!-- <div style="width: 100%; padding-top: 20px;">
             <% if ((!@order.id.nil?) && (!@order.order_lines.empty?)) %>
               <%= form_tag order_payments_path(@order.id) do %>
                 <article>
@@ -139,7 +253,8 @@
                     });
               </script>
             <% end %>
-          </div>
+          </div> -->
+
         </div>
       </div>
     </div>
@@ -148,6 +263,15 @@
 
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-name="My Order"
+                  data-email="<%= current_user.email %>"
+                  data-description="<%=current_user.fullname%>'s order."
+                  data-amount="<%= @order.amount_cents %>"
+                  data-currency="<%= @order.amount.currency %>">
+                </script>
 
 <script>
 
@@ -163,3 +287,69 @@
 
 </script>
 
+
+<script>
+  // Create a Stripe client.
+  var stripe = Stripe('STRIPE_PUBLISHABLE_KEY');
+
+  // Create an instance of Elements.
+  var elements = stripe.elements({
+        font: {
+            family:'Montserrat',
+            src: "url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700')"
+        }
+    }
+  );
+
+
+  // Custom styling can be passed to options when creating an Element.
+  // (Note that this demo uses a wider set of styles than the guide below.)
+  var style = {
+    base: {
+      color: '#524F4C',
+      lineHeight: '18px',
+      fontSmoothing: 'antialiased',
+      fontSize: '14px',
+      '::placeholder': {
+        color: '#c0c0c0'
+      }
+    },
+    invalid: {
+      color: '#FC6565',
+      iconColor: '#FC6565'
+    }
+  };
+
+  // Create an instance of the card Element.
+  var card = elements.create('card', {style: style});
+
+  // Add an instance of the card Element into the `card-element` <div>.
+  card.mount('#card-element');
+
+  // Handle real-time validation errors from the card Element.
+  card.addEventListener('change', function(event) {
+    var displayError = document.getElementById('card-errors');
+    if (event.error) {
+      displayError.textContent = event.error.message;
+    } else {
+      displayError.textContent = '';
+    }
+  });
+
+  // Handle form submission.
+  var form = document.getElementById('payment-form');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    stripe.createToken(card).then(function(result) {
+      if (result.error) {
+        // Inform the user if there was an error.
+        var errorElement = document.getElementById('card-errors');
+        errorElement.textContent = result.error.message;
+      } else {
+        // Send the token to your server.
+        stripeTokenHandler(result.token);
+      }
+    });
+  });
+</script>
