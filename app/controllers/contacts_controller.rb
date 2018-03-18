@@ -4,6 +4,7 @@ class ContactsController < ApplicationController
   def update
     @contact = Contact.find_by(user_id: current_user.id)
     if @contact.update(contact_params)
+      raise
       #redirect_to orders_path
     else
       render :update

@@ -5,5 +5,5 @@ class Product < ApplicationRecord
   has_many :orders, through: :order_lines
   monetize :price_cents
   has_many :ingredients
-  has_many :recipes, through :ingredients
+  has_many :recipes, through: :ingredients
 end

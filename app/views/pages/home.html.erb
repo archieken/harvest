@@ -4,8 +4,10 @@
     <p class="principal-para">See the grocery products that local farmers are providing in your delivery area.</p>
     <%= form_tag postcodecheckers_path, method: :post do %>
 
-      <input id="address" class="postcode-input-field" name="address" type="text" placeholder="check address"/>
-
+      <input id="address" class="postcode-input-field" name="address" type="text" placeholder="check address"
+      <%if((!current_user.nil?) && (!current_user.contact.nil?) && (!current_user.contact.address.blank?))%>
+       value=<%=current_user.contact.address%>
+       <%end%>/>
       <input type="submit" value="shop now" class="homepage-button homepage-submit" data-modal="#modal">
     <% end %>
   </div>
@@ -60,444 +62,78 @@
   </div>
 </div>
 
-<div style="background-color: #fbf8f4;">
+
+    <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">farmers</h3>
     <%= link_to "shop vegetables & fruits", products_path(:anchor => "vegetables"), class: "homepage-cat-link" %>
   </div>
 
-  <div class="farmer-cards">
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
+    <%@producers = @farmers %>
+    <%= render 'shared/producers' %>
 
   </div>
-</div>
 
-<div style="background-color: #fbf8f4;">
+  <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">butchers</h3>
     <%= link_to "shop meats", products_path(:anchor => "meats"), class: "homepage-cat-link" %>
   </div>
-
-  <div class="farmer-cards">
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-
+    <%@producers = @butchers %>
+    <%= render 'shared/producers' %>
   </div>
-</div>
 
-<div style="background-color: #fbf8f4;">
+  <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">fishermen</h3>
     <%= link_to "shop local fish", products_path(:anchor => "fish"), class: "homepage-cat-link" %>
   </div>
-
-  <div class="farmer-cards">
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-
+    <%@producers = @fishermen %>
+    <%= render 'shared/producers' %>
   </div>
-</div>
 
-<div style="background-color: #fbf8f4;">
+
+  <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">dairy & egg farmers</h3>
     <%= link_to "shop dairy & egg products", products_path(:anchor => "dairy"), class: "homepage-cat-link" %>
   </div>
-
-  <div class="farmer-cards">
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-
+    <%@producers = @dairys %>
+    <%= render 'shared/producers' %>
   </div>
-</div>
 
-<div style="background-color: #fbf8f4;">
+  <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">bakers</h3>
     <%= link_to "shop baked goods", products_path(:anchor => "bakery"), class: "homepage-cat-link" %>
   </div>
-
-  <div class="farmer-cards">
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-
+    <%@producers = @bakers %>
+    <%= render 'shared/producers' %>
   </div>
-</div>
 
 <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">winemakers</h3>
     <%= link_to "shop wine & drinks", products_path(:anchor => "wine"), class: "homepage-cat-link" %>
   </div>
-
-  <div class="farmer-cards">
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-
+    <%@producers = @winemakers %>
+    <%= render 'shared/producers' %>
   </div>
-</div>
 
-<div style="background-color: #fbf8f4;">
+    <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">cooks</h3>
     <%= link_to "shop pantry items", products_path(:anchor => "pantry"), class: "homepage-cat-link" %>
   </div>
-
-  <div class="farmer-cards">
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-
+    <%@producers = @cooks %>
+    <%= render 'shared/producers' %>
   </div>
-</div>
 
-<div style="background-color: #fbf8f4;">
+    <div style="background-color: #fbf8f4;">
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">deli creatives</h3>
     <%= link_to "shop deli items", products_path(:anchor => "deli"), class: "homepage-cat-link" %>
   </div>
-
-  <div class="farmer-cards">
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-    <div class="farmer-card">
-      <div class="farmer-card-content">
-        <div class="farmer-photo" style="display: inline">
-        </div>
-        <div class="farmer-info" style="display:inline">
-          <h5 class="farmer-name">Archie Kenwright</h5>
-          <h6 class="farmer-card-location">Brisbane</h6>
-          <p class="farmer-card-para">Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.</p>
-        </div>
-      </div>
-    </div>
-
+    <%@producers = @deli_creatives %>
+    <%= render 'shared/producers' %>
   </div>
-</div>
-
-
