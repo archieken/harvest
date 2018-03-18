@@ -1,8 +1,11 @@
   OrderLine.destroy_all
+  Ingredient.destroy_all
+  Recipe.destroy_all
   Order.destroy_all
   Product.destroy_all
   Category.destroy_all
   Producer.destroy_all
+  Contact.destroy_all
   User.destroy_all
 
   farmers = ["Jill Hawkins", "Bryce Carrell", "Sally Norris", "Tilly Bay", "Trudi Baker", "Jenny Block"]
@@ -60,12 +63,14 @@
   puts "D&G Farmers made"
 
     puts "Creating bakers"
-    Producer.create!(speciality: "baker", name: "Julia Whitbead", city: cities.sample, photo: "http://cdn.modernfarmer.com/wp-content/uploads/2015/01/farmingwomen_hero.jpg", description: "Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.")
-    Producer.create!(speciality: "baker", name: "Bryce Bakes", city: cities.sample, photo: "https://regmedia.co.uk/2015/05/01/free_range_chicken_and_farmer_photo_via_shutterstock.jpg", description: "Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.")
-    Producer.create!(speciality: "baker", name: "Sally Norris", city: cities.sample, photo: "http://www.portlandfarmersmarket.org/wp-content/uploads/2014/12/DeNoble-Farms1-1024x683.jpg", description: "Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.")
-    Producer.create!(speciality: "baker", name: "Tilly Bay", city: cities.sample, photo: "http://3.bp.blogspot.com/-YbMTKRP9f14/UnqoKkYoRBI/AAAAAAAARQE/DxTnnEZqXJ0/s1600/American+Gothic+1930.jpg", description: "Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.")
-    Producer.create!(speciality: "baker", name: "Forest Baker", city: cities.sample, photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Farmer%2C_Nicaragua.jpg/1200px-Farmer%2C_Nicaragua.jpg", description: "Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.")
-    Producer.create!(speciality: "baker", name: "Jenny Block", city: cities.sample, photo: "http://www.organicauthority.com/wp-content/uploads/2015/10/female-tomato-farmer.jpg", description: "Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.")
+
+    Producer.create!(speciality: "baker", name: "Julia Whitbead", city: cities.sample, photo: "http://cdn.modernfarmer.com/wp-content/uploads/2015/01/farmingwomen_hero.jpg", description: "She trained at The Cordon Bleu in Paris and Bath School of Home Economics. In the swinging '60s she became the cookery editor of Housewife magazine, followed by Ideal Home magazine.")
+    Producer.create!(speciality: "baker", name: "Bryce Bakes", city: cities.sample, photo: "https://regmedia.co.uk/2015/05/01/free_range_chicken_and_farmer_photo_via_shutterstock.jpg", description: "She trained at The Cordon Bleu in Paris and Bath School of Home Economics. In the swinging '60s she became the cookery editor of Housewife magazine, followed by Ideal Home magazine.")
+    Producer.create!(speciality: "baker", name: "Sally Norris", city: cities.sample, photo: "http://www.portlandfarmersmarket.org/wp-content/uploads/2014/12/DeNoble-Farms1-1024x683.jpg", description: "She trained at The Cordon Bleu in Paris and Bath School of Home Economics. In the swinging '60s she became the cookery editor of Housewife magazine, followed by Ideal Home magazine.")
+    Producer.create!(speciality: "baker", name: "Tilly Bay", city: cities.sample, photo: "http://3.bp.blogspot.com/-YbMTKRP9f14/UnqoKkYoRBI/AAAAAAAARQE/DxTnnEZqXJ0/s1600/American+Gothic+1930.jpg", description: "She trained at The Cordon Bleu in Paris and Bath School of Home Economics. In the swinging '60s she became the cookery editor of Housewife magazine, followed by Ideal Home magazine.")
+    Producer.create!(speciality: "baker", name: "Forest Baker", city: cities.sample, photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Farmer%2C_Nicaragua.jpg/1200px-Farmer%2C_Nicaragua.jpg", description: "He trained at The Cordon Bleu in Paris and Bath School of Home Economics. In the swinging '60s she became the cookery editor of Housewife magazine, followed by Ideal Home magazine.")
+    Producer.create!(speciality: "baker", name: "Mary Berry", city: cities.sample, photo: "http://www.organicauthority.com/wp-content/uploads/2015/10/female-tomato-farmer.jpg", description: "She trained at The Cordon Bleu in Paris and Bath School of Home Economics. In the swinging '60s she became the cookery editor of Housewife magazine, followed by Ideal Home magazine.")
+
   puts "Bakers made"
 
     puts "Creating winemakers"
@@ -170,5 +175,45 @@ puts "Creating Bakery"
     OrderLine.create!(quantity: 12, order: Order.last, product: Product.last)
     OrderLine.create!(quantity: 10, order: Order.first, product: Product.first)
   puts "Order Lines made"
+
+
+    puts "Create Recipes"
+
+    #cheese baguette
+    recipe =Recipe.new(title: "Cheese Baguette", description: "An easy meal to prepare.", instructions: "Step 1: slice some cheese, Step 2: add it to the baguette", difficulty: 2, photo: "http://assets.kraftfoods.com/recipe_images/Turkey-Havarti-Cheese-Baguette-54771KC.jpg", producer: Producer.last)
+    recipe.products << Product.find_by(name: "Baguettes")
+    recipe.products << Product.find_by(name: "Cheese")
+    recipe.save!
+
+    #Ratatouille
+    recipe =Recipe.new(title: "Ratatouille", description: "Enjoy this superhealthy classic French vegetarian dish - counts as 4 of 5-a-day", instructions: "Step 1: Cut the aubergines in half lengthways. Place them on the board, cut side down, slice in half lengthways again and then across into 1.5cm chunks. Cut off the courgettes ends, then across into 1.5cm slices. Step 2: Peel the peppers from stalk to bottom. Hold upright, cut around the stalk, then cut into 3 pieces. Cut away any membrane, then chop into bite-size chunks.", difficulty: 4, photo: "https://media1.s-nbcnews.com/j/newscms/2017_33/1275547/ratatouille-today-tease-170815_5107597557ae61b6e0e16e85dc993576.today-inline-large.jpg", producer: Producer.last)
+    recipe.products << Product.find_by(name: "Eggplant")
+    recipe.products << Product.find_by(name: "Cheese")
+    recipe.products << Product.find_by(name: "Onions")
+    recipe.products << Product.find_by(name: "Garlic")
+    recipe.products << Product.find_by(name: "Carrots")
+    recipe.save!
+
+     #pancakes
+    recipe =Recipe.new(title: "Pancakes", description: "Learn a skill for life with our foolproof crêpe recipe that ensures perfect pancakes every time - elaborate flip optional", instructions: "Step 1: Put the flour, eggs, milk, 1 tbsp oil and a pinch of salt into a bowl or large jug, then whisk to a smooth batter. Set aside for 30 mins to rest if you have time, or start cooking straight away.", difficulty: 1, photo: "https://static01.nyt.com/images/2017/03/24/dining/24COOKING-CLASSICPANCAKES/24COOKING-CLASSICPANCAKES-videoSixteenByNineJumbo1600.jpg", producer: Producer.last)
+    recipe.products << Product.find_by(name: "Eggs")
+    recipe.products << Product.find_by(name: "Flour")
+    recipe.products << Product.find_by(name: "Milk")
+    recipe.save!
+
+    #fruit salad
+    recipe =Recipe.new(title: "Fruit Salad", description: "A classic dessert. Can be eaten all year round", instructions: "Step 1: Cut the fruit up. Step 2: Mix the fruits together.", difficulty: 2, photo: "http://imgs.peasandfigs.co.uk/2014-7-6/16732_15233_fruitsalad.jpg", producer: Producer.last)
+    ["Strawberries", "Oranges", "Apples", "Grapes", "Bananas", "Pineapple", "Melon"].each {|fruit| recipe.products << Product.find_by(name: fruit)}
+    recipe.save!
+
+    #avacado and toast
+    recipe =Recipe.new(title: "Smashed avocado on toast", description: "So simple and delicious, this is perfect when you need a quick and nutritious breakfast or snack.", instructions: "", difficulty: 2, photo: "https://ichef.bbci.co.uk/food/ic/food_16x9_832/recipes/smashed_avocado_on_toast_89082_16x9.jpg", producer: Producer.last)
+    recipe.products << Product.find_by(name: "Baguettes")
+    recipe.save!
+
+
+    puts "Recipes made"
+
+
 
 
