@@ -49,6 +49,7 @@
     <h2 class="home-title">Local Producers</h2>
     <p class="section-para">Harvest lets you support your community and shop through people you know, trust and love.</p>
     <div class="cat-links">
+      <%= link_to "recipes", products_path(:anchor => "recipes"), class: "homepage-cat-link" %>
       <%= link_to "vegetables", products_path(:anchor => "vegetables"), class: "homepage-cat-link" %>
       <%= link_to "fruits", products_path(:anchor => "fruits"), class: "homepage-cat-link" %>
       <%= link_to "meat", products_path(:anchor => "meats"), class: "homepage-cat-link" %>
@@ -61,6 +62,17 @@
     </div>
   </div>
 </div>
+
+
+
+ <div style="background-color: #fbf8f4;">
+  <div class="carousel-title">
+    <h3 class="producer-cat-title" style="display: inline-block;">recipes</h3>
+    <%= link_to "shop recipes", products_path(:anchor => "recipes"), class: "homepage-cat-link" %>
+  </div>
+    <%@recipes %>
+    <%= render 'shared/recipes' %>
+  </div>
 
 
     <div style="background-color: #fbf8f4;">

@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :about]
 
   def home
+    @recipes = Recipe.all.first(5)
     @farmers = Producer.where(speciality: "farmer").first(5)
     @butchers = Producer.where(speciality: "butcher").first(5)
     @fishermen = Producer.where(speciality: "fishermen").first(5)

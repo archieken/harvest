@@ -32,6 +32,8 @@ class ProductsController < ApplicationController
     end
 
 
+    @recipes = Recipe.all
+
     @fruits = @products.where(category: Category.find_by(name: "fruits"))
     authorize @fruits
 

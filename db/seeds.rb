@@ -126,7 +126,7 @@ puts "Creating Categories"
  puts "Creating Meats"
     meats = ["Beef", "Poultry", "Sausage", "Pork", "Lamb and mutton"]
     photos = ["https://i.pinimg.com/564x/b2/72/d1/b272d1d66eed9334ede5f8aff83e63a4.jpg", "https://i.pinimg.com/564x/b0/1a/d6/b01ad69e49920325e7c5c4243fc092a6.jpg", "https://i.pinimg.com/564x/57/93/60/5793605bb37a1599464a08b39095f6b8.jpg", "https://i.pinimg.com/564x/23/4c/60/234c605701e8e30be5beddb12f39e9f3.jpg", "https://i.pinimg.com/564x/37/c8/96/37c8964a5a467bd07c3b0c8793196382.jpg"]
-    meats.each_with_index {|meat, index| Product.create!(name: meat, price: (10..25).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "meat"), photo: photos[index])}
+    meats.each_with_index {|meat, index| Product.create!(name: meat, price: (10..25).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "butcher").sample, category: Category.find_by(name: "meat"), photo: photos[index])}
   puts "Meats made"
 
  puts "Creating Fish"
