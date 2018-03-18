@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get  "/postcodecheckers", to: "postcodecheckers#check_address"
   get  "/confirmation/:order_id", to: "payments#confirmation", as:"confirmation"
   get  "/about", to: "pages#about", as:"about"
+  get  "/recipe/:recipe_id", to: "recipes#show", as:"recipe"
 
 
 
