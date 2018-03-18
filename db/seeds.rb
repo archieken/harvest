@@ -88,8 +88,11 @@ puts "Creating Bakery"
   puts "Orders made"
 
   puts "Creating Order Lines"
-    OrderLine.create!(quantity: 12, order: Order.last, product: Product.last)
-    OrderLine.create!(quantity: 10, order: Order.first, product: Product.first)
+    users.each do |user|
+      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
+      OrderLine.create!(quantity: 2 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
+      OrderLine.create!(quantity: 3 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
+      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
+    end
   puts "Order Lines made"
-
 
