@@ -8,6 +8,7 @@
       <%if((!current_user.nil?) && (!current_user.contact.nil?) && (!current_user.contact.address.blank?))%>
        value=<%=current_user.contact.address%>
        <%end%>/>
+
       <input type="submit" value="shop now" class="homepage-button homepage-submit" data-modal="#modal">
     <% end %>
   </div>
