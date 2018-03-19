@@ -12,7 +12,6 @@
 
       <!-- Links when logged in -->
       <%= link_to "SHOP", products_path, class: "navbar-harvest-link" %>
-      <%# link_to "ACCOUNT", "#", class: "navbar-harvest-link" %>
       <!-- Checks basket. Adds counter badge if orders exist -->
       <div class="hidebasket" style="display:none;">
       <% if ((!Order.where(user: current_user.id).nil?) && (!Order.where(user: current_user.id).find_by(status: "new").nil?)) %>
@@ -21,6 +20,7 @@
      <% else %>
         <%= link_to "BASKET", orders_path, class: "toggle-nav navbar-harvest-link"%>
      <% end %>
+     <%= link_to "MY ORDERS", order_history_path, class: "navbar-harvest-link" %>
      </div>
       <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "navbar-harvest-link" %>
 

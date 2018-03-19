@@ -168,7 +168,9 @@ puts "Creating Bakery"
 
 
   puts "Creating Orders"
-    users.each {|user| Order.create!(amount: 10, user: user)}
+    users.each {|user| Order.create!(amount: 10, user: user, status:"paid")}
+    users.each {|user| Order.create!(amount: 10, user: user, status:"paid")}
+    users.each {|user| Order.create!(amount: 10, user: user, status:"paid")}
   puts "Orders made"
 
   puts "Creating Order Lines"

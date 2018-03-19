@@ -17,4 +17,8 @@ class OrderPolicy < ApplicationPolicy
   def history?
     return true
   end
+
+  def reorder?
+    return true
+  end
 end
