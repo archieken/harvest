@@ -23,9 +23,11 @@ class OrdersController < ApplicationController
 
   def history
     if !current_user.nil?
-      @orders = Order.select {|order| order.user_id == current_user.id}
+      @orders = Order.where(user_id: current_user.id)
       authorize @orders
-
     end
+  end
+
+  def reorder
   end
 end
