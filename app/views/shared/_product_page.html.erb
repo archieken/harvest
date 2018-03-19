@@ -2,7 +2,7 @@
 <% if !@product.blank?%>
 
 
-  <div id=<%= "product" + @product.id.to_s%> class="show-product">
+  <div id=<%= "product" + @product.id.to_s%> class="show-product product-modal">
     <% product = @product %>
     <div class="go-back">
       <a href="#" style="display:block" class="toggle-product basket-button"><img class="x-icon" src="/assets/plus-icon.svg" alt="Triangle"></a>
