@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get  "/about", to: "pages#about", as:"about"
   get  "/recipe/:recipe_id", to: "recipes#show", as:"recipe"
 
+  get "/orders/history", to: "orders#history", as: "order_history"
+
 
 
   root to: 'pages#home'

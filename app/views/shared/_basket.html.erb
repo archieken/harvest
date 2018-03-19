@@ -105,7 +105,7 @@
           <% @order_lines.each do |item| %>
             <div class="basket-card">
               <div class="basket-card-image" style="background-image: url(<%= item.product.photo %>)">
-                <div class="basket-card-producer-avatar">
+                <div class="basket-card-producer-avatar" style="background-image: url(<%= item.product.producer.photo %>)">
                 </div>
               </div>
 
