@@ -32,4 +32,8 @@ class OrderLinePolicy < ApplicationPolicy
   def reorder?
     true
   end
+
+  def reorder_product?
+    true
+  end
 end
