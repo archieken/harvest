@@ -5,17 +5,23 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:recipe_id])
     authorize @recipe
+    @recipe_ingredient = @recipe.products[0][:name]
 
     @label = nutrition
     @fat_quant = fat_quant
-        raise
+    raise
+
   end
 
   def nutrition
-    client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
-    nutritional_data = client.food_database.nutritional_data("one oreo")
-    nutritional_data
 
+  @recipe.products.each do |name|
+    @recipe.products[:name]
+  end
+
+    client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
+    nutritional_data = client.food_database.nutritional_data(@recipe.products[0][:name])
+    nutritional_data
   end
 
   def fat_quant
