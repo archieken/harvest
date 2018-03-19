@@ -65,14 +65,27 @@ class ProductsController < ApplicationController
 
     @label = nutrition
     @fat_quant = fat_quant
-    raise
+    @fat_unit = fat_unit
+    @calories_quant = calories_quant
+    @calories_unit = calories_unit
+    @sugar_quant = sugar_quant
+    @sugar_unit = sugar_unit
+    @protein_quant = protein_quant
+    @protein_unit = protein_unit
+    @sodium_quant = sodium_quant
+    @sodium_unit = sodium_unit
+    @carbs_quant = carbs_quant
+    @carbs_unit = carbs_unit
+
+
+
   end
 
   def nutrition
 
-    @product.name
+    product = "1 #{@product.name}"
     client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
-    nutritional_data = client.food_database.nutritional_data("one banana")
+    nutritional_data = client.food_database.nutritional_data(product)
     nutritional_data
   end
 
@@ -93,11 +106,12 @@ class ProductsController < ApplicationController
   end
 
   def sugar_quant
-    @label.send("total_nutrients")["Sugar"]["quantity"]
+
+    @label.send("total_nutrients")["SUGAR"]["quantity"]
   end
 
   def sugar_unit
-    @label.send("total_nutrients")["Sugar"]["unit"]
+    @label.send("total_nutrients")["SUGAR"]["unit"]
   end
 
   def protein_quant

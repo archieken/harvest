@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
 
     @label = nutrition
     @fat_quant = fat_quant
-    raise
+
 
   end
 
