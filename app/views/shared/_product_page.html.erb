@@ -1,0 +1,87 @@
+<div id="site-wrapper">
+
+
+  <div id="product-modal" class="show-product">
+    <% product = @product %>
+    <div class="go-back">
+      <a href="#" style="display:block" class="toggle-product basket-button"><img class="x-icon" src="/assets/plus-icon.svg" alt="Triangle"></a>
+    </div>
+    <div class="product-page-links">
+      <ul style="list-style-type: none;">
+        <li><a  class="basket-button" style="display: block; margin-bottom:5px" href="">ABOUT PRODUCER</a></li>
+        <li><a  class="basket-button" style="display: block; margin-bottom:5px" href="">RELATED RECIPES</a></li>
+        <li><a  class="basket-button" style="display: block; margin-bottom:5px" href="">SIMILAR PRODUCTS</a></li>
+      </ul>
+    </div>
+    <div class="product-producer-info-scroll">
+      <h2 class="producer-title">John Picone</h2>
+      <p style="margin-bottom: 30px">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.</p>
+      <div style="margin-bottom: 5px">
+        <h3 class="basket-button" style="display: inline">LOCATION</h3>
+        <h3 class="basket-button" style="display: inline; color: #FFB96E">MURWILLUMBAH</h3>
+      </div>
+      <div class="card-map" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&markers=color:red%7C40.718217,-73.998284&zoom=8&size=480x380&key=AIzaSyCKxAu_Y-IhJUSTXAcMghvx_UDSBSGm2l8')";'>
+      </div>
+      <h3 class="basket-button" style="display: inline">PHOTOS</h3>
+      <div class="producer-gallery">
+        <div class="gallery-photo"></div>
+        <div class="gallery-photo"></div>
+        <div class="gallery-photo"></div>
+        <div class="gallery-photo"></div>
+        <div class="gallery-photo"></div>
+      </div>
+      <div class="producer-info-spacer"></div>
+    </div>
+
+    <div class="product-info">
+      <div class="product-modal-title">
+        <h3><%= product.producer.name %>'s<br><%= product.name%></h3>
+
+        <div class="product-page-price">
+          <h4 class="product-page-price-label">price</h4>
+          <h4 class="product-page-price-number"> <%=humanized_money_with_symbol(product.price)%> per kg</h4>
+        </div>
+      </div>
+
+      <div class="product-page-add">
+        <div class="plus-minus-qty">
+
+          <% if ((!current_user.nil?) && (!current_user.orders.find_by(status: "new").nil?) && (!current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id).nil?)) %>
+            <% orderline = current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id)%>
+            <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(orderline.id), method: :get, class: "add_quant"%>
+            <h3 class="qty"><%= orderline.quantity %></h3>
+            <%= link_to image_tag("plus-icon.png", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
+
+          <% else %>
+            <a onclick="location.href='<%=add_to_basket_path(product.id)%>';" class="add-to-cart-btn">ADD</a>
+          <% end %>
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+  </div>
+</div>
+
+
+<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<script>
+  $(window).scroll(function() {
+    var position = $(this).scrollTop();
+    position = position + 200;
+
+    $('.category-section').each(function() {
+        var target = $(this).offset().top;
+        var id = $(this).attr('id');
+
+        if (position >= target) {
+            $('.anchor').removeClass('active');
+            $('.anchor[href=#' + id + ']').addClass('active');
+        }
+    });
+});
+</script> -->

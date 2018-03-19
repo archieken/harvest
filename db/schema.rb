@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180316143810) do
+ActiveRecord::Schema.define(version: 20180319114728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 20180316143810) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.bigint "recipe_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_ingredients_on_product_id"
+    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
   create_table "order_lines", force: :cascade do |t|
@@ -67,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180316143810) do
     t.datetime "updated_at", null: false
     t.string "city", default: "Byron Bay"
     t.string "photo"
+    t.string "Farmphotos", default: [], array: true
   end
 
   create_table "products", force: :cascade do |t|
@@ -81,6 +91,18 @@ ActiveRecord::Schema.define(version: 20180316143810) do
     t.string "photo"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["producer_id"], name: "index_products_on_producer_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.bigint "producer_id"
+    t.string "title"
+    t.text "description"
+    t.text "instructions"
+    t.string "photo"
+    t.integer "difficulty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["producer_id"], name: "index_recipes_on_producer_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -103,9 +125,12 @@ ActiveRecord::Schema.define(version: 20180316143810) do
   end
 
   add_foreign_key "contacts", "users"
+  add_foreign_key "ingredients", "products"
+  add_foreign_key "ingredients", "recipes"
   add_foreign_key "order_lines", "orders"
   add_foreign_key "order_lines", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "producers"
+  add_foreign_key "recipes", "producers"
 end

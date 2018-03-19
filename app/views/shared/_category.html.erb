@@ -2,7 +2,7 @@
             <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
 
                 <% product = @product %>
-                <div class="product-card overlay white" style="background-image: url(<%=product.photo%>);">
+                <div class="product-card overlay white toggle-product" style="background-image: url(<%=product.photo%>);">
                   <div class="product-card-content">
                     <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
                     <p class="product-card-price"> <%=humanized_money_with_symbol(product.price)%></p>
@@ -17,7 +17,7 @@
                         <%= link_to image_tag("plus-icon.png", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
 
                       <% else %>
-                        <a href= <%=add_to_basket_path(product.id)%> class="add-to-cart-btn">ADD</a>
+                        <a onclick="location.href='<%=add_to_basket_path(product.id)%>';" class="add-to-cart-btn">ADD</a>
                       <% end %>
                     </div>
                   </div>
