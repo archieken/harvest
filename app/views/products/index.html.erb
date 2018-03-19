@@ -130,6 +130,10 @@
   </div>
 
 
+
+
+
+
 <!-- JS SCRIPTS -->
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -154,6 +158,17 @@
         }
     });
 });
+
+
+
+
+
+function toggleProduct(id) {
+
+  console.log(`#product${id}`);
+  document.querySelector(`#product${id}`).classList.toggle('show-product');
+  console.log("it works #2");
+};
 
 </script>
 
