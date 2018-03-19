@@ -1,0 +1,88 @@
+<div class="products-section">
+  <div class="products-index">
+    <div class="product-card overlay white" style="background-image: url(<%=@recipe.photo%>);">
+      <div class="product-card-content">
+        <h5 class="product-card-title"><%= @recipe.producer.name %>'s<br><%= @recipe.title%></h5>
+          <p class="product-card-price"> 2 hours</p>
+      </div>
+    </div>
+  </div>
+<div class="products-section">
+
+ <script>
+
+get_url = 'https://api.edamam.com/api/food-database/parser?ingr=red%20apple&app_id=87fcd877&app_key=757ab6a2d95f52daf6f5f4b3634e0781&page=0'
+
+
+fetch(get_url)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(myJson);
+  });
+
+
+</script>
+
+
+
+
+
+<!-- const url = "https://wagon-chat.herokuapp.com/129/messages"
+
+function onSubmit() {
+
+ createList(url);
+
+ var name = document.querySelector("#your-name").value;
+ var message = document.querySelector("#your-message").value;
+
+ var data = {
+   "author": name,
+   "content": message
+ }
+
+ fetch(url, {
+ method: 'POST', // or 'PUT'
+ body: JSON.stringify(data),
+ headers: new Headers({
+   'Content-Type': 'application/json'
+ })
+}).then(res => res.json())
+ .catch(error => console.error('Error:', error))
+ .then(response => console.log('Success:', response));
+
+}
+
+
+function createList(url){
+
+ document.querySelector(".list-unstyled").innerHTML = "";
+
+ fetch(url).then(response => response.json())
+ .then(function(data) {
+
+   data["messages"].forEach( function (item) {
+     var message2 = item["content"];
+     var name2 = item["author"];
+     var timeMade = item["created_at"];
+     var html =  `<li>${message2} (posted <span class="date">${timeMade}</span>) by ${name2}</li>`;
+     document.querySelector(".list-unstyled").insertAdjacentHTML("afterbegin", html);
+   });
+ });
+
+
+}
+
+
+document.querySelector(".btn-primary").addEventListener("click", (event) => {
+event.preventDefault();
+onSubmit();
+});
+
+
+document.querySelector(".btn-danger").addEventListener("click", (event) => {
+event.preventDefault();
+createList(url);
+}); -->
