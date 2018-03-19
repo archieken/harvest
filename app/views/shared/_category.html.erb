@@ -2,7 +2,7 @@
             <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
 
                 <% product = @product %>
-                <div class="product-card overlay white toggle-product" onclick="console.log(this.querySelector('#product-id'))" style="background-image: url(<%=product.photo%>);">
+                <div class="product-card overlay white toggle-product" onclick="toggleProduct(this.querySelector('#product-id').innerHTML)" style="background-image: url(<%=product.photo%>);">
                   <div id="product-id" style="display: none"><%= product.id %></div>
                   <div class="product-card-content">
                     <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
@@ -23,3 +23,4 @@
                     </div>
                   </div>
                 </div>
+

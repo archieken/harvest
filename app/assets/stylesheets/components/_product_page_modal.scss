@@ -1,4 +1,4 @@
-#product-modal {
+  .show-product {
   height: calc(100vh - 90px);
   width: 100vw;
   position: fixed;
@@ -21,10 +21,6 @@
   transform: translateY(100vh)!important;
 }
 
-.show-product #product-modal {
-  -webkit-transform: translateY(0px);
-  transform: translateY(0px);
-}
 
 .show-product .navbar-harvest {
   opacity: 0;
