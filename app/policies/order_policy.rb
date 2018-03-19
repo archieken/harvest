@@ -13,4 +13,12 @@ class OrderPolicy < ApplicationPolicy
   def create?
     return true
   end
+
+  def history?
+    return true
+  end
+
+  def reorder?
+    return true
+  end
 end

@@ -19,7 +19,6 @@ skip_before_action :authenticate_user!, except: :add_to_basket
       order.save
     end
    # flash[:basket_flash]
-    redirect_back(fallback_location: products_path)
   end
 
   def update
@@ -53,6 +52,15 @@ skip_before_action :authenticate_user!, except: :add_to_basket
     @orderline = OrderLine.find(params[:id])
     authorize @orderline
     @orderline.destroy
+    redirect_back(fallback_location: products_path)
+  end
+
+  def reorder
+    @order = Order.find(params[:id])
+    @order.products.each do |product|
+      add_to_basket
+    end
+    authorize @order
     redirect_back(fallback_location: products_path)
   end
 end

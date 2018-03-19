@@ -28,4 +28,8 @@ class OrderLinePolicy < ApplicationPolicy
   def add_to_basket?
     true
   end
+
+  def reorder?
+    true
+  end
 end

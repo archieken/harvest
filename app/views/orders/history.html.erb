@@ -1,0 +1,75 @@
+<div  style="margin-top: 90px;">
+
+    <div class="sidenav">
+    <%# link_to "all", products_path, class: "sidenav-link" %>
+  <!--   <%= link_to "past orders", products_path(:anchor => '#'), class: "sidenav-link" %> -->
+  <a href="#" class="sidenav-link anchor">past</a>
+  <a href="#" class="sidenav-link anchor">cancelled</a>
+    </div>
+    <div class="products-section">
+      <h3>my past orders</h3>
+      <div class="basket-items" id="basket-items">
+        <% if !@orders.blank? %>
+          <% @current_user.orders.where(status: "paid").each_with_index do |order, index| %>
+          <h6 style="margin-bottom: 10px; margin-top: 15px;display: inline-block;">Order. <%= index + 1 %></h6>
+          <a href="<%= reorder_path(order) %>" style="margin-bottom: 10px;" class="add-to-cart-btn">Repeat Order</a>
+          <label class="amount">
+            <span>total: AUS <%= humanized_money_with_symbol(order.amount) %></span>
+          </label>
+          <p class="item-qty">(<%= order.order_lines.count %> items)</p>
+            <% order.products.each do |product|  %>
+            <div class="basket-card" style="width: 100%">
+              <div class="basket-card-image" style="background-image: url(<%= product.photo %>)">
+                <div class="basket-card-producer-avatar" style="background-image: url(<%= product.producer.photo %>)">
+                </div>
+              </div>
+                <div class="basket-item-info">
+                  <div class="item-info-spacing">
+                    <div class="item-name-and-producer">
+                      <% total = product.price*order.products.select{ |p| p.name == product.name }.count%>
+                      <h3 class="basket-item-name"><%= product.name%></h3>
+                      <h3 class="basket-item-producer-info" style="color:#524F4C">
+                        <%= product.price%> PER <%= product.unit_type %>
+                      </h3>
+                       <% producer = product.producer  %>
+                      <h3 class="basket-item-producer-info"><%= producer.name %></h3>
+                      <h3 class="basket-item-producer-info"><%= producer.city  %> | 10KM</h3>
+                    </div>
+                    <div class="item-price-and-qty">
+                      <h3 class="item-qty" >QTY: <%= order.products.select{ |p| p.name == product.name}.count %></h3>
+                      <h3 class="item-price">$<%= total %></h3>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <% end %>
+          <% end %>
+          <div class="basket-items-spacer"></div>
+        <% else %>
+          <h3 style="margin-bottom: 40px; margin-top: 15px; display: inline-block;">Previous orders</h3>
+          <p class="summary-item" style="color: #FFB96E; font-size: 12px; font-weight: 700">You have no order history</p>
+        <% end %>
+      </div>
+    </div>
+</div>
+<!--
+<script>
+
+  function addProduct() {
+    const products = @current_user.orders.where(status: "paid");
+    for(var product in products) {
+      add_to_basket_path(product.id);
+    }
+  }
+
+</script>
+
+<script>
+  var repeatOrderButtons = document.querySelectorAll('.add-to-cart-btn');
+for (var i = 0; i < repeatOrderButtons.length; i++) {
+    repeatOrderButtons[i].addEventListener('click', function(event) {
+        event.preventDefault()
+        addProduct();
+    });
+}
+</script> -->

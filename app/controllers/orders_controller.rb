@@ -20,4 +20,14 @@ class OrdersController < ApplicationController
 
     end
   end
+
+  def history
+    if !current_user.nil?
+      @orders = Order.where(user_id: current_user.id)
+      authorize @orders
+    end
+  end
+
+  def reorder
+  end
 end
