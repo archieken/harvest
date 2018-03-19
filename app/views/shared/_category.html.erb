@@ -17,7 +17,7 @@
                         <%= link_to image_tag("plus-icon.png", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
 
                       <% else %>
-                        <a href= <%=add_to_basket_path(product.id)%> class="add-to-cart-btn">ADD</a>
+                        <a onclick="location.href='<%=add_to_basket_path(product.id)%>';" class="add-to-cart-btn">ADD</a>
                       <% end %>
                     </div>
                   </div>

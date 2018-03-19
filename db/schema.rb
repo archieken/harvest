@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180319114728) do
     t.datetime "updated_at", null: false
     t.string "city", default: "Byron Bay"
     t.string "photo"
+    t.string "Farmphotos", default: [], array: true
     t.text "description"
     t.string "speciality"
     t.string "Farmphotos", default: [], array: true
