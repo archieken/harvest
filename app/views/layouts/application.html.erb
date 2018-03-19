@@ -47,11 +47,9 @@
 
   <% if !@products.blank? %>
   <div id="site-wrapper">
-    <% for product in @products %>
+    <% for product in @products%>
     <%@product = product %>
-    <h1>start</h1>
     <%= render 'shared/product_page' %>
-    <h1>end</h1>
     <% end %>
     </div>
   <% end %>
@@ -59,10 +57,8 @@
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
 
-
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
     <%= javascript_pack_tag "map" %>
-
   </body>
 </html>
 
