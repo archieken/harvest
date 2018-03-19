@@ -4,26 +4,12 @@
       <div class="product-card-content">
         <h5 class="product-card-title"><%= @recipe.producer.name %>'s<br><%= @recipe.title%></h5>
           <p class="product-card-price"> 2 hours</p>
+          <p class="product-card-price"><%= @fat_quant %></p>
       </div>
     </div>
   </div>
 <div class="products-section">
 
- <script>
-
-get_url = 'https://api.edamam.com/api/food-database/parser?ingr=red%20apple&app_id=87fcd877&app_key=757ab6a2d95f52daf6f5f4b3634e0781&page=0'
-
-
-fetch(get_url)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(myJson) {
-    console.log(myJson);
-  });
-
-
-</script>
 
 
 
