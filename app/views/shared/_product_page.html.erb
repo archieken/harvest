@@ -1,11 +1,10 @@
 
 <% if !@product.blank?%>
 
-
-  <div id=<%= "product" + @product.id.to_s%> class="show-product product-modal">
-    <% product = @product %>
+<% product = @product %>
+  <div id="<%= "product#{@product.id}"%>" class="show-product product-modal">
     <div class="go-back">
-      <a href="#" style="display:block" class="toggle-product basket-button"><img class="x-icon" src="/assets/plus-icon.svg" alt="Triangle"></a>
+      <a href="#" style="display:block" class="toggle-product basket-button"><img class="x-icon" src="/assets/plus-icon.svg" alt="Triangle" onclick="toggleProduct(<%=product.id%>)"></a>
     </div>
     <div class="product-page-links">
       <ul style="list-style-type: none;">
@@ -34,7 +33,6 @@
       <div class="producer-info-spacer"></div>
     </div>
 
-    <% if !product.nil? %>
     <div class="product-info">
       <div class="product-modal-title">
         <h3><%= product.producer.name %>'s<br><%= product.name%></h3>
@@ -59,7 +57,6 @@
           <% end %>
         </div>
       </div>
-      <% end %>
 
 
 

@@ -49,11 +49,12 @@
   <div id="site-wrapper">
     <% for product in @products %>
     <%@product = product %>
+    <h1>start</h1>
     <%= render 'shared/product_page' %>
+    <h1>end</h1>
     <% end %>
     </div>
   <% end %>
-
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
