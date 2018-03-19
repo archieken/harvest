@@ -1,0 +1,160 @@
+#product-modal {
+  height: calc(100vh - 90px);
+  width: 100vw;
+  position: fixed;
+  bottom: 0px;
+  background-color: white;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+  transition: .3s ease all;
+  z-index: 150;
+
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 50px;
+  padding-top: 50px;
+}
+
+.show-product {
+  -webkit-transform: translateY(100vh)!important;
+  transform: translateY(100vh)!important;
+}
+
+.show-product #product-modal {
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+}
+
+.show-product .navbar-harvest {
+  opacity: 0;
+}
+
+// GO BACK ICON
+
+.x-icon {
+  height: 15px;
+  width: 15px;
+}
+
+
+// FLEX SECTIONS OF PAGE
+
+.go-back {
+  width: 10%;
+  height: 100%;
+}
+
+.product-page-links {
+  width: 15%;
+  height: 100%;
+  // background-color:green;
+}
+
+.product-producer-info-scroll {
+  width: 50%;
+  height: calc(100% + 50px);
+  overflow: scroll;
+  flex-shrink: 1;
+  margin: 0px 30px;
+  margin-top: -50px;
+  margin-right: 45px;
+}
+
+.product-info {
+  width: 25%;
+  height: 100%;
+  padding-right: 50px;
+  // background-color:green;
+}
+
+// PRODUCT PRODUCER INFO CLASS
+
+.producer-title {
+  margin-top: 45px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.producer-gallery {
+  display: flex;
+  justify-content: flex-start;
+  margin: 5px -5px;
+  flex-wrap: wrap;
+
+}
+
+.gallery-photo {
+  background-image: asset-url('farmer-photo.jpg');
+  border-radius: 4px;
+  background-size: cover;
+  background-position: center;
+  flex: 1 1 150px;
+  height: 150px;
+  width: 170px;
+  margin: 5px;
+}
+
+.producer-info-spacer {
+  height: 30px;
+  width: 100%;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+
+// PRODUCT RIGHT SIDE BAR
+
+.product-modal-title {
+  border-left: 1px solid #FFB96E;
+  padding: 0px;
+  padding-left: 15px;
+  margin-left: -15px;
+}
+
+.product-modal-title h3 {
+  font-family: Baskerville;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 0px;
+}
+
+.card-map {
+  width: 100%;
+  height: 40%;
+  border-radius: 4px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 30px;
+}
+
+.product-page-add {
+  width: calc(100% - 50px);
+  margin-top: 30px;
+}
+
+.product-page-price {
+  margin-top: 10px;
+}
+
+.product-page-price-number {
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 0px;
+}
+
+.product-page-price-label {
+  margin-bottom: 3px;
+  color: #C0C0C0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
