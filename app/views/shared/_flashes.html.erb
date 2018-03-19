@@ -20,3 +20,16 @@
       </div>
     </div>
 <% end %>
+<% if reorder_product %>
+    <div id="check_card" class="alert" role="alert" style="display:flex; flex-direction: column;">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <div aria-hidden="true">&times;</div>
+      </button>
+
+      <%= reorder_product %>
+      <div id="flash_button">
+        <%= link_to "checkout now", products_path, class: "homepage-button" %>
+      </div>
+    </div>
+<% end %>
+

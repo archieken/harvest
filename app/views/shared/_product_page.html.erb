@@ -33,6 +33,7 @@
       <div class="producer-info-spacer"></div>
     </div>
 
+    <% if !product.nil? %>
     <div class="product-info">
       <div class="product-modal-title">
         <h3><%= product.producer.name %>'s<br><%= product.name%></h3>
@@ -57,7 +58,7 @@
           <% end %>
         </div>
       </div>
-
+      <% end %>
 
 
 

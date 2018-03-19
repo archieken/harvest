@@ -11,11 +11,12 @@
       <div class="basket-items" id="basket-items" style="width: 90%">
         <% if !@orders.blank? %>
           <% @current_user.orders.where(status: "paid").each_with_index do |order, index| %>
-            <a href="<%= reorder_path(order) %>" style="margin-bottom: 10px; width: 25%; float: right;" class="add-to-cart-btn">Repeat Order (<%= order.order_lines.count %> items)</a>
+            <% if order.order_lines.count > 0 %>
+            <a href="<%= reorder_path(order) %>" style="margin-bottom: 10px; width: 25%; float: right;" class="add-to-cart-btn"> repeat order | AUS<%= humanized_money_with_symbol(order.amount)%> </a>
             <div style="display: flex; flex-direction: row; justify-content: space-between;">
                 <div style="display: flex; flex-direction: column; justify-content: space-between;">
                 <div><h6 style="display: inline-block;">ID <%= index + 1 %></h6></div>
-                <div style="font-size: 16px;">Total: aus <%= humanized_money_with_symbol(order.amount) %></div>
+                <div style="font-size: 12px;">(<%= order.order_lines.count %> items)</div>
                 </div>
             </div>
             <% order.products.each do |product|  %>
@@ -43,6 +44,7 @@
                   </div>
                 </div>
             </div>
+            <% end %>
             <% end %>
           <% end %>
           <div class="basket-items-spacer"></div>
