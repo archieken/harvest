@@ -142,7 +142,7 @@ puts "Creating Dairy & Eggs"
   puts "Dairy & Eggs made"
 
 puts "Creating Bakery"
-    bakes = ["Croissants", "Baguettes", "Muffins", "Cakes", "Cupcakes", "Tortillas"]
+    bakes = ["Croissants", "Baguettes", "Muffins", "Cupcakes", "Tortillas"]
     photos = ["https://i.pinimg.com/564x/bb/d5/aa/bbd5aa58be18aaab6052deda215e98b5.jpg", "https://i.pinimg.com/564x/62/08/c4/6208c48a52bf4b6c78eec88fbac0e03a.jpg", "https://i.pinimg.com/564x/17/51/5a/17515a3d8e5fd796ec881607d4129184.jpg", "https://i.pinimg.com/564x/da/68/1a/da681ab51ef3381b47a598cc930ebf38.jpg", "https://i.pinimg.com/564x/c8/7b/9d/c87b9d345ad3abba03441821eddff4c5.jpg"]
     bakes.each_with_index {|bake, index| Product.create!(name: bake, price: (4..10).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "baker").sample, category: Category.find_by(name: "bakery"), photo: photos[index])}
   puts "Bakery made"

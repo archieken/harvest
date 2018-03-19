@@ -59,6 +59,7 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    edamam-ruby (0.2.0)
     erubi (1.7.1)
     execjs (2.7.0)
     faraday (0.14.0)
@@ -213,6 +214,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass (~> 3.3)
   devise
+  edamam-ruby
   figaro
   font-awesome-sass (~> 4.7)
   geocoder

@@ -3,20 +3,21 @@
     <div class="sidenav">
     <%# link_to "all", products_path, class: "sidenav-link" %>
   <!--   <%= link_to "past orders", products_path(:anchor => '#'), class: "sidenav-link" %> -->
-  <a href="#" class="sidenav-link anchor">past</a>
-  <a href="#" class="sidenav-link anchor">cancelled</a>
+  <a href="<%=order_history_path %>" class="sidenav-link anchor">past</a>
+ <!--  <a href="#" class="sidenav-link anchor">cancelled</a> -->
     </div>
     <div class="products-section">
       <h3>my past orders</h3>
-      <div class="basket-items" id="basket-items">
+      <div class="basket-items" id="basket-items" style="width: 90%">
         <% if !@orders.blank? %>
           <% @current_user.orders.where(status: "paid").each_with_index do |order, index| %>
-          <h6 style="margin-bottom: 10px; margin-top: 15px;display: inline-block;">Order. <%= index + 1 %></h6>
-          <a href="<%= reorder_path(order) %>" style="margin-bottom: 10px;" class="add-to-cart-btn">Repeat Order</a>
-          <label class="amount">
-            <span>total: AUS <%= humanized_money_with_symbol(order.amount) %></span>
-          </label>
-          <p class="item-qty">(<%= order.order_lines.count %> items)</p>
+            <a href="<%= reorder_path(order) %>" style="margin-bottom: 10px; width: 25%; float: right;" class="add-to-cart-btn">Repeat Order (<%= order.order_lines.count %> items)</a>
+            <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div><h6 style="display: inline-block;">ID <%= index + 1 %></h6></div>
+                <div style="font-size: 16px;">Total: aus <%= humanized_money_with_symbol(order.amount) %></div>
+                </div>
+            </div>
             <% order.products.each do |product|  %>
             <div class="basket-card" style="width: 100%">
               <div class="basket-card-image" style="background-image: url(<%= product.photo %>)">

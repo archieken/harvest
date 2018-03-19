@@ -22,6 +22,7 @@ gem 'stripe'
 
 gem "geocoder"
 gem "pundit"
+gem 'edamam-ruby'
 
 gem "letter_opener", group: :development
 
