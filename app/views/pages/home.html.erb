@@ -1,10 +1,13 @@
 <div class="banner">
+  <%= image_tag 'kale.png', :class => "kale" %>
+  <%= image_tag 'carrot.png', :class => "carrot" %>
+  <%= image_tag 'corn.png', :class => "corn" %>
   <div class="banner-content">
     <h2 class="home-title">The Farmer's Market.<br>Delivered to your door.</h2>
     <h5 class="principal-para">See the grocery products that local farmers are providing in your delivery area.</h5>
     <%= form_tag postcodecheckers_path, method: :post do %>
 
-      <input id="address" class="postcode-input-field" name="address" type="text" placeholder="check address"
+      <input id="address" name="address" type="text" placeholder="check address"
       <%if((!current_user.nil?) && (!current_user.contact.nil?) && (!current_user.contact.address.blank?))%>
        value=<%=current_user.contact.address%>
        <%end%>/>
@@ -20,22 +23,22 @@
     <p class="section-para">Harvest helps you cut out the middleman by letting you order directly from the producter.</p>
     <div class="features">
       <div class="feature">
-        <div class="feature-avatar"><i class="fa fa-cutlery fa-4x"></i></div>
+        <div class="feature-avatar"><%= image_tag 'DeliveryTruck.svg', :class => "delivery-truck-icon" %></i></div>
         <h4 class="feature-title">Easy</h4>
         <p class="feature-para">We take the work out of getting great food in your kitchen and on the table.</p>
       </div>
       <div class="feature">
-        <div class="feature-avatar"><i class="fa fa-leaf fa-4x"></i></div>
+        <div class="feature-avatar"><%= image_tag 'Watermelon.svg', :class => "watermelon-icon" %></i></div>
         <h4 class="feature-title">Fresh</h4>
         <p class="feature-para">Get fresh food that is picked and prepared when you order.</p>
       </div>
       <div class="feature">
-        <div class="feature-avatar"><i class="fa fa-map-marker fa-4x"></i></div>
+        <div class="feature-avatar"><%= image_tag 'HouseLocal.svg', :class => "house-icon" %></i></div>
         <h4 class="feature-title">Support Local Producers</h4>
         <p class="feature-para">Engage with your community and support the livelihood of all our local vendors.</p>
       </div>
       <div class="feature">
-        <div class="feature-avatar"><i class="fa fa-recycle fa-4x"></i></div>
+        <div class="feature-avatar"><%= image_tag 'EcoLeaf.svg', :class => "ecoleaf-icon" %></i></div>
         <h4 class="feature-title">Eco-friendly</h4>
         <p class="feature-para">Pick local food to reduce CO2 emissions.</p>
       </div>
@@ -63,17 +66,6 @@
     </div>
   </div>
 </div>
-
-
-
- <div style="background-color: #fbf8f4;">
-  <div class="carousel-title">
-    <h3 class="producer-cat-title" style="display: inline-block;">recipes</h3>
-    <%= link_to "shop recipes", products_path(:anchor => "recipes"), class: "homepage-cat-link" %>
-  </div>
-    <%@recipes %>
-    <%= render 'shared/recipes' %>
-  </div>
 
 
     <div style="background-color: #fbf8f4;">
