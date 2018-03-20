@@ -122,16 +122,13 @@
                     </div>
 
                        <div class="add-controls-basket">
-                      <div class="plus-minus-qty">
+                      <div class="plus-minus-qty" style="background-color: white;">
                         <div>
-                          <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(item.id), method: :get, class: "add_quant_basket", onclick: "remove_item(#{item.id})", remote: true%>
+                          <%= link_to "-", remove_order_lines_path(item.id), method: :get, class: "basket-minus", onclick: "remove_item(#{item.id})", remote: true%>
                         </div>
 
                         <div>
-                           <%= link_to image_tag("plus-icon.png", size: "16x2"), add_order_lines_path(item.id), method: :get, class: "add_quant_basket", onclick: "add_item(#{item.id})", remote: true%>
-                        </div>
-
-                        <div>
+                           <%= link_to "+", add_order_lines_path(item.id), method: :get, class: "basket-plus", onclick: "add_item(#{item.id})", remote: true%>
                         </div>
                       </div>
                     </div>
@@ -350,12 +347,15 @@
         document.querySelector("#order_amount").innerHTML = order_amt - item_cost;
         document.querySelector("#grocery-amount").innerHTML = order_amt - item_cost;
 
-         if (num_item > 1)
+         if (num_item < 1)
 
          {
-            document.querySelector("#total-id").innerHTML = num_item - 1;
             document.querySelector(`#hide-empty`).style.display = "inline";
          }
+         else
+        {
+          document.querySelector("#total-id").innerHTML = num_item - 1;
+        }
 
        }
 
@@ -377,7 +377,7 @@
     document.querySelector(`#amount${id}`).innerHTML = item_amt + item_cost;
 
     document.querySelector("#order_amount").innerHTML = order_amt + item_cost;
-    document.querySelector("#grocery-amount").innerHTML = order_amt + item_cost;
+    document.querySelector("#grocery-amount").innerHTML = (order_amt + item_cost)-5;
 
   }
 
