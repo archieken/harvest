@@ -177,6 +177,15 @@
         </div>
         <div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; margin-bottom: 40px; margin-top: 15px">
           <div>
+            <h3 style="margin-bottom: 20px; width: 100%">delivery date</h3>
+          </div>
+          <div style="width: 100%; text-align: left; color: #C0C0C0">
+           <%= select_tag(:day, options_for_select([['Monday', 1], ['Tuesday', 2],['Wednesday', 3], ['Thursday', 4],['Friday', 5], ['Saturday', 6], ['Sunday', 7]])) %>
+           <%= select_tag(:day, options_for_select([['Monday', 1], ['Tuesday', 2],['Wednesday', 3], ['Thursday', 4],['Friday', 5], ['Saturday', 6], ['Sunday', 7]])) %>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; margin-bottom: 40px; margin-top: 15px">
+          <div>
             <h3 style="margin-bottom: 20px; width: 100%">delivery details</h3>
           </div>
           <div style="width: 100%; text-align: left; color: #C0C0C0">
