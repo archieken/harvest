@@ -133,7 +133,7 @@
                       </div>
                     </div>
                     <div class="item-price-and-qty">
-          <h3 class="item-qty">QTY:<div id="<%="qty#{item.id.to_s}"%>"><%= item.quantity %></div></h3>
+          <h3 class="item-qty">QTY:<div id="<%="qty#{item.id.to_s}"%>" style="display:inline"><%= item.quantity %></div></h3>
                       <h3 class="item-price">$<div id="<%="amount#{item.id.to_s}"%>" style="display:inline;"><%=total%></div></h3>
                     </div>
                   </div>
@@ -343,17 +343,21 @@
       document.querySelector(`#bask${id}`).style.display = "none";
       num_item = parseInt(document.querySelector("#total-id").innerHTML);
       order_amt = parseInt(document.querySelector("#order_amount").innerHTML);
+      document.querySelector("#order_amount").innerHTML = order_amt - item_cost;
+      document.querySelector("#grocery-amount").innerHTML = (order_amt - item_cost)-5;
 
-        document.querySelector("#order_amount").innerHTML = order_amt - item_cost;
-        document.querySelector("#grocery-amount").innerHTML = order_amt - item_cost;
-
-         if (num_item < 1)
+         if (num_item <= 1)
 
          {
-            document.querySelector(`#hide-empty`).style.display = "inline";
-         }
+            console.log(num_item);
+            document.querySelector(".hide-empty").style.display = "inline";
+            a = document.querySelector(".basket-count-show").innerHTML = `[${num_item}]`;
+        }
          else
         {
+          console.log(num_item);
+          console.log(hello);
+          document.querySelector(".basket-count-show").innerHTML = `[${num_item}]`;
           document.querySelector("#total-id").innerHTML = num_item - 1;
         }
 

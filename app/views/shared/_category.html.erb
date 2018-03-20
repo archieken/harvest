@@ -22,7 +22,7 @@
                         <%= link_to image_tag("white-plus-icon.svg", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
 
                       <% else %>
-                      <%= link_to "ADD", add_to_basket_path(product.id), remote: true, class: "add-to-cart-btn"%>
+                      <%= link_to "ADD", add_to_basket_path(product.id), class: "add-to-cart-btn"%>
                        <!--  <a href= <%=add_to_basket_path(product.id)%> class="add-to-cart-btn" remote="true">ADD</a> -->
                       <% end %>
                     </div>
