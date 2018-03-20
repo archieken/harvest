@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="196px" height="74px" viewBox="0 0 196 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>DeliveryTruck</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Home-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Landing-Page-Copy-3" transform="translate(-102.000000, -1241.000000)">
+            <g id="DeliveryTruck" transform="translate(104.000000, 1243.000000)">
+                <path d="M62,60.2037061 L82.5621973,60.2037061 C83.3888725,49.3197667 88.6208951,43.8777969 98.2582653,43.8777969 C107.895635,43.8777969 113.18065,49.3197667 114.113308,60.2037061 L162.603514,60.2037061 C163.311076,51.5181549 167.117376,46.0761851 174.022415,43.8777969 C180.927453,41.6794087 187.026517,43.6103163 192.319606,49.6705196" id="Path-2" stroke="#524F4C" stroke-width="4"></path>
+                <circle id="Oval-7" stroke="#524F4C" stroke-width="4" cx="98" cy="60" r="10"></circle>
+                <circle id="Oval-7-Copy" stroke="#524F4C" stroke-width="4" cx="179" cy="60" r="10"></circle>
+                <path d="M67,58.4876107 L67,4 C67,1.790861 68.790861,4.05812251e-16 71,0 L125.220166,-4.4408921e-16 C127.429305,-8.49901461e-16 129.220166,1.790861 129.220166,4 L129.220166,58.4876107" id="Path-3" stroke="#524F4C" stroke-width="4"></path>
+                <polyline id="Path-5" stroke="#524F4C" stroke-width="4" points="129 15 159.979206 15 153.911996 15 159.278695 34.863331 136.649234 34.863331 182.54223 34.863331 182.54223 41.9275757 182.54223 30.5693582"></polyline>
+                <circle id="Oval-6" fill="#524F4C" cx="185.5" cy="36.5" r="3.5"></circle>
+                <path d="M15,14 L53.0720104,14" id="Path-7" stroke="#524F4C" stroke-width="4"></path>
+                <path d="M0.5,34.5 L40.5,34.5" id="Line" stroke="#524F4C" stroke-width="4" stroke-linecap="square"></path>
+                <path d="M17.5,52.5 L52.5,52.5" id="Line-2" stroke="#524F4C" stroke-width="4" stroke-linecap="square"></path>
+                <polygon id="Path-8" stroke="#524F4C" stroke-width="4" points="139 34.3609271 139 22 148.40816 22 152.132337 34.3609271"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -6,10 +6,8 @@
   height: 95vh;
   text-align: center;
   padding: 10px 230px;
-  background-image: asset-url("garlic.png");
-  background-position: center;
-  background-size: cover;
   padding-top: 90px;
+  position: relative;
 }
 
 .banner-content {
@@ -47,6 +45,60 @@
 
 }
 
+// ---------   ARTESAN IMAGES   ------------
+
+.kale {
+  position: absolute;
+  right: 0px;
+  width: 400px;
+  height: auto;
+  z-index: 200;
+  bottom: -100px;
+}
+
+.carrot {
+position: absolute;
+left: -80px;
+width: 400px;
+height: auto;
+z-index: 200;
+bottom: -130px;
+-webkit-transform: rotate(220deg);
+transform: rotate(-15deg);
+}
+
+.corn {
+  position: absolute;
+  top: -250px;
+  width: 350px;
+  height: auto;
+  z-index: 200;
+  -webkit-transform: rotate(220deg);
+  transform: rotate(-50deg);
+}
+
+// ---------   FEATURE ICONS   ------------
+
+.delivery-truck-icon {
+  height: 60px;
+  margin-right: 10px;
+  margin-top: 18px
+}
+
+.watermelon-icon {
+  height: 60px;
+  margin-top: 16px
+}
+
+.house-icon {
+  height: 70px;
+  margin-top: 12px;
+}
+
+.ecoleaf-icon {
+  height: 50px;
+  margin-top: 23px;
+}
 
 // ---------   WHY SHOP HERE DIV   ------------
 .section {
