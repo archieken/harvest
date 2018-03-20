@@ -3,7 +3,7 @@
     <div class="sidenav">
     <%# link_to "all", products_path, class: "sidenav-link" %>
   <!--   <%= link_to "past orders", products_path(:anchor => '#'), class: "sidenav-link" %> -->
-  <a href="<%=order_history_path %>" class="sidenav-link anchor">past</a>
+  <a href="<%= products_path  %>" class="basket-button-history"> <%= image_tag("Triangle.svg", class: "triangle-icon rotate-triangle-icon") %> shop</a>
  <!--  <a href="#" class="sidenav-link anchor">cancelled</a> -->
     </div>
     <div class="products-section">
