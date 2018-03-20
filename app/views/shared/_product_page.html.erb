@@ -18,9 +18,9 @@
       <p style="margin-bottom: 30px"><%=@product.producer.description%></p>
       <div style="margin-bottom: 5px">
         <h3 class="basket-button" style="display: inline">LOCATION</h3>
-        <h3 class="basket-button" style="display: inline; color: #FFB96E">MURWILLUMBAH</h3>
+        <h3 class="basket-button" style="display: inline; color: #FFB96E"><%=@product.producer.city.upcase %></h3>
       </div>
-      <div class="card-map" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&markers=color:red%7C40.718217,-73.998284&zoom=8&size=480x380&key=AIzaSyCKxAu_Y-IhJUSTXAcMghvx_UDSBSGm2l8')";'>
+      <div class="card-map" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=<%= @product.producer.latitude %>,<%= @product.producer.longitude %>&markers=color:red%7C<%= @product.producer.latitude %>,<%= @product.producer.longitude %>&zoom=8&size=480x380&key=AIzaSyCKxAu_Y-IhJUSTXAcMghvx_UDSBSGm2l8')";'>
       </div>
       <h3 class="basket-button" style="display: inline">PHOTOS</h3>
       <div class="producer-gallery">
@@ -29,6 +29,7 @@
         <div class="gallery-photo"></div>
         <div class="gallery-photo"></div>
         <div class="gallery-photo"></div>
+
       </div>
       <div class="producer-info-spacer"></div>
     </div>

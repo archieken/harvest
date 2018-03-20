@@ -2,7 +2,11 @@
             <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
 
                 <% product = @product %>
-                <div class="product-card overlay white" onclick="toggleProduct(<%=product.id.to_s%>)" style="background-image: url(<%=product.photo%>);">
+                <div class="product-card overlay white" onclick="toggleProduct(<%=product.id.to_s%>)" style="background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0)
+    ), url(<%=product.photo%>); background-size: cover;">
                   <div class="product-card-content">
                     <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
                     <p class="product-card-price"> <%=humanized_money_with_symbol(product.price)%></p>
@@ -12,9 +16,9 @@
 
                       <% if ((!current_user.nil?) && (!current_user.orders.find_by(status: "new").nil?) && (!current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id).nil?)) %>
                         <% orderline = current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id)%>
-                        <%= link_to image_tag("minus-icon.png", size: "16x2"), remove_order_lines_path(orderline.id), method: :get, class: "add_quant"%>
+                        <%= link_to image_tag("minus-icon.svg", size: "16x2"), remove_order_lines_path(orderline.id), method: :get, class: "add_quant"%>
                         <h3 class="qty"><%= orderline.quantity %></h3>
-                        <%= link_to image_tag("plus-icon.png", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
+                        <%= link_to image_tag("white-plus-icon.svg", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
 
                       <% else %>
                         <a href= <%=add_to_basket_path(product.id)%> class="add-to-cart-btn">ADD</a>
@@ -22,4 +26,5 @@
                     </div>
                   </div>
                 </div>
+
 
