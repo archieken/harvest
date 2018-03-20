@@ -4,10 +4,14 @@
       <div class="product-card-content">
         <h5 class="product-card-title"><%= @recipe.producer.name %>'s<br><%= @recipe.title%></h5>
           <p class="product-card-price"> 2 hours</p>
-          <p class="product-card-price"><%= @fat_quant %></p>
       </div>
     </div>
   </div>
+
+ <% @recipe.products.each do |recipe| %>
+    <%= recipe.name %>
+  <% end %>
+
 <div class="products-section">
 
 
