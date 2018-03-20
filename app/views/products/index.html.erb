@@ -8,7 +8,7 @@
 
   <div class="sidenav">
     <%# link_to "all", products_path, class: "sidenav-link" %>
-  <!--   <%= link_to "vegetables", products_path(:anchor => '#vegetables'), class: "sidenav-link" %> -->
+<!--  <%= link_to "vegetables", products_path(:anchor => '#vegetables'), class: "sidenav-link" %> -->
   <a href="#recipes" class="sidenav-link anchor">recipes</a>
   <a href="#vegetables" class="sidenav-link anchor">vegetables</a>
   <a href="#fruits" class="sidenav-link anchor">fruits</a>
@@ -153,7 +153,7 @@
 
   $(window).scroll(function() {
     var position = $(this).scrollTop();
-    position = position + 200;
+    position = position + 50;
 
     $('.category-section').each(function() {
         var target = $(this).offset().top;

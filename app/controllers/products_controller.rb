@@ -8,20 +8,18 @@ class ProductsController < ApplicationController
     @vegetables = @products.where(category: Category.find_by(name: "vegetables"))
     authorize @vegetables
 
-
-    #from orders controller
-
-
      if !current_user.nil?
       Contact.find_by(user_id: current_user.id) ? @contact = Contact.find_by(user_id: current_user.id) : @contact = Contact.create(user_id: current_user.id)
     end
+
 
     @orders = policy_scope(Order)
     authorize @orders
 
     if (Order.where(user: current_user).nil? || Order.where(user: current_user).find_by(status: "new").nil?)
 
-      @order = Order.new
+      @order = Order.create!(status: "new", user: current_user)
+      authorize @order
       @order_lines
 
     else

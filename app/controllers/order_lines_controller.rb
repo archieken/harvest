@@ -4,21 +4,20 @@ skip_before_action :authenticate_user!, except: :add_to_basket
 
 
   def add_to_basket
-    if ((!current_user.orders.nil?) && (!current_user.orders.find_by(status:"new").blank?))
-      order = current_user.orders.find_by(status:"new")
+    unless current_user.orders.nil? || current_user.orders.find_by(status:"new").blank?
 
-      @orderline = OrderLine.create(product_id: Product.find(params[:id]).id, quantity: 1, order: order)
+      order = current_user.orders.find_by(status:"new")
+      @orderline = OrderLine.create!(product_id: Product.find(params[:id]).id, quantity: 1, order: order)
       authorize @orderline
       order.amount = order.amount + @orderline.product.price
-      order.save
+      order.save!
     else
-      order = Order.create(user: current_user)
-      @orderline = OrderLine.create(product_id: Product.find(params[:id]).id, quantity: 1, order: order)
+      order = Order.create!(user: current_user, status: "new" )
+      @orderline = OrderLine.create!(product_id: Product.find(params[:id]).id, quantity: 1, order: order)
       authorize @orderline
       order.amount = @orderline.product.price
-      order.save
+      order.save!
     end
-   # flash[:basket_flash]
     redirect_back(fallback_location: products_path)
   end
 
@@ -40,11 +39,10 @@ skip_before_action :authenticate_user!, except: :add_to_basket
 
       if orderline.quantity > 1
         orderline.quantity = orderline.quantity - 1
-        orderline.save
+        orderline.save!
         authorize orderline
-
       else
-        orderline.destroy
+        orderline.destroy!
       end
       redirect_back(fallback_location: products_path)
     end
@@ -66,20 +64,20 @@ skip_before_action :authenticate_user!, except: :add_to_basket
   end
 
   def reorder_product(product)
-    if ((!current_user.orders.nil?) && (!current_user.orders.find_by(status:"new").blank?))
+    unless current_user.orders.nil? || current_user.orders.find_by(status:"new").blank?
       @order = current_user.orders.find_by(status:"new")
       @orderline = OrderLine.create!(product_id: product.order_lines.find_by(order_id: params[:id]).product_id, quantity: product.order_lines.find_by(order_id: params[:id]).quantity, order: @order)
       authorize @order
       authorize @orderline
       @order.amount = @order.amount + @orderline.product.price*@orderline.quantity
-      @order.save
+      @order.save!
     else
-      @order = Order.create(user: current_user)
+      @order = Order.create!(user: current_user, status: "new")
       @orderline = OrderLine.create(product_id: product.order_lines.find_by(order_id: params[:id]).product_id, quantity: product.order_lines.find_by(order_id: params[:id]).quantity, order: @order)
       authorize @orderline
       authorize @order
       @order.amount = @orderline.product.price*@orderline.quantity
-      @order.save
+      @order.save!
     end
     flash[:reorder_product] = "Order has been added to your basket."
   end

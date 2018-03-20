@@ -50,7 +50,7 @@
   display: block;
 }
 
-#vegetables:before {
+.category-section:before {
   content: '';
   display: block;
   position: relative;
@@ -66,6 +66,15 @@
   margin-right: 40px;
   margin-top: 73px;
 
+}
+
+.products-section:before {
+  content: '';
+  display: block;
+  position: relative;
+  width: 0;
+  height: 5em;
+  margin-top: -5em
 }
 
 .products-index {

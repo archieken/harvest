@@ -77,7 +77,7 @@
 }
 
 .basket-button {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 1.2px;
   font-weight: 600;
   color: #524F4C;
@@ -238,4 +238,16 @@
 
 .hide-button {
   display: none;
+}
+
+// ---------------- HISTORY PAGE ----------------
+.basket-button-history {
+  font-size: 16px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  color: #524F4C;
+  margin: 0px;
+  text-decoration: none;
+  border-bottom: none;
+  padding: 0px;
 }
