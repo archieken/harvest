@@ -171,10 +171,10 @@ puts "Creating Categories"
     photos = ["https://i.pinimg.com/564x/54/77/3c/54773c097d987739fe679bf9803d5182.jpg", "https://i.pinimg.com/564x/9f/16/b1/9f16b1e1984fe45281993aaacaf5248d.jpg", "https://i.pinimg.com/564x/5b/2a/9f/5b2a9f24e3cd05b578f4b71300a47554.jpg", "https://i.pinimg.com/564x/a1/40/56/a1405683aa166e558cc4be7a04d42a2b.jpg", "https://i.pinimg.com/564x/9f/58/0a/9f580a12fd41a3af0b8dbd392667f597.jpg", "https://i.pinimg.com/564x/5b/e4/ab/5be4ab40e298fc84e4ec6f74b71e49da.jpg", "https://i.pinimg.com/564x/6d/94/ba/6d94bafda606a28b0911b2bb1fcc6003.jpg", "https://i.pinimg.com/564x/6a/ff/0e/6aff0e6aeb1919c3748c508a710f6f9c.jpg"]
     veggies.each_with_index do |veg, index|
       product = Product.create!(name: veg, price: (4..10).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "vegetables"), photo: photos[index])
-       client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
-       product_data = "1 #{product.name}"
-       nd = client.food_database.nutritional_data(product_data)
-       nutrient = Nutrient.create(product: product, fatquant: fat_quant(nd), fatunit: fat_unit(nd), calquant: calories_quant(nd), calunit: calories_unit(nd), carbsquant: carbs_unit(nd), carbsunit: carbs_unit(nd), sugarquant: sugar_quant(nd), sugarunit: sugar_unit(nd))
+    #    client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
+    #    product_data = "1 #{product.name}"
+    #    nd = client.food_database.nutritional_data(product_data)
+    #    nutrient = Nutrient.create(product: product, fatquant: fat_quant(nd), fatunit: fat_unit(nd), calquant: calories_quant(nd), calunit: calories_unit(nd), carbsquant: carbs_unit(nd), carbsunit: carbs_unit(nd), sugarquant: sugar_quant(nd), sugarunit: sugar_unit(nd))
     end
 
 
@@ -186,10 +186,10 @@ puts "Creating Categories"
 "]
     fruits.each_with_index do |fruit, index|
      product = Product.create!(name: fruit, price: (4..10).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "fruits"), photo: photos[index])
-     client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
-     product_data = "1 #{product.name}"
-     nd = client.food_database.nutritional_data(product_data)
-     nutrient = Nutrient.create(product: product, fatquant: fat_quant(nd), fatunit: fat_unit(nd), calquant: calories_quant(nd), calunit: calories_unit(nd), carbsquant: carbs_unit(nd), carbsunit: carbs_unit(nd), sugarquant: sugar_quant(nd), sugarunit: sugar_unit(nd))
+     # client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
+     # product_data = "1 #{product.name}"
+    #  nd = client.food_database.nutritional_data(product_data)
+    #  nutrient = Nutrient.create(product: product, fatquant: fat_quant(nd), fatunit: fat_unit(nd), calquant: calories_quant(nd), calunit: calories_unit(nd), carbsquant: carbs_unit(nd), carbsunit: carbs_unit(nd), sugarquant: sugar_quant(nd), sugarunit: sugar_unit(nd))
     end
   puts "Fruits made"
 
