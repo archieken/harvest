@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="103px" height="85px" viewBox="0 0 103 85" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>EcoLeaf</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Home-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Landing-Page-Copy-3" transform="translate(-1179.000000, -1234.000000)" stroke="#524F4C" stroke-width="4">
+            <g id="EcoLeaf" transform="translate(1180.000000, 1227.000000)">
+                <g id="Group-6" transform="translate(12.000000, 0.000000)">
+                    <path d="M63.0656986,37.0753175 C73.190919,37.0753175 82.3575857,32.9086509 90.5656986,24.5753175 C82.3575857,16.2419842 73.190919,12.0753175 63.0656986,12.0753175 C52.9404782,12.0753175 43.7738115,16.2419842 35.5656986,24.5753175 C43.7738115,32.9086509 52.9404782,37.0753175 63.0656986,37.0753175 Z" id="Oval-8" transform="translate(63.065699, 24.575318) rotate(-30.000000) translate(-63.065699, -24.575318) "></path>
+                    <path d="M20.9217678,37.7995397 C27.9675881,37.7995397 34.3463812,34.9000882 40.0581471,29.1011854 C34.3463812,23.3022826 27.9675881,20.4028312 20.9217678,20.4028312 C13.8759474,20.4028312 7.49715433,23.3022826 1.78538843,29.1011854 C7.49715433,34.9000882 13.8759474,37.7995397 20.9217678,37.7995397 Z" id="Oval-8-Copy" transform="translate(20.921768, 29.101185) rotate(-330.000000) translate(-20.921768, -29.101185) "></path>
+                    <path d="M38.5,38.5 L38.5,82.5454311" id="Line-3" stroke-linecap="square"></path>
+                </g>
+                <polyline id="Path-6" points="0.454402972 89.3971523 17.406199 81.0355833 37.1311603 89.3971523 65.9219575 81.0355833 101.462742 89.3971523"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
