@@ -4,13 +4,6 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  #get 'products/index'
-
-  #get 'products/show'
-
-  #get 'order_lines/create'
-
-  #get 'orders/index'
   get '/products/:id/add', to: 'order_lines#add_to_basket', as: 'add_to_basket'
 
   get '/order_lines/:id/add', to: 'order_lines#add', as: 'add_order_lines'
