@@ -2,34 +2,74 @@
 <% if !@product.blank?%>
 
 <% product = @product %>
-  <div id="<%= "product#{@product.id.to_s}"%>" class="show-product product-modal">
+  <div id="<%= "product#{@product.id.to_s}"%>" class="show-product product-modal" data-spy="scroll" data-target="#myScrollspy" data-offset="20">
     <div class="go-back">
       <a style="display:block" class="toggle-product basket-button" onclick="toggleProduct(<%=product.id.to_s%>)" "><img class="x-icon" src="/assets/plus-icon.svg" alt="Triangle"></a>
     </div>
-    <div class="product-page-links">
+    <div class="product-page-links" id="myScrollspy">
       <ul style="list-style-type: none;">
-        <li><a  class="basket-button" style="display: block; margin-bottom:5px" href="">ABOUT PRODUCER</a></li>
-        <li><a  class="basket-button" style="display: block; margin-bottom:5px" href="">RELATED RECIPES</a></li>
-        <li><a  class="basket-button" style="display: block; margin-bottom:5px" href="">SIMILAR PRODUCTS</a></li>
+        <li class="active"><a  class="basket-button anchor" style="display: block; margin-bottom:5px" href="#about_producer">ABOUT PRODUCER</a></li>
+        <li><a  class="basket-button anchor" style="display: block; margin-bottom:5px" href="#related_recipes">RELATED RECIPES</a></li>
+        <li><a  class="basket-button anchor" style="display: block; margin-bottom:5px" href="#similar_products">SIMILAR PRODUCTS</a></li>
       </ul>
     </div>
     <div class="product-producer-info-scroll">
-      <h2 class="producer-title"><%=@product.producer.name%></h2>
-      <p style="margin-bottom: 30px"><%=@product.producer.description%></p>
+      <div class="product-page-section">
+        <h2 class="producer-title"><%=@product.producer.name%></h2>
+        <p style="margin-bottom: 30px"><%=@product.producer.description%></p>
+      </div>
       <div style="margin-bottom: 5px">
-        <h3 class="basket-button" style="display: inline">LOCATION</h3>
+        <h3 class="basket-button" style="color: #cecece; display: inline">LOCATION</h3>
         <h3 class="basket-button" style="display: inline; color: #FFB96E"><%=@product.producer.city.upcase %></h3>
       </div>
       <div class="card-map" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=<%= @product.producer.latitude %>,<%= @product.producer.longitude %>&markers=color:red%7C<%= @product.producer.latitude %>,<%= @product.producer.longitude %>&zoom=8&size=480x380&key=AIzaSyCKxAu_Y-IhJUSTXAcMghvx_UDSBSGm2l8')";'>
       </div>
-      <h3 class="basket-button" style="display: inline">PHOTOS</h3>
+      <h3 class="basket-button" style="color: #cecece; display: inline">PHOTOS</h3>
       <div class="producer-gallery">
         <div class="gallery-photo"></div>
         <div class="gallery-photo"></div>
         <div class="gallery-photo"></div>
         <div class="gallery-photo"></div>
         <div class="gallery-photo"></div>
+      </div>
 
+      <div class="product-page-section" id="related_recipes">
+        <h3>related recipes</h3>
+        <div>
+        </div>
+      </div>
+      <div class="product-page-section" id="similar-products">
+        <h3>similar products</h3>
+        <div class="similar-products">
+          <% @three_similar_products = Product.where(category_id: @product.category_id).take(5) %>
+          <% @three_similar_products.each do |product| %>
+            <div class="product-card overlay white" onclick="toggleProduct(<%=product.id.to_s%>)" style="background:
+                linear-gradient(
+                  rgba(0, 0, 0, 0.45),
+                  rgba(0, 0, 0, 0)
+                ), url(<%=product.photo%>); background-size: cover;">
+              <div class="product-card-content">
+                <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
+                <p class="product-card-price"> <%=humanized_money_with_symbol(product.price)%></p>
+              </div>
+              <div class="add-controls">
+                <div class="plus-minus-qty">
+
+                  <% if ((!current_user.nil?) && (!current_user.orders.find_by(status: "new").nil?) && (!current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id).nil?)) %>
+                    <% orderline = current_user.orders.find_by(status: "new").order_lines.find_by(product: product.id)%>
+                    <%= link_to image_tag("minus-icon.svg", size: "16x2"), remove_order_lines_path(orderline.id), method: :get, class: "add_quant"%>
+                    <h3 class="qty"><%= orderline.quantity %></h3>
+                    <%= link_to image_tag("white-plus-icon.svg", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
+
+                  <% else %>
+                    <a href= <%=add_to_basket_path(product.id)%> class="add-to-cart-btn">ADD</a>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <p><%=  %></p>
+        </div>
       </div>
       <div class="producer-info-spacer"></div>
     </div>
@@ -95,24 +135,27 @@
   </div>
 <% end %>
 
-<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 <script>
   $(window).scroll(function() {
     var position = $(this).scrollTop();
     position = position + 200;
+    console.log('WORKING');
 
-    $('.category-section').each(function() {
+    $('.product-page-section').each(function() {
+
         var target = $(this).offset().top;
         var id = $(this).attr('id');
 
         if (position >= target) {
+            console.log('WORKING2');
             $('.anchor').removeClass('active');
             $('.anchor[href=#' + id + ']').addClass('active');
         }
     });
 });
-</script> -->
+</script>
 
 
 

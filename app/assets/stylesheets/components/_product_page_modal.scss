@@ -33,6 +33,11 @@
   width: 15px;
 }
 
+// PRODUCT PAGE MENU
+
+li.active {
+  color: #FFB96E;
+}
 
 // FLEX SECTIONS OF PAGE
 
@@ -104,6 +109,11 @@ ul, menu, dir {
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
     -webkit-padding-start: 0px;
+}
+
+.similar-products {
+  display: flex;
+  overflow: scroll;
 }
 
 // PRODUCT RIGHT SIDE BAR
