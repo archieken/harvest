@@ -1,75 +1,76 @@
-<div class="products-section">
-  <div class="products-index">
-    <div class="product-card overlay white" style="background-image: url(<%=@recipe.photo%>);">
-      <div class="product-card-content">
-        <h5 class="product-card-title"><%= @recipe.producer.name %>'s<br><%= @recipe.title%></h5>
-          <p class="product-card-price"> 2 hours</p>
-          <p class="product-card-price"><%= @fat_quant %></p>
-      </div>
-    </div>
+<div class="product-card overlay white" style="background-image: url(<%=@recipe.photo%>);">
+  <%= @recipe.producer.name %>'s<br><%= @recipe.title%></h5>
+</div>
+
+ <div class="recipe-card">
+   <h2>Products used in the recipe: </h2>
+   <% @recipe.products.each do |recipe| %>
+      <li>
+        <%= recipe.name %>
+
+      </li>
+      <a href= <%=add_to_basket_path(recipe.id)%> class="add-to-cart-btn">ADD</a>
+    <% end %>
   </div>
-<div class="products-section">
 
 
 
+  <div class="show-product product-modal">
+    <div class="go-back">
+      <a><img class="x-icon" src="/assets/plus-icon.svg" alt="Triangle"></a>
+    </div>
+    <div class="product-page-links">
+      <ul style="list-style-type: none;">
+        <li><a  class="basket-button" style="display: block; margin-bottom:5px" href="">ABOUT PRODUCER</a></li>
+        <li><a  class="basket-button" style="display: block; margin-bottom:5px" href="">RELATED RECIPES</a></li>
+        <li><a  class="basket-button" style="display: block; margin-bottom:5px" href="">SIMILAR PRODUCTS</a></li>
+      </ul>
+    </div>
+    <div class="product-producer-info-scroll">
+      <h2 class="producer-title"><%=@recipe.title%></h2>
+      <p style="margin-bottom: 30px"><%=@recipe.producer.name%></p>
+      <div style="margin-bottom: 5px">
+        <h3 class="basket-button" style="display: inline">LOCATION</h3>
+        <h3 class="basket-button" style="display: inline; color: #FFB96E"><%=@recipe.title %></h3>
+      </div>
+
+      <h3 class="basket-button" style="display: inline">PHOTOS</h3>
+      <div class="producer-gallery">
+        <div class="gallery-photo"></div>
+        <div class="gallery-photo"></div>
+        <div class="gallery-photo"></div>
+        <div class="gallery-photo"></div>
+        <div class="gallery-photo"></div>
+
+      </div>
+      <div class="producer-info-spacer"></div>
+    </div>
+
+    <div class="product-info">
+      <div class="product-modal-title">
+
+
+        <div class="product-page-price">
+          <h4 class="product-page-price-label">price</h4>
+          <h4 class="product-page-price-number"> per kg</h4>
+        </div>
+      </div>
+
+      <div class="product-page-add">
+        <div class="plus-minus-qty">
 
 
 
+        </div>
 
-<!-- const url = "https://wagon-chat.herokuapp.com/129/messages"
+            </div>
 
-function onSubmit() {
-
- createList(url);
-
- var name = document.querySelector("#your-name").value;
- var message = document.querySelector("#your-message").value;
-
- var data = {
-   "author": name,
-   "content": message
- }
-
- fetch(url, {
- method: 'POST', // or 'PUT'
- body: JSON.stringify(data),
- headers: new Headers({
-   'Content-Type': 'application/json'
- })
-}).then(res => res.json())
- .catch(error => console.error('Error:', error))
- .then(response => console.log('Success:', response));
-
-}
+      </div>
 
 
-function createList(url){
 
- document.querySelector(".list-unstyled").innerHTML = "";
+    </div>
 
- fetch(url).then(response => response.json())
- .then(function(data) {
-
-   data["messages"].forEach( function (item) {
-     var message2 = item["content"];
-     var name2 = item["author"];
-     var timeMade = item["created_at"];
-     var html =  `<li>${message2} (posted <span class="date">${timeMade}</span>) by ${name2}</li>`;
-     document.querySelector(".list-unstyled").insertAdjacentHTML("afterbegin", html);
-   });
- });
+  </div>
 
 
-}
-
-
-document.querySelector(".btn-primary").addEventListener("click", (event) => {
-event.preventDefault();
-onSubmit();
-});
-
-
-document.querySelector(".btn-danger").addEventListener("click", (event) => {
-event.preventDefault();
-createList(url);
-}); -->
