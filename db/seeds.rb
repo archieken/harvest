@@ -17,9 +17,9 @@
 
   puts "Creating Users"
      emails = ["john@yadoo.com", "ringo@geemail.net", "george@zoohoo.org", "paul@yadoo.com", "bill@gmail.com", "george@yadoo.com"]
-     names = ["Martha Stewart", "Elvis Presley", "Carles Puigdemont", "Barack Obama", "Angela Merkel", "John Lennon", "Paul McCartney","Ringo Star","George W. Bush", "George Harrison"]
+     names = ["Elvis Presley", "Barack Obama", "Angela Merkel", "John Lennon", "Paul McCartney","Ringo Star"]
      avatars = ["http://rogovoyreport.com/wp-content/uploads/George-Harrison.jpg", "https://gwbcenter.imgix.net/legacy/-%20USE%20THIS%20ONE.jpg?w=200&h=200&fit=facearea&faceindex=1&facepad=3&mask=ellipse&fm=png", "https://www.whitehouse.gov/wp-content/uploads/2017/12/44_barack_obama1.jpg", "https://www.biography.com/.image/t_share/MTQ4Nzc2NzI2NTM1NjExNDQ3/biography-angela-merkel.jpg", "https://i.ytimg.com/vi/YkgkThdzX-8/maxresdefault.jpg", "https://cdn.tn.com.ar/sites/default/files/styles/1366x765/public/2017/12/14/paul-mccartney.jpg", "https://i0.wp.com/www.culturesonar.com/wp-content/uploads/2018/01/Ringo-Starr-Getty.jpg?resize=940%2C529"]
-     users = emails.map {|email| User.create!(email: email, password: "1234567", fullname: names.sample)}
+     users = emails.each_with_index.map {|email, index| User.create!(email: email, password: "1234567", fullname: names[index])}
   puts "Users made"
 
 
@@ -168,17 +168,26 @@ puts "Creating Bakery"
 
 
   puts "Creating Orders"
-    users.each {|user| Order.create!(amount: 10, user: user, status:"paid")}
+    users.each {|user| Order.create!(amount: 10 , user: user, status:"paid")}
     users.each {|user| Order.create!(amount: 10, user: user, status:"paid")}
     users.each {|user| Order.create!(amount: 10, user: user, status:"paid")}
   puts "Orders made"
 
   puts "Creating Order Lines"
     users.each do |user|
-      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
-      OrderLine.create!(quantity: 2 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
-      OrderLine.create!(quantity: 3 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
-      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
+      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all[(0..10).to_a.sample].id)
+      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all[(11..20).to_a.sample].id)
+      OrderLine.create!(quantity: 2 , order_id: user.orders.all.sample.id, product_id: Product.all[(21..32).to_a.sample].id)
+      OrderLine.create!(quantity: 3 , order_id: user.orders.all.sample.id, product_id: Product.all[(33..44).to_a.sample].id)
+      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all[(45..57).to_a.sample].id)
+    end
+
+    Order.all.each do |order|
+      total = 0
+      order.order_lines.each do |order_line|
+        total += (order_line.product.price) * order_line.quantity
+      end
+      order.update(amount: total)
     end
   puts "Order Lines made"
 
