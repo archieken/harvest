@@ -2,7 +2,7 @@
             <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
 
                 <% product = @product %>
-                <div class="product-card overlay white" onclick="toggleProduct(<%=product.id.to_s%>)" style="background:
+                <div class="product-card overlay white" style="background:
     linear-gradient(
       rgba(0, 0, 0, 0.45),
       rgba(0, 0, 0, 0)
@@ -11,6 +11,7 @@
                     <h5 class="product-card-title"><div><%= product.producer.name %>'s<br><%= product.name%></div></h5>
                     <p class="product-card-price"> <%=humanized_money_with_symbol(product.price)%></p>
                   </div>
+                  <button class="info-button button5" onclick="toggleProduct(<%=product.id.to_s%>)">i</button>
                   <div class="add-controls">
                     <div class="plus-minus-qty">
 
