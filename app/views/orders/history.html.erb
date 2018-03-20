@@ -8,15 +8,21 @@
     </div>
     <div class="products-section">
       <h3>my past orders</h3>
-      <div class="basket-items" id="basket-items" style="width: 90%">
+      <div class="basket-items" id="basket-items" style="width: 100%; margin-top: 20px;">
         <% if !@orders.blank? %>
           <% @current_user.orders.where(status: "paid").each_with_index do |order, index| %>
             <% if order.order_lines.count > 0 %>
             <a href="<%= reorder_path(order) %>" style="margin-bottom: 10px; width: 25%; float: right;" class="add-to-cart-btn"> repeat order | AUS<%= humanized_money_with_symbol(order.amount)%> </a>
             <div style="display: flex; flex-direction: row; justify-content: space-between;">
                 <div style="display: flex; flex-direction: column; justify-content: space-between;">
-                <div><h6 style="display: inline-block;">ID <%= index + 1 %></h6></div>
-                <div style="font-size: 12px;">(<%= order.order_lines.count %> items)</div>
+                <div><p style="display: inline-block;">ID <%= index + 1 %></p></div>
+                <% product_quantity = 0
+                   order.order_lines.each do |line|
+                    product_quantity += line.quantity
+                   end
+                   product_quantity
+                 %>
+                <div style="font-size: 12px;margin-bottom: 10px;">Ordered on <%= order.created_at.day %> / <%= order.created_at.month %> / <%= order.created_at.year %> (<%= product_quantity %> items)</div>
                 </div>
             </div>
             <% order.products.each do |product|  %>
@@ -28,7 +34,7 @@
                 <div class="basket-item-info">
                   <div class="item-info-spacing">
                     <div class="item-name-and-producer">
-                      <% total = product.price*order.products.select{ |p| p.name == product.name }.count%>
+                      <% total = product.price*order.order_lines.find_by(product_id: product.id).quantity%>
                       <h3 class="basket-item-name"><%= product.name%></h3>
                       <h3 class="basket-item-producer-info" style="color:#524F4C">
                         <%= product.price%> PER <%= product.unit_type %>
@@ -38,7 +44,7 @@
                       <h3 class="basket-item-producer-info"><%= producer.city  %> | 10KM</h3>
                     </div>
                     <div class="item-price-and-qty">
-                      <h3 class="item-qty" >QTY: <%= order.products.select{ |p| p.name == product.name}.count %></h3>
+                      <h3 class="item-qty" >QTY: <%= order.order_lines.find_by(product_id: product.id).quantity %></h3>
                       <h3 class="item-price">$<%= total %></h3>
                     </div>
                   </div>
@@ -55,24 +61,4 @@
       </div>
     </div>
 </div>
-<!--
-<script>
-
-  function addProduct() {
-    const products = @current_user.orders.where(status: "paid");
-    for(var product in products) {
-      add_to_basket_path(product.id);
-    }
-  }
-
-</script>
-
-<script>
-  var repeatOrderButtons = document.querySelectorAll('.add-to-cart-btn');
-for (var i = 0; i < repeatOrderButtons.length; i++) {
-    repeatOrderButtons[i].addEventListener('click', function(event) {
-        event.preventDefault()
-        addProduct();
-    });
-}
-</script> -->
+l

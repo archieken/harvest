@@ -55,11 +55,17 @@ class ProductsController < ApplicationController
 
     @deli = @products.where(category: Category.find_by(name: "deli"))
     authorize @deli
+
+
   end
 
   def show
+
+
+
     @product = Product.find(params[:id])
     authorize @product
+
 
     @label = nutrition
     @fat_quant = fat_quant
@@ -74,16 +80,14 @@ class ProductsController < ApplicationController
     @sodium_unit = sodium_unit
     @carbs_quant = carbs_quant
     @carbs_unit = carbs_unit
-
-
-
   end
 
   def nutrition
 
     product = "1 #{@product.name}"
     client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
-    nutritional_data = client.food_database.nutritional_data(product)
+    nutritional_data = client.food_database.nutritional_data("1 Melon")
+
     nutritional_data
   end
 
