@@ -3,7 +3,9 @@ class ApplicationController < ActionController::Base
 
   add_flash_types :check, :basket_flash, :reorder_product
 
-  protect_from_forgery with: :exception
+    protect_from_forgery with: :exception
+#  protect_from_forgery with: :null_session
+
   before_action :authenticate_user!
 
    # Pundit: white-list approach.

@@ -8,7 +8,7 @@
       rgba(0, 0, 0, 0)
     ), url(<%=product.photo%>); background-size: cover;">
                   <div class="product-card-content">
-                    <h5 class="product-card-title"><%= product.producer.name %>'s<br><%= product.name%></h5>
+                    <h5 class="product-card-title"><div><%= product.producer.name %>'s<br><%= product.name%></div></h5>
                     <p class="product-card-price"> <%=humanized_money_with_symbol(product.price)%></p>
                   </div>
                   <div class="add-controls">
@@ -21,7 +21,8 @@
                         <%= link_to image_tag("white-plus-icon.svg", size: "16x16"), add_order_lines_path(orderline.id), method: :get, class: "remove_quant"%>
 
                       <% else %>
-                        <a href= <%=add_to_basket_path(product.id)%> class="add-to-cart-btn">ADD</a>
+                      <%= link_to "ADD", add_to_basket_path(product.id), remote: true, class: "add-to-cart-btn"%>
+                       <!--  <a href= <%=add_to_basket_path(product.id)%> class="add-to-cart-btn" remote="true">ADD</a> -->
                       <% end %>
                     </div>
                   </div>
