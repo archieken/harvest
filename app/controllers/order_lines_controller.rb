@@ -71,14 +71,14 @@ skip_before_action :authenticate_user!, except: :add_to_basket
       @orderline = OrderLine.create!(product_id: product.order_lines.find_by(order_id: params[:id]).product_id, quantity: product.order_lines.find_by(order_id: params[:id]).quantity, order: @order)
       authorize @order
       authorize @orderline
-      @order.amount = @order.amount + @orderline.product.price
+      @order.amount = @order.amount + @orderline.product.price*@orderline.quantity
       @order.save
     else
       @order = Order.create(user: current_user)
       @orderline = OrderLine.create(product_id: product.order_lines.find_by(order_id: params[:id]).product_id, quantity: product.order_lines.find_by(order_id: params[:id]).quantity, order: @order)
       authorize @orderline
       authorize @order
-      @order.amount = @orderline.product.price
+      @order.amount = @orderline.product.price*@orderline.quantity
       @order.save
     end
     flash[:reorder_product] = "Order has been added to your basket."

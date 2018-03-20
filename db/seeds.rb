@@ -1,3 +1,4 @@
+  Nutrient.destroy_all
   OrderLine.destroy_all
   Ingredient.destroy_all
   Recipe.destroy_all
@@ -7,6 +8,59 @@
   Producer.destroy_all
   Contact.destroy_all
   User.destroy_all
+
+puts Ingredient.count
+puts Product.count
+
+  def fat_quant(nd)
+     nd.send("total_nutrients")["FAT"]["quantity"]
+   end
+
+   def fat_unit(nd)
+    nd.send("total_nutrients")["FAT"]["unit"]
+  end
+
+  def calories_quant(nd)
+    nd.send("total_nutrients")["ENERC_KCAL"]["quantity"]
+  end
+
+  def calories_unit(nd)
+    nd.send("total_nutrients")["ENERC_KCAL"]["unit"]
+  end
+
+  def sugar_quant(nd)
+
+    nd.send("total_nutrients")["SUGAR"]["quantity"]
+  end
+
+  def sugar_unit(nd)
+    nd.send("total_nutrients")["SUGAR"]["unit"]
+  end
+
+  def protein_quant(nd)
+    nd.send("total_nutrients")["PROCNT"]["quantity"]
+  end
+
+  def protein_unit(nd)
+    nd.send("total_nutrients")["PROCNT"]["unit"]
+  end
+
+  def sodium_quant(nd)
+    nd.send("total_nutrients")["NA"]["quantity"]
+  end
+
+  def sodium_unit(nd)
+    nd.send("total_nutrients")["NA"]["unit"]
+  end
+
+  def carbs_quant(nd)
+    nd.send("total_nutrients")["CHOCDF"]["quantity"]
+  end
+
+  def carbs_unit(nd)
+    nd.send("total_nutrients")["CHOCDF"]["unit"]
+  end
+
 
   farmers = ["Jill Hawkins", "Bryce Carrell", "Sally Norris", "Tilly Bay", "Trudi Baker", "Jenny Block"]
   cities = ["Talofa", "Ewingsdale", "Tyagarah", "Broken Head", "Coopers Shoot", "Byron Bay"]
@@ -19,9 +73,9 @@
 
   puts "Creating Users"
      emails = ["john@yadoo.com", "ringo@geemail.net", "george@zoohoo.org", "paul@yadoo.com", "bill@gmail.com", "george@yadoo.com"]
-     names = ["Martha Stewart", "Elvis Presley", "Carles Puigdemont", "Barack Obama", "Angela Merkel", "John Lennon", "Paul McCartney","Ringo Star","George W. Bush", "George Harrison"]
+     names = ["Elvis Presley", "Barack Obama", "Angela Merkel", "John Lennon", "Paul McCartney","Ringo Star"]
      avatars = ["http://rogovoyreport.com/wp-content/uploads/George-Harrison.jpg", "https://gwbcenter.imgix.net/legacy/-%20USE%20THIS%20ONE.jpg?w=200&h=200&fit=facearea&faceindex=1&facepad=3&mask=ellipse&fm=png", "https://www.whitehouse.gov/wp-content/uploads/2017/12/44_barack_obama1.jpg", "https://www.biography.com/.image/t_share/MTQ4Nzc2NzI2NTM1NjExNDQ3/biography-angela-merkel.jpg", "https://i.ytimg.com/vi/YkgkThdzX-8/maxresdefault.jpg", "https://cdn.tn.com.ar/sites/default/files/styles/1366x765/public/2017/12/14/paul-mccartney.jpg", "https://i0.wp.com/www.culturesonar.com/wp-content/uploads/2018/01/Ringo-Starr-Getty.jpg?resize=940%2C529"]
-     users = emails.map {|email| User.create!(email: email, password: "1234567", fullname: names.sample)}
+     users = emails.each_with_index.map {|email, index| User.create!(email: email, password: "1234567", fullname: names[index])}
   puts "Users made"
 
 
@@ -115,15 +169,30 @@ puts "Creating Categories"
  puts "Creating Vegetables"
     veggies = ["Carrots", "Onions", "Potatoes", "Broccoli", "Spinach", "Eggplant", "Garlic", "Corn"]
     photos = ["https://i.pinimg.com/564x/54/77/3c/54773c097d987739fe679bf9803d5182.jpg", "https://i.pinimg.com/564x/9f/16/b1/9f16b1e1984fe45281993aaacaf5248d.jpg", "https://i.pinimg.com/564x/5b/2a/9f/5b2a9f24e3cd05b578f4b71300a47554.jpg", "https://i.pinimg.com/564x/a1/40/56/a1405683aa166e558cc4be7a04d42a2b.jpg", "https://i.pinimg.com/564x/9f/58/0a/9f580a12fd41a3af0b8dbd392667f597.jpg", "https://i.pinimg.com/564x/5b/e4/ab/5be4ab40e298fc84e4ec6f74b71e49da.jpg", "https://i.pinimg.com/564x/6d/94/ba/6d94bafda606a28b0911b2bb1fcc6003.jpg", "https://i.pinimg.com/564x/6a/ff/0e/6aff0e6aeb1919c3748c508a710f6f9c.jpg"]
-    veggies.each_with_index {|veg, index| Product.create!(name: veg, price: (4..10).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "vegetables"), photo: photos[index])}
+    veggies.each_with_index do |veg, index|
+      product = Product.create!(name: veg, price: (4..10).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "vegetables"), photo: photos[index])
+       client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
+       product_data = "1 #{product.name}"
+       nd = client.food_database.nutritional_data(product_data)
+       nutrient = Nutrient.create(product: product, fatquant: fat_quant(nd), fatunit: fat_unit(nd), calquant: calories_quant(nd), calunit: calories_unit(nd), carbsquant: carbs_unit(nd), carbsunit: carbs_unit(nd), sugarquant: sugar_quant(nd), sugarunit: sugar_unit(nd))
+    end
+
+
   puts "Vegetables made"
 
  puts "Creating Fruits"
     fruits = ["Strawberries", "Oranges", "Apples", "Grapes", "Bananas", "Pineapple", "Melon"]
     photos = ["https://i.pinimg.com/564x/d6/e6/6e/d6e66e5cb74009af7f8d9b261c222db7.jpg", "https://i.pinimg.com/564x/a4/1c/d7/a41cd7b5043b03d2d0cb2c44db97d0a6.jpg", "https://i.pinimg.com/564x/f8/47/a6/f847a694c0aa8dbd072868fa06715bf3.jpg", "https://i.pinimg.com/564x/d8/46/c5/d846c57d5a701a6d168bcffb786434d2.jpg", "https://78.media.tumblr.com/tumblr_lmewvhjrMF1qir91zo1_400.jpg", "https://i.pinimg.com/564x/c3/9c/d6/c39cd67be06f0431a31a9bebf7358424.jpg", "https://i.pinimg.com/564x/fa/81/eb/fa81eb2fdeb0cd95fb47af866b0dcacf.jpg
 "]
-    fruits.each_with_index {|fruit, index| Product.create!(name: fruit, price: (4..10).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "fruits"), photo: photos[index])}
+    fruits.each_with_index do |fruit, index|
+     product = Product.create!(name: fruit, price: (4..10).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "fruits"), photo: photos[index])
+     client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
+     product_data = "1 #{product.name}"
+     nd = client.food_database.nutritional_data(product_data)
+     nutrient = Nutrient.create(product: product, fatquant: fat_quant(nd), fatunit: fat_unit(nd), calquant: calories_quant(nd), calunit: calories_unit(nd), carbsquant: carbs_unit(nd), carbsunit: carbs_unit(nd), sugarquant: sugar_quant(nd), sugarunit: sugar_unit(nd))
+    end
   puts "Fruits made"
+
 
  puts "Creating Meats"
     meats = ["Beef", "Poultry", "Sausage", "Pork", "Lamb and mutton"]
@@ -134,7 +203,9 @@ puts "Creating Categories"
  puts "Creating Fish"
     fishes = ["Salmon", "Swordfish", "Crab Legs", "Octopus", "Tuna", "Cod"]
     photos = ["https://i.pinimg.com/564x/f1/2b/aa/f12baa0384ca80d373bc35b5f50858bf.jpg", "https://i.pinimg.com/564x/3e/55/b5/3e55b565c620570d635b5dd10984994d.jpg", "https://i.pinimg.com/564x/45/ed/92/45ed92888c3e9ddc65128429e19eb6f6.jpg", "https://i.pinimg.com/564x/2d/0a/c8/2d0ac89383ce946f2a0c4dadb72efa2a.jpg", "https://i.pinimg.com/564x/fb/96/24/fb9624a0654c74d9e7d90a7699b658c8.jpg", "https://i.pinimg.com/564x/62/c7/f9/62c7f93f1e5133b0191693bd8ce26bd8.jpg"]
-    fishes.each_with_index {|fish, index| Product.create!(name: fish, price: (10..25).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "fishermen").sample, category: Category.find_by(name: "fish"), photo: photos[index])}
+    fishes.each_with_index do |fish, index|
+     Product.create!(name: fish, price: (10..25).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "fishermen").sample, category: Category.find_by(name: "fish"), photo: photos[index])
+     end
   puts "Fish made"
 
 puts "Creating Dairy & Eggs"
@@ -161,6 +232,23 @@ puts "Creating Bakery"
     pantries.each_with_index {|pantry, index| Product.create!(name: pantry, price: (4..12).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "cook").sample, category: Category.find_by(name: "pantry"), photo: photos[index])}
   puts "Pantry made"
 
+
+  # puts "Creating Pantry"
+  #   pantries = ["Spaghetti", "Flour", "Wheat Grain", "Granola", "Cumin", "Olive Oil", "Brown Rice", "Cous Cous"]
+  #   photos = ["https://i.pinimg.com/564x/7a/2d/5d/7a2d5dddef422378df71b4cb55238cc4.jpg", "https://i.pinimg.com/564x/13/46/b3/1346b39135a3c239d16267767aad2136.jpg", "https://i.pinimg.com/564x/94/6f/e8/946fe8dd991b5c8f7771cd081132d155.jpg", "https://i.pinimg.com/564x/32/12/42/3212424b6fd2621f20b8d22e1aa76290.jpg", "https://i.pinimg.com/564x/04/55/1a/04551ae3a5456c17ec6f1084721bde6e.jpg", "https://i.pinimg.com/564x/b0/54/52/b054521c8dc23269029a612429b9dd7b.jpg", "https://i.pinimg.com/564x/5a/42/bb/5a42bb7dc6f32a47dea03f171ca705d2.jpg", "https://i.pinimg.com/564x/43/20/ba/4320baddae363c756e997c0ed3be57d3.jpg"]
+
+
+  #   pantries.each_with_index  do |pantry, index|
+  #    product = Product.create!(name: pantry, price: (4..12).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "cook").sample, category: Category.find_by(name: "pantry"), photo: photos[index])
+  #    client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
+  #    product_data = "1 #{product.name}"
+  #    nd = client.food_database.nutritional_data(product_data)
+  #    Nutrient.create(product: product, fatquant: fat_quant(nd), fatunit: fat_unit(nd), calquant: calories_quant(nd), calunit: calories_unit(nd), carbsquant: carbs_unit(nd), carbsunit: carbs_unit(nd), sugarquant: sugar_quant(nd), sugarunit: sugar_unit(nd))
+  #  end
+  # puts "Pantry made"
+
+
+
   puts "Creating Deli"
     delis = ["Potatoe Salad", "Roasted Squash", "Roast Beef", "Green Bean Soup", "Saffron Rice", "Pad Thai", "Smoked Turkey", "Mac & Cheese"]
     photos = ["https://i.pinimg.com/564x/49/92/80/499280d39ba17871d64b52b23d63be70.jpg", "https://i.pinimg.com/564x/93/ed/88/93ed883b58507ad4bac65a68bec32280.jpg", "https://i.pinimg.com/564x/21/25/d8/2125d8458924726516adf5d00766289f.jpg
@@ -170,19 +258,31 @@ puts "Creating Bakery"
 
 
   puts "Creating Orders"
-    users.each {|user| Order.create!(amount: 10, user: user, status:"paid")}
+    users.each {|user| Order.create!(amount: 10 , user: user, status:"paid")}
     users.each {|user| Order.create!(amount: 10, user: user, status:"paid")}
     users.each {|user| Order.create!(amount: 10, user: user, status:"paid")}
   puts "Orders made"
 
   puts "Creating Order Lines"
     users.each do |user|
-      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
-      OrderLine.create!(quantity: 2 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
-      OrderLine.create!(quantity: 3 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
-      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all.sample.id)
+      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all[(0..10).to_a.sample].id)
+      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all[(11..20).to_a.sample].id)
+      OrderLine.create!(quantity: 2 , order_id: user.orders.all.sample.id, product_id: Product.all[(21..32).to_a.sample].id)
+      OrderLine.create!(quantity: 3 , order_id: user.orders.all.sample.id, product_id: Product.all[(33..44).to_a.sample].id)
+      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all[(45..57).to_a.sample].id)
+    end
+
+    Order.all.each do |order|
+      total = 0
+      order.order_lines.each do |order_line|
+        total += (order_line.product.price) * order_line.quantity
+      end
+      order.update(amount: total)
     end
   puts "Order Lines made"
+
+
+
 
 puts "Create Recipes"
 
@@ -220,4 +320,8 @@ puts "Create Recipes"
 
 
 puts "Recipes made"
+
+
+
+
 
