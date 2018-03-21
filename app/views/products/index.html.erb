@@ -9,7 +9,6 @@
   <div class="sidenav">
     <%# link_to "all", products_path, class: "sidenav-link" %>
 <!--  <%= link_to "vegetables", products_path(:anchor => '#vegetables'), class: "sidenav-link" %> -->
-  <a href="#recipes" class="sidenav-link anchor">recipes</a>
   <a href="#vegetables" class="sidenav-link anchor">vegetables</a>
   <a href="#fruits" class="sidenav-link anchor">fruits</a>
   <a href="#meats" class="sidenav-link anchor">meat</a>
@@ -19,19 +18,10 @@
   <a href="#wine" class="sidenav-link anchor">wine & drink</a>
   <a href="#pantry" class="sidenav-link anchor">pantry</a>
   <a href="#deli" class="sidenav-link anchor">deli</a>
+  <a href="#recipes" class="sidenav-link anchor">recipes</a>
   </div>
   <div class="products-section">
 
-
-      <div class="category-section" id="recipes">
-      <h3>recipes</h3>
-      <div class="products-index">
-          <% @recipes.each do |recipe| %>
-            <% @recipe = recipe %>
-            <%= render 'shared/recipe_category' %>
-          <% end %>
-        </div>
-      </div>
 
 
     <div class="category-section" id="vegetables">
@@ -127,6 +117,17 @@
       <% end %>
     </div>
     </div>
+
+
+         <div class="category-section" id="recipes">
+      <h3>recipes</h3>
+      <div class="products-index">
+          <% @recipes.each do |recipe| %>
+            <% @recipe = recipe %>
+            <%= render 'shared/recipe_category' %>
+          <% end %>
+        </div>
+      </div>
   </div>
 
 
