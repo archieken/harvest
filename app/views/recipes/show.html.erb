@@ -1,27 +1,38 @@
-
-
-
   <h2>Products used in the recipe: </h2>
   <%= @recipe.description %>
   <%= @recipe.instructions %>
   <%= @recipe.difficulty %>
 
+  <%= @recipe.producer.name %>
+  <%= @recipe.producer.city %>
+  <%= @recipe.producer.photo %>
+  <%= @recipe.producer.description %>
+
+<div class="recipe-banner" style="background-image: url(<%= @recipe.photo %>)">
+</div>
+
+  <div>
+    <h1><%= @recipe.title %></h1>
+  </div>
 
    <% @recipe.products.each do |recipe| %>
-      <div class="recipe-card">
-        <%= recipe.name %>
-        <div class="recipe-button">
+      <div class="recipe-product-card">
+
+
+        <div class="recipe-card-image" style="background-image: url(<%= recipe.photo %>)">
+        </div>
+
+        <div class="recipe-card-producer-avatar" style="background-image: url(<%= @recipe.producer.photo %>)">
+        </div>
+
+          <%= recipe.name %>
+        <div class="recipe-product-button">
           <a href= <%=add_to_basket_path(recipe.id)%> class="add-to-cart-btn">ADD</a>
         </div>
       </div>
     <% end %>
 
 
-<div>
-  <h1><%= @recipe.title %></h1>
-</div>
 
-<%= @recipe.producer.name %>
-<%= @recipe.producer.city %>
-<%= @recipe.producer.photo %>
-<%= @recipe.producer.description %>
+
+
