@@ -1,63 +1,68 @@
-<div  style="margin-top: 90px;">
-
-    <div class="sidenav">
+<div  style="display: block; width: 100vw;">
+  <div class="sidenav">
     <%# link_to "all", products_path, class: "sidenav-link" %>
-  <!--   <%= link_to "past orders", products_path(:anchor => '#'), class: "sidenav-link" %> -->
-  <a href="<%= products_path  %>" class="basket-button-history"> <%= image_tag("Triangle.svg", class: "triangle-icon rotate-triangle-icon") %> shop</a>
- <!--  <a href="#" class="sidenav-link anchor">cancelled</a> -->
-    </div>
-    <div class="products-section">
-      <h3>my past orders</h3>
-      <div class="basket-items" id="basket-items" style="width: 100%; margin-top: 20px;">
-        <% if !@orders.blank? %>
-          <% @current_user.orders.where(status: "paid").each_with_index do |order, index| %>
-            <% if order.order_lines.count > 0 %>
-            <a href="<%= reorder_path(order) %>" style="margin-bottom: 10px; width: 25%; float: right;" class="add-to-cart-btn"> repeat order | AUS<%= humanized_money_with_symbol(order.amount)%> </a>
+    <!--   <%= link_to "past orders", products_path(:anchor => '#'), class: "sidenav-link" %> -->
+    <a href="<%= products_path  %>" class="basket-button-history"> <%= image_tag("Triangle.svg", class: "triangle-icon rotate-triangle-icon") %> shop</a>
+    <!--  <a href="#" class="sidenav-link anchor">cancelled</a> -->
+  </div>
+  <div class="products-section">
+    <h3>my past orders</h3>
+    <div style="width: 100vw;">
+      <% if !@orders.blank? %>
+        <% @current_user.orders.where(status: "paid").each_with_index do |order, index| %>
+          <% if order.order_lines.count > 0 %>
             <div style="display: flex; flex-direction: row; justify-content: space-between;">
+              <div>
                 <div style="display: flex; flex-direction: column; justify-content: space-between;">
-                <div><p style="display: inline-block;">ID <%= index + 1 %></p></div>
-                <% product_quantity = 0
-                   order.order_lines.each do |line|
-                    product_quantity += line.quantity
-                   end
-                   product_quantity
-                 %>
-                <div style="font-size: 12px;margin-bottom: 10px;">Ordered on <%= order.created_at.day %> / <%= order.created_at.month %> / <%= order.created_at.year %> (<%= product_quantity %> items)</div>
-                </div>
-            </div>
-            <% order.products.each do |product|  %>
-            <div class="basket-card" style="width: 100%">
-              <div class="basket-card-image" style="background-image: url(<%= product.photo %>)">
-                <div class="basket-card-producer-avatar" style="background-image: url(<%= product.producer.photo %>)">
-                </div>
+                <!-- <p style="display: inline-block; margin-top: 30px;">ID <%= index + 1 %></p> -->
+                <div style="margin-top: 60px;" >
+                <a href="<%= reorder_path(order) %>" style="margin-bottom: 10px; width: 25%; float: right; margin-right: 5px;" class="add-to-cart-btn"> repeat order</a>
+                    <% product_quantity = 0
+                       order.order_lines.each do |line|
+                        product_quantity += line.quantity
+                       end
+                       product_quantity
+                     %>
+                <p style="margin-bottom: 5px">Ordered on <%= order.created_at.day %> / <%= order.created_at.month %> / <%= order.created_at.year %> (<%= product_quantity %> items)</p>
+                <div style="font-size: 12px;margin-bottom: 5px"> total: AUS<%= humanized_money_with_symbol(order.amount)%> </div>
               </div>
-                <div class="basket-item-info">
-                  <div class="item-info-spacing">
-                    <div class="item-name-and-producer">
-                      <% total = product.price*order.order_lines.find_by(product_id: product.id).quantity%>
-                      <h3 class="basket-item-name"><%= product.name%></h3>
-                      <h3 class="basket-item-producer-info" style="color:#524F4C">
-                        <%= product.price%> PER <%= product.unit_type %>
-                      </h3>
-                       <% producer = product.producer  %>
-                      <h3 class="basket-item-producer-info"><%= producer.name %></h3>
-                      <h3 class="basket-item-producer-info"><%= producer.city  %> | 10KM</h3>
-                    </div>
-                    <div class="item-price-and-qty">
-                      <h3 class="item-qty" >QTY: <%= order.order_lines.find_by(product_id: product.id).quantity %></h3>
-                      <h3 class="item-price">$<%= total %></h3>
-                    </div>
+              </div>
+              <% order.products.each do |product|  %>
+              <div class="basket-card" style="width: 40vw;">
+                <div class="basket-card-image" style="background-image: url(<%= product.photo %>)">
+                  <div class="basket-card-producer-avatar" style="background-image: url(<%= product.producer.photo %>)">
                   </div>
                 </div>
-            </div>
+                  <div class="basket-item-info">
+                    <div class="item-info-spacing">
+                      <div class="item-name-and-producer">
+                        <% total = product.price*order.order_lines.find_by(product_id: product.id).quantity%>
+                        <h3 class="basket-item-name"><%= product.name%></h3>
+                        <h3 class="basket-item-producer-info" style="color:#524F4C">
+                          <%= product.price%> PER <%= product.unit_type %>
+                        </h3>
+                         <% producer = product.producer  %>
+                        <h3 class="basket-item-producer-info"><%= producer.name %></h3>
+                        <h3 class="basket-item-producer-info"><%= producer.city  %> | 10KM</h3>
+                      </div>
+                      <div class="item-price-and-qty">
+                        <h3 class="item-qty" >QTY: <%= order.order_lines.find_by(product_id: product.id).quantity %></h3>
+                        <h3 class="item-price">$<%= total %></h3>
+                      </div>
+                    </div>
+                  </div>
+              </div>
             <% end %>
             <% end %>
           <% end %>
-          <div class="basket-items-spacer"></div>
-        <% else %>
-          <h3 style="margin-bottom: 40px; margin-top: 15px; display: inline-block;">Previous orders</h3>
-          <p class="summary-item" style="color: #FFB96E; font-size: 12px; font-weight: 700">You have no order history</p>
-        <% end %>
-      </div>
+        <div class="basket-items-spacer"></div>
+      <% else %>
+        <h3 style="margin-bottom: 40px; margin-top: 15px; display: inline-block;">No previous orders</h3>
+      <% end %>
     </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
 </div>
