@@ -6,6 +6,7 @@
   margin: 0;
   text-align: center;
   color: white;
+  z-index: 250;
 }
 .alert-info {
   background: $green;
@@ -20,3 +21,4 @@
   margin-left: 240px;
   margin-top: -5px;
 }
+
