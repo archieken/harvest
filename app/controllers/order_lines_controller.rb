@@ -37,6 +37,9 @@ skip_before_action :authenticate_user!, except: :add_to_basket
    def remove
     orderline = OrderLine.find(params[:id])
 
+    order.amount = order.amount - @orderline.product.price
+    order.save!
+
       if orderline.quantity > 1
         orderline.quantity = orderline.quantity - 1
         orderline.save!
