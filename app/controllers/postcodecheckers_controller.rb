@@ -33,7 +33,7 @@ class PostcodecheckersController < ApplicationController
           redirect_to products_path
 
         else
-          flash[:check] = "Hey there! Harvest is working on bringing your favorite local products to your home in #{pc.address} soon. "
+          flash[:check] = "Hey there! Harvest is working to bring local products to your home soon. "
           redirect_to root_path
         end
     else
