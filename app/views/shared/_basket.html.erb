@@ -1,99 +1,3 @@
-<!-- STRIPE STYLES -->
-<style>
-  /**
-   * The CSS shown here will not be introduced in the Quickstart guide, but shows
-   * how you can use CSS to style your Element's container.
-   */
-  .StripeElement {
-    background-color: transparent;
-    height: 40px;
-    padding: 10px 12px;
-
-    border-radius: 2px;
-    color: #524F4C;
-
-    border: none;
-    box-shadow: none;
-    border-bottom: 1.5px solid #eaeaea;
-  }
-
-  .StripeElement--focus {
-    box-shadow: none;
-    border-bottom: 1.5px solid #524F4C;
-    color: #524F4C;
-  }
-
-  .StripeElement--invalid {
-    border-color: #fa755a;
-  }
-
-  .StripeElement--webkit-autofill {
-    background-color: #fefde5 !important;
-  }
-
-  .ElementsApp, .ElementsApp .InputElement {
-    border: none;
-    border-bottom: 1.5px solid #eaeaea;
-    color: #524F4C;
-    padding-bottom: 2px;
-    margin-bottom: -2px;
-    background-color: transparent;
-  }
-
-.ElementsApp input {
-  font-family: 'Montserrat', Helvetica, sans-serif!important;
-
-}
-
-.ElementsApp, .ElementsApp .InputElement {
-  color: #524F4C!important;
-  line-height: 18px;
-  font-family: "Montserrat", 'Helvetica'!important,
-  sans-serif;
-  font-size: 12px!important;
-  height: 18px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.ElementsApp:not(.is-autofilled) .InputElement:-webkit-autofill {
-  color: #32325d;
-  -webkit-text-fill-color: #32325d;
-}
-.ElementsApp .InputElement + .Input-placeholder--ie {
-  opacity: 1;color: #aab7c4;
-}
-.ElementsApp .InputElement::-webkit-input-placeholder {
-  opacity: 1;color: #aab7c4;
-}
-.ElementsApp .InputElement::-moz-placeholder {
-  opacity: 1;color: #aab7c4;
-}
-.ElementsApp .InputElement:-ms-input-placeholder {
-  opacity: 1;color: #aab7c4;
-}
-.ElementsApp .InputElement::placeholder {
-  opacity: 1;color: #aab7c4;
-}
-.ElementsApp .InputElement.is-invalid {
-  color: #fa755a;
-}
-.ElementsApp:not(.is-autofilled) .InputElement.is-invalid:-webkit-autofill {
-  color: #fa755a;
-  -webkit-text-fill-color: #fa755a;
-}
-.ElementsApp.is-invalid .Icon-fill {
-  fill: #fa755a;
-}
-
-#card-errors {
-  font-size: 10px;
-  color: #FC6565;
-  margin: 10px 0px;
-}
-</style>
-
-
-
 <div id="site-wrapper">
   <div id="site-menu">
     <div class="basket-content">
@@ -114,27 +18,28 @@
                     <div class="item-name-and-producer">
                       <% product = item.product  %>
                       <% total = product.price*item.quantity%>
+                      <% producer = item.product.producer  %>
+                      <h3 class="basket-item-producer-info"><%= producer.name %> | <%= producer.city  %></h3>
                       <h3 class="basket-item-name"><%= product.name%></h3>
                       <h3 class="basket-item-producer-info" style="color:#524F4C"><div id="<%="cost#{item.id.to_s}"%>" style="display:inline;"><%=product.price%></div> PER <%= product.unit_type %></h3>
-                      <h3 class="basket-item-producer-info"><%= product.producer.name %></h3>
-                      <% producer = product.producer  %>
-                      <h3 class="basket-item-producer-info"><%= producer.city  %> | 10KM</h3>
                     </div>
 
-                       <div class="add-controls-basket">
-                      <div class="plus-minus-qty" style="background-color: white;">
-                        <div>
-                          <%= link_to "-", remove_order_lines_path(item.id), method: :get, class: "basket-minus", onclick: "remove_item(#{item.id})", remote: true%>
-                        </div>
 
+                    <div class="item-price-and-qty">
+                      <h3 class="item-qty">QTY:<div id="<%="qty#{item.id.to_s}"%>" style="display:inline"><%= item.quantity %></div></h3>
+                      <h3 class="item-price">$<div id="<%="amount#{item.id.to_s}"%>" style="display:inline;"><%=total%></div></h3>
+
+                      <div class="add-controls-basket">
+                        <div class="plus-minus-qty" style="background-color:white;">
+                          <div>
+                            <%= link_to "-", remove_order_lines_path(item.id), method: :get, class: "basket-minus", onclick: "remove_item(#{item.id})", remote: true%>
+                          </div>
                         <div>
                            <%= link_to "+", add_order_lines_path(item.id), method: :get, class: "basket-plus", onclick: "add_item(#{item.id})", remote: true%>
                         </div>
                       </div>
                     </div>
-                    <div class="item-price-and-qty">
-                      <h3 class="item-qty">QTY:<div id="<%="qty#{item.id.to_s}"%>" style="display:inline"><%= item.quantity %></div></h3>
-                      <h3 class="item-price">$<div id="<%="amount#{item.id.to_s}"%>" style="display:inline;"><%=total%></div></h3>
+
                     </div>
                   </div>
                 </div>
@@ -143,7 +48,7 @@
           <div class="basket-items-spacer"></div>
         <% else %>
           <h3 style="margin-bottom: 40px; margin-top: 15px; display: inline-block;">items</h3>
-          <p class="summary-item" style="color: #FFB96E; font-size: 12px; font-weight: 700">Currently there are no items in your basket</p>
+          <p class="summary-item" style="color: #FFB96E; font-size: 15px; font-weight: 700;">Currently there are no items in your basket</p>
         <% end %>
 
             <div id="hide-empty" style="display:none">
@@ -163,7 +68,7 @@
           <h3 class="summary-item">$<div id="grocery-amount" style="display:inline;"><%=@order.amount%></div></h3>
         </div>
         <div class="flex-space-between summary-div">
-          <% delivery_cost = 550  %>
+          <% delivery_cost = 500  %>
           <h3 class="summary-item">Delivery & Handling</h3>
           <h3 class="summary-item">$5</h3>
         </div>
@@ -186,9 +91,15 @@
           </div>
           <div style="width: 100%; text-align: left; color: #C0C0C0">
 
+            <% contact = current_user.contact %>
             <%= simple_form_for [current_user, @contact], remote: true do |f| %>
+            <% if contact.phone.present? && contact.address.present? %>
+              <%= f.input :phone, label: false, value:  contact.phone %>
+              <%= f.input :address, label: false, value: contact.address , :input_html => { id: "address"} %>
+            <% else %>
               <%= f.input :phone, label: false, placeholder: "Phone Number"  %>
               <%= f.input :address, label: false, placeholder: "Delivery Address", :input_html => { id: "address"} %>
+              <% end %>
               <div style="display:none;"><%= f.submit "SAVE", class: "confirm_address basket-button"%></div>
 
             <% end %>
@@ -222,9 +133,6 @@
     </div>
   </div>
 </div>
-
-
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 <script>
 
@@ -317,72 +225,6 @@
 
     // Submit the form
     form.submit();
-  }
-
-
-
-  function remove_item(id) {
-
-
-    var item_quantity = parseInt(document.querySelector(`#qty${id}`).innerHTML);
-    var order_amt = parseInt(document.querySelector("#order_amount").innerHTML);
-    var item_cost = parseInt(document.querySelector(`#cost${id}`).innerHTML);
-    var item_amt = parseInt(document.querySelector(`#amount${id}`).innerHTML);
-
-     if (item_quantity > 1)
-     {
-
-    var item_quantity = item_quantity - 1;
-    document.querySelector(`#qty${id}`).innerHTML = item_quantity;
-    document.querySelector(`#amount${id}`).innerHTML = item_amt - item_cost;
-    document.querySelector("#order_amount").innerHTML = order_amt - item_cost;
-    document.querySelector("#grocery-amount").innerHTML = order_amt - item_cost;
-      }
-     else
-       {
-      document.querySelector(`#bask${id}`).style.display = "none";
-      num_item = parseInt(document.querySelector("#total-id").innerHTML);
-      order_amt = parseInt(document.querySelector("#order_amount").innerHTML);
-      document.querySelector("#order_amount").innerHTML = order_amt - item_cost;
-      document.querySelector("#grocery-amount").innerHTML = (order_amt - item_cost)-5;
-
-         if (num_item <= 1)
-
-         {
-            console.log(num_item);
-            document.querySelector(".hide-empty").style.display = "inline";
-            a = document.querySelector(".basket-count-show").innerHTML = `[${num_item}]`;
-        }
-         else
-        {
-          console.log(num_item);
-          console.log(hello);
-          document.querySelector(".basket-count-show").innerHTML = `[${num_item}]`;
-          document.querySelector("#total-id").innerHTML = num_item - 1;
-        }
-
-       }
-
-  }
-
-
-   function add_item(id) {
-
-    var item_quantity = parseInt(document.querySelector(`#qty${id}`).innerHTML)
-    var order_amt = parseInt(document.querySelector("#order_amount").innerHTML);
-    var item_cost = parseInt(document.querySelector(`#cost${id}`).innerHTML);
-    var item_amt = parseInt(document.querySelector(`#amount${id}`).innerHTML);
-
-
-    var item_quantity = item_quantity + 1;
-
-
-    document.querySelector(`#qty${id}`).innerHTML = item_quantity;
-    document.querySelector(`#amount${id}`).innerHTML = item_amt + item_cost;
-
-    document.querySelector("#order_amount").innerHTML = order_amt + item_cost;
-    document.querySelector("#grocery-amount").innerHTML = (order_amt + item_cost)-5;
-
   }
 
 </script>

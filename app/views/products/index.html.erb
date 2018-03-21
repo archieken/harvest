@@ -130,29 +130,18 @@
       </div>
   </div>
 
-
-
-
-
-
-<!-- JS SCRIPTS -->
-
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
-
-
-  function toggleProduct(id) {
-
-  console.log(document.querySelector(`product${id}`));
-  document.querySelector(`#product${id}`).classList.toggle('show-product');
-  }
-
   document.addEventListener("DOMContentLoaded", function(event) {
     document.querySelector(".hidebasket").style.display = "inline";
   });
 
 
-  $(window).scroll(function() {
+  window.onscroll = function() {activateCat()};
+  console.log("scroll");
+
+  function activateCat() {
+
     var position = $(this).scrollTop();
     position = position + 50;
 
@@ -165,6 +154,13 @@
             $('.anchor[href=#' + id + ']').addClass('active');
         }
     });
-});
+
+  }
+
+
+  function toggleProduct(id) {
+  document.querySelector(`#product${id}`).classList.toggle('show-product');
+  }
+
 
 </script>
