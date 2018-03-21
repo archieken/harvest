@@ -14,9 +14,13 @@
 
 
   <div id="confirmation_text">
-   <% delivery_cost = 550  %>
+   <% delivery_cost = 500  %>
     <% @order.amount_cents = @order.amount_cents + delivery_cost %>
-    <p>Your order of Amount: <%= humanized_money_with_symbol(@order.amount) %> will be delivered to you soon. Check your emails to stay updated.</p>
+    <div style="display: flex; flex-direction: row; justify-content: space-between; padding: 10px 10px 0px 10px">
+      <h6>reference number : 000<%= @order.id %></h6>
+      <h6>paid: <%= humanized_money_with_symbol(@order.amount) %></h6>
+    </div>
+    <p style= "margin-top: 10px; text-align: center;">Your order <strong>will be delivered on <%= @order.updated_at.strftime("%B") %> <%= @order.updated_at.day + 2 %>, <%= @order.updated_at.year %></strong>. Check your email for delivery updates and your purchase receipt.</p>
   </div>
 
 
