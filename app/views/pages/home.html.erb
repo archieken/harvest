@@ -18,29 +18,33 @@
 </div>
 
 <div class="section" style="background-color: #fbf8f4;">
+  <%= image_tag 'shallot.png', :class => "shallot" %>
+  <%= image_tag 'trout.png', :class => "trout" %>
   <div class="section-content">
     <h2 class="home-title">Why Shop Here?</h2>
-    <p class="section-para">Harvest helps you cut out the middleman by letting you order directly from the producter.</p>
+    <h5 class="section-para">
+      More community, less hassle. Harvest delivers fresh groceries directly from local producers to your home.
+    </h5>
     <div class="features">
       <div class="feature">
         <div class="feature-avatar"><%= image_tag 'DeliveryTruck.svg', :class => "delivery-truck-icon" %></i></div>
-        <h4 class="feature-title">Easy</h4>
-        <p class="feature-para">We take the work out of getting great food in your kitchen and on the table.</p>
+        <h4 class="feature-title">Convenient Delivery</h4>
+        <p class="feature-para">We take care of bringing quality local food to your kitchen.</p>
       </div>
       <div class="feature">
         <div class="feature-avatar"><%= image_tag 'Watermelon.svg', :class => "watermelon-icon" %></i></div>
-        <h4 class="feature-title">Fresh</h4>
-        <p class="feature-para">Get fresh food that is picked and prepared when you order.</p>
+        <h4 class="feature-title">Amazingly Fresh Produce</h4>
+        <p class="feature-para">Enjoy fresh food that is picked and prepared when you order.</p>
       </div>
       <div class="feature">
         <div class="feature-avatar"><%= image_tag 'HouseLocal.svg', :class => "house-icon" %></i></div>
         <h4 class="feature-title">Support Local Producers</h4>
-        <p class="feature-para">Engage with your community and support the livelihood of all our local vendors.</p>
+        <p class="feature-para">Trust who you´re getting your food from and support your neighbors. </p>
       </div>
       <div class="feature">
         <div class="feature-avatar"><%= image_tag 'EcoLeaf.svg', :class => "ecoleaf-icon" %></i></div>
-        <h4 class="feature-title">Eco-friendly</h4>
-        <p class="feature-para">Pick local food to reduce CO2 emissions.</p>
+        <h4 class="feature-title">Eco-Conscious Groceries</h4>
+        <p class="feature-para">Cut your carbon foot print and create a self-sustainable community.</p>
       </div>
     </div>
   </div>
@@ -53,7 +57,6 @@
     <h2 class="home-title">Local Producers</h2>
     <p class="section-para">Harvest lets you support your community and shop through people you know, trust and love.</p>
     <div class="cat-links">
-      <%= link_to "recipes", products_path(:anchor => "recipes"), class: "homepage-cat-link" %>
       <%= link_to "vegetables", products_path(:anchor => "vegetables"), class: "homepage-cat-link" %>
       <%= link_to "fruits", products_path(:anchor => "fruits"), class: "homepage-cat-link" %>
       <%= link_to "meat", products_path(:anchor => "meats"), class: "homepage-cat-link" %>
@@ -63,12 +66,13 @@
       <%= link_to "wine & drinks", products_path(:anchor => "wine"), class: "homepage-cat-link" %>
       <%= link_to "pantry", products_path(:anchor => "pantry"), class: "homepage-cat-link" %>
       <%= link_to "deli", products_path(:anchor => "deli"), class: "homepage-cat-link" %>
+      <%= link_to "recipes", products_path(:anchor => "recipes"), class: "homepage-cat-link" %>
     </div>
   </div>
 </div>
 
 
-    <div style="background-color: #fbf8f4;">
+    <div>
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">farmers</h3>
     <%= link_to "shop vegetables & fruits", products_path(:anchor => "vegetables"), class: "homepage-cat-link" %>
@@ -79,7 +83,7 @@
 
   </div>
 
-  <div style="background-color: #fbf8f4;">
+  <div>
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">butchers</h3>
     <%= link_to "shop meats", products_path(:anchor => "meats"), class: "homepage-cat-link" %>
@@ -88,7 +92,7 @@
     <%= render 'shared/producers' %>
   </div>
 
-  <div style="background-color: #fbf8f4;">
+  <div>
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">fishermen</h3>
     <%= link_to "shop local fish", products_path(:anchor => "fish"), class: "homepage-cat-link" %>
@@ -97,17 +101,7 @@
     <%= render 'shared/producers' %>
   </div>
 
-
-  <div style="background-color: #fbf8f4;">
-  <div class="carousel-title">
-    <h3 class="producer-cat-title" style="display: inline-block;">dairy & egg farmers</h3>
-    <%= link_to "shop dairy & egg products", products_path(:anchor => "dairy"), class: "homepage-cat-link" %>
-  </div>
-    <%@producers = @dairys %>
-    <%= render 'shared/producers' %>
-  </div>
-
-  <div style="background-color: #fbf8f4;">
+  <div>
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">bakers</h3>
     <%= link_to "shop baked goods", products_path(:anchor => "bakery"), class: "homepage-cat-link" %>
@@ -116,7 +110,7 @@
     <%= render 'shared/producers' %>
   </div>
 
-<div style="background-color: #fbf8f4;">
+<div>
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">winemakers</h3>
     <%= link_to "shop wine & drinks", products_path(:anchor => "wine"), class: "homepage-cat-link" %>
@@ -125,7 +119,7 @@
     <%= render 'shared/producers' %>
   </div>
 
-    <div style="background-color: #fbf8f4;">
+    <div>
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">cooks</h3>
     <%= link_to "shop pantry items", products_path(:anchor => "pantry"), class: "homepage-cat-link" %>
@@ -134,7 +128,7 @@
     <%= render 'shared/producers' %>
   </div>
 
-    <div style="background-color: #fbf8f4;">
+    <div>
   <div class="carousel-title">
     <h3 class="producer-cat-title" style="display: inline-block;">deli creatives</h3>
     <%= link_to "shop deli items", products_path(:anchor => "deli"), class: "homepage-cat-link" %>

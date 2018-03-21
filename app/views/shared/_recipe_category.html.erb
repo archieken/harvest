@@ -1,16 +1,16 @@
 
-                <div class="product-card overlay white" style="background-image: url(<%=@recipe.photo%>);">
-                  <div class="product-card-content">
-                    <h5 class="product-card-title"><%= @recipe.producer.name %>'s<br><%= @recipe.title%></h5>
-                    <p class="product-card-price"> 2 hours</p>
+            <%# link_to "Show", product_path(product.id),:style=> 'color:blue'%>
+
+                <% recipe = @recipe %>
+                <div class="recipe-card overlay white" style="background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0)
+    ), url(<%=recipe.photo%>); background-size: cover;">
+                  <div class="recipe-card-content">
+                    <h5 class="recipe-card-title"><div><%= recipe.producer.name %>'s<br><%= recipe.title%></div></h5>
                   </div>
-                  </div>
+                  <button class="info-button button5" onclick="toggleProduct(<%=recipe.id.to_s%>)">i</button>
+                </div>
 
 
-
-<!--     t.bigint "producer_id"
-    t.string "title"
-    t.text "description"
-    t.text "instructions"
-    t.string "photo"
-    t.integer "difficulty" -->

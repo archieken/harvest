@@ -24,17 +24,22 @@
       </div>
       <div class="card-map" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=<%= @product.producer.latitude %>,<%= @product.producer.longitude %>&markers=color:red%7C<%= @product.producer.latitude %>,<%= @product.producer.longitude %>&zoom=8&size=480x380&key=AIzaSyCKxAu_Y-IhJUSTXAcMghvx_UDSBSGm2l8')";'>
       </div>
+
+      <% unless @product.producer.Farmphotos.nil? %>
       <h3 class="basket-button" style="color: #cecece; display: inline">PHOTOS</h3>
       <div class="producer-gallery">
-        <div class="gallery-photo"></div>
-        <div class="gallery-photo"></div>
-        <div class="gallery-photo"></div>
-        <div class="gallery-photo"></div>
-        <div class="gallery-photo"></div>
+        <% @product.producer.Farmphotos.each do |photo| %>
+        <% puts "hi" %>
+        <div class="gallery-photo" style="background-image: url(<%= photo %>)"></div>
+          <% end %>
       </div>
+      <% end %>
 
       <div class="product-page-section" id="related_recipes">
         <h3>related recipes</h3>
+        <% @product.recipes.each do |recipe| %>
+             <div class="gallery-photo" style="background-image: url(<%= recipe.photo %>)"></div>
+        <% end %>
         <div>
         </div>
       </div>
