@@ -45,22 +45,22 @@
 
   <div class="buy-ingredients">
     <h3>buy ingredients</h3>
-    <div class="ingredient-card">
-      <div class="ingredient-card-photo-info">
-        <div class="ingredient-card-photo">
-          <div class="ingredient-card-producer-avatar"></div>
+    <% @recipe.products.each do |recipe| %>
+      <div class="ingredient-card">
+        <div class="ingredient-card-photo-info">
+          <div class="ingredient-card-photo" style="background-image: url(<%= recipe.photo %>)">
+            <div class="ingredient-card-producer-avatar"></div>
+          </div>
+          <div class="ingredient-info">
+            <h3 class="basket-item-name ingredient-name"><%= recipe.name %></h3>
+            <p style="font-size: 12px; margin: 0px; font-weight: 500; color: #FFB96E; font-family: 'Montserrat'"><%= humanized_money_with_symbol(recipe.price) %></p>
+          </div>
         </div>
-        <div class="ingredient-info">
-          <h3 class="basket-item-name ingredient-name">Strawberry</h3>
-          <p style="font-size: 12px; margin: 0px; font-weight: 500; color: #FFB96E; font-family: 'Montserrat'">$6.00 per kg</p>
+        <div class="ingredient-add-button">
+          <%= image_tag 'white-plus-icon.svg', :class => "ingredient-add-icon" %>
         </div>
       </div>
-      <div class="ingredient-add-button">
-        <%= image_tag 'white-plus-icon.svg', :class => "ingredient-add-icon" %>
-      </div>
-    </div>
-    <div class="ingredient-card"></div>
-    <div class="ingredient-card"></div>
+    <% end %>
   </div>
 
 </div>
