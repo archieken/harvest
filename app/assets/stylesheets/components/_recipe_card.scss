@@ -1,3 +1,179 @@
+.recipe-page {
+  display: flex;
+  justify-content: space-between;
+  margin: 90px 50px;
+  margin-bottom: 0px;
+}
+
+.recipe-section {
+  flex: 1 1 70%;
+  margin-right: 50px;
+}
+
+.buy-ingredients {
+  width: 30%;
+}
+
+// RECIPE SECTION
+
+.recipe-title {
+  margin-top: 60px;
+}
+
+.recipe-page-photo {
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+  border-radius: 4px;
+  background-size: cover;
+
+}
+
+.recipe-para {
+  font-family: Montserrat;
+  margin-bottom: 10px;
+}
+
+// RECIPE COVER PHOTO
+
+// Recipe Banner
+.recipe-banner{
+border-radius: 4px;
+ height: 65vh;
+ width: 65vw;
+ background-size: cover !important;
+ background-position: center;
+ color: white;
+ position: relative;
+  display: flex;
+ justify-content: space-between;
+ flex-direction: column;
+}
+
+.recipe-banner-difficulty {
+ padding: 20px;
+}
+
+.recipe-banner-bottom{
+ padding: 20px;
+}
+
+.recipe-banner-avatar-name{
+ display: flex;
+ align-items: center;
+}
+
+.recipe-banner-producer-avatar{
+ background-size: cover;
+ border: 2px solid white;
+ box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+ height: 50px;
+ width: 50px;
+ border-radius: 50%;
+ right: -15px;
+
+}
+
+.recipe-banner-producer-name{
+ margin-left: 15px;
+}
+.recipe-card-user {
+ position: absolute;
+ right: 10px;
+ top: 10px;
+ width: 40px;
+ border-radius: 50%;
+}
+.recipe-card-category {
+ position: top;
+ top: 10px;
+ left: 10px;
+ font-size: 15px;
+ text-transform: uppercase;
+}
+.recipe-banner-card-description {
+
+}
+
+
+// BUY INGREDIENTS SECTION
+
+.ingredient-card {
+  height: 80px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ingredient-card-photo-info {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.ingredient-info {
+  margin-left: 30px;
+  margin-bottom: 4px;
+}
+
+.ingredient-name {
+  margin: 0px;
+  margin-bottom: 3px;
+}
+
+.ingredient-card-photo {
+  width: 60px;
+  height: 100%;
+  background-image: url(strawberry.jpg);
+  background-size: cover;
+  position: relative;
+}
+
+.ingredient-card-producer-avatar {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  right: -15px;
+  background-image: url(farmer-photo.jpg);
+  background-size: cover;
+  margin-top: 23px;
+}
+
+.ingredient-name-producer {
+  margin-left: 30px;
+}
+
+.ingredient-add-button {
+  background-color: #FFB96E;
+  height: 60px;
+  width: 30px;
+  margin-right: 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ingredient-add-icon {
+  height: 15px;
+  width: 15px;
+}
+
+
+
+
+
+
 .recipe-card {
   display: inline;
   height: 200px;
@@ -21,4 +197,13 @@
   color: white;
   padding: 10px;
 
+}
+
+.recipe-photo {
+  width: 100%;
+  height: 90vh;
+}
+
+.recipe-content {
+  margin: 0px 50px;
 }
