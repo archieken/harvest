@@ -14,6 +14,14 @@
   margin-bottom: 100px;
 }
 
+.banner-button{
+  background-color: #FFB96E;
+  color: white!important;
+  border-bottom: none!important;
+  padding-left: 30px;
+  padding-right:30px;
+}
+
 .home-title {
   font-family: 'Baskerville';
   text-align: center;
@@ -40,13 +48,13 @@
   background-color: transparent;
 }
 
-.homepage-button:hover {
+.banner-button:hover {
   text-decoration: none;
   color: #FFB96E;
-
 }
 
 // ---------   ARTESAN IMAGES   ------------
+
 
 .kale {
   position: absolute;
@@ -56,6 +64,7 @@
   z-index: 200;
   bottom: -100px;
 }
+
 
 .carrot {
 position: absolute;
