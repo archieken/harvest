@@ -21,12 +21,14 @@ skip_before_action :authenticate_user!, except: :add_to_basket
     redirect_back(fallback_location: products_path)
   end
 
-  def update
-    @orderline = OrderLine.update(params[:id])
-    authorize @orderline
-  end
 
    def add
+
+    orderline = OrderLine.find(params[:id])
+
+    order = orderline.order.amount + orderline.product.price
+    order.save!
+
     orderline = OrderLine.find(params[:id])
     orderline.quantity = orderline.quantity + 1
     orderline.save
@@ -35,9 +37,10 @@ skip_before_action :authenticate_user!, except: :add_to_basket
   end
 
    def remove
+
     orderline = OrderLine.find(params[:id])
 
-    order.amount = order.amount - @orderline.product.price
+    order = orderline.order.amount - orderline.product.price
     order.save!
 
       if orderline.quantity > 1
@@ -50,12 +53,6 @@ skip_before_action :authenticate_user!, except: :add_to_basket
       redirect_back(fallback_location: products_path)
     end
 
-  def destroy
-    @orderline = OrderLine.find(params[:id])
-    authorize @orderline
-    @orderline.destroy
-    redirect_back(fallback_location: products_path)
-  end
 
   def reorder
     @order = Order.find(params[:id])

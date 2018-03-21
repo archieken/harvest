@@ -7,11 +7,6 @@
       <a style="display:block" class="toggle-product basket-button" onclick="toggleProduct(<%=product.id.to_s%>)" "><img class="x-icon" src="/assets/plus-icon.svg" alt="Triangle"></a>
     </div>
     <div class="product-page-links" id="myScrollspy">
-      <ul style="list-style-type: none;">
-        <li class="active"><a  class="basket-button anchor" style="display: block; margin-bottom:5px" href="#about_producer">ABOUT PRODUCER</a></li>
-        <li><a  class="basket-button anchor" style="display: block; margin-bottom:5px" href="#related_recipes">RELATED RECIPES</a></li>
-        <li><a  class="basket-button anchor" style="display: block; margin-bottom:5px" href="#similar_products">SIMILAR PRODUCTS</a></li>
-      </ul>
     </div>
     <div class="product-producer-info-scroll">
       <div class="product-page-section">
@@ -25,7 +20,7 @@
       <div class="card-map" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=<%= @product.producer.latitude %>,<%= @product.producer.longitude %>&markers=color:red%7C<%= @product.producer.latitude %>,<%= @product.producer.longitude %>&zoom=8&size=480x380&key=AIzaSyCKxAu_Y-IhJUSTXAcMghvx_UDSBSGm2l8')";'>
       </div>
 
-      <% unless @product.producer.Farmphotos.nil? %>
+      <% unless @product.producer.Farmphotos.empty? %>
       <h3 class="basket-button" style="color: #cecece; display: inline">PHOTOS</h3>
       <div class="producer-gallery">
         <% @product.producer.Farmphotos.each do |photo| %>
@@ -35,14 +30,7 @@
       </div>
       <% end %>
 
-      <div class="product-page-section" id="related_recipes">
-        <h3>related recipes</h3>
-        <% @product.recipes.each do |recipe| %>
-             <div class="gallery-photo" style="background-image: url(<%= recipe.photo %>)"></div>
-        <% end %>
-        <div>
-        </div>
-      </div>
+
       <div class="product-page-section" id="similar-products">
         <h3>similar products</h3>
         <div class="similar-products">
@@ -103,6 +91,30 @@
           <% end %>
 
         </div>
+
+
+            <div class="product-page-section" id="related_recipes">
+        <% if @product.recipes.present? %>
+        <h3>related recipes</h3>
+        <% @product.recipes.each do |recipe| %>
+             <div class="gallery-photo" style="background-image: url(<%= recipe.photo %>)"></div>
+        <% end %>
+        <div>
+        </div>
+          <% end %>
+           </div>
+
+
+
+
+
+
+
+
+
+
+
+
           <% unless product.nutrient.nil? %>
             <div class "nutrient_table">
               <table style="width:100%">
@@ -139,28 +151,6 @@
 
   </div>
 <% end %>
-
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
-<script>
-  $(window).scroll(function() {
-    var position = $(this).scrollTop();
-    position = position + 200;
-    console.log('WORKING');
-
-    $('.product-page-section').each(function() {
-
-        var target = $(this).offset().top;
-        var id = $(this).attr('id');
-
-        if (position >= target) {
-            console.log('WORKING2');
-            $('.anchor').removeClass('active');
-            $('.anchor[href=#' + id + ']').addClass('active');
-        }
-    });
-});
-</script>
 
 
 

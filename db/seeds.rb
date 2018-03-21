@@ -9,9 +9,6 @@
   Contact.destroy_all
   User.destroy_all
 
-puts Ingredient.count
-puts Product.count
-
   def fat_quant(nd)
      nd.send("total_nutrients")["FAT"]["quantity"]
    end
@@ -152,7 +149,6 @@ puts Product.count
 
   puts "Winemakers oordinates"
 
-  # Farmphotos: ["","",""]
 
   puts "Creating cooks"
     Producer.create!(speciality: "cook", name: "Gordon Hawkins", city: cities[4], latitude: coordinates[4][0], longitude: coordinates[4][1], photo: "https://i.pinimg.com/564x/f0/78/64/f07864f6f907bf61662d178f7d07c838.jpg", description: "Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.")
@@ -163,7 +159,6 @@ puts Product.count
     Producer.create!(speciality: "cook", name: "Jamie Block", city: cities[4], latitude: coordinates[4][0], longitude: coordinates[4][1], photo: "https://i.pinimg.com/564x/15/9a/d5/159ad590f6db845fd54852e3fe1a10c7.jpg", description: "Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.")
   puts "Winemakers made"
 
-  # Farmphotos: ["","",""]
 
   puts "Creating deli creatives"
     Producer.create!(speciality: "deli", name: "Jill Hawkins", city: cities[5], latitude: coordinates[5][0], longitude: coordinates[5][1], photo: "https://i.pinimg.com/564x/04/d7/6e/04d76e906ff0d670ca4b852242ed1bea.jpg", description: "Archie Kenwright is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.")
@@ -275,29 +270,29 @@ puts "Creating Bakery"
   puts "Deli made"
 
 
-  puts "Creating Orders"
-    users.each {|user| Order.create!(amount: 10 , user: user, status:"paid")}
-    users.each {|user| Order.create!(amount: 10, user: user, status:"paid")}
-    users.each {|user| Order.create!(amount: 10, user: user, status:"paid")}
-  puts "Orders made"
+  # puts "Creating Orders"
+  #   users.each {|user| Order.create!(amount: 10 , user: user, status:"paid")}
+  #   users.each {|user| Order.create!(amount: 10, user: user, status:"paid")}
+  #   users.each {|user| Order.create!(amount: 10, user: user, status:"paid")}
+  # puts "Orders made"
 
-  puts "Creating Order Lines"
-    users.each do |user|
-      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all[(0..10).to_a.sample].id)
-      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all[(11..20).to_a.sample].id)
-      OrderLine.create!(quantity: 2 , order_id: user.orders.all.sample.id, product_id: Product.all[(21..32).to_a.sample].id)
-      OrderLine.create!(quantity: 3 , order_id: user.orders.all.sample.id, product_id: Product.all[(33..44).to_a.sample].id)
-      OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all[(45..57).to_a.sample].id)
-    end
+  # puts "Creating Order Lines"
+  #   users.each do |user|
+  #     OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all[(0..10).to_a.sample].id)
+  #     OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all[(11..20).to_a.sample].id)
+  #     OrderLine.create!(quantity: 2 , order_id: user.orders.all.sample.id, product_id: Product.all[(21..32).to_a.sample].id)
+  #     OrderLine.create!(quantity: 3 , order_id: user.orders.all.sample.id, product_id: Product.all[(33..44).to_a.sample].id)
+  #     OrderLine.create!(quantity: 1 , order_id: user.orders.all.sample.id, product_id: Product.all[(45..57).to_a.sample].id)
+  #   end
 
-    Order.all.each do |order|
-      total = 0
-      order.order_lines.each do |order_line|
-        total += (order_line.product.price) * order_line.quantity
-      end
-      order.update(amount: total)
-    end
-  puts "Order Lines made"
+  #   Order.all.each do |order|
+  #     total = 0
+  #     order.order_lines.each do |order_line|
+  #       total += (order_line.product.price) * order_line.quantity
+  #     end
+  #     order.update(amount: total)
+  #   end
+  # puts "Order Lines made"
 
 
 
