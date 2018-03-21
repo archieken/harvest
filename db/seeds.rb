@@ -327,7 +327,7 @@ puts "Create Recipes"
   recipe.save!
 
   #fruit salad
-  recipe =Recipe.new(title: "Fruit Salad", description: "A classic dessert. Can be eaten all year round", instructions: "Step 1: Cut the fruit up. Step 2: Mix the fruits together.", difficulty: 2, photo: "http://imgs.peasandfigs.co.uk/2014-7-6/16732_15233_fruitsalad.jpg", producer: Producer.last)
+  recipe =Recipe.new(title: "Fruit Salad", description: "A classic dessert. Can be eaten all year round", instructions: ["Step 1: Cut the fruit up","Step 2: Mix the fruits together."], difficulty: 2, photo: "http://imgs.peasandfigs.co.uk/2014-7-6/16732_15233_fruitsalad.jpg", producer: Producer.last)
   ["Strawberries", "Oranges", "Apples", "Grapes", "Bananas", "Pineapple", "Melon"].each {|fruit| recipe.products << Product.find_by(name: fruit)}
   recipe.save!
 

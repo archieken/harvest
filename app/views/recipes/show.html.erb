@@ -20,25 +20,20 @@
        </div>
      </div>
     </div>
-
     <div>
       <h3 class="recipe-title">recipe description</h3>
       <p><%= @recipe.description %></p>
     </div>
     <div>
       <h3 class="recipe-title">ingredients</h3>
-      <% @recipe.products.each do |product| %>
-      <p class="recipe-para">2x Lorem ipsum dolor</p>
-      <p class="recipe-para">3x Lorem ipsum.</p>
+        <% @recipe.products.each do |product| %>
+      <p class="recipe-para"><%= product.name %></p>
     <% end %>
     </div>
     <div>
       <h3 class="recipe-title">method</h3>
-      <p class="recipe-para">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-      <p class="recipe-para">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-      <p class="recipe-para">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
       <% @recipe.instructions.each_with_index do |instruction, index|%>
-      <p><%= index + 1 %>. <%= instruction %></p>
+      <p class="recipe-para"><%= index + 1 %>. <%= instruction %></p>
       <% end %>
     </div>
   </div>
