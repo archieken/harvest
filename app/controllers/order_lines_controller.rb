@@ -84,4 +84,34 @@ skip_before_action :authenticate_user!, except: :add_to_basket
     end
     flash[:reorder_product] = "Order has been added to your basket."
   end
+
+  def order_recipe
+    @order = Order.find(params[:id])
+    @order.products.each do |recipe|
+      reorder_product(product)
+    end
+    authorize @order
+    redirect_back(fallback_location: products_path)
+  end
+
+  def order_recipe_ingredient
+    unless current_user.orders.nil? || current_user.orders.find_by(status:"new").blank?
+      @order = current_user.orders.find_by(status:"new")
+      @orderline = OrderLine.create!(product_id: product.order_lines.find_by(order_id: params[:id]).product_id, quantity: product.order_lines.find_by(order_id: params[:id]).quantity, order: @order)
+      authorize @order
+      authorize @orderline
+      @order.amount = @order.amount + @orderline.product.price*@orderline.quantity
+      @order.save!
+    else
+      @order = Order.create!(user: current_user, status: "new")
+      @orderline = OrderLine.create(product_id: product.order_lines.find_by(order_id: params[:id]).product_id, quantity: product.order_lines.find_by(order_id: params[:id]).quantity, order: @order)
+      authorize @orderline
+      authorize @order
+      @order.amount = @orderline.product.price*@orderline.quantity
+      @order.save!
+    end
+
+  end
+
+
 end

@@ -115,7 +115,7 @@
                       <% product = item.product  %>
                       <% total = product.price*item.quantity%>
                       <h3 class="basket-item-name"><%= product.name%></h3>
-    <h3 class="basket-item-producer-info" style="color:#524F4C"><div id="<%="cost#{item.id.to_s}"%>" style="display:inline;"><%=product.price%></div> PER <%= product.unit_type %></h3>
+                      <h3 class="basket-item-producer-info" style="color:#524F4C"><div id="<%="cost#{item.id.to_s}"%>" style="display:inline;"><%=product.price%></div> PER <%= product.unit_type %></h3>
                       <h3 class="basket-item-producer-info"><%= product.producer.name %></h3>
                       <% producer = product.producer  %>
                       <h3 class="basket-item-producer-info"><%= producer.city  %> | 10KM</h3>
@@ -133,7 +133,7 @@
                       </div>
                     </div>
                     <div class="item-price-and-qty">
-          <h3 class="item-qty">QTY:<div id="<%="qty#{item.id.to_s}"%>" style="display:inline"><%= item.quantity %></div></h3>
+                      <h3 class="item-qty">QTY:<div id="<%="qty#{item.id.to_s}"%>" style="display:inline"><%= item.quantity %></div></h3>
                       <h3 class="item-price">$<div id="<%="amount#{item.id.to_s}"%>" style="display:inline;"><%=total%></div></h3>
                     </div>
                   </div>

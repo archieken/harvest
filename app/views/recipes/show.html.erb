@@ -1,76 +1,38 @@
-<div class="product-card overlay white" style="background-image: url(<%=@recipe.photo%>);">
-  <%= @recipe.producer.name %>'s<br><%= @recipe.title%></h5>
+  <h2>Products used in the recipe: </h2>
+  <%= @recipe.description %>
+  <%= @recipe.instructions %>
+  <%= @recipe.difficulty %>
+
+  <%= @recipe.producer.name %>
+  <%= @recipe.producer.city %>
+  <%= @recipe.producer.photo %>
+  <%= @recipe.producer.description %>
+
+<div class="recipe-banner" style="background-image: url(<%= @recipe.photo %>)">
 </div>
 
- <div class="recipe-card">
-   <h2>Products used in the recipe: </h2>
+  <div>
+    <h1><%= @recipe.title %></h1>
+  </div>
+
    <% @recipe.products.each do |recipe| %>
-      <li>
-        <%= recipe.name %>
+      <div class="recipe-product-card">
 
-      </li>
-      <a href= <%=add_to_basket_path(recipe.id)%> class="add-to-cart-btn">ADD</a>
+
+        <div class="recipe-card-image" style="background-image: url(<%= recipe.photo %>)">
+        </div>
+
+        <div class="recipe-card-producer-avatar" style="background-image: url(<%= @recipe.producer.photo %>)">
+        </div>
+
+          <%= recipe.name %>
+        <div class="recipe-product-button">
+          <a href= <%=add_to_basket_path(recipe.id)%> class="add-to-cart-btn">ADD</a>
+        </div>
+      </div>
     <% end %>
-  </div>
 
 
 
-  <div class="show-product product-modal">
-    <div class="go-back">
-      <a><img class="x-icon" src="/assets/plus-icon.svg" alt="Triangle"></a>
-    </div>
-    <div class="product-page-links">
-      <ul style="list-style-type: none;">
-        <li><a  class="basket-button" style="display: block; margin-bottom:5px" href="">ABOUT PRODUCER</a></li>
-        <li><a  class="basket-button" style="display: block; margin-bottom:5px" href="">RELATED RECIPES</a></li>
-        <li><a  class="basket-button" style="display: block; margin-bottom:5px" href="">SIMILAR PRODUCTS</a></li>
-      </ul>
-    </div>
-    <div class="product-producer-info-scroll">
-      <h2 class="producer-title"><%=@recipe.title%></h2>
-      <p style="margin-bottom: 30px"><%=@recipe.producer.name%></p>
-      <div style="margin-bottom: 5px">
-        <h3 class="basket-button" style="display: inline">LOCATION</h3>
-        <h3 class="basket-button" style="display: inline; color: #FFB96E"><%=@recipe.title %></h3>
-      </div>
-
-      <h3 class="basket-button" style="display: inline">PHOTOS</h3>
-      <div class="producer-gallery">
-        <div class="gallery-photo"></div>
-        <div class="gallery-photo"></div>
-        <div class="gallery-photo"></div>
-        <div class="gallery-photo"></div>
-        <div class="gallery-photo"></div>
-
-      </div>
-      <div class="producer-info-spacer"></div>
-    </div>
-
-    <div class="product-info">
-      <div class="product-modal-title">
-
-
-        <div class="product-page-price">
-          <h4 class="product-page-price-label">price</h4>
-          <h4 class="product-page-price-number"> per kg</h4>
-        </div>
-      </div>
-
-      <div class="product-page-add">
-        <div class="plus-minus-qty">
-
-
-
-        </div>
-
-            </div>
-
-      </div>
-
-
-
-    </div>
-
-  </div>
 
 
