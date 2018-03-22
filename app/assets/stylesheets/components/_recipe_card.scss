@@ -126,6 +126,10 @@
   align-items: center;
 }
 
+.ingredient-card:hover .ingredient-add-button {
+  display: inline-block;
+}
+
 .ingredient-card-photo-info {
   display: flex;
   align-items: center;
@@ -168,6 +172,7 @@
 }
 
 .ingredient-add-button {
+  display:none;
   background-color: #FFB96E;
   height: 30px;
   width: 30px;
@@ -184,10 +189,6 @@
   margin-bottom: 1px;
   margin-left: 3px;
 }
-
-
-
-
 
 
 .recipe-card {
