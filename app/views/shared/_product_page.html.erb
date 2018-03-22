@@ -4,7 +4,7 @@
 <% product = @product %>
   <div id="<%= "product#{@product.id.to_s}"%>" class="show-product product-modal" data-spy="scroll" data-target="#myScrollspy" data-offset="20">
     <div class="go-back">
-      <a style="display:block" class="toggle-product basket-button" onclick="toggleProduct(<%=product.id.to_s%>)" "><img class="x-icon" src="/assets/plus-icon.svg" alt="Triangle"></a>
+      <a style="display:block" class="toggle-product basket-button" onclick="toggleProduct(<%=product.id.to_s%>)" "><img class="x-icon" src="http://res.cloudinary.com/dat5wdshi/image/upload/v1521729938/plus-icon.svg" alt="Triangle"></a>
     </div>
     <div class="product-page-links" id="myScrollspy">
     </div>
