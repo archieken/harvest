@@ -96,7 +96,7 @@
         <% if @product.recipes.present? %>
         <h3>related recipes</h3>
         <% @product.recipes.each do |recipe| %>
-             <div class="gallery-photo" style="background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0)), url(<%=recipe.photo%>);">
+             <div class="gallery-photo" style="background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0)), url(<%=recipe.photo%>); margin: 0px; width: 100%; background-size: cover;">
                <h5 class="farmer-name" style="color:white;padding: 5px;"><%=recipe.title%></h5>
              </div>
         <% end %>
