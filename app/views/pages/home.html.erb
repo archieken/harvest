@@ -7,10 +7,7 @@
     <h5 class="principal-para">See the grocery products that local farmers are providing in your delivery area.</h5>
     <%= form_tag postcodecheckers_path, method: :post do %>
 
-      <input id="address" name="address" type="text" placeholder=" check address"
-      <%if((!current_user.nil?) && (!current_user.contact.nil?) && (!current_user.contact.address.blank?))%>
-       value=<%=current_user.contact.address%>
-       <%end%>/>
+      <input id="address" name="address" type="text" placeholder=" check address" style="width:40%;"/>
 
       <input type="submit" value="shop now" class="banner-button" >
     <% end %>
