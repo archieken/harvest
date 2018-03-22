@@ -26,7 +26,8 @@ skip_before_action :authenticate_user!, except: :add_to_basket
 
     orderline = OrderLine.find(params[:id])
 
-    order = orderline.order.amount + orderline.product.price
+    order = orderline.order
+    order.amount = order.amount + orderline.product.price
     order.save!
 
     orderline = OrderLine.find(params[:id])
@@ -40,7 +41,8 @@ skip_before_action :authenticate_user!, except: :add_to_basket
 
     orderline = OrderLine.find(params[:id])
 
-    order = orderline.order.amount - orderline.product.price
+    order = orderline.order
+    order.amount = orderline.order.amount - orderline.product.price
     order.save!
 
       if orderline.quantity > 1

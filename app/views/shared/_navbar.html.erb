@@ -13,11 +13,15 @@
       <!-- Links when logged in -->
       <%= link_to "SHOP", products_path, class: "navbar-harvest-link" %>
       <!-- Checks basket. Adds counter badge if orders exist -->
-
-
       <% if @product_page.present? %>
         <%= link_to "BASKET", orders_path, class: "toggle-nav navbar-harvest-link"%>
-        <span class="navbar-harvest-link basket-count-show" style="margin-left:0px; color:#FFB96E">[<%= Order.where(user: current_user).find_by(status: "new").order_lines.count %>]</span>
+        <% product_quantity = 0
+         Order.where(user: current_user).find_by(status: "new").order_lines.each do |line|
+          product_quantity += line.quantity
+         end
+         product_quantity
+       %>
+        <span class="navbar-harvest-link basket-count-show" style="margin-left:0px; color:#FFB96E">[<%= product_quantity %>]</span>
         <%= link_to "HISTORY", order_history_path, class: "navbar-harvest-link" %>
      <% end %>
 
