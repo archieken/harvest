@@ -18,21 +18,19 @@
         </div>
       </div>
     </div>
-    <div>
-      <h3 class="recipe-title">recipe description</h3>
-      <p><%= @recipe.description %></p>
-    </div>
-    <div>
-      <h3 class="recipe-title">ingredients</h3>
-        <% @recipe.products.each do |product| %>
-      <p class="recipe-para"><%= product.name %></p>
-    <% end %>
-    </div>
-    <div>
-      <h3 class="recipe-title">method</h3>
-      <% @recipe.instructions.each_with_index do |instruction, index|%>
-      <p class="recipe-para"><strong>step <%= index + 1 %></strong> <%= instruction %></p>
+    <div style="display: flex">
+      <div style="flex: 1 1 auto; margin-right: 50px">
+        <h3 class="recipe-title">ingredients</h3>
+          <% @recipe.products.each do |product| %>
+        <p class="recipe-para"><%= product.name %></p>
       <% end %>
+      </div>
+      <div style="flex: 1 1 auto; margin-right: 50px">
+        <h3 class="recipe-title">method</h3>
+        <% @recipe.instructions.each_with_index do |instruction, index|%>
+        <p class="recipe-para"><strong>step <%= index + 1 %></strong> <%= instruction %></p>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="buy-ingredients">
@@ -48,7 +46,7 @@
       <div class="ingredient-card">
         <div class="ingredient-card-photo-info">
           <div class="ingredient-card-photo" style="background-image: url(<%= recipe.photo %>)">
-            <div class="ingredient-card-producer-avatar"></div>
+            <div class="ingredient-card-producer-avatar" style="background-image: url(<%= recipe.producer.photo %>)"></div>
           </div>
           <div class="ingredient-info">
             <h3 class="basket-item-name ingredient-name"><%= recipe.name %></h3>

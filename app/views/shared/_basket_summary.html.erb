@@ -1,0 +1,22 @@
+    <div class="basket-summary">
+        <div class="flex-space-between" id="hide-back">
+          <a href="#" class="toggle-nav basket-button"><%= image_tag("Triangle.svg", class: "triangle-icon rotate-triangle-icon") %> GO BACK</a>
+          <h3 class="basket-title">BASKET</h3>
+        </div>
+        <h3 style="margin-bottom: 40px; margin-top: 40px;">summary</h3>
+        <div class="flex-space-between summary-div">
+          <h3 class="summary-item">Grocery Items</h3>
+          <h3 class="summary-item">$<div id="grocery-amount" style="display:inline;"><%=@order.amount%></div></h3>
+        </div>
+        <div class="flex-space-between summary-div">
+          <% delivery_cost = 500  %>
+          <h3 class="summary-item">Delivery & Handling</h3>
+          <h3 class="summary-item">$5</h3>
+        </div>
+        <div class="flex-space-between" style="margin-bottom: 40px; margin-top: 50px;">
+          <h3 class="basket-button">TOTAL</h3>
+          <% @order.amount_cents = @order.amount_cents + delivery_cost %>
+          <h3 class="basket-button">AUS $<div id="order_amount" style="display:inline"><%=@order.amount%></div></h3>
+        </div>
+        <a href="#" class="toggle-checkout basket-button" id="hide-button">CHECKOUT <%= image_tag("Triangle.svg", class: "triangle-icon") %></a>
+      </div>
