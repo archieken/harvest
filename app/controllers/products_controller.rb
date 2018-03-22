@@ -57,6 +57,9 @@ class ProductsController < ApplicationController
     authorize @deli
 
 
+    @product_page = "exists"
+
+
   end
 
   def show

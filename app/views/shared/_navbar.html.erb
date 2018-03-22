@@ -13,21 +13,18 @@
       <!-- Links when logged in -->
       <%= link_to "SHOP", products_path, class: "navbar-harvest-link" %>
       <!-- Checks basket. Adds counter badge if orders exist -->
-      <div class="hidebasket" style="display:none;">
-      <% unless Order.where(user: current_user.id).nil? || Order.where(user: current_user.id).find_by(status: "new").nil? %>
+      <% if @product_page.present? %>
+        <%= link_to "BASKET", orders_path, class: "toggle-nav navbar-harvest-link"%>
         <% product_quantity = 0
          Order.where(user: current_user).find_by(status: "new").order_lines.each do |line|
           product_quantity += line.quantity
          end
          product_quantity
        %>
-        <%= link_to "BASKET", orders_path, class: "toggle-nav navbar-harvest-link"%>
         <span class="navbar-harvest-link basket-count-show" style="margin-left:0px; color:#FFB96E">[<%= product_quantity %>]</span>
-     <% else %>
-        <%= link_to "BASKET", orders_path, class: "toggle-nav navbar-harvest-link"%>
+        <%= link_to "HISTORY", order_history_path, class: "navbar-harvest-link" %>
      <% end %>
-     <%= link_to "HISTORY", order_history_path, class: "navbar-harvest-link" %>
-     </div>
+
       <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "navbar-harvest-link" %>
 
     <% else %>

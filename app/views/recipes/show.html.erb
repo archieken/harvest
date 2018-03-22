@@ -1,24 +1,22 @@
 
 <div class="recipe-page">
   <div class="recipe-section">
-    <h3>recipe</h3>
-    <div class="recipe-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= @recipe.photo %>);">
-     <div class="recipe-banner-difficulty">Difficulty: <%= @recipe.difficulty %>
-     </div>
-     <div class="recipe-banner-bottom">
-       <div class="recipe-banner-card-description">
-           <h2><%= @recipe.title %></h2>
-           <p><%= @recipe.description %></p>
-       </div>
-       <div class="recipe-banner-avatar-name">
-         <div class="recipe-banner-producer-avatar" style="background-image: url(<%= @recipe.producer.photo %>)">
-         </div>
-         <div class="recipe-banner-producer-name">
-           <%= @recipe.producer.name %>
-         </div>
+    <h3 style="font-size: 15px; color: #c0c0c0">recipe</h3>
+    <div class="recipe-banner" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5)), url(<%= @recipe.photo %>);">
+      <div class="recipe-banner-difficulty">Difficulty: <%= @recipe.difficulty %>
+      </div>
+      <div class="recipe-banner-bottom">
 
-       </div>
-     </div>
+        <h2><%= @recipe.title %></h2>
+        <div class="recipe-banner-avatar-name">
+          <div class="recipe-banner-producer-avatar" style="background-image: url(<%= @recipe.producer.photo %>)">
+          </div>
+          <div class="recipe-banner-producer-name">
+            <%= @recipe.producer.name %>
+          </div>
+
+        </div>
+      </div>
     </div>
     <div>
       <h3 class="recipe-title">recipe description</h3>
@@ -33,13 +31,13 @@
     <div>
       <h3 class="recipe-title">method</h3>
       <% @recipe.instructions.each_with_index do |instruction, index|%>
-      <p class="recipe-para"><%= index + 1 %>. <%= instruction %></p>
+      <p class="recipe-para"><strong>step <%= index + 1 %></strong> <%= instruction %></p>
       <% end %>
     </div>
   </div>
 
   <div class="buy-ingredients">
-    <h3>buy ingredients</h3>
+    <h3 style="font-size: 15px; color: #c0c0c0">buy ingredients</h3>
     <% @recipe.products.each do |recipe| %>
       <div class="ingredient-card">
         <div class="ingredient-card-photo-info">
@@ -59,6 +57,7 @@
   </div>
 
 </div>
+<div class="footer-spacer"></div>
 
 
 
