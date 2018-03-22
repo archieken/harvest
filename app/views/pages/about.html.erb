@@ -1,16 +1,33 @@
 <div class="banner-about">
  <div class="section-content" style="margin: 100px 0px 200px 0px; padding: 100px 260px 140px 0px;">
-  <h2 class="home-title" style="margin-bottom: 80px; font-size: 60px; text-align: left;">The Harvest inspiration:</h2>
-    <h2 class="home-title" style="margin-bottom: 20px; font-size: 52px; text-align: center;"><u>Farmer's Market</u> </h2>
-    <h4 class="section-para" style="text-align: left; font-size: 30px; margin-left: 0px;">a <strong>community</strong> event where local farmers and growers sell <br><br> their produce <strong>directly</strong> to the public</h4>
+  <h2 class="home-title" style="color: #524F4C; margin-bottom: 80px; font-size: 60px; text-align: left;">The Harvest inspiration:</h2>
+  <h2 class="home-title" style="margin-bottom: 20px; font-size: 52px; text-align: left;"><u>Farmer's Market</u> </h2>
+  <h4 class="section-para" style="text-align: left; font-size: 30px; margin-left: 0px;">a <strong>community</strong> event where local farmers and growers sell <br><br> their produce <strong>directly</strong> to the public</h4>
   </div>
 </div>
-
+<div class="section" style="background-color: white">
+  <div class="section-content">
+    <h2 class="home-title">Local Producers</h2>
+    <p class="section-para">Harvest lets you support your community and shop through people you know, trust and love.</p>
+    <div class="cat-links">
+      <%= link_to "recipes", products_path(:anchor => "recipes"), class: "homepage-cat-link" %>
+      <%= link_to "vegetables", products_path(:anchor => "vegetables"), class: "homepage-cat-link" %>
+      <%= link_to "fruits", products_path(:anchor => "fruits"), class: "homepage-cat-link" %>
+      <%= link_to "meat", products_path(:anchor => "meats"), class: "homepage-cat-link" %>
+      <%= link_to "fish", products_path(:anchor => "fish"), class: "homepage-cat-link" %>
+      <%= link_to "dairy & eggs", products_path(:anchor => "dairy"), class: "homepage-cat-link" %>
+      <%= link_to "bakery", products_path(:anchor => "bakery"), class: "homepage-cat-link" %>
+      <%= link_to "wine & drinks", products_path(:anchor => "wine"), class: "homepage-cat-link" %>
+      <%= link_to "pantry", products_path(:anchor => "pantry"), class: "homepage-cat-link" %>
+      <%= link_to "deli", products_path(:anchor => "deli"), class: "homepage-cat-link" %>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="section" style="background-color: #fbf8f4; padding: 0px, 120px;">
   <div class="section-content" style="width: 100vw;">
     <h2 class="home-title" style="font-size: 42px; margin-bottom: 60px;">what Harvest does</h2>
     <h5 class="section-para" style="text-align: left;font-size: 20px; margin-bottom: 40px"><strong>Strengthens communities</strong> by connecting families and individuals with<br><br> local producers and brings quality, sustainable groceries to their homes.</h5>
-    <h5 class="section-para" style="text-align: left; font-size: 20px;"><strong> Our mission</strong> is to promote community engagement and reduce carbon <br><br>footprints by delivering local fresh food. </h5>
   </div>
 </div>
 <div class="section" style="background-color: white">
@@ -29,56 +46,9 @@ Local food benefits the environment. By purchasing locally grown foods you help 
 Local foods promote a safer food supply. The more steps there are between you and your food’s source the more chances there are for contamination. Food grown in distant locations has the potential for food safety issues at harvesting, washing, shipping and distribution.<br><br>
 Local growers can tell you how the food was grown. You can ask what practices they use to raise and harvest the crops. When you know where your food comes from and who grew it, you know a lot more about that food.</h4>
       </div>
-    </div>
-  </div>
-  <div class="section" style="background-color: white">
-    <div class="section-content">
-      <h2 class="home-title">Local Producers</h2>
-      <p class="section-para">Harvest lets you support your community and shop through people you know, trust and love.</p>
-      <div class="cat-links">
-        <%= link_to "recipes", products_path(:anchor => "recipes"), class: "homepage-cat-link" %>
-        <%= link_to "vegetables", products_path(:anchor => "vegetables"), class: "homepage-cat-link" %>
-        <%= link_to "fruits", products_path(:anchor => "fruits"), class: "homepage-cat-link" %>
-        <%= link_to "meat", products_path(:anchor => "meats"), class: "homepage-cat-link" %>
-        <%= link_to "fish", products_path(:anchor => "fish"), class: "homepage-cat-link" %>
-        <%= link_to "dairy & eggs", products_path(:anchor => "dairy"), class: "homepage-cat-link" %>
-        <%= link_to "bakery", products_path(:anchor => "bakery"), class: "homepage-cat-link" %>
-        <%= link_to "wine & drinks", products_path(:anchor => "wine"), class: "homepage-cat-link" %>
-        <%= link_to "pantry", products_path(:anchor => "pantry"), class: "homepage-cat-link" %>
-        <%= link_to "deli", products_path(:anchor => "deli"), class: "homepage-cat-link" %>
-      </div>
-    </div>
   </div>
 </div>
-<div class="section" style="background-color: #fbf8f4;">
-  <div class="section-content">
-    <h2 class="home-title">Why Shop Here?</h2>
-    <p class="section-para">Harvest helps you cut out the middleman by letting you order directly from the producter.</p>
-    <div class="features">
-      <div class="feature">
-        <div class="feature-avatar"><%= image_tag("https://image.freepik.com/free-vector/100-fresh-green-stamp_1017-7157.jpg") %></div>
-        <h4 class="feature-title">Easy</h4>
-        <p class="feature-para">We take the work out of getting great food in your kitchen and on the table.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-avatar"><%= image_tag("https://image.freepik.com/free-vector/100-fresh-green-stamp_1017-7157.jpg") %></div>
-        <h4 class="feature-title">Fresh</h4>
-        <p class="feature-para">Order from the field. Get fresh food that has been picked from the field for you.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-avatar"><%= image_tag("https://image.freepik.com/free-vector/100-fresh-green-stamp_1017-7157.jpg") %></div>
-        <h4 class="feature-title">Support Local Producers</h4>
-        <p class="feature-para">By shopping here, you support the livelihood of all our local vendors.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-avatar"><%= image_tag("https://image.freepik.com/free-vector/100-fresh-green-stamp_1017-7157.jpg") %></div>
-        <h4 class="feature-title">Eco-friendly</h4>
-        <p class="feature-para">Pick local food to reduce CO2 emissions.</p>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="section" style="background-color: white">
+<div class="section" style="background-color: #fbf8f4">
   <div class="section-content">
     <%= form_tag postcodecheckers_path, method: :get do %>
       <input  class="postcode-input-field" name="email" type="text" placeholder="insert email"/>
