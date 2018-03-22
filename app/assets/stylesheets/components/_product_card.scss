@@ -1,7 +1,7 @@
 .info-button {
-    background-color: #4CAF50;
+    background-color: white;
     border: none;
-    color: white;
+    color: #524F4C;
     padding: 2px;
     text-align: center;
     text-decoration: none;
@@ -14,12 +14,16 @@
     top: 10px;
     right: 10px;
     text-transform: lowercase;
-    opacity: 0.7;
+    opacity: 0.6;
+    font-family: baskerville;
+    font-style: italic;
+    font-weight: 700;
 }
 
 .info-button:hover {
-    background-color: pink;
-    opacity: 0.9;
+    background-color: #FFB96E;
+    opacity: 1.0;
+    color: white
 }
 
 
