@@ -4,7 +4,7 @@
 <% product = @product %>
   <div id="<%= "product#{@product.id.to_s}"%>" class="show-product product-modal" data-spy="scroll" data-target="#myScrollspy" data-offset="20">
     <div class="go-back">
-      <a style="display:block" class="toggle-product basket-button" onclick="toggleProduct(<%=product.id.to_s%>)" "><img class="x-icon" src="/assets/plus-icon.svg" alt="Triangle"></a>
+      <a style="display:block" class="toggle-product basket-button" onclick="toggleProduct(<%=product.id.to_s%>)" "><img class="x-icon" src="http://res.cloudinary.com/dat5wdshi/image/upload/v1521729938/plus-icon.svg" alt="Triangle"></a>
     </div>
     <div class="product-page-links" id="myScrollspy">
     </div>
@@ -96,8 +96,10 @@
         <% if @product.recipes.present? %>
         <h3>related recipes</h3>
         <% @product.recipes.each do |recipe| %>
+
             <a href="<%= recipe_path(recipe.id)%>">
-             <div class="gallery-photo" style="background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0)), url(<%=recipe.photo%>);">
+             <div class="gallery-photo" style="background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0)), url(<%=recipe.photo%>); margin: 0px; width: 100%; background-size: cover;">
+
 
                <h5 class="farmer-name" style="color:white;padding: 5px;"><%=recipe.title%></h5>
 
