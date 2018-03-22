@@ -10,7 +10,9 @@
                   <div class="recipe-card-content">
                     <h5 class="recipe-card-title"><div><%= recipe.producer.name %>'s<br><%= recipe.title%></div></h5>
                   </div>
-                  <button class="info-button button5" onclick="toggleProduct(<%=recipe.id.to_s%>)">i</button>
+                  <button class="info-button button5">
+                    <%= link_to "i", recipe_path(recipe.id) %>
+                  </button>
                 </div>
 
 
