@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="ingredient-add-button">
-          <%= image_tag 'white-plus-icon.svg', :class => "ingredient-add-icon" %>
+          <a style="ingredient-add-icon" href= <%=add_to_basket_path(recipe.id)%> <img src="white-plus-icon.svg" alt=""><%= image_tag 'white-plus-icon.svg', :class => "ingredient-add-icon" %> </a>
         </div>
       </div>
     <% end %>
