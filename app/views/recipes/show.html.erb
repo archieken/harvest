@@ -18,21 +18,19 @@
         </div>
       </div>
     </div>
-    <div>
-      <h3 class="recipe-title">recipe description</h3>
-      <p><%= @recipe.description %></p>
-    </div>
-    <div>
-      <h3 class="recipe-title">ingredients</h3>
-        <% @recipe.products.each do |product| %>
-      <p class="recipe-para"><%= product.name %></p>
-    <% end %>
-    </div>
-    <div>
-      <h3 class="recipe-title">method</h3>
-      <% @recipe.instructions.each_with_index do |instruction, index|%>
-      <p class="recipe-para"><strong>step <%= index + 1 %></strong> <%= instruction %></p>
+    <div style="display: flex">
+      <div style="flex: 1 1 auto; margin-right: 50px">
+        <h3 class="recipe-title">ingredients</h3>
+          <% @recipe.products.each do |product| %>
+        <p class="recipe-para"><%= product.name %></p>
       <% end %>
+      </div>
+      <div style="flex: 1 1 auto; margin-right: 50px">
+        <h3 class="recipe-title">method</h3>
+        <% @recipe.instructions.each_with_index do |instruction, index|%>
+        <p class="recipe-para"><strong>step <%= index + 1 %></strong> <%= instruction %></p>
+        <% end %>
+      </div>
     </div>
   </div>
 

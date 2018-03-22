@@ -180,8 +180,8 @@ puts "Creating Categories"
   puts "Category made"
 
  puts "Creating Vegetables"
-    veggies = ["Carrots", "Onions", "Potatoes", "Broccoli", "Spinach", "Eggplant", "Garlic", "Corn"]
-    photos = ["https://i.pinimg.com/564x/54/77/3c/54773c097d987739fe679bf9803d5182.jpg", "https://i.pinimg.com/564x/9f/16/b1/9f16b1e1984fe45281993aaacaf5248d.jpg", "https://i.pinimg.com/564x/5b/2a/9f/5b2a9f24e3cd05b578f4b71300a47554.jpg", "https://i.pinimg.com/564x/a1/40/56/a1405683aa166e558cc4be7a04d42a2b.jpg", "https://i.pinimg.com/564x/9f/58/0a/9f580a12fd41a3af0b8dbd392667f597.jpg", "https://i.pinimg.com/564x/5b/e4/ab/5be4ab40e298fc84e4ec6f74b71e49da.jpg", "https://i.pinimg.com/564x/6d/94/ba/6d94bafda606a28b0911b2bb1fcc6003.jpg", "https://i.pinimg.com/564x/6a/ff/0e/6aff0e6aeb1919c3748c508a710f6f9c.jpg"]
+    veggies = ["Carrots", "Onions", "Potatoes", "Broccoli", "Baby Spinach", "Eggplant", "Garlic", "Corn", "Kalamata Olives"]
+    photos = ["https://i.pinimg.com/564x/54/77/3c/54773c097d987739fe679bf9803d5182.jpg", "https://i.pinimg.com/564x/9f/16/b1/9f16b1e1984fe45281993aaacaf5248d.jpg", "https://i.pinimg.com/564x/5b/2a/9f/5b2a9f24e3cd05b578f4b71300a47554.jpg", "https://i.pinimg.com/564x/b2/bf/43/b2bf432669979f73f478a16627f33138.jpg", "https://i.pinimg.com/564x/9f/58/0a/9f580a12fd41a3af0b8dbd392667f597.jpg", "https://i.pinimg.com/564x/5b/e4/ab/5be4ab40e298fc84e4ec6f74b71e49da.jpg", "https://i.pinimg.com/564x/f2/cb/39/f2cb395d5b3d4032d32c289842ea9c90.jpg", "https://i.pinimg.com/564x/6a/ff/0e/6aff0e6aeb1919c3748c508a710f6f9c.jpg", "https://i.pinimg.com/564x/6d/e7/78/6de77832c62f093cdd19472d5b9d0bf9.jpg"]
     veggies.each_with_index do |veg, index|
       product = Product.create!(name: veg, price: (4..10).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "vegetables"), photo: photos[index])
     #    client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
@@ -194,9 +194,9 @@ puts "Creating Categories"
   puts "Vegetables made"
 
  puts "Creating Fruits"
-    fruits = ["Strawberries", "Oranges", "Apples", "Grapes", "Bananas", "Pineapple", "Melon"]
+    fruits = ["Strawberries", "Oranges", "Apples", "Grapes", "Bananas", "Pineapple", "Melon", "Lemon"]
     photos = ["https://i.pinimg.com/564x/d6/e6/6e/d6e66e5cb74009af7f8d9b261c222db7.jpg", "https://i.pinimg.com/564x/a4/1c/d7/a41cd7b5043b03d2d0cb2c44db97d0a6.jpg", "https://i.pinimg.com/564x/f8/47/a6/f847a694c0aa8dbd072868fa06715bf3.jpg", "https://i.pinimg.com/564x/d8/46/c5/d846c57d5a701a6d168bcffb786434d2.jpg", "https://78.media.tumblr.com/tumblr_lmewvhjrMF1qir91zo1_400.jpg", "https://i.pinimg.com/564x/c3/9c/d6/c39cd67be06f0431a31a9bebf7358424.jpg", "https://i.pinimg.com/564x/fa/81/eb/fa81eb2fdeb0cd95fb47af866b0dcacf.jpg
-"]
+", "https://i.pinimg.com/564x/16/15/fc/1615fc0d6e9023a7136989fc3bbd346e.jpg"]
     fruits.each_with_index do |fruit, index|
      product = Product.create!(name: fruit, price: (4..10).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "fruits"), photo: photos[index])
      # client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
@@ -214,8 +214,8 @@ puts "Creating Categories"
   puts "Meats made"
 
  puts "Creating Fish"
-    fishes = ["Salmon", "Swordfish", "Crab Legs", "Octopus", "Tuna", "Cod"]
-    photos = ["https://i.pinimg.com/564x/f1/2b/aa/f12baa0384ca80d373bc35b5f50858bf.jpg", "https://i.pinimg.com/564x/3e/55/b5/3e55b565c620570d635b5dd10984994d.jpg", "https://i.pinimg.com/564x/45/ed/92/45ed92888c3e9ddc65128429e19eb6f6.jpg", "https://i.pinimg.com/564x/2d/0a/c8/2d0ac89383ce946f2a0c4dadb72efa2a.jpg", "https://i.pinimg.com/564x/fb/96/24/fb9624a0654c74d9e7d90a7699b658c8.jpg", "https://i.pinimg.com/564x/62/c7/f9/62c7f93f1e5133b0191693bd8ce26bd8.jpg"]
+    fishes = ["Salmon", "Swordfish", "Crab Legs", "Octopus", "Tuna", "Cod", "Anchovy"]
+    photos = ["https://i.pinimg.com/564x/f1/2b/aa/f12baa0384ca80d373bc35b5f50858bf.jpg", "https://i.pinimg.com/564x/3e/55/b5/3e55b565c620570d635b5dd10984994d.jpg", "https://i.pinimg.com/564x/45/ed/92/45ed92888c3e9ddc65128429e19eb6f6.jpg", "https://i.pinimg.com/564x/2d/0a/c8/2d0ac89383ce946f2a0c4dadb72efa2a.jpg", "https://i.pinimg.com/564x/fb/96/24/fb9624a0654c74d9e7d90a7699b658c8.jpg", "https://i.pinimg.com/564x/62/c7/f9/62c7f93f1e5133b0191693bd8ce26bd8.jpg", "https://i.pinimg.com/564x/f5/18/4e/f5184ebc570771495768dba99755d987.jpg"]
     fishes.each_with_index do |fish, index|
      Product.create!(name: fish, price: (10..25).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "fishermen").sample, category: Category.find_by(name: "fish"), photo: photos[index])
      end
@@ -240,8 +240,8 @@ puts "Creating Bakery"
   puts "Wine & Drinks made"
 
   puts "Creating Pantry"
-    pantries = ["Pasta", "Flour", "Wheat", "Cereal", "Spices", "Oils", "Rice", "Cous Cous"]
-    photos = ["https://i.pinimg.com/564x/7a/2d/5d/7a2d5dddef422378df71b4cb55238cc4.jpg", "https://i.pinimg.com/564x/13/46/b3/1346b39135a3c239d16267767aad2136.jpg", "https://i.pinimg.com/564x/94/6f/e8/946fe8dd991b5c8f7771cd081132d155.jpg", "https://i.pinimg.com/564x/32/12/42/3212424b6fd2621f20b8d22e1aa76290.jpg", "https://i.pinimg.com/564x/04/55/1a/04551ae3a5456c17ec6f1084721bde6e.jpg", "https://i.pinimg.com/564x/b0/54/52/b054521c8dc23269029a612429b9dd7b.jpg", "https://i.pinimg.com/564x/5a/42/bb/5a42bb7dc6f32a47dea03f171ca705d2.jpg", "https://i.pinimg.com/564x/43/20/ba/4320baddae363c756e997c0ed3be57d3.jpg"]
+    pantries = ["Pasta", "Flour", "Wheat", "Cereal", "Spices", "Oils", "Rice", "Cous Cous", "Olive Oil", "Pizza Base"]
+    photos = ["https://i.pinimg.com/564x/7a/2d/5d/7a2d5dddef422378df71b4cb55238cc4.jpg", "https://i.pinimg.com/564x/13/46/b3/1346b39135a3c239d16267767aad2136.jpg", "https://i.pinimg.com/564x/94/6f/e8/946fe8dd991b5c8f7771cd081132d155.jpg", "https://i.pinimg.com/564x/32/12/42/3212424b6fd2621f20b8d22e1aa76290.jpg", "https://i.pinimg.com/564x/04/55/1a/04551ae3a5456c17ec6f1084721bde6e.jpg", "https://i.pinimg.com/564x/b0/54/52/b054521c8dc23269029a612429b9dd7b.jpg", "https://i.pinimg.com/564x/5a/42/bb/5a42bb7dc6f32a47dea03f171ca705d2.jpg", "https://i.pinimg.com/564x/43/20/ba/4320baddae363c756e997c0ed3be57d3.jpg", "https://i.pinimg.com/564x/d9/17/26/d917265778ef5785d632a2bf526fcf27.jpg", "https://i.pinimg.com/564x/51/65/e9/5165e96c92c0dd8ec02cfa099df95f8f.jpg"]
     pantries.each_with_index {|pantry, index| Product.create!(name: pantry, price: (4..12).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "cook").sample, category: Category.find_by(name: "pantry"), photo: photos[index])}
   puts "Pantry made"
 
@@ -299,14 +299,20 @@ puts "Creating Bakery"
 
 puts "Create Recipes"
 
-  #cheese baguette
-  recipe =Recipe.new(title: "Cheese Baguette", description: "An easy meal to prepare.", instructions: "Step 1: slice some cheese, Step 2: add it to the baguette", difficulty: 2, photo: "http://assets.kraftfoods.com/recipe_images/Turkey-Havarti-Cheese-Baguette-54771KC.jpg", producer: Producer.last)
-  recipe.products << Product.find_by(name: "Baguettes")
-  recipe.products << Product.find_by(name: "Cheese")
+  #Broccoli, Olive and Pine Nut Whole-Pizza
+  recipe =Recipe.new(title: "Broccoli, Olive and Pine Nut Whole-Pizza", description: "The nice winter mix of fresh and light. Have for dinner or lunch, to snack on or impress the neighbours. ", instructions: ["To make the pizza base, place the yeast, sugar and water in a small bowl and mix to combine. Set aside in a warm place for 5 minutes or until bubbles appear on the surface. ","Place the flour and salt in a large bowl and make a well in the centre. Add the yeast mixture and oil and, using well-floured hands, mix together to form a dough.", "Knead the dough on a lightly floured surface for 4–5 minutes or until smooth and elastic. Place the dough in a large, lightly greased bowl and cover with a clean, damp cloth. Set aside in a warm place for 30 minutes to rest.", "Preheat oven to 200°C (400°F). Divide the dough in half. Roll out each half on a lightly floured surface to form a 35cm x 25cm oval. Place each base on a lightly greased large oven tray lined with non-stick baking paper.", "Place the broccoli, oil, lemon rind and garlic in a bowl and toss to combine. Divide the broccoli mixture between the pizzas and cook for 15 minutes or until the bases are cooked through. Top with the anchovy, spinach, olives and pine nuts. Serve with lemon wedges, if using. Makes 2."], difficulty: 2, photo: "https://cdn.donnahaycdn.com.au/images/content-images/Broccoli_olive_and_pine_nut_whole_wheat_pizza.jpg", producer: Producer.last)
+  recipe.products << Product.find_by(name: "Pizza Base")
+  recipe.products << Product.find_by(name: "Broccoli")
+  recipe.products << Product.find_by(name: "Olive Oil")
+  recipe.products << Product.find_by(name: "Lemon")
+  recipe.products << Product.find_by(name: "Garlic")
+  recipe.products << Product.find_by(name: "Anchovy")
+  recipe.products << Product.find_by(name: "Baby Spinach")
+  recipe.products << Product.find_by(name: "Kalamata Olives")
   recipe.save!
 
-  #Ratatouille
-  recipe =Recipe.new(title: "Ratatouille", description: "Enjoy this superhealthy classic French vegetarian dish - counts as 4 of 5-a-day", instructions: "Step 1: Cut the aubergines in half lengthways. Place them on the board, cut side down, slice in half lengthways again and then across into 1.5cm chunks. Cut off the courgettes ends, then across into 1.5cm slices. Step 2: Peel the peppers from stalk to bottom. Hold upright, cut around the stalk, then cut into 3 pieces. Cut away any membrane, then chop into bite-size chunks.", difficulty: 4, photo: "https://media1.s-nbcnews.com/j/newscms/2017_33/1275547/ratatouille-today-tease-170815_5107597557ae61b6e0e16e85dc993576.today-inline-large.jpg", producer: Producer.last)
+  #Honey-Lemon Ricotta Breakfast Toast and Figs + Pistachios
+  recipe =Recipe.new(title: "Honey-Lemon Ricotta Breakfast Toast and Figs + Pistachios", description: "Enjoy this superhealthy classic French vegetarian dish - counts as 4 of 5-a-day", instructions: "Step 1: Cut the aubergines in half lengthways. Place them on the board, cut side down, slice in half lengthways again and then across into 1.5cm chunks. Cut off the courgettes ends, then across into 1.5cm slices. Step 2: Peel the peppers from stalk to bottom. Hold upright, cut around the stalk, then cut into 3 pieces. Cut away any membrane, then chop into bite-size chunks.", difficulty: 4, photo: "https://i.pinimg.com/564x/53/81/d7/5381d7e39983a39ea613003a12cc94bd.jpg", producer: Producer.last)
   recipe.products << Product.find_by(name: "Eggplant")
   recipe.products << Product.find_by(name: "Cheese")
   recipe.products << Product.find_by(name: "Onions")
@@ -314,20 +320,15 @@ puts "Create Recipes"
   recipe.products << Product.find_by(name: "Carrots")
   recipe.save!
 
-   #pancakes
-  recipe =Recipe.new(title: "Pancakes", description: "Learn a skill for life with our foolproof crêpe recipe that ensures perfect pancakes every time - elaborate flip optional", instructions: "Step 1: Put the flour, eggs, milk, 1 tbsp oil and a pinch of salt into a bowl or large jug, then whisk to a smooth batter. Set aside for 30 mins to rest if you have time, or start cooking straight away.", difficulty: 1, photo: "https://static01.nyt.com/images/2017/03/24/dining/24COOKING-CLASSICPANCAKES/24COOKING-CLASSICPANCAKES-videoSixteenByNineJumbo1600.jpg", producer: Producer.last)
+   #Braised Tomatoes with Burrata
+  recipe =Recipe.new(title: "Braised Tomatoes with Burrata", description: "Learn a skill for life with our foolproof crêpe recipe that ensures perfect pancakes every time - elaborate flip optional", instructions: "Step 1: Put the flour, eggs, milk, 1 tbsp oil and a pinch of salt into a bowl or large jug, then whisk to a smooth batter. Set aside for 30 mins to rest if you have time, or start cooking straight away.", difficulty: 1, photo: "https://i.pinimg.com/564x/53/ae/a8/53aea881dc067d3a0781acd6bd4b9965.jpg", producer: Producer.last)
   recipe.products << Product.find_by(name: "Eggs")
   recipe.products << Product.find_by(name: "Flour")
   recipe.products << Product.find_by(name: "Milk")
   recipe.save!
 
-  #fruit salad
-  recipe =Recipe.new(title: "Fruit Salad", description: "A classic dessert. Can be eaten all year round", instructions: ["Step 1: Cut the fruit up","Step 2: Mix the fruits together."], difficulty: 2, photo: "http://imgs.peasandfigs.co.uk/2014-7-6/16732_15233_fruitsalad.jpg", producer: Producer.last)
-  ["Strawberries", "Oranges", "Apples", "Grapes", "Bananas", "Pineapple", "Melon"].each {|fruit| recipe.products << Product.find_by(name: fruit)}
-  recipe.save!
-
   #avacado and toast
-  recipe =Recipe.new(title: "Smashed avocado on toast", description: "So simple and delicious, this is perfect when you need a quick and nutritious breakfast or snack.", instructions: "", difficulty: 2, photo: "https://ichef.bbci.co.uk/food/ic/food_16x9_832/recipes/smashed_avocado_on_toast_89082_16x9.jpg", producer: Producer.last)
+  recipe =Recipe.new(title: "Roasted Beet and Carrot Lentil Salad with Feta, Yoghurt and Dill", description: "So simple and delicious, this is perfect when you need a quick and nutritious breakfast or snack.", instructions: "", difficulty: 2, photo: "https://i.pinimg.com/564x/d3/f6/2f/d3f62f4c5d3ca07f0e649d266e5dfc32.jpg", producer: Producer.last)
   recipe.products << Product.find_by(name: "Baguettes")
   recipe.save!
 
