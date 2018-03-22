@@ -9,7 +9,7 @@
     <h3 style="margin-top: 33px;"">my past orders</h3>
     <div style="width: 100vw;">
       <% if !@orders.first.payment.nil? %>
-        <% @current_user.orders.where(status: "paid").each_with_index do |order, index| %>
+        <% @current_user.orders.where(status: "paid").reverse.each_with_index do |order, index| %>
           <% if order.order_lines.count > 0 %>
             <div style="display: flex; flex-direction: row; justify-content: space-between;">
               <div>
