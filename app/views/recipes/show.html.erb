@@ -37,21 +37,12 @@
   </div>
   <div class="buy-ingredients">
     <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
-      <div style="display: flex; flex-direction: row; align-items: center;">
-        <h3 style="font-size: 15px; color: #c0c0c0">buy servings</h3>
-        <% number = 1 %>
-        <div class="add-controls-basket">
-          <div class="plus-minus-qty" style="background-color:white;">
-            <div class="basket-minus">
-              -
-            </div>
-          <div class="basket-plus">
-             +
-          </div>
-          </div>
-        </div>
-      </div>
-      <a href="" style="margin-bottom: 10px; width: 30%; height: 30%; float: right; margin-right: 5px;" class="add-to-cart-btn"> <%= number %></a>
+      <% number = 1 %>
+      <a href="<%=order_recipe_path(@recipe)%>" style="margin-bottom: 10px; margin-right: 5px;" class="add-to-cart-btn">
+        <h3 style="font-size:16px; margin-top: 5px; margin-bottom: 5px; background-color: #FFB96E; color: white !important; border-bottom: none !important; padding-left: 20px; padding-right: 20px;">
+          buy (<%= number %>) servings
+        </h3>
+      </a>
     </div>
     <% @recipe.products.each do |recipe| %>
       <div class="ingredient-card">
