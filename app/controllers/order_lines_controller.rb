@@ -38,7 +38,6 @@ skip_before_action :authenticate_user!, except: :add_to_basket
 
    def remove
 
-    raise
     orderline = OrderLine.find(params[:id])
 
     order = orderline.order.amount - orderline.product.price
