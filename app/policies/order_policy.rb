@@ -21,4 +21,8 @@ class OrderPolicy < ApplicationPolicy
   def reorder?
     return true
   end
+
+  def order_recipe?
+    return true
+  end
 end

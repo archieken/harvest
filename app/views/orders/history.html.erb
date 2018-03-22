@@ -6,9 +6,9 @@
     <!--  <a href="#" class="sidenav-link anchor">cancelled</a> -->
   </div>
   <div class="products-section">
-    <h3>my past orders</h3>
+    <h3 style="margin-top: 33px;"">my past orders</h3>
     <div style="width: 100vw;">
-      <% if !@orders.blank? %>
+      <% if !@orders.first.payment.nil? %>
         <% @current_user.orders.where(status: "paid").each_with_index do |order, index| %>
           <% if order.order_lines.count > 0 %>
             <div style="display: flex; flex-direction: row; justify-content: space-between;">
@@ -57,7 +57,7 @@
           <% end %>
         <div class="basket-items-spacer"></div>
       <% else %>
-        <h3 style="margin-bottom: 40px; margin-top: 15px; display: inline-block;">No previous orders</h3>
+        <h4 style="margin-bottom: 40px; margin-top: 40px; display: inline-block;">You have no past orders</h4>
       <% end %>
     </div>
   </div>
