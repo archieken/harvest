@@ -16,7 +16,13 @@ class ProductsController < ApplicationController
     @orders = policy_scope(Order)
     authorize @orders
 
-    if (Order.where(user: current_user).nil? || Order.where(user: current_user).find_by(status: "new").nil?)
+    if (current_user.nil?)
+      @order = Order.new
+      authorize @order
+      @order_lines
+
+
+    elsif (Order.where(user: current_user).nil? || Order.where(user: current_user).find_by(status: "new").nil?)
 
       @order = Order.create!(status: "new", user: current_user)
       authorize @order
