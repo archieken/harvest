@@ -4,30 +4,32 @@
 <%= image_tag 'kale.png', :class => "kale-confirmation" %>
 <%= image_tag 'carrot.png', :class => "carrot-confirmation" %>
 
-<div id="confirmation_card">
+<div style="position: fixed; top: 0px; left: 0px; display: flex; width: 100%; height: 100%; justify-content: center; align-items: center">
+  <div id="confirmation_card">
 
-  <div id="confirmation_headline">
-    <h2>Thanks for shopping.</h2>
-  </div>
-
-  <!-- <div id="confirmation-image-center">
-    <div id="confirmation-image" style="background-image: url('https://instagram.fmad3-1.fna.fbcdn.net/vp/313e7eb53c0c2aeefdb6226de1bc3cdb/5B37408C/t51.2885-15/e35/26186842_389010881539000_2585585744009494528_n.jpg')";>
+    <div id="confirmation_headline">
+      <h2>Thanks for shopping.</h2>
     </div>
-  </div> -->
+
+    <!-- <div id="confirmation-image-center">
+      <div id="confirmation-image" style="background-image: url('https://instagram.fmad3-1.fna.fbcdn.net/vp/313e7eb53c0c2aeefdb6226de1bc3cdb/5B37408C/t51.2885-15/e35/26186842_389010881539000_2585585744009494528_n.jpg')";>
+      </div>
+    </div> -->
 
 
-  <div class="confirmation_text">
-   <% delivery_cost = 500  %>
-    <% @order.amount_cents = @order.amount_cents + delivery_cost %>
-    <div style="display: flex; flex-direction: row; justify-content: space-between; padding: 10px 10px 0px 10px">
-      <h6 style="color: #FFB96E">Order number : 000<%= @order.id %></h6>
-      <h6 style="color: #FFB96E">Paid: <%= humanized_money_with_symbol(@order.amount) %></h6>
+    <div class="confirmation_text">
+     <% delivery_cost = 500  %>
+      <% @order.amount_cents = @order.amount_cents + delivery_cost %>
+      <div style="display: flex; flex-direction: row; justify-content: space-between; padding: 10px 10px 0px 10px">
+        <h6 style="color: #FFB96E">Order number : 000<%= @order.id %></h6>
+        <h6 style="color: #FFB96E">Paid: <%= humanized_money_with_symbol(@order.amount) %></h6>
+      </div>
+      <p style= "margin-top: 10px; text-align: center;">Your order <strong>will be delivered on <%= @order.updated_at.strftime("%B") %> <%= @order.updated_at.day + 2 %>, <%= @order.updated_at.year %></strong>. Check your email for delivery updates and your purchase receipt.</p>
     </div>
-    <p style= "margin-top: 10px; text-align: center;">Your order <strong>will be delivered on <%= @order.updated_at.strftime("%B") %> <%= @order.updated_at.day + 2 %>, <%= @order.updated_at.year %></strong>. Check your email for delivery updates and your purchase receipt.</p>
-  </div>
 
-  <div id="confirmation-button">
-    <%= link_to "shop more", products_path %>
+    <div id="confirmation-button">
+      <%= link_to "shop more", products_path %>
+    </div>
   </div>
 </div>
 
