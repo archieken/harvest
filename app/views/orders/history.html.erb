@@ -23,8 +23,8 @@
                        end
                        product_quantity
                      %>
-                <p style="margin-bottom: 5px">Ordered on <%= order.created_at.day %> / <%= order.created_at.month %> / <%= order.created_at.year %> (<%= product_quantity %> items)</p>
-                <div style="font-size: 12px;margin-bottom: 5px"> total: AUS<%= humanized_money_with_symbol(order.amount)%> </div>
+                <p style="margin-bottom: 5px"><strong>Ordered on</strong> - <%= order.created_at.day %>/<%= order.created_at.month %>/<%= order.created_at.year %> (<strong><%= product_quantity %> items</strong>)</p>
+                <div style="font-size: 12px;margin-bottom: 5px"> <strong>Total:</strong> <%= humanized_money_with_symbol(order.amount)%> </div>
               </div>
               </div>
               <% order.products.each do |product|  %>
@@ -57,7 +57,7 @@
           <% end %>
         <div class="basket-items-spacer"></div>
       <% else %>
-        <h4 style="margin-bottom: 40px; margin-top: 40px; display: inline-block;">You have no past orders</h4>
+        <p class="summary-item" style="color: #FFB96E; font-size: 1em; font-weight: 700">Currently there are no items in your basket</p>
       <% end %>
     </div>
   </div>
