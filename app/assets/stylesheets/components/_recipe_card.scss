@@ -126,6 +126,10 @@
   align-items: center;
 }
 
+.ingredient-card:hover .ingredient-add-button {
+  display: inline-block;
+}
+
 .ingredient-card-photo-info {
   display: flex;
   align-items: center;
@@ -168,27 +172,27 @@
 }
 
 .ingredient-add-button {
-  background-color: #FFB96E;
-  height: 30px;
-  width: 30px;
-  margin-right: 20px;
-  border-radius: 20px;
-  align-items: center;
-  justify-content: center;
+    background-color: #FFB96E;
+    height: 60px;
+    width: 30px;
+    margin-right: 10px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .ingredient-add-icon {
-  height: 15px;
   width: 15px;
-  margin-top: 2px;
-  margin-bottom: 1px;
-  margin-left: 3px;
 }
 
 
-
-
-
+.ingredient-card:hover .ingredient-add-button {
+  display: flex;
+}
 
 .recipe-card {
   display: inline;
@@ -213,7 +217,6 @@
 .recipe-card-title {
   color: white;
   padding: 10px;
-
 }
 
 .recipe-photo {
@@ -229,3 +232,14 @@
   height: 90px;
   width: 100%;
 }
+
+.link-inside-infobtn {
+  color: #524F4C;
+  font-family: baskerville;
+  font-style: italic;
+}
+
+.info-button:hover .link-inside-infobtn {
+  color: white;
+}
+
