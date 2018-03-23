@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     @bakers = Producer.where(speciality: "baker").first(3)
     @winemakers = Producer.where(speciality: "winemaker").first(5)
     @cooks = Producer.where(speciality: "cook").first(5)
-    @deli_creatives = Producer.where(speciality: "deli").first(5)
+   # @deli_creatives = Producer.where(speciality: "deli").first(5)
   end
 
   def about
