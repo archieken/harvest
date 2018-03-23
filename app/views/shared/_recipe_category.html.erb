@@ -11,7 +11,7 @@
                     <h5 class="recipe-card-title"><div><%= recipe.producer.name %>'s<br><%= recipe.title%></div></h5>
                   </div>
                   <button class="info-button button5">
-                    <%= link_to "i", recipe_path(recipe.id) %>
+                    <%= link_to "i", recipe_path(recipe.id), class: "link-inside-infobtn" %>
                   </button>
                 </div>
 
