@@ -92,6 +92,31 @@
         </div>
 
 
+                  <% unless product.nutrient.nil? %>
+            <div class "nutrient_table">
+              <table style="width:100%">
+                <p id="tablehead" style="font-weight: bold">Nutrients per serving:</p>
+                <tr>
+                  <th></th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td>Fat: </td>
+                  <td><%= product.nutrient.fatquant %> / <%= product.nutrient.fatunit %></td>
+                </tr>
+                <tr>
+                  <td>Calories: </td>
+                  <td><%= product.nutrient.calquant %> / <%= product.nutrient.calunit %></td>
+                </tr>
+                <tr>
+                  <td>Carbohydrates: </td>
+                  <td><%= product.nutrient.carbsquant %> / <%= product.nutrient.carbsunit %></td>
+                </tr>
+              </table>
+            </div>
+          <%end %>
+
+
             <div class="product-page-section" id="related_recipes">
         <% if @product.recipes.present? %>
         <h3>related recipes</h3>
@@ -112,36 +137,6 @@
           <% end %>
            </div>
 
-
-
-          <% unless product.nutrient.nil? %>
-            <div class "nutrient_table">
-              <table style="width:100%">
-                <p id="tablehead">Nutrients per serving:</p>
-                <tr>
-                  <th></th>
-                  <th></th>
-                </tr>
-                <tr>
-                  <td>Fat: </td>
-                  <td><%= product.nutrient.fatquant %> / <%= product.nutrient.fatunit %></td>
-                </tr>
-                <tr>
-                  <td>Calories: </td>
-                  <td><%= product.nutrient.calquant %> / <%= product.nutrient.calunit %></td>
-                </tr>
-                <tr>
-                  <td>Carbohydrates: </td>
-                  <td><%= product.nutrient.carbsquant %> / <%= product.nutrient.carbsunit %></td>
-                </tr>
-                <tr>
-                  <td>Sugar: </td>
-                  <td><%= product.nutrient.sugarquant %> / <%= product.nutrient.sugarunit %></td>
-                </tr>
-
-              </table>
-            </div>
-          <%end %>
       </div>
 
 
