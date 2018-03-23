@@ -80,35 +80,34 @@
 
 
   puts "Creating Farmers"
-    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Sally Hawkins", city: cities[1], latitude: coordinates[1][0], longitude: coordinates[1][1],  photo: "https://i.pinimg.com/564x/53/7d/65/537d65cf5e5b194f920a4297126d4a72.jpg", description: "Sally Darwin has been farming delicious fruits and vegetables since 1977. Her family and her decided to grow their own food and supply their neighbors.
+    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Sally Hawkins", city: cities[0], latitude: coordinates[0][0], longitude: coordinates[0][1],  photo: "https://i.pinimg.com/564x/53/7d/65/537d65cf5e5b194f920a4297126d4a72.jpg", description: "Sally Darwin has been farming delicious fruits and vegetables since 1977. Her family and her decided to grow their own food and supply their neighbors.
       Favorite thing to grow is garlic, fave vegetable is kale.
 ")
-    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Bryce Carrell", city: cities[1], latitude: coordinates[1][0], longitude: coordinates[1][1], photo: "http://rosa-tv.com/wp-content/uploads/2015/09/organicheskih-produktov-e1443096808714.jpg", description: "Bryce Carell is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.
+    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Bryce Carrell", city: cities[2], latitude: coordinates[2][0], longitude: coordinates[2][1], photo: "http://rosa-tv.com/wp-content/uploads/2015/09/organicheskih-produktov-e1443096808714.jpg", description: "Bryce Carell is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.
       He grew up eating food directly from his farm and is excited to share them with his community.
 ")
-    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Monica Norris", city: cities[1], latitude: coordinates[1][0], longitude: coordinates[1][1], photo: "https://i.pinimg.com/564x/2b/f2/cc/2bf2cc49002ef0b974a3d512de549239.jpg", description: "Monica runs Dee River Ranch, Inc.; a family owned and operated multi-commodity farm.
+    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Monica Norris", cities[3], latitude: coordinates[3][0], longitude: coordinates[3][1], photo: "https://i.pinimg.com/564x/2b/f2/cc/2bf2cc49002ef0b974a3d512de549239.jpg", description: "Monica runs Dee River Ranch, Inc.; a family owned and operated multi-commodity farm.
       Her farm produces corn, wheat, soybeans, sunflowers, rye, forage crops, cattle, and trees, all with a heavy emphasis on conserving practices such as cover crops and no-till.")
-    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Tilly Bay", city: cities[0], latitude: coordinates[0][0], longitude: coordinates[0][1], photo: "https://i.pinimg.com/564x/9a/de/c0/9adec0636d2d95f99aaf3d7a801e62b7.jpg", description: "Tilly Bay grew has created a diversified farm and finds great joy providing for her neighbors.
+    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Tilly Bay", city: cities[5], latitude: coordinates[5][0], longitude: coordinates[5][1], photo: "https://i.pinimg.com/564x/9a/de/c0/9adec0636d2d95f99aaf3d7a801e62b7.jpg", description: "Tilly Bay grew has created a diversified farm and finds great joy providing for her neighbors.
       Farming philosophy: the more organic matter the better; and we are all in this together.
 ")
-    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Gilbert Grape", city: cities[1], latitude: coordinates[1][0], longitude: coordinates[1][1], photo: "https://i.pinimg.com/564x/64/c0/37/64c037470148b06947d322fed39d9bf3.jpg", description: "Gilbert a farmer and owner of Foster Veg Yard, and takes a lot of pride in working for a fourth generation family farm.
+    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Gilbert Grape", city: cities[4], latitude: coordinates[4][0], longitude: coordinates[4][1], photo: "https://i.pinimg.com/564x/64/c0/37/64c037470148b06947d322fed39d9bf3.jpg", description: "Gilbert a farmer and owner of Foster Veg Yard, and takes a lot of pride in working for a fourth generation family farm.
       The Foster Veg Yard has than 50 years of experience providing fresh fruits and vegetables to nearby communities.")
     Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Nicole Patterson", city: cities[1], latitude: coordinates[1][0], longitude: coordinates[1][1], photo: "https://i.pinimg.com/564x/cc/8f/bb/cc8fbb10ac6b0058745979cc4614ee2f.jpg", description: "Nicole Patterson is a 3rd generation farmer specialising with strawberry fields, avocado trees and white onions.
       Her family and her are proud to grow their own food and supply their neighbors.")
-
   puts "Farmers made"
 
 
   puts "Creating butchers"
-    Producer.create!(Farmphotos: ["http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/group2b.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve5-150x150.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve2.jpg"],speciality: "butcher", name: "John Lean", city: cities[0], latitude: coordinates[0][0], longitude: coordinates[0][1], photo: "https://i.pinimg.com/564x/f4/62/3e/f4623e3b11ecc3c2dd4c04ea99610ebe.jpg", description: "John Lean is a butcher and owner of Lean Co., and takes a lot of pride in working for a third generation family company.
+    Producer.create!(Farmphotos: ["http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/group2b.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve5-150x150.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve2.jpg"],speciality: "butcher", name: "John Lean", city: cities[1], latitude: coordinates[1][0], longitude: coordinates[1][1], photo: "https://i.pinimg.com/564x/f4/62/3e/f4623e3b11ecc3c2dd4c04ea99610ebe.jpg", description: "John Lean is a butcher and owner of Lean Co., and takes a lot of pride in working for a third generation family company.
 The Lean Co.has than 35 years of experience providing clean, healthy meats to communities nearby.")
-    Producer.create!(Farmphotos: ["http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/group2b.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve5-150x150.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve2.jpg"],speciality: "butcher", name: "Chad Lamb", city: cities[1], latitude: coordinates[1][0], longitude: coordinates[1][1], photo: "https://i.pinimg.com/564x/de/18/10/de1810b7fe0cbce85e19381f07d6f4d4.jpg", description: "Chad Lamb runs Aussie Meats, Inc.; a family owned and operated ranch and meat provider.
+    Producer.create!(Farmphotos: ["http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/group2b.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve5-150x150.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve2.jpg"],speciality: "butcher", name: "Chad Lamb", city: cities[2], latitude: coordinates[2][0], longitude: coordinates[2][1], photo: "https://i.pinimg.com/564x/de/18/10/de1810b7fe0cbce85e19381f07d6f4d4.jpg", description: "Chad Lamb runs Aussie Meats, Inc.; a family owned and operated ranch and meat provider.
 His family farm provides beef, chicken, pork, and lamb, all with a heavy emphasis on kinder and more responsible farm animal practices.
 ")
-    Producer.create!(Farmphotos: ["http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/group2b.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve5-150x150.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve2.jpg"],speciality: "butcher", name: "Butch Cadgates", city: cities[0], latitude: coordinates[0][0], longitude: coordinates[0][1], photo: "https://www.skyword.com/contentstandard/wp-content/uploads/2015/12/matthewliteplo_ottawaphotographerfunnyduckfarms_070615_ml1283-recovered.jpg", description: "Butch Cadgates raised pigs since he was a very young boy with his parents and now provides quality pork products to his community.
+    Producer.create!(Farmphotos: ["http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/group2b.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve5-150x150.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve2.jpg"],speciality: "butcher", name: "Butch Cadgates", city: city: cities[2], latitude: coordinates[2][0], longitude: coordinates[2][1], photo: "https://www.skyword.com/contentstandard/wp-content/uploads/2015/12/matthewliteplo_ottawaphotographerfunnyduckfarms_070615_ml1283-recovered.jpg", description: "Butch Cadgates raised pigs since he was a very young boy with his parents and now provides quality pork products to his community.
 Cadgates Ranch has won quality product prizes for outstanding animal care and products
-")
-    Producer.create!(Farmphotos: ["http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/group2b.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve5-150x150.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve2.jpg"],speciality: "butcher", name: "Duck Philips", city: cities[1], latitude: coordinates[1][0], longitude: coordinates[1][1], photo: "http://3.bp.blogspot.com/-YbMTKRP9f14/UnqoKkYoRBI/AAAAAAAARQE/DxTnnEZqXJ0/s1600/American+Gothic+1930.jpg", description: "Duck Philips is a butcher and provider of prime meats. He only prepares and cuts meats from animals that have been raised responsibly and fair. There is a lot of pride in his noble work of providing exceptional products for his community to consume.")
+# ")
+    Producer.create!(Farmphotos: ["http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/group2b.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve5-150x150.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve2.jpg"],speciality: "butcher", name: "Duck Philips", city: cities[1], latitude: coordinates[4][0], longitude: coordinates[1][1], photo: "http://3.bp.blogspot.com/-YbMTKRP9f14/UnqoKkYoRBI/AAAAAAAARQE/DxTnnEZqXJ0/s1600/American+Gothic+1930.jpg", description: "Duck Philips is a butcher and provider of prime meats. He only prepares and cuts meats from animals that have been raised responsibly and fair. There is a lot of pride in his noble work of providing exceptional products for his community to consume.")
     Producer.create!(Farmphotos: ["http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/group2b.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve5-150x150.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve2.jpg"],speciality: "butcher", name: "Malcom Todd", city: cities[1], latitude: coordinates[1][0], longitude: coordinates[1][1], photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Farmer%2C_Nicaragua.jpg/1200px-Farmer%2C_Nicaragua.jpg", description: "")
     Producer.create!(Farmphotos: ["http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/group2b.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve5-150x150.jpg","http://www.smithersbutchers.co.uk/wp-content/uploads/2015/03/steve2.jpg"],speciality: "butcher", name: "Hamish Slicer", city: cities[0], latitude: coordinates[0][0], longitude: coordinates[0][1], photo: "http://www.organicauthority.com/wp-content/uploads/2015/10/female-tomato-farmer.jpg", description: "")
   puts "Butchers made"
@@ -164,7 +163,7 @@ She likes grapes grown in a natural state and is an enthusiastic believer in all
 Silvia is renowned for her remarkable ability to cipher the soils of her Gold Coast home into graceful, thrilling rieslings. She is enthralled by the grape, and drinkers, in turn, are enchanted by her interpretation of the classic white variety.
 ")
 
-  puts "Winemakers oordinates"
+  puts "Winemakers made"
 
 
   puts "Creating cooks"
@@ -188,8 +187,6 @@ Silvia is renowned for her remarkable ability to cipher the soils of her Gold Co
   # puts "Deli creatives made"
 
 
-
-
   puts "Producers made"
 
 puts "Creating Categories"
@@ -201,7 +198,7 @@ puts "Creating Categories"
     veggies = ["Carrots", "Onions", "Potatoes", "Broccoli", "Baby Spinach", "Eggplant", "Garlic", "Corn", "Kalamata Olives"]
     photos = ["https://i.pinimg.com/564x/54/77/3c/54773c097d987739fe679bf9803d5182.jpg", "https://i.pinimg.com/564x/9f/16/b1/9f16b1e1984fe45281993aaacaf5248d.jpg", "https://i.pinimg.com/564x/5b/2a/9f/5b2a9f24e3cd05b578f4b71300a47554.jpg", "https://i.pinimg.com/564x/b2/bf/43/b2bf432669979f73f478a16627f33138.jpg", "https://i.pinimg.com/564x/9f/58/0a/9f580a12fd41a3af0b8dbd392667f597.jpg", "https://i.pinimg.com/564x/5b/e4/ab/5be4ab40e298fc84e4ec6f74b71e49da.jpg", "https://i.pinimg.com/564x/f2/cb/39/f2cb395d5b3d4032d32c289842ea9c90.jpg", "https://i.pinimg.com/564x/6a/ff/0e/6aff0e6aeb1919c3748c508a710f6f9c.jpg", "https://i.pinimg.com/564x/6d/e7/78/6de77832c62f093cdd19472d5b9d0bf9.jpg"]
     veggies.each_with_index do |veg, index|
-      product = Product.create!(name: veg, price: (4..10).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "vegetables"), photo: photos[index])
+      product = Product.create!(name: veg, price: (1..4).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "vegetables"), photo: photos[index])
     #    client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
     #    product_data = "1 #{product.name}"
     #    nd = client.food_database.nutritional_data(product_data)
@@ -216,7 +213,7 @@ puts "Creating Categories"
     photos = ["https://i.pinimg.com/564x/d6/e6/6e/d6e66e5cb74009af7f8d9b261c222db7.jpg", "https://i.pinimg.com/564x/a4/1c/d7/a41cd7b5043b03d2d0cb2c44db97d0a6.jpg", "https://i.pinimg.com/564x/f8/47/a6/f847a694c0aa8dbd072868fa06715bf3.jpg", "https://i.pinimg.com/564x/d8/46/c5/d846c57d5a701a6d168bcffb786434d2.jpg", "https://78.media.tumblr.com/tumblr_lmewvhjrMF1qir91zo1_400.jpg", "https://i.pinimg.com/564x/c3/9c/d6/c39cd67be06f0431a31a9bebf7358424.jpg", "https://i.pinimg.com/564x/fa/81/eb/fa81eb2fdeb0cd95fb47af866b0dcacf.jpg
 ", "https://i.pinimg.com/564x/16/15/fc/1615fc0d6e9023a7136989fc3bbd346e.jpg"]
     fruits.each_with_index do |fruit, index|
-     product = Product.create!(name: fruit, price: (4..10).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "fruits"), photo: photos[index])
+     product = Product.create!(name: fruit, price: (1..4).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "fruits"), photo: photos[index])
      # client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
      # product_data = "1 #{product.name}"
     #  nd = client.food_database.nutritional_data(product_data)
@@ -228,39 +225,39 @@ puts "Creating Categories"
  puts "Creating Meats"
     meats = ["Beef", "Poultry", "Sausage", "Pork", "Lamb and mutton"]
     photos = ["https://i.pinimg.com/564x/b2/72/d1/b272d1d66eed9334ede5f8aff83e63a4.jpg", "https://i.pinimg.com/564x/b0/1a/d6/b01ad69e49920325e7c5c4243fc092a6.jpg", "https://i.pinimg.com/564x/57/93/60/5793605bb37a1599464a08b39095f6b8.jpg", "https://i.pinimg.com/564x/23/4c/60/234c605701e8e30be5beddb12f39e9f3.jpg", "https://i.pinimg.com/564x/37/c8/96/37c8964a5a467bd07c3b0c8793196382.jpg"]
-    meats.each_with_index {|meat, index| Product.create!(name: meat, price: (10..25).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "butcher").sample, category: Category.find_by(name: "meat"), photo: photos[index])}
+    meats.each_with_index {|meat, index| Product.create!(name: meat, price: (4..10).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "butcher").sample, category: Category.find_by(name: "meat"), photo: photos[index])}
   puts "Meats made"
 
  puts "Creating Fish"
     fishes = ["Salmon", "Swordfish", "Crab Legs", "Octopus", "Tuna", "Cod", "Anchovy"]
     photos = ["https://i.pinimg.com/564x/f1/2b/aa/f12baa0384ca80d373bc35b5f50858bf.jpg", "https://i.pinimg.com/564x/3e/55/b5/3e55b565c620570d635b5dd10984994d.jpg", "https://i.pinimg.com/564x/45/ed/92/45ed92888c3e9ddc65128429e19eb6f6.jpg", "https://i.pinimg.com/564x/2d/0a/c8/2d0ac89383ce946f2a0c4dadb72efa2a.jpg", "https://i.pinimg.com/564x/fb/96/24/fb9624a0654c74d9e7d90a7699b658c8.jpg", "https://i.pinimg.com/564x/62/c7/f9/62c7f93f1e5133b0191693bd8ce26bd8.jpg", "https://i.pinimg.com/564x/f5/18/4e/f5184ebc570771495768dba99755d987.jpg"]
     fishes.each_with_index do |fish, index|
-     Product.create!(name: fish, price: (10..25).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "fishermen").sample, category: Category.find_by(name: "fish"), photo: photos[index])
+     Product.create!(name: fish, price: (8..10).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "fishermen").sample, category: Category.find_by(name: "fish"), photo: photos[index])
      end
   puts "Fish made"
 
 puts "Creating Dairy & Eggs"
     dairies = ["Eggs", "Milk", "Cheese", "Yogurt", "Butter", "Ice-Cream"]
     photos = ["https://i.pinimg.com/564x/78/72/7f/78727f8fa0cea4fb6c7d0c7da3126d06.jpg", "https://i.pinimg.com/564x/78/2e/4f/782e4fcdf9934f4c9f28d91d29d06aa7.jpg", "https://i.pinimg.com/564x/ab/c7/ed/abc7ed2b895fa7836ff31f7db273fd70.jpg", "https://i.pinimg.com/564x/d8/53/e3/d853e3f2b542ec8a3560a8fa42cd7c2f.jpg", "http://static.gofugyourself.com/uploads/2016/10/freshly-made-butter.jpg", "https://i.pinimg.com/564x/63/aa/ae/63aaae89a6482934b7dbca964847cf12.jpg"]
-    dairies.each_with_index {|dairy, index| Product.create!(name: dairy, price: (4..8).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "dairy & eggs"), photo: photos[index])}
+    dairies.each_with_index {|dairy, index| Product.create!(name: dairy, price: (3..5).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "dairy & eggs"), photo: photos[index])}
   puts "Dairy & Eggs made"
 
 puts "Creating Bakery"
     bakes = ["Croissants", "Baguettes", "Muffins", "Cupcakes", "Tortillas"]
     photos = ["https://i.pinimg.com/564x/bb/d5/aa/bbd5aa58be18aaab6052deda215e98b5.jpg", "https://i.pinimg.com/564x/62/08/c4/6208c48a52bf4b6c78eec88fbac0e03a.jpg", "https://i.pinimg.com/564x/17/51/5a/17515a3d8e5fd796ec881607d4129184.jpg", "https://i.pinimg.com/564x/da/68/1a/da681ab51ef3381b47a598cc930ebf38.jpg", "https://i.pinimg.com/564x/c8/7b/9d/c87b9d345ad3abba03441821eddff4c5.jpg"]
-    bakes.each_with_index {|bake, index| Product.create!(name: bake, price: (4..10).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "baker").sample, category: Category.find_by(name: "bakery"), photo: photos[index])}
+    bakes.each_with_index {|bake, index| Product.create!(name: bake, price: (2..4).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "baker").sample, category: Category.find_by(name: "bakery"), photo: photos[index])}
   puts "Bakery made"
 
   puts "Creating Wine & Drinks"
     drinks = ["Red Wine", "White Wine", "Coffee", "Juice", "Tea"]
     photos = ["https://i.pinimg.com/564x/f7/32/fa/f732faaf4bf513286abd857cc89d5b1a.jpg", "https://i.pinimg.com/564x/f8/c0/a1/f8c0a1c2d3458a71c2d22bc89901743c.jpg", "https://i.pinimg.com/564x/4c/89/92/4c89923f85ac4b515d01c684005085ae.jpg", "https://i.pinimg.com/564x/c1/b5/2d/c1b52db68a50e248a01aeb7604e08cef.jpg", "https://i.pinimg.com/564x/70/2c/9d/702c9dc332d2a4f3c01d441427ad8fab.jpg"]
-    drinks.each_with_index {|drink, index| Product.create!(name: drink, price: (10..20).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "winemaker").sample, category: Category.find_by(name: "wine & drinks"), photo: photos[index])}
+    drinks.each_with_index {|drink, index| Product.create!(name: drink, price: (4..10).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "winemaker").sample, category: Category.find_by(name: "wine & drinks"), photo: photos[index])}
   puts "Wine & Drinks made"
 
   puts "Creating Pantry"
     pantries = ["Pasta", "Flour", "Wheat", "Cereal", "Spices", "Oils", "Rice", "Cous Cous", "Olive Oil", "Pizza Base"]
     photos = ["https://i.pinimg.com/564x/7a/2d/5d/7a2d5dddef422378df71b4cb55238cc4.jpg", "https://i.pinimg.com/564x/13/46/b3/1346b39135a3c239d16267767aad2136.jpg", "https://i.pinimg.com/564x/94/6f/e8/946fe8dd991b5c8f7771cd081132d155.jpg", "https://i.pinimg.com/564x/32/12/42/3212424b6fd2621f20b8d22e1aa76290.jpg", "https://i.pinimg.com/564x/04/55/1a/04551ae3a5456c17ec6f1084721bde6e.jpg", "https://i.pinimg.com/564x/b0/54/52/b054521c8dc23269029a612429b9dd7b.jpg", "https://i.pinimg.com/564x/5a/42/bb/5a42bb7dc6f32a47dea03f171ca705d2.jpg", "https://i.pinimg.com/564x/43/20/ba/4320baddae363c756e997c0ed3be57d3.jpg", "https://i.pinimg.com/564x/d9/17/26/d917265778ef5785d632a2bf526fcf27.jpg", "https://i.pinimg.com/564x/51/65/e9/5165e96c92c0dd8ec02cfa099df95f8f.jpg"]
-    pantries.each_with_index {|pantry, index| Product.create!(name: pantry, price: (4..12).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "cook").sample, category: Category.find_by(name: "pantry"), photo: photos[index])}
+    pantries.each_with_index {|pantry, index| Product.create!(name: pantry, price: (2..6).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "cook").sample, category: Category.find_by(name: "pantry"), photo: photos[index])}
   puts "Pantry made"
 
 

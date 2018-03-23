@@ -10,18 +10,18 @@
     </div>
     <div class="product-producer-info-scroll">
       <div class="product-page-section" style="margin-top: 10px;">
-        <div style="margin-bottom: 20px">
-        <h3 style="display: inline;">our producer </h3><h3 class="basket-button" style="display: inline; color: #FFB96E"><%=@product.producer.name.upcase %></h3>
+        <div style="margin-bottom: 20px; margin-top: 20px">
+        <h3 style="display: inline;">our producer </h3><h3 class="basket-button" style="display: inline; color: #FFB96E; margin-bottom: 10px;"><%=@product.producer.name.upcase %></h3>
         <p style="margin-bottom: 5px"><%=@product.producer.description%></p>
       </div>
         <h3 style="display: inline">location</h3>
-        <h3 class="basket-button" style="display: inline; color: #FFB96E"><%=@product.producer.city.upcase %></h3>
+        <h3 class="basket-button" style="display: inline; color: #FFB96E; margin-bottom: 10px;""><%=@product.producer.city.upcase %></h3>
       </div>
       <div class="card-map" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=<%= @product.producer.latitude %>,<%= @product.producer.longitude %>&markers=color:purple%7C<%= @product.producer.latitude %>,<%= @product.producer.longitude %>&zoom=12&size=2000x1500&key=AIzaSyCKxAu_Y-IhJUSTXAcMghvx_UDSBSGm2l8')";'>
       </div>
 
       <% unless @product.producer.Farmphotos.empty? %>
-      <h3>photos</h3>
+      <h3 style="margin-bottom: 7px">photos</h3>
       <div class="producer-gallery">
         <% @product.producer.Farmphotos.each do |photo| %>
         <div class="gallery-photo" style="background-image: url(<%= photo %>)"></div>
@@ -105,6 +105,7 @@
 
              </div>
              </a>
+             <div style="padding-bottom: 5px;"></div>
         <% end %>
         <div>
         </div>
