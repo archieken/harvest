@@ -27,11 +27,11 @@
 
   def sugar_quant(nd)
 
-    nd.send("total_nutrients")["SUGAR"]["quantity"]
+   # nd.send("total_nutrients")["SUGAR"]["quantity"]
   end
 
   def sugar_unit(nd)
-    nd.send("total_nutrients")["SUGAR"]["unit"]
+  #  nd.send("total_nutrients")["SUGAR"]["unit"]
   end
 
   def protein_quant(nd)
@@ -80,20 +80,20 @@
 
 
   puts "Creating Farmers"
-    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Sally Hawkins", city: cities[0], latitude: coordinates[0][0], longitude: coordinates[0][1],  photo: "https://i.pinimg.com/564x/53/7d/65/537d65cf5e5b194f920a4297126d4a72.jpg", description: "Sally Darwin has been farming delicious fruits and vegetables since 1977. Her family and her decided to grow their own food and supply their neighbors.
+    Producer.create!( speciality: "farmer", name: "Sally Hawkins", city: cities[0], latitude: coordinates[0][0], longitude: coordinates[0][1],  photo: "https://i.pinimg.com/564x/53/7d/65/537d65cf5e5b194f920a4297126d4a72.jpg", description: "Sally Darwin has been farming delicious fruits and vegetables since 1977. Her family and her decided to grow their own food and supply their neighbors.
       Favorite thing to grow is garlic, fave vegetable is kale.
 ")
-    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Bryce Carrell", city: cities[2], latitude: coordinates[2][0], longitude: coordinates[2][1], photo: "http://rosa-tv.com/wp-content/uploads/2015/09/organicheskih-produktov-e1443096808714.jpg", description: "Bryce Carell is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.
+    Producer.create!( speciality: "farmer", name: "Bryce Carrell", city: cities[2], latitude: coordinates[2][0], longitude: coordinates[2][1], photo: "http://rosa-tv.com/wp-content/uploads/2015/09/organicheskih-produktov-e1443096808714.jpg", description: "Bryce Carell is a 3rd generation farmer specialising in growing swiss potatoes and brown onions.
       He grew up eating food directly from his farm and is excited to share them with his community.
 ")
-    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Monica Norris", city: cities[3], latitude: coordinates[3][0], longitude: coordinates[3][1], photo: "https://i.pinimg.com/564x/2b/f2/cc/2bf2cc49002ef0b974a3d512de549239.jpg", description: "Monica runs Dee River Ranch, Inc.; a family owned and operated multi-commodity farm.
+    Producer.create!( speciality: "farmer", name: "Monica Norris", city: cities[3], latitude: coordinates[3][0], longitude: coordinates[3][1], photo: "https://i.pinimg.com/564x/2b/f2/cc/2bf2cc49002ef0b974a3d512de549239.jpg", description: "Monica runs Dee River Ranch, Inc.; a family owned and operated multi-commodity farm.
       Her farm produces corn, wheat, soybeans, sunflowers, rye, forage crops, cattle, and trees, all with a heavy emphasis on conserving practices such as cover crops and no-till.")
-    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Tilly Bay", city: cities[5], latitude: coordinates[5][0], longitude: coordinates[5][1], photo: "https://i.pinimg.com/564x/9a/de/c0/9adec0636d2d95f99aaf3d7a801e62b7.jpg", description: "Tilly Bay grew has created a diversified farm and finds great joy providing for her neighbors.
+    Producer.create!( speciality: "farmer", name: "Tilly Bay", city: cities[5], latitude: coordinates[5][0], longitude: coordinates[5][1], photo: "https://i.pinimg.com/564x/9a/de/c0/9adec0636d2d95f99aaf3d7a801e62b7.jpg", description: "Tilly Bay grew has created a diversified farm and finds great joy providing for her neighbors.
       Farming philosophy: the more organic matter the better; and we are all in this together.
 ")
-    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Gilbert Grape", city: cities[4], latitude: coordinates[4][0], longitude: coordinates[4][1], photo: "https://i.pinimg.com/564x/64/c0/37/64c037470148b06947d322fed39d9bf3.jpg", description: "Gilbert a farmer and owner of Foster Veg Yard, and takes a lot of pride in working for a fourth generation family farm.
+    Producer.create!( speciality: "farmer", name: "Gilbert Grape", city: cities[4], latitude: coordinates[4][0], longitude: coordinates[4][1], photo: "https://i.pinimg.com/564x/64/c0/37/64c037470148b06947d322fed39d9bf3.jpg", description: "Gilbert a farmer and owner of Foster Veg Yard, and takes a lot of pride in working for a fourth generation family farm.
       The Foster Veg Yard has than 50 years of experience providing fresh fruits and vegetables to nearby communities.")
-    Producer.create!(Farmphotos: ["https://www.cotswoldfarmpark.co.uk/wp-content/uploads/2014/01/visit-us2.jpg","http://www.cotswolds.info/images/generic/farm.jpg","http://www.carolebamford.com/wp-content/uploads/2014/09/Daylesford_Farm_Harvest_00-780x520.jpg"], speciality: "farmer", name: "Nicole Patterson", city: cities[1], latitude: coordinates[1][0], longitude: coordinates[1][1], photo: "https://i.pinimg.com/564x/cc/8f/bb/cc8fbb10ac6b0058745979cc4614ee2f.jpg", description: "Nicole Patterson is a 3rd generation farmer specialising with strawberry fields, avocado trees and white onions.
+    Producer.create!( speciality: "farmer", name: "Nicole Patterson", city: cities[1], latitude: coordinates[1][0], longitude: coordinates[1][1], photo: "https://i.pinimg.com/564x/cc/8f/bb/cc8fbb10ac6b0058745979cc4614ee2f.jpg", description: "Nicole Patterson is a 3rd generation farmer specialising with strawberry fields, avocado trees and white onions.
       Her family and her are proud to grow their own food and supply their neighbors.")
   puts "Farmers made"
 
@@ -168,7 +168,7 @@ Silvia is renowned for her remarkable ability to cipher the soils of her Gold Co
 
   puts "Creating cooks"
     Producer.create!(speciality: "cook", name: "Alex Harrington", city: cities[2], latitude: coordinates[2][0], longitude: coordinates[2][1], photo: "https://i.pinimg.com/564x/f0/78/64/f07864f6f907bf61662d178f7d07c838.jpg", description: "There are couple of culinary experts who claims such dedication and motivation from their local land as Alex Harrington. She stood second among the most dazzling war of top 10 chefs in world for 2017.")
-    Producer.create!(speciality: "cook", name: "Cassandra Carrell", city: cities[4], latitude: coordinates[4][0], longitude: coordinates[4][1], photo: "https://i.pinimg.com/564x/9e/cc/a3/9ecca3b3b9b6d64025a40ac3c86efd65.jpg", description: "Cassandra is a culinary specialist and restaurateur known for presenting and championing a lighter style of cooking.")
+    Producer.create!(speciality: "cook", name: "Cassandra Cole", city: cities[4], latitude: coordinates[4][0], longitude: coordinates[4][1], photo: "https://i.pinimg.com/564x/9e/cc/a3/9ecca3b3b9b6d64025a40ac3c86efd65.jpg", description: "Cassandra is a culinary specialist and restaurateur known for presenting and championing a lighter style of cooking.")
     Producer.create!(speciality: "cook", name: "Nigella Norris", city: cities[0], latitude: coordinates[0][0], longitude: coordinates[0][1], photo: "https://i.pinimg.com/564x/95/60/f1/9560f1f5ef96c4693a2ce9160d062493.jpg", description: "Nigella is the Leonel Messi of cooking in the day. Nigella can always be seen to be handling the pan with incredible finesse. Her cooking skills are next to none.")
     Producer.create!(speciality: "cook", name: "Rick Bay", city: cities[1], latitude: coordinates[1][0], longitude: coordinates[1][1], photo: "https://i.pinimg.com/564x/c5/5e/55/c55e554c98c73774ef21723299618ef3.jpg", description: "Rick displays his one of a kind culinary combined singing abilities whilst in the kitchen. He is a an absolute legend in his home town of Byron Bay.
 ")
@@ -195,15 +195,15 @@ puts "Creating Categories"
   puts "Category made"
 
  puts "Creating Vegetables"
-    veggies = ["Carrots", "Onions", "Potatoes", "Broccoli", "Baby Spinach", "Eggplant", "Garlic", "Corn", "Kalamata Olives"]
+    veggies = ["Carrots", "Onions", "Potatoes", "Broccoli", "Baby Spinach", "Eggplant", "Garlic", "Corn", "Olives"]
     photos = ["https://i.pinimg.com/564x/54/77/3c/54773c097d987739fe679bf9803d5182.jpg", "https://i.pinimg.com/564x/9f/16/b1/9f16b1e1984fe45281993aaacaf5248d.jpg", "https://i.pinimg.com/564x/5b/2a/9f/5b2a9f24e3cd05b578f4b71300a47554.jpg", "https://i.pinimg.com/564x/b2/bf/43/b2bf432669979f73f478a16627f33138.jpg", "https://i.pinimg.com/564x/9f/58/0a/9f580a12fd41a3af0b8dbd392667f597.jpg", "https://i.pinimg.com/564x/5b/e4/ab/5be4ab40e298fc84e4ec6f74b71e49da.jpg", "https://i.pinimg.com/564x/f2/cb/39/f2cb395d5b3d4032d32c289842ea9c90.jpg", "https://i.pinimg.com/564x/6a/ff/0e/6aff0e6aeb1919c3748c508a710f6f9c.jpg", "https://i.pinimg.com/564x/6d/e7/78/6de77832c62f093cdd19472d5b9d0bf9.jpg"]
     veggies.each_with_index do |veg, index|
 
-      product = Product.create!(name: veg, price: (1..4).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "vegetables"), photo: photos[index])
-    #    client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
-    #    product_data = "1 #{product.name}"
-    #    nd = client.food_database.nutritional_data(product_data)
-    #    nutrient = Nutrient.create(product: product, fatquant: fat_quant(nd), fatunit: fat_unit(nd), calquant: calories_quant(nd), calunit: calories_unit(nd), carbsquant: carbs_unit(nd), carbsunit: carbs_unit(nd), sugarquant: sugar_quant(nd), sugarunit: sugar_unit(nd))
+      product = Product.create!(name: veg, price: (1..2).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "vegetables"), photo: photos[index])
+       client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
+       product_data = "1 #{product.name}"
+       nd = client.food_database.nutritional_data(product_data)
+       nutrient = Nutrient.create(product: product, fatquant: fat_quant(nd), fatunit: fat_unit(nd), calquant: calories_quant(nd), calunit: calories_unit(nd), carbsquant: carbs_unit(nd), carbsunit: carbs_unit(nd))
 
     end
 
@@ -216,11 +216,11 @@ puts "Creating Categories"
 ", "https://i.pinimg.com/564x/16/15/fc/1615fc0d6e9023a7136989fc3bbd346e.jpg"]
     fruits.each_with_index do |fruit, index|
 
-     product = Product.create!(name: fruit, price: (1..4).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "fruits"), photo: photos[index])
+     product = Product.create!(name: fruit, price: (1..2).to_a.sample, stock: 10, unit_type: "kg", producer: Producer.where(speciality: "farmer").sample, category: Category.find_by(name: "fruits"), photo: photos[index])
      # client = Edamam::Client.new(app_id: "87fcd877", app_key: "757ab6a2d95f52daf6f5f4b3634e0781")
      # product_data = "1 #{product.name}"
-    #  nd = client.food_database.nutritional_data(product_data)
-    #  nutrient = Nutrient.create(product: product, fatquant: fat_quant(nd), fatunit: fat_unit(nd), calquant: calories_quant(nd), calunit: calories_unit(nd), carbsquant: carbs_unit(nd), carbsunit: carbs_unit(nd), sugarquant: sugar_quant(nd), sugarunit: sugar_unit(nd))
+     # nd = client.food_database.nutritional_data(product_data)
+     # nutrient = Nutrient.create(product: product, fatquant: fat_quant(nd), fatunit: fat_unit(nd), calquant: calories_quant(nd), calunit: calories_unit(nd), carbsquant: carbs_unit(nd), carbsunit: carbs_unit(nd), sugarquant: sugar_quant(nd), sugarunit: sugar_unit(nd))
 
     end
   puts "Fruits made"
@@ -327,7 +327,7 @@ puts "Create Recipes"
   recipe.products << Product.find_by(name: "Garlic")
   recipe.products << Product.find_by(name: "Anchovy")
   recipe.products << Product.find_by(name: "Baby Spinach")
-  recipe.products << Product.find_by(name: "Kalamata Olives")
+  recipe.products << Product.find_by(name: "Olives")
   recipe.save!
 
   #Honey-Lemon Ricotta Breakfast Toast and Figs + Pistachios
