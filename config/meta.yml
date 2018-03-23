@@ -1,4 +1,4 @@
 meta_product_name: "harvest."
 meta_title: "harvest. - The Farmer's Market delivered to your door."
 meta_description: "More community, less hassle. Harvest delivers fresh groceries directly from local producers to your home."
-meta_image: "HarvestHomePage.png"                       # should exist in `app/assets/images/`
+meta_image: "HarvestHomePage.png"
