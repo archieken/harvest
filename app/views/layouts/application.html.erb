@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>harvest.</title>
+
+    <meta name="description" content="<%= meta_description %>">
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
+
     <link rel="icon" href="https://cdn4.iconfinder.com/data/icons/nature-solid-icons-vol-3/72/149-256.png">
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -40,7 +51,7 @@
       <%= yield %>
 
     </div>
-  
+
   <% if !@products.blank? %>
   <div id="site-wrapper">
     <% for product in @products%>
