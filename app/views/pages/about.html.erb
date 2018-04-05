@@ -48,13 +48,15 @@ Local growers can tell you how the food was grown. You can ask what practices th
       </div>
   </div>
 </div>
-<div class="section" style="background-color: #fbf8f4">
-  <div class="section-content">
-    <%= form_tag postcodecheckers_path, method: :get do %>
-      <input  class="postcode-input-field" name="email" type="text" placeholder="insert email"/>
-      <input type="submit" value="submit" class="homepage-button homepage-submit" data-modal="#modal">
+<div class="section" style="background-color: #fbf8f4; display: flex; flex-direction: column;">
+  <div>
+    <h2>Stay up to date with Harvest News!</h2>
+  </div>
+  <div>
+    <%= form_for @subscription, :url => subscriptions_path do |f| %>
+      <%= f.text_field :email, placeholder: "enter email" %>
+      <%= f.submit "Create" %>
     <% end %>
-
   </div>
 </div>
 

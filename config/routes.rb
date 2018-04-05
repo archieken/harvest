@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get "/orders/history", to: "orders#history", as: "order_history"
   get "/order_lines/:id/reorder", to: "order_lines#reorder", as: "reorder"
 
+  post   "/subscriptions", to: "pages#create_subscription", as: "subscriptions"
+
 
   root to: 'pages#home'
     resources :users, only: [:new, :create, :edit, :update] do
