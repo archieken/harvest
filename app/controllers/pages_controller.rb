@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :about, :create]
+  skip_before_action :authenticate_user!, only: [:home, :about, :create_subscription]
 
   def home
     @recipes = Recipe.all.first(5)
@@ -19,13 +19,15 @@ class PagesController < ApplicationController
   end
 
   def create_subscription
-    @subscription = Subscription.new
-    @subscription = Subscription.create(subscription_params)
-     if @subscription.save
-      flash[:create_subscription] = "Order has been added to your basket."
-      about_path
-    else
-      render :about
+    if !subscription_params.nil?
+      @subscription = Subscription.new
+      @subscription = Subscription.create(subscription_params)
+      if @subscription.save
+        # flash[:create_subscription] = "Order has been added to your basket."
+        redirect_to about_path
+      else
+        render :about
+      end
     end
     authorize @subscription
   end

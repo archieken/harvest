@@ -13,7 +13,7 @@ class SubscriptionPolicy < ApplicationPolicy
     true
   end
 
-  def create?
+  def create_subscription?
     true
   end
 end

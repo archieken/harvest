@@ -58,6 +58,10 @@ Local growers can tell you how the food was grown. You can ask what practices th
       <%= f.submit "Create" %>
     <% end %>
   </div>
+  <% if flash[:create_subscription] %>
+    <div class="notice"><%= flash[:create_subscription] %></div>
+  <% end %>
 </div>
+
 
 

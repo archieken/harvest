@@ -27,7 +27,7 @@
 
       <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, class: "navbar-harvest-link" %>
 
-    <% elsif current_page?(about_path) %>
+    <% elsif current_page?(root_path)%>
       <!-- Navbar(when on about page) -->
       <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "toggle-login navbar-harvest-link" %>
       <%= link_to t(".sign_in", default: "SIGNUP"), new_user_session_path, class: "toggle-signup navbar-harvest-link" %>
@@ -36,7 +36,7 @@
       <!-- Navbar(when logged out on home page) -->
        <%= link_to t(".sign_in", default: "LOGIN"), new_user_session_path, class: "toggle-login navbar-harvest-link" %>
       <%= link_to t(".sign_in", default: "SIGNUP"), new_user_session_path, class: "toggle-signup navbar-harvest-link" %>
-      <%= link_to "home", root_path, class: "navbar-harvest-link"  %>
+      <%= link_to "HOME", root_path, class: "navbar-harvest-link"  %>
     <% end %>
   </div>
 
