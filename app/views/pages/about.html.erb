@@ -1,37 +1,67 @@
 <div class="banner-about">
- <div class="section-content" style="margin: 100px 0px 200px 0px; padding: 100px 260px 140px 0px;">
-  <h2 class="home-title" style="color: #524F4C; margin-bottom: 80px; font-size: 60px; text-align: left;">The Harvest inspiration:</h2>
-  <h2 class="home-title" style="margin-bottom: 20px; font-size: 52px; text-align: left;"><u>Farmer's Market</u> </h2>
-  <h4 class="section-para" style="text-align: left; font-size: 30px; margin-left: 0px;">a <strong>community</strong> event where local farmers and growers sell <br><br> their produce <strong>directly</strong> to the public</h4>
+ <div class="section-content">
+  <h1 class="home-title-about" style="color: #524F4C;font-size: 90px;">Harvest</h1>
+  <h4 class="section-para" style="font-size: 20px; margin-left: 0px;">Eat local groceries, support local producers, conveniently receive your order at your door.</h4>
   </div>
 </div>
-<div class="section" style="background-color: white">
+<div class="section">
   <div class="section-content">
-    <h2 class="home-title">Local Producers</h2>
-    <p class="section-para">Harvest lets you support your community and shop through people you know, trust and love.</p>
-    <div class="cat-links">
-      <%= link_to "recipes", products_path(:anchor => "recipes"), class: "homepage-cat-link" %>
-      <%= link_to "vegetables", products_path(:anchor => "vegetables"), class: "homepage-cat-link" %>
-      <%= link_to "fruits", products_path(:anchor => "fruits"), class: "homepage-cat-link" %>
-      <%= link_to "meat", products_path(:anchor => "meats"), class: "homepage-cat-link" %>
-      <%= link_to "fish", products_path(:anchor => "fish"), class: "homepage-cat-link" %>
-      <%= link_to "dairy & eggs", products_path(:anchor => "dairy"), class: "homepage-cat-link" %>
-      <%= link_to "bakery", products_path(:anchor => "bakery"), class: "homepage-cat-link" %>
-      <%= link_to "wine & drinks", products_path(:anchor => "wine"), class: "homepage-cat-link" %>
-      <%= link_to "pantry", products_path(:anchor => "pantry"), class: "homepage-cat-link" %>
-      <%= link_to "deli", products_path(:anchor => "deli"), class: "homepage-cat-link" %>
+    <h2 class="home-title" style="font-size: 60px">How it works</h2>
+    <h4 class="section-para">
+      Book parking spaces where you need them, when you need them, from verified local parking space owners.
+    </h4>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-avatar">
+          <%= image_tag 'https://cdn4.iconfinder.com/data/icons/hotel-facilities-2/512/parking2-512.png', :class => "logo-title-icon" %></i>
+        </div>
+        <h4 class="feature-title">Easy Parking</h4>
+        <p class="feature-para">Find available parking spacing by location and date.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-avatar">
+          <%# image_tag 'city-car.png', :class => "city-car-icon" %></i>
+        </div>
+        <h4 class="feature-title">Commuters & Travellers</h4>
+        <p class="feature-para">Spaces available in your town and around globe.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-avatar">
+          <%# image_tag 'check-square.svg', :class => "check-square-icon" %></i>
+        </div>
+        <h4 class="feature-title">Safe Renting</h4>
+        <p class="feature-para">Reserve spaces from verified users and get in touch with them.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-avatar">
+          <%# image_tag 'calendar-alt.svg', :class => "calendar-square-icon" %></i>
+        </div>
+        <h4 class="feature-title">Reserve for a trip</h4>
+        <p class="feature-para">Reserve your space up to a month before you need it!</p>
       </div>
     </div>
   </div>
 </div>
-<div class="section" style="background-color: #fbf8f4; padding: 0px, 120px;">
+<!-- <div class="section" style="background-color: #fbf8f4; padding: 0px, 120px;">
   <div class="section-content" style="width: 100vw;">
     <h2 class="home-title" style="font-size: 42px; margin-bottom: 60px;">what Harvest does</h2>
     <h5 class="section-para" style="text-align: left;font-size: 20px; margin-bottom: 40px"><strong>Strengthens communities</strong> by connecting families and individuals with<br><br> local producers and brings quality, sustainable groceries to their homes.</h5>
   </div>
-</div>
-<div class="section" style="background-color: white">
-  <div class="features" style="justify-content: space-around;">
+</div> -->
+<!-- <div class="section" style="background-color:  #fbf8f4;">
+  <div class="section-content">
+    <h2 class="home-title">Why Local Producers?</h2>
+    <p class="section-para">Harvest lets you support your community and shop through people you know, trust and love.</p>
+    </div>
+  </div>
+</div> -->
+<div class="section" style="background-color: #fbf8f4">
+  <div class="section-content" style="margin: 100px 0px 80px 0px;">
+    <h2 class="home-title">Why Local Producers?</h2>
+    <p class="section-para">Harvest lets you support your community and shop through people you know, trust and love.</p>
+    </div>
+  </div>
+  <div class="features" style="justify-content: space-around;background-color: #fbf8f4; margin-top: 0px; padding-bottom: 100px;">
       <div class="feature-about">
         <div ><%= image_tag("female-farmer-2.jpg") %></div>
         <h4 class="feature-title">Taylor Jones from JM Products</h4>
@@ -48,7 +78,7 @@ Local growers can tell you how the food was grown. You can ask what practices th
       </div>
   </div>
 </div>
-<div class="section" style="background-color: #fbf8f4; display: flex; flex-direction: column;">
+<div class="section" style="background-color: white; display: flex; flex-direction: column;">
   <div>
     <h2>Stay up to date with Harvest News!</h2>
   </div>

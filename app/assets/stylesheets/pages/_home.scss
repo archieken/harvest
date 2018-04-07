@@ -26,7 +26,6 @@
   font-family: 'Baskerville';
   text-align: center;
   font-weight: 600;
-
   font-size: 3em;
   color: #524F4C;
 }
@@ -147,6 +146,7 @@ transform: rotate(-15deg);
   margin: 100px 0px 120px 0px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .section-para {
@@ -230,12 +230,6 @@ transform: rotate(-15deg);
 
 
 
-
-
-
-
-
-
 // ---------   ABOUT PAGE   ------------
 
 .banner-about {
@@ -243,13 +237,14 @@ transform: rotate(-15deg);
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 95vh;
+  height: 75vh;
   text-align: center;
   padding: 10px 0px;
-  background-image: url("garlic.png");
+  background-image: linear-gradient(-225deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 50%), asset-url("garlic.png");
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 90px;
+  padding-top: 100px;
 }
 
 .banner-content-about {
@@ -260,7 +255,6 @@ transform: rotate(-15deg);
   font-family: 'Baskerville';
   text-align: center;
   font-weight: 600;
-  font-size: 30px;
   color: #524F4C;
 }
 
