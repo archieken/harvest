@@ -39,7 +39,6 @@
   font-family: 'Baskerville';
   text-align: center;
   font-weight: 600;
-
   font-size: 3em;
   color: #524F4C;
 }
@@ -181,6 +180,26 @@
   margin-top: 23px;
 }
 
+.enjoy-icon {
+  height: 80px;
+  margin-top: 10px;
+}
+
+.shopping-basket-icon {
+  height: 70px;
+  margin-top: 16px;
+}
+
+.house-about-icon {
+  height: 80px;
+  margin-top: 10px;
+}
+
+.location-icon {
+  height: 70px;
+  margin-top: 15px;
+}
+
 // ---------   WHY SHOP HERE DIV   ------------
 .section {
   display: flex;
@@ -196,6 +215,7 @@
   margin: 100px 0px 120px 0px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 @media only screen and (max-width: 600px){
@@ -313,12 +333,6 @@
 
 
 
-
-
-
-
-
-
 // ---------   ABOUT PAGE   ------------
 
 .banner-about {
@@ -326,13 +340,14 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 95vh;
+  height: 75vh;
   text-align: center;
   padding: 10px 0px;
-  background-image: url("garlic.png");
+  background-image: linear-gradient(-225deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 50%), asset-url("garlic.png");
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 90px;
+  padding-top: 100px;
 }
 
 .banner-content-about {
@@ -343,7 +358,6 @@
   font-family: 'Baskerville';
   text-align: center;
   font-weight: 600;
-  font-size: 30px;
   color: #524F4C;
 }
 
