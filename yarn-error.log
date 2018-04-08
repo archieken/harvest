@@ -1,19 +1,17 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js check --integrity
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js global install lighthouse
 
 PATH: 
-
-  /home/archie/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/home/archie/.rbenv/versions/2.4.3/bin:/home/archie/.rbenv/libexec:/home/archie/.rbenv/plugins/ruby-build/bin:/home/archie/Documents/Y/google-cloud-sdk/bin:./bin:./node_modules/.bin:/home/archie/.rbenv/shims:/home/archie/.rbenv/bin:/home/archie/bin:/home/archie/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
-
+  /Users/joscha/.rbenv/versions/2.4.3/bin:/usr/local/Cellar/rbenv/1.1.1/libexec:/Users/joscha/.rbenv/shims:./bin:./node_modules/.bin:/Users/joscha/.rbenv/shims:/Users/joscha/.rbenv/bin:/usr/local/git/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/sbin
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  8.9.4
+  9.5.0
 
 Platform: 
-  linux x64
+  darwin x64
 
 npm manifest: 
   {
@@ -6106,10 +6104,14 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Found 1 errors.
-      at new MessageError (/usr/share/yarn/lib/cli.js:186:110)
-      at /usr/share/yarn/lib/cli.js:59470:13
+  Error: Invalid subcommand. Try "add, bin, dir, ls, list, remove, upgrade, upgrade-interactive"
+      at new MessageError (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:186:110)
+      at Object.<anonymous> (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:30362:59)
       at Generator.next (<anonymous>)
-      at step (/usr/share/yarn/lib/cli.js:98:30)
-      at /usr/share/yarn/lib/cli.js:109:13
-      at <anonymous>
+      at step (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:98:30)
+      at /usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:116:14
+      at new Promise (<anonymous>)
+      at new F (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:23451:28)
+      at Object.<anonymous> (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:95:12)
+      at Object.run (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:30366:19)
+      at run (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:89113:20)
