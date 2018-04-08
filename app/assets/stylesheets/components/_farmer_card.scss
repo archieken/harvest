@@ -10,6 +10,20 @@
   overflow: hidden;
 }
 
+@media only screen and (max-width: 600px){
+  .farmer-card {
+    display: inline;
+    height: 100px;
+    width: 315px;
+    background-color: white;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    margin-right: 15px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+}
+
 .farmer-card-content {
   display: flex;
   width: 100%;
@@ -53,6 +67,12 @@
   font-size: 12px;
   opacity: 0.8;
   margin-top: 2px;
+}
+
+@media only screen and (max-width: 600px){
+  .farmer-card-para {
+    display: none;
+  }
 }
 
 .carousel-title {
