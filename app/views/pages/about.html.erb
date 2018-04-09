@@ -1,51 +1,51 @@
 <div class="banner-about">
  <div class="section-content">
-  <h1 class="home-title-about" style="color: #524F4C;font-size: 90px;">Harvest</h1>
-  <h4 class="section-para" style="font-size: 20px; margin-left: 0px;">Eat local groceries, support local producers, conveniently receive your order at your door.</h4>
+  <h1 class="home-title-about">Harvest</h1>
+  <h4 class="section-para-about">Eat local groceries, support local producers, conveniently receive your order at your door.</h4>
   </div>
 </div>
 <div class="section">
   <div class="section-content">
-    <h2 class="home-title" style="font-size: 60px">How it works</h2>
+    <h2 class="title-how_it_works">How it works</h2>
     <h4 class="section-para">Take care of yourself and your family by ordering fresh, local groceries and support the producers in your community.
     </h4>
     <div class="features">
         <div class="feature">
-        <div class="feature-avatar"><%= image_tag 'location.svg', :class => "location-icon", :style => "opacity: 0.4"%></i></div>
+        <div class="feature-avatar"><%= image_tag 'locate.svg', :class => "location-icon"%></i></div>
         <h4 class="feature-title">Find your groceries</h4>
         <p class="feature-para">Enter your address and check out local products</p>
       </div>
       <div class="feature">
-        <div class="feature-avatar"><%= image_tag 'shopping_basket.svg', :class => "shopping-basket-icon", :style => "opacity: 0.4" %></i></div>
+        <div class="feature-avatar"><%= image_tag 'shopping_basket.svg', :class => "shopping-basket-icon"%></i></div>
         <h4 class="feature-title">Shop</h4>
         <p class="feature-para">Pick the products and quantities you´d like.</p>
       </div>
       <div class="feature">
-        <div class="feature-avatar"><%= image_tag 'house_icon.svg', :class => "house-about-icon", :style => "opacity: 0.4" %></i></div>
+        <div class="feature-avatar"><%= image_tag 'house_icon.svg', :class => "house-about-icon"%></i></div>
         <h4 class="feature-title">Groceries delivered</h4>
         <p class="feature-para">Recieve your order at your door, only 2 days later.</p>
       </div>
       <div class="feature">
-        <div class="feature-avatar"><%= image_tag 'enjoy.svg', :class => "enjoy-icon", :style => "opacity: 0.4" %></i></div>
+        <div class="feature-avatar"><%= image_tag 'enjoy.svg', :class => "enjoy-icon"%></i></div>
         <h4 class="feature-title">Enjoy!</h4>
         <p class="feature-para">The best meals have the freshest products.</p>
       </div>
     </div>
   </div>
 </div>
-<div class="section" style="background-color: #F1ECE6; padding: 0px, 120px;">
-  <div class="section-content" style="width: 100vw;">
+<div class="section_why_local">
+  <div class="section-content">
     <h2 class="home-title">Why Local Producers?</h2>
-    <h5 class="section-para" style="font-size: 20px; margin-bottom: 40px">Harvest connects families and individuals with local producers and brings quality, sustainable groceries to their homes.</h5>
+    <h5 class="section-para-why_local">Harvest connects families and individuals with local producers and brings quality, sustainable groceries to their homes.</h5>
     <p class="section-para">Support your community and shop through people you know, trust and love.</p>
   </div>
 </div>
-<div class="section" style="background-color: #fbf8f4; flex-direction: column;
+<div class="section-benefits";
 ">
-  <div class="section-content" style="width: 100vw;">
+  <div class="section-content">
     <h2 class="home-title">Benefits from local producers</h2>
   </div>
-  <div class="features" style="justify-content: space-around;background-color: #fbf8f4; margin-top: 0px; padding-bottom: 100px;">
+  <div class="features-benefits">
       <div class="feature-about">
         <div ><%= image_tag("female-farmer-2.jpg") %></div>
         <h4 class="feature-title">Taylor Jones from JM Products</h4>
@@ -53,21 +53,21 @@
       </div>
       <div class="feature-about">
         <h4 class="feature-title">Support Local Producers</h4>
-        <h4 class="feature-para" style="text-align: left; font-size: 17px; padding-bottom: 20px;">Locally grown food is full of flavor. When grown locally, the crops are picked at their peak of ripeness versus being harvested early in order to be shipped and distributed to your local retail store.<br><br>
+        <h4 class="feature-para-support_local">Locally grown food is full of flavor. When grown locally, the crops are picked at their peak of ripeness versus being harvested early in order to be shipped and distributed to your local retail store.<br><br>
 Local food has more nutrients. Local food has a shorter time between harvest and your table, and it is less likely that the nutrient value has decreased.<br><br>
 Local food supports the local economy. The money that is spent with local farmers and growers all stays close to home and is reinvested with businesses and services in your community.<br><br>
 Local food benefits the environment. By purchasing locally grown foods you help maintain farmland and green and/or open space in your community.<br><br>
 Local foods promote a safer food supply. The more steps there are between you and your food’s source the more chances there are for contamination. Food grown in distant locations has the potential for food safety issues at harvesting, washing, shipping and distribution.<br><br>
 Local growers can tell you how the food was grown. You can ask what practices they use to raise and harvest the crops. When you know where your food comes from and who grew it, you know a lot more about that food.</h4>
-        <p class="feature-para" style="text-align: left;font-size: 10px;"> Reference: Rita Klavinski, Michigan State University Extension http://msue.anr.msu.edu/news/7_benefits_of_eating_local_foods</p>
+        <p class="feature-para-reference"> Reference: Rita Klavinski, Michigan State University Extension http://msue.anr.msu.edu/news/7_benefits_of_eating_local_foods</p>
       </div>
   </div>
 </div>
-<div class="section" style="background-color: white; display: flex; flex-direction: column;">
-  <div style="padding-top: 50px;">
+<div class="section-subscribe">
+  <div class="subscribe-title">
     <h2>Stay up to date with Harvest News!</h2>
   </div>
-  <div style="padding-bottom: 80px; padding-top: 60px;"">
+  <div class="subscribe-box">
     <%= form_for @subscription, :url => subscriptions_path do |f| %>
       <%= f.text_field :email, placeholder: "enter email" %>
       <%= f.submit "subscribe" %>

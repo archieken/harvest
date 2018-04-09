@@ -183,21 +183,25 @@
 .enjoy-icon {
   height: 80px;
   margin-top: 10px;
+  opacity: 0.4;
 }
 
 .shopping-basket-icon {
   height: 70px;
   margin-top: 16px;
+  opacity: 0.4;
 }
 
 .house-about-icon {
   height: 80px;
   margin-top: 10px;
+  opacity: 0.4;
 }
 
 .location-icon {
   height: 70px;
   margin-top: 15px;
+  opacity: 0.4;
 }
 
 // ---------   WHY SHOP HERE DIV   ------------
@@ -215,7 +219,7 @@
   margin: 100px 0px 120px 0px;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 100vw;
 }
 
 @media only screen and (max-width: 600px){
@@ -326,47 +330,7 @@
 .fa-4x {
   margin-top: 15px;
 }
+
+
 // ---------   PRODUCER CAROUSELS   ------------
 
-
-
-
-
-
-// ---------   ABOUT PAGE   ------------
-
-.banner-about {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 75vh;
-  text-align: center;
-  padding: 10px 0px;
-  background-image: linear-gradient(-225deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 50%), asset-url("garlic.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 100px;
-}
-
-.banner-content-about {
-  margin-bottom: 100px;
-}
-
-.home-title-about {
-  font-family: 'Baskerville';
-  text-align: center;
-  font-weight: 600;
-  color: #524F4C;
-}
-
-.feature-about {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 40vw;
-  margin-left: 15px;
-  margin-right: 15px;
-}

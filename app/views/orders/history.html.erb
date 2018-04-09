@@ -1,29 +1,31 @@
-<div  style="display: block; width: 100vw;">
+<div class="history-page">
   <div class="sidenav">
-    <%# link_to "all", products_path, class: "sidenav-link" %>
-    <!--   <%= link_to "past orders", products_path(:anchor => '#'), class: "sidenav-link" %> -->
     <a href="<%= products_path  %>" class="basket-button-history"> <%= image_tag("Triangle.svg", class: "triangle-icon rotate-triangle-icon") %> shop</a>
     <!--  <a href="#" class="sidenav-link anchor">cancelled</a> -->
   </div>
   <div class="products-section">
-    <h3 style="margin-top: 33px;"">my past orders</h3>
-    <div style="width: 100vw;">
+    <h3 class="section-title">my past orders</h3>
+    <div class="past-orders-box">
       <% if !@orders.first.payment.nil? %>
         <% @current_user.orders.where(status: "paid").reverse.each_with_index do |order, index| %>
           <% if order.order_lines.count > 0 %>
-            <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <div class="order-info-box">
               <div>
                 <div style="display: flex; flex-direction: column; justify-content: space-between;">
                 <!-- <p style="display: inline-block; margin-top: 30px;">ID <%= index + 1 %></p> -->
                 <div style="margin-top: 60px;" >
-                <a href="<%= reorder_path(order) %>" style="margin-bottom: 10px; width: 25%; float: right; margin-right: 5px;" class="add-to-cart-btn"> repeat order</a>
-                    <% product_quantity = 0
-                       order.order_lines.each do |line|
-                        product_quantity += line.quantity
-                       end
-                       product_quantity
-                     %>
-                <p style="margin-bottom: 5px"><strong>Ordered on</strong> - <%= order.created_at.day %>/<%= order.created_at.month %>/<%= order.created_at.year %> (<strong><%= product_quantity %> items</strong>)</p>
+                  <a href="<%= reorder_path(order) %>" style="margin-bottom: 10px; width: 25%; float: right; margin-right: 5px;" class="add-to-cart-btn">
+                   repeat order
+                 </a>
+                      <% product_quantity = 0
+                         order.order_lines.each do |line|
+                          product_quantity += line.quantity
+                         end
+                         product_quantity
+                       %>
+                  <p style="margin-bottom: 5px">
+                    <strong>Ordered on</strong> - <%= order.created_at.day %>/<%= order.created_at.month %>/<%= order.created_at.year %> (<strong><%= product_quantity %> items</strong>)
+                  </p>
                 <div style="font-size: 12px;margin-bottom: 5px"> <strong>Total:</strong> <%= humanized_money_with_symbol(order.amount)%> </div>
               </div>
               </div>
