@@ -70,10 +70,14 @@
   width: 100vw;
 }
 
-.order-info-box {
+.orders-box {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.order-info-box {
+  margin-top: 60px;
 }
 
 .products-section {
@@ -109,4 +113,30 @@
   text-decoration: none;
   border-bottom: none;
   padding: 0px;
+}
+
+.reorder-btn {
+  margin-bottom: 10px;
+  width: 25%;
+  float: right;
+  margin-right: 5px;
+}
+
+.order-date-text {
+  margin-bottom: 5px;
+}
+
+.total-cost-text {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.history-product-card {
+  width: 40vw;
+}
+
+.no-items-text {
+  color: #FFB96E;
+  font-size: 1em;
+  font-weight: 700;
 }
