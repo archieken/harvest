@@ -1,0 +1,142 @@
+// ---------   HISTORY PAGE   ------------
+
+.history-page {
+  display: block;
+  width: 100vw;
+}
+
+// ------------------ SIDE NAV ------------------
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  top: 100px;
+  padding-left: 50px;
+}
+
+.sidenav-link {
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-size: 0.85em;
+  color: #524F4C;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 3px;
+  opacity: 0.3;
+  display: block;
+}
+
+.sidenav-link:active {
+  font-weight: 600;
+  opacity: 1;
+}
+
+.sidenav-link.active {
+  font-weight: 600;
+  opacity: 1;
+}
+
+.sidenav-link:hover {
+  text-decoration: none;
+  color: #524F4C;
+  opacity: 1;
+}
+
+// ------------------ CATEGORY SECTIONS FOR LINKS ------------------
+
+.category-section {
+  margin-bottom: 30px;
+  display: block;
+}
+
+.category-section:before {
+  content: '';
+  display: block;
+  position: relative;
+  width: 0;
+  height: 5em;
+  margin-top: -5em
+}
+
+// ------------------ PRODUCT CARD SECTION ------------------
+
+.section-title {
+  margin-top: 33px;
+}
+
+.past-orders-box {
+  width: 100vw;
+}
+
+.orders-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.order-info-box {
+  margin-top: 60px;
+}
+
+.products-section {
+  margin-left: 210px;
+  margin-right: 40px;
+  margin-top: 73px;
+
+}
+
+.products-section:before {
+  content: '';
+  display: block;
+  position: relative;
+  width: 0;
+  height: 5em;
+  margin-top: -5em
+}
+
+.products-index {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// ------------------ BASKET SECTION ------------------
+
+.basket-button-history {
+  font-size: 16px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  color: #524F4C;
+  margin: 0px;
+  text-decoration: none;
+  border-bottom: none;
+  padding: 0px;
+}
+
+.reorder-btn {
+  margin-bottom: 10px;
+  width: 25%;
+  float: right;
+  margin-right: 5px;
+}
+
+.order-date-text {
+  margin-bottom: 5px;
+}
+
+.total-cost-text {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.history-product-card {
+  width: 40vw;
+}
+
+.no-items-text {
+  color: #FFB96E;
+  font-size: 1em;
+  font-weight: 700;
+}

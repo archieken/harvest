@@ -1,0 +1,128 @@
+// ---------   ABOUT PAGE   ------------
+
+.banner-about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 75vh;
+  text-align: center;
+  padding: 10px 0px;
+  background-image: linear-gradient(-225deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 50%), asset-url("garlic.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 100px;
+}
+
+.banner-content-about {
+  margin-bottom: 100px;
+}
+
+.home-title-about {
+  font-family: 'Baskerville';
+  text-align: center;
+  font-weight: 600;
+  color: #524F4C;
+  font-size: 90px;
+}
+
+.title-how_it_works {
+  font-size: 60px;
+  font-family: 'Baskerville';
+  text-align: center;
+  font-weight: 600;
+  color: #524F4C;
+}
+
+
+.section-para-about {
+  font-size: 20px;
+  margin-left: 0px;
+  margin: 30px 100px;
+}
+
+.feature-about {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 40vw;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.section_why_local {
+  background-color: #F1ECE6;
+  padding: 0px, 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  padding: 0px 230px;
+  position: relative;
+}
+
+.section-para-why_local {
+  font-size: 20px;
+  margin-left: 0px;
+  margin: 30px 100px;
+  margin-bottom: 40px
+}
+
+.section-benefits {
+  background-color: #fbf8f4;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  padding: 0px 230px;
+  position: relative;
+}
+
+.features-benefits {
+  justify-content: space-around;
+  background-color: #fbf8f4;
+  margin-top: 0px;
+  padding-bottom: 100px;
+  display: flex;
+}
+
+.feature-para-support_local {
+  text-align: left;
+  font-size: 17px;
+  padding-bottom: 20px;
+  opacity: 0.5;
+  width: 80%;
+}
+
+.feature-para-reference {
+  text-align: left;
+  font-size: 10px;
+  opacity: 0.5;
+  width: 80%;
+}
+
+.section-subscribe {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  padding: 0px 230px;
+  position: relative;
+}
+
+.subscribe-title {
+  padding-top: 50px;
+}
+
+.subscribe-box {
+  padding-bottom: 80px;
+  padding-top: 60px;
+}
