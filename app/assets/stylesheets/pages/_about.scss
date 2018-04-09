@@ -68,7 +68,13 @@
   font-size: 20px;
   margin-left: 0px;
   margin: 30px 100px;
-  margin-bottom: 40px
+  margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 600px){
+  .section_why_local-div {
+    display: none;
+  }
 }
 
 .section-benefits {
@@ -89,6 +95,12 @@
   margin-top: 0px;
   padding-bottom: 100px;
   display: flex;
+}
+
+@media only screen and (max-width: 600px){
+  .features-benefits {
+    flex-direction: column;
+  }
 }
 
 .feature-para-support_local {
